@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug JLink (gdb-multiarch)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "device": "MK64FN1M0xxx12",
+            "interface": "swd",
+            "executable": "${workspaceFolder}/build/blink.elf",
+            "gdbPath": "/usr/bin/gdb-multiarch",
+            "runToEntryPoint": "main"
+        }
+    ]
+}
+
