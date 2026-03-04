@@ -5,5 +5,18 @@
 *.obj
 /local
 *.dat
+# Entornos virtuales Python
+venv/
+env/
+.venv/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+EOF
 
 

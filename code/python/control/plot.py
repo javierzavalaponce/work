@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-inputfilename = sys.argv[1]
-outputfilename = sys.argv[2]
+inputfilename = sys.argv[1] #ej. file.txt
+outputfilename = sys.argv[2] #ej. file.png
 # Cargar datos (dos columnas: tiempo y voltaje)
 data = np.loadtxt(inputfilename)
 
