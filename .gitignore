@@ -5,6 +5,12 @@
 *.obj
 /local
 *.dat
+build/
+*.bin
+*.elf
+*.hex
+*.map
+*.cmake
 # Entornos virtuales Python
 venv/
 env/
