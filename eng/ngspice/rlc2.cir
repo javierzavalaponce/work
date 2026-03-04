@@ -1,0 +1,18 @@
+* Fuente tipo escalón para observar claramente la respuesta natural
+V1 in 0 PULSE(0 5 0 1u 1u 1m 5m)
+
+* Componentes
+R1 in n1 200
+L1 n1 n2 1m
+C1 n2 0 1u
+
+* Análisis transitorio
+.tran 1u 10m
+
+.control
+run
+plot v(in) v(n2)
+.endc
+
+.end
+

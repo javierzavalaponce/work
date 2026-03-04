@@ -1,0 +1,21 @@
+* RLC serie real
+
+V1 in 0 PULSE(0 10 0 1u 1u 1 2)
+R1 in n1 5
+L1 n1 n2 10m
+C1 n2 0 100u
+
+.tran 1ms 39ms
+
+.control
+run
+plot v(n2)
+plot i(L1)
+
+set wr_singlescale
+wrdata rlc.csv  v(n2) i(L1)
+
+.endc
+
+.end
+

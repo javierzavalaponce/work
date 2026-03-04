@@ -1,0 +1,134 @@
+;	------------------------------------------------
+;	    Teledyne LeCroy Protocol Solution Group     
+;	        Power Delivery / Type-C / USB 3.x       
+;	       Vendor Information File Generator        
+;	------------------------------------------------
+
+; Intro
+;-------------------------------------------------------
+$VIF_Specification                 : "Revision 1.36, Version 1.0" 
+$VIF_Producer                      : "Teledyne LeCroy USB Compliance Suite, v3.55 b742" 
+$Vendor_Name                       : "NXP"                
+$Model_Part_Number                 : ""                   
+$Product_Revision                  : ""                   
+$TID                               : ""                   
+
+; VIF Product
+;-------------------------------------------------------
+VIF_Product_Type                   : 0                    ;Port
+$Port_Label                        : ""                   
+Connector_Type                     : 2                    ;Type-C
+USB_PD_Support                     : Yes                  
+PD_Port_Type                       : 4                    ;DRP
+Type_C_State_Machine               : 2                    ;DRP
+Port_Battery_Powered               : No                   
+BC_1_2_Support                     : 0                    ;None
+
+; General PD
+;-------------------------------------------------------
+PD_Specification_Revision          : 2                    ;v3.0
+USB_Comms_Capable                  : No                   
+DR_Swap_To_DFP_Supported           : Yes                  
+DR_Swap_To_UFP_Supported           : Yes                  
+Unconstrained_Power                : Yes                  
+VCONN_Swap_To_On_Supported         : Yes                  
+VCONN_Swap_To_Off_Supported        : Yes                  
+Responds_To_Discov_SOP_UFP         : Yes                  
+Responds_To_Discov_SOP_DFP         : No                   
+Attempts_Discov_SOP                : No                   
+Chunking_Implemented_SOP           : YES                  
+Unchunked_Extended_Messages_Supported: YES                  
+Manufacturer_Info_Supported_Port   : YES                  
+Manufacturer_Info_VID_Port         : 0X1FC9               
+Manufacturer_Info_PID_Port         : 0X0100               
+Security_Msgs_Supported_SOP        : No                   
+Num_Fixed_Batteries                : 0                    
+Num_Swappable_Battery_Slots        : 0                    
+SOP_Capable                        : Yes                  
+SOP_P_Capable                      : No                   
+SOP_P_Debug_Capable                : No                   
+SOP_PP_Debug_Capable               : No                   
+
+; USB Type-C
+;-------------------------------------------------------
+Type_C_Implements_Try_SRC          : No                   
+Type_C_Implements_Try_SNK          : No                   
+Rp_Value                           : 2                    ;3A @ 5V
+Type_C_Is_VCONN_Powered_Accessory  : No                   
+Type_C_Is_Debug_Target_SRC         : No                   
+Type_C_Is_Debug_Target_SNK         : No                   
+Type_C_Can_Act_As_Host             : NO                   
+Type_C_Is_Alt_Mode_Controller      : No                   
+Type_C_Can_Act_As_Device           : NO                   
+Type_C_Power_Source                : 2                    ;Self-Powered
+Type_C_Port_On_Hub                 : No                   
+Type_C_Supports_Audio_Accessory    : No                   
+Captive_Cable                      : No                   
+Type_C_Sources_VCONN               : Yes                  
+
+; PD Source
+;-------------------------------------------------------
+PD_Power_as_Source                 : 18000                ;18 W
+USB_Suspend_May_Be_Cleared         : Yes                  
+Sends_Pings                        : No                   
+FR_Swap_Supported_As_Source        : No                   
+PD_OC_Protection                   : No                   
+Num_Src_PDOs                       : 2                    
+Src_PDO_Supply_Type1               : 0                    ;Fixed
+Src_PDO_Peak_Current1              : 0                    ;100% IOC
+Src_PDO_Voltage1                   : 100                  ;5 V
+Src_PDO_Max_Current1               : 300                  ;3 A
+Src_PDO_Supply_Type2               : 0                    ;Fixed
+Src_PDO_Peak_Current2              : 0                    ;100% IOC
+Src_PDO_Voltage2                   : 180                  ;9 V
+Src_PDO_Max_Current2               : 200                  ;2 A
+
+; PD Sink
+;-------------------------------------------------------
+PD_Power_as_Sink                   : 18000                ;18 W
+No_USB_Suspend_May_Be_Set          : Yes                  
+GiveBack_May_Be_Set                : No                   
+Higher_Capability_Set              : Yes                  
+FR_Swap_Reqd_Type_C_Current        : 0                    ;FR_Swap not supported
+Num_Snk_PDOs                       : 2                    
+Snk_PDO_Supply_Type1               : 0                    ;Fixed
+Snk_PDO_Voltage1                   : 100                  ;5 V
+Snk_PDO_Op_Current1                : 300                  ;3 A
+Snk_PDO_Supply_Type2               : 0                    ;Fixed
+Snk_PDO_Voltage2                   : 180                  ;9 V
+Snk_PDO_Op_Current2                : 200                  ;2 A
+
+; PD Dual Role
+;-------------------------------------------------------
+Accepts_PR_Swap_As_Src             : Yes                  
+Accepts_PR_Swap_As_Snk             : Yes                  
+Requests_PR_Swap_As_Src            : No                   
+Requests_PR_Swap_As_Snk            : No                   
+
+; SOP Discovery
+;-------------------------------------------------------
+XID_SOP                            : 0                    
+Data_Capable_as_USB_Host_SOP       : No                   
+Data_Capable_as_USB_Device_SOP     : No                   
+Product_Type_UFP_SOP               : 0                    ;PDUSB Peripheral
+Product_Type_DFP_SOP               : 0                    
+Modal_Operation_Supported_SOP      : Yes                  
+USB_VID_SOP                        : 0X1FC9               
+PID_SOP                            : 0X0100               
+bcdDevice_SOP                      : 0X0100               
+
+; SOP SVID
+;-------------------------------------------------------
+Num_SVIDs_min_SOP                  : 1                    
+Num_SVIDs_max_SOP                  : 1                    
+SVID_fixed_SOP                     : Yes                  
+SVID1_SOP                          : 0X1FC9               
+SVID1_num_modes_min_SOP            : 1                    
+SVID1_num_modes_max_SOP            : 1                    
+SVID1_modes_fixed_SOP              : Yes                  
+SVID1_mode1_enter_SOP              : Yes                  
+
+; Product Power
+;-------------------------------------------------------
+Product_Total_Source_Power         : 0                    ;0 W
+Port_Source_Power_Type             : 0                    ;Guaranteed

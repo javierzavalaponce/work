@@ -1,0 +1,18 @@
+* RC circuit simulation
+
+V1 in 0 PULSE(0 5 0 1u 1u 1 2)
+R1 in out 1000
+C1 out 0 100u
+
+.tran 0.01 1
+
+
+.control
+run
+wrdata rc_data0.txt v(out)
+quit
+.endc
+
+
+.end
+

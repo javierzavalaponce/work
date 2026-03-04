@@ -1,0 +1,9 @@
+*.log
+*.raw
+*.net
+*.o
+*.obj
+/local
+*.dat
+
+

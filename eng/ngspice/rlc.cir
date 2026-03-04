@@ -1,0 +1,13 @@
+Circuito RLC Serie para ngspice
+V1 in 0 SIN(0 1 1k 0 0)  ; Fuente sinusoidal: offset 0V, amp 1V, freq 1kHz
+R1 in n1 100             ; Resistor 100 ohms
+L1 n1 n2 1m              ; Inductor 1mH
+C1 n2 0 1u               ; Capacitor 1uF
+.tran 0.1m 5m            ; Análisis transitorio: paso 0.1ms, total 5ms
+.control
+set color0=white
+plot v(in) v(n1) v(n2)   ; Grafica voltajes en nodos
+run
+.endc
+.end           
+
