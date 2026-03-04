@@ -10,7 +10,7 @@ SRC_DIR     := src
 # SDK path (AJUSTA SI ES NECESARIO)
 ########################################
 
-SDK_PATH := /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F
+SDK_PATH := ../SDK_2_11_0_FRDM-K64F
 
 ########################################
 # Toolchain
