@@ -28,13 +28,13 @@ set(FPU_FLAGS
 
 set(SOURCES
     src/main.c
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/system_MK64F12.c
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/gcc/startup_MK64F12.S
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_gpio.c
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_clock.c
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_uart.c
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_common.c    
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/system_MK64F12.c
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/gcc/startup_MK64F12.S
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_gpio.c
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_clock.c
+    ../SDK_2_11_0_FRDM-K64F/
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_uart.c
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers/fsl_common.c    
 )
 
 # =====================================
@@ -64,9 +64,9 @@ target_compile_definitions(app.elf PRIVATE
 # =====================================
 target_include_directories(app.elf PRIVATE
     src
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers
-    /home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/CMSIS/Core/Include
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12
+    ../SDK_2_11_0_FRDM-K64F/devices/MK64F12/drivers
+    ../SDK_2_11_0_FRDM-K64F/CMSIS/Core/Include
 )
 # =====================================
 # Linker
@@ -74,7 +74,7 @@ target_include_directories(app.elf PRIVATE
 target_link_options(app.elf PRIVATE
     ${CPU_FLAGS}
     ${FPU_FLAGS}
-    -T/home/control/work/embedded/frdm_k64/SDK_2_11_0_FRDM-K64F/devices/MK64F12/gcc/MK64FN1M0xxx12_flash.ld
+    -T ../MK64FN1M0xxx12_flash.ld
     --specs=nano.specs
     --specs=nosys.specs
     -Wl,-Map=app.map

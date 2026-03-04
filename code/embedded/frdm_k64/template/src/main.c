@@ -33,12 +33,12 @@ void func(void){
     static unsigned short var = 0;
     var = var?0:1;
     if (var) {
-        GPIO_PinWrite(MONA_GPIO, MON_PING, 1);
-        GPIO_PinWrite(MONB_GPIO, MON_PINH, 1);
+        GPIO_PinWrite(MOND_GPIO, MON_PINA, 1);
+        GPIO_PinWrite(MOND_GPIO, MON_PINC, 1);
     }
     else {
-        GPIO_PinWrite(MONA_GPIO, MON_PING, 0);
-        GPIO_PinWrite(MONB_GPIO, MON_PINH, 0);
+        GPIO_PinWrite(MOND_GPIO, MON_PINA, 0);
+        GPIO_PinWrite(MOND_GPIO, MON_PINC, 0);
 
     }
 }
