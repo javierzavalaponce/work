@@ -1,20 +1,18 @@
 import serial
 import matplotlib.pyplot as plt
 
-ser = serial.Serial('/dev/ttyACM0',115200)
+ser = serial.Serial('/dev/ttyUSB0',115200)
 
 x=[]
 y=[]
 
 for i in range(500):
     line=ser.readline().decode().strip()
-    a,b=line.split(',')
-    x.append(float(a))
-    y.append(float(b))
+    y.append(float(line))
 
-plt.plot(y)
+plt.plot(y,color="green")
 plt.title("Simulación Circuito RC en arduino")
 plt.grid()
 plt.tight_layout()
-plt.savefig("file.png", dpi=300)
+plt.savefig("file_arduino.png", dpi=300)
 

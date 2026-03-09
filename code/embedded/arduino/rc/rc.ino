@@ -14,13 +14,9 @@ void setup()
 void loop()
 {   //toma una muestra cada 2 ms 
     if (micros() - last >= 2000)
-    {
+    {       
         last = micros();
-
         y = y + (Ts/RC)*(x - y);
-
-        Serial.print(x);
-        Serial.print(",");
         Serial.println(y);
     }
 }
