@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Arduino UNO (QEMU)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/emu.ino.elf",
+      "miDebuggerPath": "/usr/bin/avr-gdb",
+      "miDebuggerServerAddress": "localhost:1234",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb"
+    }
+  ]
+}
