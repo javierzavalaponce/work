@@ -18,3 +18,5 @@ pw-cli list-objects | grep -i ur22
 
 
 
+gcc delay_wav.c -o delay_wav -lsndfile
+git add delay_con_feedback.c cmds.hdelay_wav.c
