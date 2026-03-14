@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 0)
+  (lib (name "AudioHacker_v1.2-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/AudioHacker_v1.2-eagle-import.kicad_sym")(options "")(descr ""))
+)
