@@ -1,5 +1,16 @@
 # Backlog
 
+
+
+
+
+
+* arduino: debug console over serial
+* julia: rc
+* definir arq embedded c para poner RC
+* añadir fifo
+* como probar el RC
+
 * probar board adc sobre arduino . como?
 * volver a proyecto con freeRTOS: en 
    /home/control/work/embedded/frdm_k64/freertos_hello
