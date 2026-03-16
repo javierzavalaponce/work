@@ -1,6 +1,19 @@
 #include <Arduino.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <LiquidCrystal.h>
+
+const int RS = 8;
+const int EN = 9;
+const int d4 = 4;
+const int d5 = 5;
+const int d6 = 6;
+const int d7 = 7;
+
+const int pin_BL = 10; // arduino pin wired to LCD backlight circuit
+
+LiquidCrystal lcd( RS,  EN,  d4,  d5,  d6,  d7);
+
 
 const int pinADC = A0;
 volatile int sampleToSend = 0;  // Variable para enviar por Serial
@@ -42,6 +55,12 @@ void setup()
 
   digitalWrite(LED_BUILTIN, LOW);
   digitalWrite(12, LOW);
+
+    lcd.begin(16, 2);  // Columnas, filas
+  lcd.setCursor(0, 0);  // Columna, fila (0-indexed)
+  lcd.print("EmulRC 115.28n1");  // Mensaje línea 1
+  lcd.setCursor(0, 1);
+  lcd.print("S:1ms- aud/ser");
 
   Serial.begin(115200); 
   setupTimer1();
