@@ -16,7 +16,8 @@ LiquidCrystal lcd( RS,  EN,  d4,  d5,  d6,  d7);
 
 
 const int pinADC = A0;
-volatile int sampleToSend = 0;  // Variable para enviar por Serial
+volatile int x = 0;
+volatile int sampleToSend = 0;
 volatile bool readyToSend = false;
 
 void setupTimer1()
@@ -36,15 +37,24 @@ void setupTimer1()
 ISR(TIMER1_COMPA_vect)
 {
   static unsigned char signal = 0;
-  
+  // Filtro RC
+  static float y = 0.0;
+  const float alpha = 0.2;
+
+  // Alternar pin para medir con analizador lógico
   signal = !signal;
   digitalWrite(LED_BUILTIN, signal ? HIGH : LOW);
-  // Alternar LEDs
-  
+
+  // Leer ADC y aplicar filtro RC: y[n] = alpha * x[n] + (1 - alpha) * y[n-1]
   digitalWrite(12,HIGH);
   // Leer ADC
-  sampleToSend = analogRead(pinADC);
-  readyToSend = true; // Señalamos a loop() que hay dato listo
+  x = analogRead(pinADC);
+  //centrar en 0 (Vbias de 2.5V)
+  x = x - 512;
+  // Aplicar filtro RC
+  y = y + alpha * (x - y);
+  sampleToSend = (int)(y + 512); // Recentrar para enviar valor entre 0-1023
+  readyToSend = true; // Señalamos que hay dato listo
   digitalWrite(12,LOW);
 }
 
@@ -58,7 +68,7 @@ void setup()
 
     lcd.begin(16, 2);  // Columnas, filas
   lcd.setCursor(0, 0);  // Columna, fila (0-indexed)
-  lcd.print("EmulRC 115.28n1");  // Mensaje línea 1
+  lcd.print("EmulV0 115.2K8n1");  // Mensaje línea 1
   lcd.setCursor(0, 1);
   lcd.print("S:1ms- aud/ser");
 
@@ -72,6 +82,6 @@ void loop()
   if (readyToSend)
   {
     readyToSend = false;
-    Serial.println(sampleToSend - 512);
+    Serial.println(sampleToSend-512); // Enviar valor centrado en 0
   }
 }
