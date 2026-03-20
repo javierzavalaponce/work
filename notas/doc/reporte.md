@@ -4,70 +4,23 @@ author: "Javier Zavala"
 date: "2026-03-17"
 ---
 
-## Problem Statement:
+## DSP with AI Control:
 
 Plan for DSP Project with AI Control
-busco organizar actividades de indole tecnica relacionada  a
-planeacion de  proyecto: 
-quiero concluirlo en un año 
-en todo caso, dispongo de un año. 
-Voy a desarrollar un motor DSP con fines de aprendizaje , 
-OBJETIVOS PARTICULARES:
-* desarrollar conocimiento profundo de DSP, 
-* de C++ asi como de manejo profesional de audio en linux
+
+### Objetivos particulares:
+* Desarrollar conocimiento profundo de DSP
+* Desarollar en paralelo maestria en el uso de C++ asi como de manejo   profesional de audio en linux
   (jack, alsa pipewire)
 * aprender y usar teorias actuales de lo ultimo en  
-  control inteligente y 
-  del control automatico  (moderno y clasico). 
+  control inteligente y del control automatico  (moderno y clasico). 
 
-  Por otro lado, 
-No tengo espiritu emprendedor pero quisiera desarrollarlo
- mediante la visualizacion de un producto que pudiera comercializar, 
-  sin embargo mi prioridad mas importante 
-   es el aprendizaje ya que en paralelo estoy
-    inscrito en programa educativo,
-     por lo que puedo asi responder a ambas inquietudes, 
-     es decir: tanto el programa educativo "oficial " como  mis intereses.
-     
-     EL objetivo: Desarrollar un proceso automático completo para:
-     Generar controladores mediante algoritmos de IA y 
-     llevarlos hasta su implementación en tiempo real en sistemas embebidos.
+## Sistema de Control Inteligente para Audio en Tiempo Real
 
-     vamos a procesar audio en raspberry pi y en tiempo real con esp32
+### Producto Conceptual: 
 
-     Técnicas de IA consideradas
-
-Se revisan y usan algoritmos desarrollados en el laboratorio://
-1. Inteligencia de enjambre
-   Ej: PSO, ACO, GWO, etc.
-    Agentes = soluciones
-    Se mueven en el espacio de búsqueda
-    Optimizan desempeño iterativamente
-
-2. Programación genética
-
-    Evoluciona expresiones matemáticas/estructuras de control
-    Puede generar controladores completos automáticamente
-
-3. Control difuso (FIS)
-
-    Basado en reglas heurísticas
-    No requiere modelo exacto
-
-4. ANFIS
-
-    FIS + redes neuronales
-    Ajuste automático de parámetros
-
-    aplicado a vocoder proceamiento de audio tipo dub scientist
-    (productor musical)
-
-¡Excelente iniciativa! Unir el aprendizaje profundo de DSP, C++, audio en Linux, control inteligente y sistemas embebidos en un solo proyecto es un desafío monumental pero increíblemente formativo. Tener un año y estar inscrito en un programa educativo paralelo requiere una organización meticulosa.
-
-Aquí tienes una propuesta de organización técnica y de planeación de proyecto estructurada en fases, con un enfoque que combina el aprendizaje sistemático con la visión de un producto comercializable, aunque tu prioridad principal sea el aprendizaje.
-Visión General del Proyecto: "Sistema de Control Inteligente para Audio en Tiempo Real"
-
-Producto Conceptual: Un procesador de efectos de audio (tipo "vocoder" / "dub siren") inteligente, que utiliza un algoritmo de control optimizado por IA (enjambre/genético) para modular parámetros de efectos en tiempo real basado en el contenido de la señal de audio. El núcleo del efecto (el "controlador inteligente") se genera automáticamente en una PC y se despliega en una Raspberry Pi (para procesamiento de alta calidad) o un ESP32 (para un dispositivo más pequeño y de bajo costo).
+Procesador de efectos de audio (tipo "vocoder" / "dub siren") 
+inteligente, que utiliza un algoritmo de control optimizado por IA (enjambre/genético) para modular parámetros de efectos en tiempo real basado en el contenido de la señal de audio. El núcleo del efecto (el "controlador inteligente") se genera automáticamente en una PC y se despliega en una Raspberry Pi (para procesamiento de alta calidad) o un ESP32 (para un dispositivo más pequeño y de bajo costo).
 
 Estructura de Fases (12 Meses):
 Fase 0: Fundaciones y Configuración del Entorno (Mes 1)
