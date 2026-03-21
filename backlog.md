@@ -2,9 +2,16 @@
 
 
 
-
-
-
+* jack alsa como generar audio en PC
+* primer version de DSPs en : 
+  ~/work/code/audio_pc/
+* MEL spectrogram en julia
+* Latex a julia julia a latex
+* Comprar eliminador para rPi 400 y transmisor FM modulo arduino
+* preparar prototipo: arduino uno, olimex midi , esp lora screen lcd
+* checah esp32 toolchain para debiam 
+* screen 1: pista: drum
+* input: sliders , hor many?
 * arduino: debug console over serial
 * julia: rc
 * definir arq embedded c para poner RC
