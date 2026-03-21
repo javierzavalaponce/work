@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Javier Zavala" />
+  <meta name="dcterms.date" content="2026-03-17" />
+  <title>Reporte actividades</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Reporte actividades</h1>
+<p class="author">Javier Zavala</p>
+<p class="date">2026-03-17</p>
+</header>
+<h2 id="dsp-with-ai-control">DSP with AI Control:</h2>
+<p>Plan for DSP Project with AI Control</p>
+<h3 id="objetivos-particulares">Objetivos particulares:</h3>
+<ul>
+<li>Desarrollar conocimiento profundo de DSP</li>
+<li>Desarollar en paralelo maestria en el uso de C++ asi como de manejo
+profesional de audio en linux (jack, alsa pipewire)</li>
+<li>aprender y usar teorias actuales de lo ultimo en<br />
+control inteligente y del control automatico (moderno y clasico).</li>
+</ul>
+<h2
+id="sistema-de-control-inteligente-para-audio-en-tiempo-real">Sistema de
+Control Inteligente para Audio en Tiempo Real</h2>
+<p><strong>Flujo</strong> Micrófono / audio(s) varias pistas
+siultaenamente ↓ Web Audio API ↓ AudioWorklet (tiempo real) ↓ WASM (tu
+C++) ↓ Salida de audio</p>
+<hr />
+<p>WASM = C++ corriendo en navegador</p>
+<p>Emscripten = compilador</p>
+<p>Web Audio API = audio</p>
+<p>AudioWorklet = tiempo real</p>
+<p>DSP en C++</p>
+<p>Fase inicial</p>
+<p>WASM → pruebas de filtros, vocoder simple</p>
+<p>Fase media C++ en PC con JACK Fase final Raspberry Pi</p>
+<hr />
+<h4 id="pistas-en-wasm-o-jack-en-rpi">¿4–5 pistas en WASM o JACK en
+RPi?</h4>
+<p>WASM → funciona pero no es robusto JACK en RPi → es la solución
+correcta para producción</p>
+<hr />
+<h3 id="producto-conceptual">Producto Conceptual:</h3>
+<p>Procesador multipista de audio tipo dub scientist o Vocoder</p>
+<p>Procesador inteligente de audio,</p>
+<p>utiliza un algoritmo de control optimizado por IA (enjambre/genético)
+para modular parámetros de efectos en tiempo real basado en el contenido
+de la señal de audio.</p>
+<p><strong>El núcleo del efecto (el “controlador inteligente”) se genera
+automáticamente en una PC y se despliega en una Raspberry Pi (para
+procesamiento de alta calidad) o un ESP32 (para un dispositivo más
+pequeño y de bajo costo).</strong></p>
+<h3 id="fase-0-fundaciones-y-configuración-del-entorno-mes-1">Fase 0:
+Fundaciones y Configuración del Entorno (Mes 1)</h3>
+<p>Objetivo: Establecer las bases teóricas y el entorno de desarrollo
+para evitar cuellos de botella posteriores.</p>
+<ul>
+<li><p>Teoría (DSP y Control):</p>
+<p>Repaso rápido de procesamiento de audio digital: FFT, filtros
+IIR/FIR, vocoders (análisis/síntesis), efectos de audio (delay, reverb,
+distorsión).</p>
+<p>Estudio paralelo de las teorías de control: Clásico (PID) vs. Moderno
+(espacio de estados) vs. Inteligente (el que usarás).</p></li>
+<li><p>Práctica (C++ y Linux Audio):</p>
+<p>Configurar PC de desarrollo: Instalar y probar a fondo JACK,
+PipeWire, ALSA. Entender la cadena de conexiones.</p>
+<p>Proyecto “Hola Mundo” de Audio: Crear un programa en C++ que genere
+un tono, lo procese con un filtro simple y lo envíe a la salida usando
+las bibliotecas de audio de Linux (ej. usando PortAudio o la API de JACK
+directamente). Esto valida tu entorno.</p></li>
+<li><p>Hardware:</p>
+<p>Recibir y flashear la Raspberry Pi y el ESP32. Configurar el sistema
+operativo (ej. Raspberry Pi OS Lite) y asegurar la comunicación entre
+ellos (por ejemplo, vía serial o UDP).</p></li>
+<li><p>Entregable: Un programa C++ para webasembly funcional en tu PC
+que procesa audio en tiempo real usando JACK/ALSA.</p></li>
+</ul>
+<p>Un script que flashea el ESP32 con un programa básico (ej. parpadear
+un LED).</p>
+<h3 id="fase-1-núcleo-dsp-y-algoritmos-de-ia-meses-2-4">Fase 1: Núcleo
+DSP y Algoritmos de IA (Meses 2-4)</h3>
+<p>Objetivo: Implementar el motor de audio (vocoder) en C++ y
+desarrollar los scripts de optimización de controladores con IA.</p>
+<pre><code>Sub-fase 1.1: El Motor de Audio (C++/DSP)
+
+    Implementar en C++ (en la PC) una clase VocoderEngine. Debe ser modular: Analizador (FFT, detección de envolvente), Controlador (recibirá parámetros de la IA), Sintetizador (filtros, ruido, osciladores).
+
+    Asegurar que el motor pueda funcionar en tiempo real en la PC con bloques de audio pequeños (ej. 64 o 128 muestras).</code></pre>
+<h4 id="sub-fase-1.2-el-generador-de-controladores-pythonia">Sub-fase
+1.2: El Generador de Controladores (Python/IA)</h4>
+<pre><code>    En Python (donde es más fácil prototipar), crear un script que:
+
+        Defina un modelo de controlador. Puede ser un FIS (Sistema Difuso) o una estructura de programa genético.
+
+        Defina una función de costo (fitness). Esta es clave: ¿qué significa &quot;sonar bien&quot; para un vocoder dub? Podría ser la nitidez de los transientes, la claridad de las frecuencias bajas, la respuesta al ritmo. Puedes simularlo con archivos de audio de prueba.
+
+        Implementar PSO (Particle Swarm Optimization) para que los &quot;agentes&quot; (conjuntos de parámetros del controlador) iterativamente minimicen la función de costo.
+
+    Resultado: El script debe generar, tras horas de ejecución, un conjunto de parámetros óptimos o una estructura de controlador.</code></pre>
+<p>Entregable: Motor de vocoder en C++ funcional en PC. Script en Python
+que utiliza PSO para optimizar los parámetros de un controlador difuso
+para un conjunto de audios de prueba.</p>
+<h3 id="fase-2-integración-y-control-en-tiempo-real-meses-5-7">Fase 2:
+Integración y Control en Tiempo Real (Meses 5-7)</h3>
+<p>Objetivo: Unir el motor DSP con el controlador generado por IA y
+trasladar el sistema a la Raspberry Pi.</p>
+<pre><code>Integración PC:
+
+    Modificar el VocoderEngine en C++ para que pueda recibir los parámetros del controlador optimizado (generado en la Fase 1.2). El controlador debe operar en tiempo real, analizando la señal de entrada y decidiendo cómo modular los efectos.
+
+Migración a Raspberry Pi:
+
+    Compilar tu motor C++ (con todas sus dependencias) para la arquitectura ARM de la Raspberry Pi.
+
+    Optimizar el código. Usar -O3, evitar asignaciones de memoria dinámica en el bucle de audio, usar NEON intrinsics si es necesario.
+
+    Configurar JACK o PipeWire en la Raspberry Pi para tener latencias bajas.
+
+    Hacer que el motor procese audio en la Pi, tomando entrada de un micrófono o línea y enviando a salida.
+
+ESP32 como Periférico Inteligente:
+
+    Programar el ESP32 para que pueda actuar como un &quot;controlador físico&quot;. Por ejemplo, que lea potenciómetros o sensores y envíe esos valores a la Raspberry Pi (vía serial o WiFi) para modificar parámetros del vocoder en tiempo real. Esto añade la dimensión de &quot;producto&quot; tangible.</code></pre>
+<p>Entregable: Sistema funcionando en la Raspberry Pi que procesa audio
+en tiempo real con un vocoder cuyo comportamiento está definido por el
+controlador optimizado con PSO. El ESP32 puede controlar algunos
+parámetros.</p>
+<h3 id="fase-3-automatización-del-proceso-ia-a-embebido-meses-8-9">Fase
+3: Automatización del Proceso “IA a Embebido” (Meses 8-9)</h3>
+<p>Objetivo: Cerrar el círculo: el proceso de generación del controlador
+(Python/IA) debe producir un archivo que pueda ser cargado directamente
+por el motor C++ en la Raspberry Pi sin intervención manual.</p>
+<pre><code>Serialización: En lugar de parámetros sueltos, el script de IA debe generar un archivo (ej. JSON, o mejor, un archivo binario de cabecera .h) que contenga toda la definición del controlador (reglas difusas, pesos de red, coeficientes de filtros).
+
+Carga en Tiempo Real: Modificar el motor C++ para que, al iniciar, lea este archivo y configure su estructura de control interno. Esto simula el flujo de trabajo real de un producto: &quot;diseñas&quot; el controlador en tu PC con IA y lo &quot;despliegas&quot; en el dispositivo.
+
+Optimización Cruzada: Probar diferentes algoritmos de IA (PSO, luego tal vez un algoritmo genético simple para estructuras de control) y comparar cuál produce un controlador más estable o con mejor &quot;sonido&quot; para tu función de costo.</code></pre>
+<p>Entregable: Un flujo de trabajo automatizado: [Audio de prueba] +
+[Script de IA] -&gt; [archivo_controlador.h] -&gt; [Motor C++ en
+Raspberry Pi] -&gt; [Procesamiento de audio en tiempo real].</p>
+<h3
+id="fase-4-validación-refinamiento-y-visión-de-producto-meses-10-11">Fase
+4: Validación, Refinamiento y Visión de Producto (Meses 10-11)</h3>
+<p>Objetivo: Evaluar críticamente el sistema, mejorarlo y empezar a
+“empaquetarlo” como un producto conceptual.</p>
+<pre><code>Validación de Aprendizaje: Documenta todo.
+
+    ¿Cómo se comporta el controlador PSO vs. el Genético?
+
+    ¿Qué limitaciones de tiempo real encontraste en la Pi vs. el ESP32?
+
+    Escribe un documento reflexivo sobre el &quot;viaje&quot; del controlador: desde la teoría de control moderno/clásico hasta su implementación con IA.
+
+Refinamiento del Producto:
+
+    Piensa en la interfaz de usuario. ¿Cómo interactuaría un &quot;dub scientist&quot; con tu producto? Puede ser una interfaz web simple corriendo en la Raspberry Pi que muestre los parámetros y permita ajustarlos.
+
+    Mejora la estabilidad y la latencia. Mide la latencia total (entrada -&gt; procesamiento -&gt; salida) y trabaja para reducirla.
+
+    Añade funcionalidades &quot;dub&quot;: un delay con feedback controlado por el controlador IA, filtros resonantes modulados, etc.
+
+Espíritu Emprendedor:
+
+    Crea un pequeño &quot;pitch&quot; del producto. Un video de 3 minutos mostrando el sistema en acción, explicando qué hace y cómo la IA lo hace único.
+
+    Define un &quot;Producto Mínimo Viable&quot; (MVP). ¿Qué características mínimas necesitaría un dispositivo así para ser vendido a músicos experimentales? (Ej: entrada/salida de audio, controles MIDI, presets generados por IA).</code></pre>
+<p>Entregable: Sistema refinado con baja latencia y alta estabilidad. Un
+video de demostración y un documento de “concepto de producto”.</p>
+<h3 id="fase-5-cierre-y-documentación-mes-12">Fase 5: Cierre y
+Documentación (Mes 12)</h3>
+<p>Objetivo: Consolidar todo el trabajo para tu programa educativo y tu
+portafolio personal.</p>
+<pre><code>Documentación Técnica Completa:
+
+    Código bien comentado y estructurado.
+
+    README.md detallado con instrucciones de compilación, instalación y uso.
+
+    Un informe final (o serie de entradas de blog) que describa:
+
+        La arquitectura del sistema.
+
+        La implementación de las técnicas de IA (PSO, etc.) y por qué se eligieron.
+
+        Los desafíos de tiempo real en sistemas embebidos.
+
+        Resultados y reflexiones sobre la teoría de control aplicada.
+
+Presentación Final:
+
+    Prepara una presentación (para tu programa educativo) que demuestre el sistema en vivo.
+
+    Sube el código a un repositorio público (GitHub) y el video a plataformas (YouTube/Vimeo). Esto sirve como tu portafolio y como material para mostrar tu &quot;espíritu emprendedor&quot; a través de la ejecución de un proyecto complejo.</code></pre>
+<h4 id="entregable">Entregable:</h4>
+<ul>
+<li>Repositorio de código completo y documentado.</li>
+<li>Video de demostración.</li>
+<li>Informe final que cumple con los requisitos de tu programa educativo
+y demuestra la maestría en los temas planteados.</li>
+</ul>
+<p><strong>Consejos Adicionales para la Ejecución</strong></p>
+<pre><code>Integración con tu Programa Educativo: Busca sinergias. Si tienes que hacer un proyecto final, ¡este es perfecto! Si tienes tareas sobre teoría de control, intenta aplicarlas directamente a este proyecto. Si hay cursos de IA, enfoca tus ejercicios en PSO o algoritmos genéticos.
+
+Control de Versiones: Usa git desde el día 1. Crea ramas (feature/dsp-engine, feature/pso-optimizer). Esto te dará seguridad y profesionalismo.
+
+Gestión de Riesgos:
+
+    Riesgo: La latencia en la Raspberry Pi puede ser alta. Mitigación: Empieza temprano con pruebas de latencia. Considera usar el kernel PREEMPT_RT para mejorar el rendimiento en tiempo real.
+
+    Riesgo: El ESP32 puede no tener suficiente potencia para audio de alta calidad. Mitigación: Usa el ESP32 principalmente para control (sensores) y procesamiento de baja frecuencia, deja el procesamiento pesado para la Pi.
+
+    Riesgo: La función de costo para la IA (&quot;qué suena bien&quot;) es subjetiva. Mitigación: Define métricas objetivas claras (ej. correlación con una señal de referencia, rango dinámico) y usa audios de prueba estandarizados.</code></pre>
+<h4 id="enfócate-en-presentar">Enfócate en presentar</h4>
+<ul>
+<li>Crear el video,</li>
+<li>El pitch</li>
+<li>El repositorio limpio es un ejercicio de “pensar como un
+emprendedor”</li>
+</ul>
+</body>
+</html>
