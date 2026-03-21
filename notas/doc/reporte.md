@@ -1,28 +1,25 @@
 ---
-title: "Reporte actividades"
+title: "Planeacion "
 author: "Javier Zavala"
 date: "2026-03-17"
 ---
 
-## DSP with AI Control:
+
+### Sistema de Control Inteligente para Audio en Tiempo Real
 
 
-Plan for DSP Project with AI Control
-
-### Objetivos particulares:
-* Desarrollar conocimiento profundo de DSP
-* Desarollar en paralelo maestria en el uso de C++ asi como de manejo   profesional de audio en linux
-  (jack, alsa pipewire)
+* DSP + Control Inteligente + IA generativa
+* Desarollar dominio total en el uso de C++ asi como de manejo
+  profesional de audio en linux  (jack, alsa y pipewire)
 * aprender y usar teorias actuales de lo ultimo en  
   control inteligente y del control automatico  (moderno y clasico). 
 
-## Sistema de Control Inteligente para Audio en Tiempo Real
+## Flujo de ejemplo
 
-**Flujo**
+
 Micrófono / audio(s) varias pistas siultaenamente
-Si quieres algo funcional:
 
-pistas:
+pistas (ejemplo):
 
 * drum bus
 * Bass
@@ -31,9 +28,10 @@ pistas:
 * Voz opcional
 
 FX: DELAY & REBERV
-1 KNOB POR PUSTA PARA CADA FX (1 KNOBS0) ??
 
-```
+
+
+```perl
 
 [ PISTA: BASS ]
 
@@ -43,6 +41,7 @@ Mute    [ ON/OFF ]
 Send Delay   ○───────      (knob)
 Send Reverb  ○───────      (knob)
 
+1 knob por pista para acda fx
 
 ```
 [MIDI Controller]
@@ -57,7 +56,7 @@ Send Reverb  ○───────      (knob)
         ↓
      Audio Out
 
-**estilo Scientist**
+**Estilo Scientist**
 
 [DRUM]  [BASS]  [GUIT]  [KEYS]
 
@@ -75,9 +74,7 @@ Mandas el snare al delay
 Subes feedback → eco infinito
 Cortas el original → solo queda el eco
 
-💥 Eso ES dub
-
-
+**Eso ES dub**
 
         ↓
 Web Audio API
@@ -109,6 +106,137 @@ Fase media
 C++ en PC con JACK
 Fase final
 Raspberry Pi
+
+---
+
+### Mapa
+
+```perl
+
+          ┌─────────────────────────────┐
+          │        Hardware Audio       │
+          │  (Tarjeta de sonido / RPi   │
+          │       audio interface)      │
+          └──────────────┬──────────────┘
+                         │
+                         ▼
+          ┌────────────────────────────┐
+          │          ALSA              │
+          │ (Drivers de la tarjeta)    │
+          └──────────────┬─────────────┘
+                         │
+                         ▼
+          ┌────────────────────────────┐
+          │        PipeWire            │
+          │ (mezcla de apps normales   │
+          │  + compatibilidad JACK)    │
+          └──────────────┬─────────────┘
+                         │
+                         ▼
+          ┌────────────────────────────┐
+          │        JACK Bridge         │
+          │ (sincroniza pistas DSP     │
+          │  en tiempo real, baja lat.)│
+          └──────────────┬─────────────┘
+                         │
+       ┌─────────────────┴──────────────────┐
+       ▼                                    ▼
+┌─────────────┐                       ┌─────────────┐
+│   Pista DRUM│                       │   Pista BASS│
+│  Vol / Mute │                       │  Vol / Mute │
+│ Send FX     │                       │ Send FX     │
+└─────┬───────┘                       └─────┬───────┘
+      │                                     │
+      ▼                                     ▼
+┌────────────────┐                     ┌──────────────┐
+│   Pista GUITAR │                     │  Pista KEYS  │
+│  Vol / Mute    │                     │ Vol / Mute   │
+│ Send FX        │                     │ Send FX      │
+└─────┬──────────┘                     └─────┬────────┘
+      │                                      │
+      ▼                                      ▼
+┌──────────────────────────────────────────────────┐
+│                    Mezcla final                  │
+│          (JACK combina todas las pistas)         │
+└───────────────────────┬──────────────────────────┘
+                        │
+                        ▼
+                  ┌─────────────┐
+                  │  Salida HW  │
+                  │ Altavoces / │
+                  │ Auriculares │
+                  └─────────────┘
+```
+#### Otra forma de verlo:
+
+```perl
+
+
+       Entrada audio (Mic / Archivo)
+                             │
+                             ▼
+                        ┌─────────┐
+                        │ DSP DRUM│cada DSP aqui es una instancia por archivo
+                        └─────────┘
+                               │   
+                               ▼
+                            JACK Mezcla
+                               ▼
+                            Salida HW
+
+Todas las pistas DSP procesan simultáneamente la entrada que les corresponde.
+JACK se encarga de sincronizar los buffers y mezclarlas.
+No hay prioridad entre pistas; todas están al mismo nivel funcional.
+
+
+```
+
+
+### Pipeline de análisis con IA
+
+Archivo de audio (offline)
+        │
+        ▼
+Extracción de features DSP
+  - RMS
+  - Envelope
+  - Pitch
+  - Espectro / FFT
+  - Tempo / Onsets
+        │
+        ▼
+Modelo IA (PyTorch / TensorFlow / ONNX)
+  - Aprende patrones de audio
+  - Genera curvas de control para DSP
+        │
+        ▼
+Salida: parámetros DSP por pista
+  - Volumen, mute, send FX
+  - Automatización en tiempo real
+
+
+
+#### Explicación del flujo
+
+
+* **ALSA** controla la tarjeta de audio de la RPi o PC.
+
+* **PipeWire** se encarga de mezclar todo lo que viene de apps normales (música, navegador) y sirve como puente para JACK.
+
+* **JACK bridge** sincroniza tus pistas DSP en tiempo real y garantiza latencia baja.
+Cada pista (drums, bass, guitar, keys, voz) es un cliente de JACK que procesa su propio audio:
+    * Fader → volumen
+    * Mute → silencia pista
+    * Send FX → delay/reverb independiente por pista
+
+* **JACK** mezcla todas las pistas y envía a la tarjeta de sonido (hardware).
+
+#### Beneficios de esta arquitectura
+Simultaneidad garantizada: cada pista puede ejecutarse en paralelo.
+
+Escalable: puedes agregar más pistas o efectos sin romper la sincronización.
+Flexible: PipeWire mantiene el audio del resto del sistema funcionando.
+Portable: funciona en Debian y puede correr en RPi con bajo consumo de CPU.
 
 ---
 
