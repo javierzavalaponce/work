@@ -6,6 +6,7 @@ date: "2026-03-17"
 
 ## DSP with AI Control:
 
+
 Plan for DSP Project with AI Control
 
 ### Objetivos particulares:
@@ -44,8 +45,29 @@ Send Reverb  ○───────      (knob)
 
 
 ```
+[MIDI Controller]
+        ↓
+     Python
+ (mido / textual / API)
+        ↓
+   (OSC / sockets)
+        ↓
+     C++ DSP
+ (JACK + delay + reverb)
+        ↓
+     Audio Out
 
 **estilo Scientist**
+
+[DRUM]  [BASS]  [GUIT]  [KEYS]
+
+VOL     VOL     VOL     VOL   (faders)
+
+DLY ○   DLY ○   DLY ○   DLY ○
+REV ○   REV ○   REV ○   REV ○
+
+MUTE    MUTE    MUTE    MUTE
+
 
 Subes el fader del drum
 Muteas todo lo demás
