@@ -36,6 +36,12 @@
 * practica con ngspice , domina ec de 2do rden
 
 # In Progress
+* Control Bootcamp: Overview: 
+   https://youtube.com/playlist?list=PLMrJAkhIeNNR20Mz-VpzgfQs5zrYi085m&si=1Pks-hhmbXy-TZDt
+
+
+* Freecad: 
+  https://www.youtube.com/watch?v=STNWOpwYJKw
 * entiende clock
 * debug freeRTOS en visual code
 * integrate FreeRTOS
