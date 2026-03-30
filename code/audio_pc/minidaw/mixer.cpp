@@ -96,7 +96,7 @@ std::vector<float> delayBuffer(delaySamples, 0.0f);
 size_t delayPos = 0;
 
 
-float FX_echo_delay(float input) {
+float FX_echo_delay_old(float input) {
 
     // leer el pasado (eco)
     float delayed = delayBuffer[delayPos];
@@ -111,6 +111,37 @@ float FX_echo_delay(float input) {
     return delayed;
 }
 
+
+
+float FX_echo_delay(float input) {
+    static const int SAMPLE_RATE = 44100;
+    static const float delay_time_sec = 0.4f; // 400 ms
+    static const int delay_samples = (int)(SAMPLE_RATE * delay_time_sec);
+
+    static std::vector<float> buffer(delay_samples, 0.0f);
+    static int idx = 0;
+
+    static float feedback = 0.6f;
+
+    // ---- filtro pasa bajos simple (1-pole) ----
+    static float lp_last = 0.0f;
+    float alpha = 0.2f; // 0 = muy oscuro, 1 = sin filtro
+
+    // leer señal retrasada
+    float delayed = buffer[idx];
+
+    // aplicar filtro al feedback
+    float filtered = lp_last + alpha * (delayed - lp_last);
+    lp_last = filtered;
+
+    // escribir en buffer: input + feedback filtrado
+    buffer[idx] = input + filtered * feedback;
+
+    // avanzar índice circular
+    idx = (idx + 1) % delay_samples;
+
+    return delayed;
+}
 
 
     // ---- audio callback ----
