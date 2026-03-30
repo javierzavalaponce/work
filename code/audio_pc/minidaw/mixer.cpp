@@ -69,9 +69,11 @@ void enableRawMode() {
 
     // ---- global state ----
     AudioFile wavs[4];
-    float gains_dry[4]   = {0.8f, 0.0f, 0.8, 0.8f}; // volumen por pista - dry
+    float gains_dry[4]   = {0.3f, 0.0f, 0.3, 0.3f}; // volumen por pista - dry
     float gains_sends[4] = {0.0f, 0.0f, 0.0f, 0.0f}; // volumen por pista - send
-    float mute_unmute[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+    float sends_on_off[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+    float dries_on_off[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+    
 
 
     size_t pos = 0;
@@ -85,8 +87,8 @@ void enableRawMode() {
 
     // ---- delay state (bus global) ----
 const int SAMPLE_RATE = 44100;
-const float DELAY_MS = 290.0f;     // ajusta al gusto
-const float FEEDBACK = 0.7f;       // 0–1
+const float DELAY_MS = 450.0f;     // ajusta al gusto
+const float FEEDBACK = 0.6f;       // 0–1
 
 size_t delaySamples = (size_t)(SAMPLE_RATE * DELAY_MS / 1000.0f);
 
@@ -129,8 +131,8 @@ float FX_echo_delay(float input) {
                 if (wavs[j].frames > 0) {
                     size_t p = pos % wavs[j].frames; // LOOP
                     //mix += wavs[j].data[p] * gains_dry[j];
-                    mix += wavs[j].data[p] * gains_dry[j]*mute_unmute[j];
-                    mix += FX_echo_delay(wavs[j].data[p] * gains_sends[j]);
+                    mix += wavs[j].data[p] * gains_dry[j] * dries_on_off[j];
+                    mix += FX_echo_delay(wavs[j].data[p] * gains_sends[j] * sends_on_off[j]);
                 }
             }
 
@@ -179,13 +181,34 @@ float FX_echo_delay(float input) {
             std::cout << "Tecla: " << c << " (ASCII: " << (int)c << ")\n";
 
             if (c == 'q') break;
-            if (c == '8') {mute_unmute[0] = (mute_unmute[0]>0.0)?0.0:1.0;}
-            if (c == '5') {mute_unmute[2] = (mute_unmute[2]>0.0)?0.0:1.0;}
-            if (c == '2') {mute_unmute[3] = (mute_unmute[3]>0.0)?0.0:1.0;}
-            //if (c == '7') {
-
-            //}
+            if (c == '8') {sends_on_off[0] = (sends_on_off[0]>0.0)?0.0:1.0;}
+            if (c == '5') {sends_on_off[2] = (sends_on_off[2]>0.0)?0.0:1.0;}
+            if (c == '2') {sends_on_off[3] = (sends_on_off[3]>0.0)?0.0:1.0;}
             
+            if (c == '7') {if(gains_sends[0] == 0); else gains_sends[0] -= 0.1; }
+            if (c == '9') {if(gains_sends[0] == 1); else gains_sends[0] += 0.1; }
+            
+            if (c == '4') {if(gains_sends[2] == 0); else gains_sends[2] -= 0.1; }
+            if (c == '6') {if(gains_sends[2] == 1); else gains_sends[2] += 0.1; }
+
+            if (c == '1') {if(gains_sends[3] == 0); else gains_sends[3] -= 0.1; }
+            if (c == '3') {if(gains_sends[3] == 1); else gains_sends[3] += 0.1; }
+
+            //------------
+
+            if (c == 'e') {dries_on_off[0] = (dries_on_off[0]>0.0)?0.0:1.0;}
+            if (c == 's') {dries_on_off[2] = (dries_on_off[2]>0.0)?0.0:1.0;}
+            if (c == 'x') {dries_on_off[3] = (dries_on_off[3]>0.0)?0.0:1.0;}
+            
+            if (c == 'w') {if(gains_dry[0] == 0); else gains_dry[0] -= 0.1; }
+            if (c == 'r') {if(gains_dry[0] == 1); else gains_dry[0] += 0.1; }
+            
+            if (c == 'a') {if(gains_dry[2] == 0); else gains_dry[2] -= 0.1; }
+            if (c == 'd') {if(gains_dry[2] == 1); else gains_dry[2] += 0.1; }
+
+            if (c == 'z') {if(gains_dry[3] == 0); else gains_dry[3] -= 0.1; }
+            if (c == 'c') {if(gains_dry[3] == 1); else gains_dry[3] += 0.1; }
+
         }
     }
 
