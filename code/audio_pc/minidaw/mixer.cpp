@@ -1,8 +1,34 @@
-    #include <iostream>
-    #include <vector>
-    #include <cmath>
-    #include <sndfile.h>
-    #include <portaudio.h>
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <sndfile.h>
+#include <portaudio.h>
+#include <termios.h>
+#include <unistd.h>
+
+// guardar configuración original
+struct termios orig_termios;
+
+// restaurar terminal al salir
+void disableRawMode() {
+    tcsetattr(STDIN_FILENO, TCSANOW, &orig_termios);
+}
+
+// activar modo raw
+void enableRawMode() {
+    tcgetattr(STDIN_FILENO, &orig_termios);
+
+    struct termios raw = orig_termios;
+
+    // desactivar modo canónico y echo
+    raw.c_lflag &= ~(ICANON | ECHO);
+
+    tcsetattr(STDIN_FILENO, TCSANOW, &raw);
+}
+
+
+
+
 
     struct AudioFile {
         std::vector<float> data; // SIEMPRE mono
@@ -43,8 +69,9 @@
 
     // ---- global state ----
     AudioFile wavs[4];
-    float gains_dry[4]   = {0.6f, 0.7f, 0.6, 0.5f}; // volumen por pista - dry
-    float gains_sends[4] = {0.8f, 0.0f, 0.0f, 0.0f}; // volumen por pista - send
+    float gains_dry[4]   = {0.8f, 0.0f, 0.8, 0.8f}; // volumen por pista - dry
+    float gains_sends[4] = {0.0f, 0.0f, 0.0f, 0.0f}; // volumen por pista - send
+    float mute_unmute[4] = {0.0f, 0.0f, 0.0f, 0.0f};
 
 
     size_t pos = 0;
@@ -101,7 +128,8 @@ float FX_echo_delay(float input) {
             for (int j = 0; j < 4; j++) {
                 if (wavs[j].frames > 0) {
                     size_t p = pos % wavs[j].frames; // LOOP
-                    mix += wavs[j].data[p] * gains_dry[j];
+                    //mix += wavs[j].data[p] * gains_dry[j];
+                    mix += wavs[j].data[p] * gains_dry[j]*mute_unmute[j];
                     mix += FX_echo_delay(wavs[j].data[p] * gains_sends[j]);
                 }
             }
@@ -124,6 +152,9 @@ float FX_echo_delay(float input) {
         wavs[2] = loadWav("hh.wav");
         wavs[3] = loadWav("snare.wav");
 
+    enableRawMode();
+    std::cout << "Modo RAW activo. Presiona 'q' para salir.\n";
+
         // ---- init PortAudio ----
         Pa_Initialize();
 
@@ -140,8 +171,25 @@ float FX_echo_delay(float input) {
 
         Pa_StartStream(stream);
 
-        std::cout << "Playing... Press Enter to stop\n";
-        std::cin.get();
+    while (true) {
+        char c;
+        ssize_t n = read(STDIN_FILENO, &c, 1);
+
+        if (n > 0) {
+            std::cout << "Tecla: " << c << " (ASCII: " << (int)c << ")\n";
+
+            if (c == 'q') break;
+            if (c == '8') {mute_unmute[0] = (mute_unmute[0]>0.0)?0.0:1.0;}
+            if (c == '5') {mute_unmute[2] = (mute_unmute[2]>0.0)?0.0:1.0;}
+            if (c == '2') {mute_unmute[3] = (mute_unmute[3]>0.0)?0.0:1.0;}
+            //if (c == '7') {
+
+            //}
+            
+        }
+    }
+
+    disableRawMode();
 
         Pa_StopStream(stream);
         Pa_CloseStream(stream);
