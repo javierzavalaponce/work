@@ -180,10 +180,10 @@ float FX_echo_delay(float input) {
     int main() {
 
         // ---- cargar archivos ----
-        wavs[0] = loadWav("kick.wav");
-        wavs[1] = loadWav("kick2.wav");
-        wavs[2] = loadWav("guitarra.wav");
-        wavs[3] = loadWav("vocals.wav");
+        wavs[0] = loadWav("bombo.wav");
+        wavs[1] = loadWav("rim.wav");
+        wavs[2] = loadWav("hh.wav");
+        wavs[3] = loadWav("hh.wav");
 
     enableRawMode();
     std::cout << "Modo RAW activo. Presiona 'q' para salir.\n";
@@ -213,33 +213,33 @@ float FX_echo_delay(float input) {
 
             if (c == 'q') break;
             
-            //if (c == '8') {sends_on_off[0] = (sends_on_off[0]>0.0)?0.0:1.0;}
-            if (c == '5') {sends_on_off[2] = (sends_on_off[2]>0.0)?0.0:1.0;}
-            if (c == '2') {sends_on_off[3] = (sends_on_off[3]>0.0)?0.0:1.0;}
+            if (c == '8') {sends_on_off[0] = (sends_on_off[0]>0.0)?0.0:1.0;}
+            if (c == '5') {sends_on_off[1] = (sends_on_off[1]>0.0)?0.0:1.0;}
+            if (c == '2') {sends_on_off[2] = (sends_on_off[2]>0.0)?0.0:1.0;}
             
-            //if (c == '7') {if(gains_sends[0] == 0); else gains_sends[0] -= 0.1; }
-            //if (c == '9') {if(gains_sends[0] == 1); else gains_sends[0] += 0.1; }
+            if (c == '7') {if(gains_sends[0] == 0); else gains_sends[0] -= 0.1; }
+            if (c == '9') {if(gains_sends[0] == 1); else gains_sends[0] += 0.1; }
             
-            if (c == '4') {if(gains_sends[2] == 0); else gains_sends[2] -= 0.1; }
-            if (c == '6') {if(gains_sends[2] == 1); else gains_sends[2] += 0.1; }
+            if (c == '4') {if(gains_sends[1] == 0); else gains_sends[1] -= 0.1; }
+            if (c == '6') {if(gains_sends[1] == 1); else gains_sends[1] += 0.1; }
 
-            if (c == '1') {if(gains_sends[3] == 0); else gains_sends[3] -= 0.1; }
-            if (c == '3') {if(gains_sends[3] == 1); else gains_sends[3] += 0.1; }
+            if (c == '1') {if(gains_sends[2] == 0); else gains_sends[2] -= 0.1; }
+            if (c == '3') {if(gains_sends[3] == 1); else gains_sends[2] += 0.1; }
 
             //------------
 
-            //if (c == 'e') {dries_on_off[0] = (dries_on_off[0]>0.0)?0.0:1.0;}
-            if (c == 's') {dries_on_off[2] = (dries_on_off[2]>0.0)?0.0:1.0;}
-            if (c == 'x') {dries_on_off[3] = (dries_on_off[3]>0.0)?0.0:1.0;}
+            if (c == 'e') {dries_on_off[0] = (dries_on_off[0]>0.0)?0.0:1.0;}
+            if (c == 's') {dries_on_off[1] = (dries_on_off[1]>0.0)?0.0:1.0;}
+            if (c == 'x') {dries_on_off[2] = (dries_on_off[2]>0.0)?0.0:1.0;}
             
-            //if (c == 'w') {if(gains_dry[0] == 0); else gains_dry[0] -= 0.1; }
-            //if (c == 'r') {if(gains_dry[0] == 1); else gains_dry[0] += 0.1; }
+            if (c == 'w') {if(gains_dry[0] == 0); else gains_dry[0] -= 0.1; }
+            if (c == 'r') {if(gains_dry[0] == 1); else gains_dry[0] += 0.1; }
             
-            if (c == 'a') {if(gains_dry[2] == 0); else gains_dry[2] -= 0.1; }
-            if (c == 'd') {if(gains_dry[2] == 1); else gains_dry[2] += 0.1; }
+            if (c == 'a') {if(gains_dry[1] == 0); else gains_dry[1] -= 0.1; }
+            if (c == 'd') {if(gains_dry[1] == 1); else gains_dry[1] += 0.1; }
 
-            if (c == 'z') {if(gains_dry[3] == 0); else gains_dry[3] -= 0.1; }
-            if (c == 'c') {if(gains_dry[3] == 1); else gains_dry[3] += 0.1; }
+            if (c == 'z') {if(gains_dry[2] == 0); else gains_dry[2] -= 0.1; }
+            if (c == 'c') {if(gains_dry[2] == 1); else gains_dry[2] += 0.1; }
 
         }
     }
