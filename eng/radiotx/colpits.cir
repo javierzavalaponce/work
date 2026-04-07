@@ -1,0 +1,36 @@
+* Oscilador Colpitts ~1 MHz
+
+Vcc Vcc 0 DC 9
+
+* Polarización
+R1 Vcc B 10k
+R2 B 0 1k
+
+* Transistor
+Q1 C B E 2N2222
+
+* Colector
+Rc Vcc C 1k
+
+* Emisor
+Re E 0 100
+Ce E 0 100n
+
+* Tanque resonante
+L1 C B 100uH
+C1 B E 100p
+C2 E C 100p
+
+* Modelo transistor (simple)
+.model 2N2222 NPN (BF=100)
+
+* Simulación transitoria
+.tran 0.1us 5ms
+
+.control
+run
+plot V(C)
+.endc
+
+.end
+
