@@ -1,3 +1,19 @@
+# PORQUE es importante la programacion funcional
+
+
+### Predecible
+Sin efectos secundarios
+Facil de razonar
+
+### Paralelizable
+no hay dependencias de estado
+puedes ejecutar en paralelo
+
+### Cercano a matematicas
+ideal para simulacion
+graficos, control , DSP
+
+
 
 # TIEMPO EN PROGRAMACION FUNCIONAL
 
