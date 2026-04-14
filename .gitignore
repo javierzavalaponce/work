@@ -27,4 +27,12 @@ EOF
 
 *.wav
 
+*.aux
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+
+
+
 
