@@ -1,124 +1,73 @@
-
----
-fontsize: 12pt
-toc-title: "Índice General"
----
-
-\newpage
-
-#  Libro: Thinking in Systems, (D. Meadows)
-
-Lo percibo como una especie de guía para entender por qué los problemas complejos (como la pobreza, el desempleo o el daño ambiental) persisten a pesar de las medidas que se han ido tomando. Donella Meadows, la autora, invita a dejar de buscar culpables externos y a observar la estructura interna de los sistemas al rededor de nosotros
-
-* Un sistema es un conjunto de elementos, interconexiones y un propósito. 
-	
-* Cambiar los elementos afecta; pero cambiar las interconexiones o el propósito transforma todo.
-	
-
-* Los sistemas tienen existencias (stocks) que cambian lentamente gracias a flujos (entradas y salidas). Esto genera inercia: las cosas no cambian de la noche a la mañana.
-
-* El comportamiento del sistema contiene lazos de retroalimentación:
-
-* Los sistemas nos sorprenden porque actuamos sin ver las demoras, los bucles ocultos o las metas contradictorias.
-
-* Palancas de cambio: lo más poderoso no es meter más dinero o gente, sino cambiar las reglas, los flujos de información o el propósito del sistema.
-
-* Conclusión: Para mejorar un sistema, hay que entender su estructura, respetar sus demoras y evitar soluciones mágicas.
-
-	
-## Comentarios
-
-Lo que mas llamo mi atencion es la raigambre ideologica de Meadows (...)
-encontre referencias como Wiener (quien es considerado el fundador de la cibernetica), 
-y tambien Bertalanffy.
-
-Creo que el motivo detras de las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo, e inclusive en el paradigma ideologico y la base epistemologica con
-que el observador realiza un modelo. 
-
-
-\newpage
-
-# Libro: Ecuaciones diferenciales   Zill
-
-## Resumen de Capitulo 1
-
-1. **Definición de ecuación diferencial**  
-
-   Es una ecuación que involucra derivadas de una o más variables dependientes respecto a una o más variables independientes.
-
-2. **Tipos de ecuaciones diferenciales**  
-
-   - **EDO (ordinarias):** derivadas respecto a una sola variable.  
-
-   - **EDP (parciales):** derivadas respecto a múltiples variables.
-
-   - **Clasificación por orden**  El orden de una ED es el de la derivada de mayor grado presente. 
-
-3. **Forma general y forma normal**  
-   - Forma general:  
-   $$F(x, y, y', \ldots, y^{(n)}) = 0$$
-
-   - Forma normal: despejada respecto a la derivada de mayor orden.
-
-4. **Linealidad**  
-
-   Una ED es lineal si:
-   - La función desconocida y sus derivadas aparecen en primer grado.
-   - Los coeficientes dependen solo de la variable independiente.  
-   En caso contrario, es no lineal.
-
-   $$
-a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
-$$
-
-
-
-5. **Solución de una ecuación diferenciales**  
-
-   Una función es solución si al sustituirse en la ecuación la convierte en una identidad en un intervalo dado.
-
-6. **Intervalo de definición (o existencia)**  
-   Toda solución está asociada a un intervalo donde es válida y derivable.
-
-7. **Soluciones explícitas e implícitas**  
-   - Explícita: 
-   $$
-   y = f(x)
-   $$
-   - Implícita: 
-   $$
-   G(x, y) = 0
-   $$
-   En otras palabras: no siempre es posible despejar explícitamente.
-
-8. **Familias de soluciones y parámetros**  
-   - Ec. diferecnial de orden n → familia con n constantes arbitrarias.  
-   - Representan infinitas soluciones.  
-   - Una solución sin parámetros es una **solución particular**.
-
-9. **Conceptos adicionales importantes**  
-   - **Solución trivial:** 
-   $$
-   y = f(x)
-   $$
-   - **Sistemas de ecs. diferenciales:** múltiples ecuaciones con varias funciones desconocidas
-
-\newpage
-
-## Resumen de Capitulo 2
-
-en proceso..
-
-\newpage
-
 # Libro SICP
 
 *Los actos de la mente, en los cuales ejerce su poder sobre ideas simples, son principalmente estos tres: 1. Combinar varias ideas simples en una sola compuesta, de este modo todas las ideas complejas son elaboradas. 2. El segundo es reunir dos ideas, ya sean simples o complejas, y ponerlas una junto a la otra para verlas a la vez, sin unirlas en una sola, por el cual se obtienen todas las ideas de relaciones. 3. La tercera es separarlas de todas las demás ideas que las acompañan en su existencia real: a esto se le llama abstracción, de este modo se elaboran todas las ideas generales.*
 
 **John Locke**, *Un ensayo sobre la comprensión humana* (1690)
 
-## Resumen 
+## Capitulo 1
+
+
+   Un programa define un proceso que manipula datos siguiendo reglas precisas; estos procesos son entidades abstractas pero con efectos reales en el mundo. 
+   Por ejemplo el SW ejecutandose en autos y cajeros automaticos.
+
+1. **Importancia de entender el comportamiento de programas**  
+
+   Programar implica anticipar consecuencias; errores pequeños pueden generar efectos complejos, por lo que se requiere diseño cuidadoso.
+
+2. **Diseño modular como principio clave**  
+
+   Los sistemas bien diseñados se construyen en módulos independientes, facilitando mantenimiento, reemplazo y corrección de errores.
+
+3. **Lisp como herramienta para pensar procesos**  
+
+   Lisp (y el dialecto Scheme) permiten representar y manipular procedimientos como datos, facilitando el estudio profundo de la programación.
+
+### Los Elementos de la Programación
+
+* Expresiones primitivas, que representan las entidades más simples que  conciernen al lenguaje
+
+* Medios de combinación, mediante los cuales los elementos compuestos se  construyen a partir de los elementos más simples, y 
+
+* Medios de abstracción, por el cual los elementos compuestos pueden ser nombrados y manipulados como unidades. 
+
+
+Nos ocupamos de dos tipos de elementos (no tan distintos) : **procedimientos** y **datos**. Los procedimientos (como + o *) son descripciones de las reglas para manipular los datos
+
+
+#### Combinaciones 
+
+La convencion de colocar el operador a la izquierda se conoce como notacion prefija o *polaca* en forma de **listas** :
+
+Ejemplo de isntalacion y uso (Racket es un dialecto Lisp al igual que Scheme que es otro dialecto tambien)
+
+```c
+$sudo apt install racket
+$racket
+
+(define pi 3.14159)
+(define radio 10)
+(* pi (* radio radio))
+>314.159
+
+(* (+ 2 (* 4 6))                                                 
+   (+ 3 5 7))  
+
+```
+Para comparar, vea esta  misma expresion en c:
+´´´c
+(2 + (4 * 6)) * (3 + 5 + 7)
+´´´
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{arbol.png}
+\caption{Combinacion vista como arbol}
+\end{figure}
 
 
 
+### next 
+
+\newpage
 
