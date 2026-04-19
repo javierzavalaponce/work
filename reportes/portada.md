@@ -1,10 +1,3 @@
----
-title: "Recursive Functions of Symbolic Expressions"
-author: "John McCarthy"
-date: "April 1960"
-institute: "Massachusetts Institute of Technology"
-subtitle: "and Their Computation by Machine, Part I"
----
 
 \vspace{2cm}
 

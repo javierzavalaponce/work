@@ -1,17 +1,46 @@
+
 ---
 title: "Reporte 002"
 author: "Javier Zavala Ponce"
 date: "April 2026"
+toc-title: "Índice General"
 ---
+
 \newpage
 
-# Hola
+#  Libro: Thinking in Systems, (D. Meadows)
 
-test
+Lo percibo como una especie de guía para entender por qué los problemas complejos (como la pobreza, el desempleo o el daño ambiental) persisten a pesar de las medidas que se han ido tomando. Donella Meadows, la autora, invita a dejar de buscar culpables externos y a observar la estructura interna de los sistemas al rededor de nosotros
 
-## Subtitle
+* Un sistema es un conjunto de elementos, interconexiones y un propósito. 
+	
+* Cambiar los elementos afecta; pero cambiar las interconexiones o el propósito transforma todo.
+	
 
-list :
+* Los sistemas tienen existencias (stocks) que cambian lentamente gracias a flujos (entradas y salidas). Esto genera inercia: las cosas no cambian de la noche a la mañana.
+
+* El comportamiento del sistema contiene lazos de retroalimentación:
+
+* Los sistemas nos sorprenden porque actuamos sin ver las demoras, los bucles ocultos o las metas contradictorias.
+
+* Palancas de cambio: lo más poderoso no es meter más dinero o gente, sino cambiar las reglas, los flujos de información o el propósito del sistema.
+
+* Conclusión: Para mejorar un sistema, hay que entender su estructura, respetar sus demoras y evitar soluciones mágicas.
+
+	
+## Comentarios
+
+Lo que mas llamo mi atencion es la raigambre ideologica de Meadows (...)
+encontre referencias como Wiener (quien es considerado el fundador de la cibernetica), 
+y tambien Bertalanffy.
+
+Creo que el motivo detras de las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo, e inclusive en el paradigma ideologico y la base epistemologica con
+que el observador realiza un modelo. 
+
+
+# Libro: Ecuaciones diferenciales   Zill
+
+## Resumen de capitulo 1
 
 * uno
 
