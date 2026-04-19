@@ -7,8 +7,7 @@
 ## Capitulo 1
 
 
-   Un programa define un proceso que manipula datos siguiendo reglas precisas; estos procesos son entidades abstractas pero con efectos reales en el mundo. 
-   Por ejemplo el SW ejecutandose en autos y cajeros automaticos.
+   Un programa define un proceso que manipula datos siguiendo reglas precisas; estos procesos son entidades abstractas pero con efectos reales en el mundo. Por ejemplo el SW ejecutandose en autos y cajeros automaticos.
 
 1. **Importancia de entender el comportamiento de programas**  
 
@@ -20,25 +19,25 @@
 
 3. **Lisp como herramienta para pensar procesos**  
 
-   Lisp (y el dialecto Scheme) permiten representar y manipular procedimientos como datos, facilitando el estudio profundo de la programación.
+   Lisp (y sus dialectos tales como Scheme o Racket) permiten representar y manipular procedimientos como datos, facilitando el estudio profundo de la programación.
 
 ### Los Elementos de la Programación
 
-* Expresiones primitivas, que representan las entidades más simples que  conciernen al lenguaje
+* Expresiones primitivas, que representan las entidades más simples que  conciernen al lenguaje.
 
 * Medios de combinación, mediante los cuales los elementos compuestos se  construyen a partir de los elementos más simples, y 
 
 * Medios de abstracción, por el cual los elementos compuestos pueden ser nombrados y manipulados como unidades. 
 
 
-Nos ocupamos de dos tipos de elementos (no tan distintos) : **procedimientos** y **datos**. Los procedimientos (como + o *) son descripciones de las reglas para manipular los datos
+Nos ocupamos de dos tipos de elementos (no tan distintos) : **procedimientos** y **datos**. Los procedimientos (como + o \*) son descripciones de las reglas para manipular los datos.
 
 
 #### Combinaciones 
 
 La convencion de colocar el operador a la izquierda se conoce como notacion prefija o *polaca* en forma de **listas** :
 
-Ejemplo de isntalacion y uso (Racket es un dialecto Lisp al igual que Scheme que es otro dialecto tambien)
+Ejemplo de instalacion y uso (Racket es un dialecto Lisp al igual que Scheme que es otro dialecto tambien)
 
 ```c
 $sudo apt install racket
@@ -53,21 +52,24 @@ $racket
    (+ 3 5 7))  
 
 ```
-Para comparar, vea esta  misma expresion en c:
-´´´c
-(2 + (4 * 6)) * (3 + 5 + 7)
-´´´
 
+Para comparar, vea esta  misma expresion en c:
+
+```c
+(2 + (4 * 6)) * (3 + 5 + 7)
+```
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.5\textwidth]{arbol.png}
+\includegraphics[height=0.25\textheight]{arbol.png}
 \caption{Combinacion vista como arbol}
 \end{figure}
 
 
 
+\newpage
+
 ### next 
 
-\newpage
+
 

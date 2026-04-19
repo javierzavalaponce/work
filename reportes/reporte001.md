@@ -63,13 +63,20 @@ que el observador realiza un modelo.
 4. **Linealidad**  
 
    Una ED es lineal si:
+
+\ 
+$$
+\begin{aligned}
+a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
+\end{aligned}
+$$
+\
+
    - La función desconocida y sus derivadas aparecen en primer grado.
    - Los coeficientes dependen solo de la variable independiente.  
-   En caso contrario, es no lineal.
 
-   $$
-a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
-$$
+   En caso contrario, es **no lineal**.
+
 
 
 
@@ -82,13 +89,18 @@ $$
 
 7. **Soluciones explícitas e implícitas**  
    - Explícita: 
+   \ 
    $$
    y = f(x)
    $$
+   \ 
    - Implícita: 
+   \ 
    $$
    G(x, y) = 0
    $$
+   \
+
    En otras palabras: no siempre es posible despejar explícitamente.
 
 8. **Familias de soluciones y parámetros**  
@@ -98,9 +110,12 @@ $$
 
 9. **Conceptos adicionales importantes**  
    - **Solución trivial:** 
+   \ 
    $$
    y = f(x)
    $$
+   \ 
+
    - **Sistemas de ecs. diferenciales:** múltiples ecuaciones con varias funciones desconocidas
 
 \newpage
