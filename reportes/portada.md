@@ -3,32 +3,32 @@
 
 \begin{center}
 \Huge
-\textbf{Recursive Functions of Symbolic Expressions}
+\textbf{Reporte 2}
 
 \vspace{0.5cm}
 
 \Large
-\textbf{and Their Computation by Machine, Part I}
+\textbf{(Material de estudio)}
 
 \vspace{2cm}
 
 \normalsize
-John McCarthy
+Javier Zavala Ponce
 
 \vspace{0.3cm}
 
-\textit{Massachusetts Institute of Technology, Cambridge, Mass.}
+\textit{Instituto Politecnico Nacional, ESIME Culhuacan.}
 
 \vspace{2cm}
 
-April 1960
+Abril 2026
 \end{center}
 
 \vfill
 
 \begin{center}
 \small
-\textit{Original paper published in Communications of the ACM, 1960}
+\textit{tbd}
 \end{center}
 
 \newpage

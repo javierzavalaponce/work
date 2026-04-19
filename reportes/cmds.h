@@ -3,3 +3,5 @@ pandoc -B portada.md reporte002.md -o archivo.pdf --pdf-engine=xelatex --toc --n
 
 
 
+pandoc mi_script.md -o mi_reporte.pdf --pdf-engine=pdflatex
+julia -e 'using Literate; Literate.markdown(mi_script.jl, .; execute=false)'

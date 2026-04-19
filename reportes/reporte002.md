@@ -1,8 +1,6 @@
 
 ---
-title: "Reporte 002"
-author: "Javier Zavala Ponce"
-date: "April 2026"
+fontsize: 12pt
 toc-title: "Índice General"
 ---
 
@@ -38,9 +36,11 @@ Creo que el motivo detras de las imprecisiones del control de algunos sistemas, 
 que el observador realiza un modelo. 
 
 
+\newpage
+
 # Libro: Ecuaciones diferenciales   Zill
 
-## Resumen de capitulo 1
+## Resumen de Capitulo 1
 
 * uno
 
@@ -48,12 +48,33 @@ que el observador realiza un modelo.
 
 * tres **negritas**
 
-* cuatro
+\newpage
 
-# Orale
-asdf
-aasdf
+# Libro SICP
 
-### sub sub
+## Resumen del Capitulo 1
+
+* asdf
+
+* aasdf
+
+Este es un texto con \textbf{negritas} y \emph{cursiva} usando LaTeX.
+
+$$ \int_0^\infty e^{-x} dx $$
+
+verion 1
+
+$f(x,y) = x^2 + y^2$
+
+version 2 :
+
+$$ f(x,y) = x^{2} + y^{2} $$
+
+varsion recomendada:
+
+$$ f(x,y) = x^{2} + y^{2} $$
+
+
+
 
 
