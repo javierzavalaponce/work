@@ -42,38 +42,82 @@ que el observador realiza un modelo.
 
 ## Resumen de Capitulo 1
 
-* uno
+1. **Definición de ecuación diferencial**  
 
-* dos  *inclinada*
+   Es una ecuación que involucra derivadas de una o más variables dependientes respecto a una o más variables independientes.
 
-* tres **negritas**
+2. **Tipos de ecuaciones diferenciales**  
+
+   - **EDO (ordinarias):** derivadas respecto a una sola variable.  
+
+   - **EDP (parciales):** derivadas respecto a múltiples variables.
+
+   - **Clasificación por orden**  El orden de una ED es el de la derivada de mayor grado presente. 
+
+3. **Forma general y forma normal**  
+   - Forma general:  
+   $$F(x, y, y', \ldots, y^{(n)}) = 0$$
+
+   - Forma normal: despejada respecto a la derivada de mayor orden.
+
+4. **Linealidad**  
+
+   Una ED es lineal si:
+   - La función desconocida y sus derivadas aparecen en primer grado.
+   - Los coeficientes dependen solo de la variable independiente.  
+   En caso contrario, es no lineal.
+
+   $$
+a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
+$$
+
+
+
+5. **Solución de una ecuación diferenciales**  
+
+   Una función es solución si al sustituirse en la ecuación la convierte en una identidad en un intervalo dado.
+
+6. **Intervalo de definición (o existencia)**  
+   Toda solución está asociada a un intervalo donde es válida y derivable.
+
+7. **Soluciones explícitas e implícitas**  
+   - Explícita: 
+   $$
+   y = f(x)
+   $$
+   - Implícita: 
+   $$
+   G(x, y) = 0
+   $$
+   En otras palabras: no siempre es posible despejar explícitamente.
+
+8. **Familias de soluciones y parámetros**  
+   - Ec. diferecnial de orden n → familia con n constantes arbitrarias.  
+   - Representan infinitas soluciones.  
+   - Una solución sin parámetros es una **solución particular**.
+
+9. **Conceptos adicionales importantes**  
+   - **Solución trivial:** 
+   $$
+   y = f(x)
+   $$
+   - **Sistemas de ecs. diferenciales:** múltiples ecuaciones con varias funciones desconocidas
+
+\newpage
+
+## Resumen de Capitulo 2
+
+en proceso..
 
 \newpage
 
 # Libro SICP
 
-## Resumen del Capitulo 1
+*Los actos de la mente, en los cuales ejerce su poder sobre ideas simples, son principalmente estos tres: 1. Combinar varias ideas simples en una sola compuesta, de este modo todas las ideas complejas son elaboradas. 2. El segundo es reunir dos ideas, ya sean simples o complejas, y ponerlas una junto a la otra para verlas a la vez, sin unirlas en una sola, por el cual se obtienen todas las ideas de relaciones. 3. La tercera es separarlas de todas las demás ideas que las acompañan en su existencia real: a esto se le llama abstracción, de este modo se elaboran todas las ideas generales.*
 
-* asdf
+**John Locke**, *Un ensayo sobre la comprensión humana* (1690)
 
-* aasdf
-
-Este es un texto con \textbf{negritas} y \emph{cursiva} usando LaTeX.
-
-$$ \int_0^\infty e^{-x} dx $$
-
-verion 1
-
-$f(x,y) = x^2 + y^2$
-
-version 2 :
-
-$$ f(x,y) = x^{2} + y^{2} $$
-
-varsion recomendada:
-
-$$ f(x,y) = x^{2} + y^{2} $$
-
+## Resumen 
 
 
 
