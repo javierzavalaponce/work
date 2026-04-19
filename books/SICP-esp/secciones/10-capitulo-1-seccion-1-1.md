@@ -130,8 +130,11 @@ circunferencia
 > 62.8318
 ```
 
-`define` es el medio de abstracción más simple de nuestro lenguaje, ya que nos permite utilizar nombres sencillos para referirnos a los resultados de operaciones compuestas, como la `circunferencia` calculada anteriormente. En general, los objetos computacionales pueden tener estructuras muy complejas, y sería extremadamente incómodo tener que recordar y repetir sus detalles cada vez que queremos usarlos. En efecto, los programas complejos se elaboran construyendo, paso a paso, objetos computacionales de complejidad creciente. El intérprete hace que esta construcción paso a paso del programa sea muy conveniente porque las asociaciones nombre-objeto pueden ser creadas gradualmente en sucesivas interacciones. Esta característica fomenta el desarrollo incremental y el testeo de programas, y es en gran medida responsable del hecho de que un programa Lisp normalmente se componga de un gran número de procedimientos relativamente sencillos.
+`define` es el medio de abstracción más simple de nuestro lenguaje, ya que nos permite utilizar nombres sencillos para referirnos a los resultados de operaciones compuestas, como la `circunferencia` calculada anteriormente. En general, los objetos computacionales pueden tener estructuras muy complejas, y sería extremadamente incómodo tener que recordar y repetir sus detalles cada vez que queremos usarlos. En efecto, los programas complejos se elaboran construyendo, paso a paso, objetos computacionales de complejidad creciente. El intérprete hace que esta construcción paso a paso del programa sea muy conveniente porque las asociaciones nombre-objeto pueden ser creadas gradualmente en sucesivas interacciones. Esta característica fomenta el desarrollo incremental y el testeo de programas, y es en gran medida responsable del hecho de que 
+un programa Lisp normalmente se componga de un gran número de procedimientos relativamente sencillos.
 
+
+## javier aqui voy
 Debe quedar claro que la posibilidad de asociar valores con símbolos y luego llamarlos significa que el intérprete debe mantener algún tipo de memoria que mantenga un registro de los pares nombre-objeto. Esta memoria se llama el *entorno* (más precisamente el *entorno global*, ya que veremos más adelante que un cálculo puede implicar varios entornos diferentes).<sup>[**9**](#nota-9)</sup>
 
 
