@@ -12,6 +12,10 @@ Decoradores en python:
 
 ```python
 def loggear(funcion):
+	asdf
+	asdf
+	asdf
+
     def envoltura(*args, **kwargs):
         print(f"Llamando a {funcion.__name__}")
         return funcion(*args, **kwargs)
