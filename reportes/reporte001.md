@@ -2,6 +2,7 @@
 ---
 fontsize: 12pt
 toc-title: "Índice General"
+reference-section-title: Referencias
 ---
 
 \newpage
