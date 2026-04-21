@@ -16,3 +16,7 @@ pandoc -B portada.md reporte001.md reporte002.md reporte003.md -o archivo.pdf --
 //latest ya con biblio
 pandoc -B portada.md reporte001.md reporte002.md reporte003.md -o archivo.pdf --pdf-engine=xelatex --toc --number-sections -H header.tex --citeproc --bibliography=refs.bib
 
+pandoc -B portada.md  cap*.md -o archivo.pdf --pdf-engine=xelatex --toc --number-sections -H header.tex --citeproc --bibliography=refs.bib
+
+//gen reporte3:
+pandoc -B portada.md  cap*.md -o archivo.pdf --pdf-engine=xelatex --toc --number-sections -H header.tex --citeproc --bibliography=refs.bib --csl=ieee.csl
