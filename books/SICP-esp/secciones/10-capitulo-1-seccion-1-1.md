@@ -134,7 +134,7 @@ circunferencia
 un programa Lisp normalmente se componga de un gran número de procedimientos relativamente sencillos.
 
 
-## javier aqui voy
+## javier aqui voy abril 22 2025
 Debe quedar claro que la posibilidad de asociar valores con símbolos y luego llamarlos significa que el intérprete debe mantener algún tipo de memoria que mantenga un registro de los pares nombre-objeto. Esta memoria se llama el *entorno* (más precisamente el *entorno global*, ya que veremos más adelante que un cálculo puede implicar varios entornos diferentes).<sup>[**9**](#nota-9)</sup>
 
 
