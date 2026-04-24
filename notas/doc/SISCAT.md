@@ -423,12 +423,6 @@ Objetivo: Consolidar todo el trabajo para tu programa educativo y tu portafolio 
         Riesgo: La función de costo para la IA ("qué suena bien") es subjetiva. Mitigación: Define métricas objetivas claras (ej. correlación con una señal de referencia, rango dinámico) y usa audios de prueba estandarizados.
 
         
-#### Enfócate en presentar
-* Crear el video, 
-* El pitch
-* El repositorio limpio es un ejercicio de "pensar como un emprendedor" 
-
-
 
 
 
