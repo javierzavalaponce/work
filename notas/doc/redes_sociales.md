@@ -1,5 +1,10 @@
 ESTE ARCHIVO TRATA DE:
 
+
+
+
+
+
 Simular contagio en redes (Python o Julia)
 Analizar grafos reales (centralidad, comunidades)
 Modelos tipo SIR, SIS, umbral
@@ -190,5 +195,146 @@ Cómo detectar fake news con datos
 
 Solo dime qué te gustaría:
 👉 ¿más matemático, más programación o más aplicado a redes reales?
+
+
+
+
+
+----------------
+
+
+que es esto: Modelos tipo SIR, SIS, umbral
+
+Son modelos matemáticos de difusión/contagio en redes (o poblaciones). Se usan para describir cómo algo “se propaga”: enfermedades, ideas, rumores, comportamientos.
+
+🦠 1. Modelo SIR (Susceptible–Infectado–Recuperado)
+
+Divide a la población en 3 estados:
+
+S: susceptibles (aún no adoptan / no están infectados)
+I: infectados (sí adoptaron / están activos)
+R: recuperados (ya no participan o son inmunes)
+
+La dinámica típica es:
+
+⎩
+
+⎨
+
+⎧
+	​
+
+dt
+dS
+	​
+
+=−βSI
+dt
+dI
+	​
+
+=βSI−γI
+dt
+dR
+	​
+
+=γI
+	​
+
+
+Cómo interpretarlo en redes sociales:
+
+S → gente que no ha visto el contenido
+I → gente que lo comparte
+R → gente que ya se cansó o lo ignoró
+
+👉 Ejemplo: un meme que explota y luego muere.
+
+🔁 2. Modelo SIS (Susceptible–Infectado–Susceptible)
+
+Aquí no hay inmunidad:
+
+S → I → S → I → …
+
+La dinámica:
+
+dt
+dI
+	​
+
+=βI(N−I)−γI
+
+Interpretación:
+
+Puedes “reinfectarte” (volver a creer, compartir o reaccionar)
+
+👉 Ejemplo:
+
+rumores persistentes
+temas recurrentes (conspiraciones, tendencias cíclicas)
+⚖️ 3. Modelo de umbral (Threshold model)
+
+Este es diferente (y muy importante para redes sociales):
+
+👉 No te contagias por una sola exposición, sino cuando suficientes vecinos ya lo hicieron.
+
+Idea básica:
+
+Adopta si 
+vecinos totales
+vecinos activos
+	​
+
+>θ
+
+Donde:
+
+θ: umbral personal (ej. 0.3 = 30%)
+
+Interpretación:
+
+No compartes algo hasta que “muchos” lo hacen
+
+👉 Ejemplos:
+
+unirte a una protesta
+usar una app nueva
+adoptar una opinión política
+🧠 Diferencia clave (esto es lo importante)
+Modelo	Cómo ocurre el contagio
+SIR	contacto directo basta
+SIS	igual que SIR pero repetible
+Umbral	necesitas presión social
+
+
+
+
+
+Conexión con redes sociales reales
+SIR → viralidad rápida (TikToks, memes)
+SIS → temas que nunca mueren
+Umbral → cambios sociales grandes (modas, ideologías)
+⚠️ Insight potente
+
+Aquí está lo interesante (y conecta con tu intuición inicial):
+
+En SIR/SIS → el contagio es biológico-like
+En umbral → el contagio es social + psicológico
+
+👉 Por eso fenómenos como:
+
+polarización
+“cancelaciones”
+burbujas ideológicas
+
+se explican mejor con modelos de umbral.
+
+Si quieres, podemos hacer algo más práctico (muy acorde a tu perfil):
+
+👉 
+simular uno de estos modelos en Julia o Python y ver cómo cambia el comportamiento al modificar parámetros (β, γ, θ).
+
+
+
 
 
