@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <Wire.h>
-
 #define AS5600_ADDR 0x36
 
 // ----------- Lectura RAW ANGLE -----------
@@ -37,30 +36,64 @@ uint8_t readStatus() {
   return 0;
 }
 
-// ----------- SETUP -----------
+
+
+
+  // Pines BTS7960
+const int RPWM = 5;
+const int LPWM = 6;
+const int R_EN = 7;
+const int L_EN = 8;
+
+
 void setup() {
-  Serial.begin(115200);
-  Wire.begin();
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
+
+
+
+
+   Wire.begin();
   Wire.setClock(100000); // más estable
 
-  Serial.println("AS5600 test iniciado...");
+
+
+
+  pinMode(RPWM, OUTPUT);
+  pinMode(LPWM, OUTPUT);
+  pinMode(R_EN, OUTPUT);
+  pinMode(L_EN, OUTPUT);
+
+  // Habilitar ambos lados
+  digitalWrite(R_EN, HIGH);
+  digitalWrite(L_EN, HIGH);
+
+  // Arrancar en stop
+  analogWrite(RPWM, 0);
+  analogWrite(LPWM, 0);
+
+  //Initialize serial and wait for port to open:
+  Serial.begin(115200);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.println("uart enabled -- as5600..");
+  analogWrite(RPWM, 50);
 }
 
-// ----------- LOOP -----------
 void loop() {
   uint16_t raw = readAngleRaw();
   uint8_t status = readStatus();
 
-  float angle = raw * 360.0 / 4096.0;
-
-  Serial.print("STATUS: ");
-  Serial.print(status, BIN);
+  //float angle = raw * 360.0 / 4096.0;
+  //Serial.print("STATUS: ");
+  //Serial.print(status, BIN);
 
   Serial.print("  RAW: ");
-  Serial.print(raw);
+  Serial.println(raw);
 
-  Serial.print("  ANGLE: ");
-  Serial.println(angle);
+  //Serial.print("  ANGLE: ");
+  //Serial.println(angle);
 
   delay(200);
 }
