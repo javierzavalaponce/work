@@ -1,72 +1,66 @@
 #include <Arduino.h>
+#include <Wire.h>
 
-  // Pines BTS7960
-const int RPWM = 5;
-const int LPWM = 6;
-const int R_EN = 7;
-const int L_EN = 8;
+#define AS5600_ADDR 0x36
 
-
-void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-
-
-
-
-  pinMode(RPWM, OUTPUT);
-  pinMode(LPWM, OUTPUT);
-  pinMode(R_EN, OUTPUT);
-  pinMode(L_EN, OUTPUT);
-
-  // Habilitar ambos lados
-  digitalWrite(R_EN, HIGH);
-  digitalWrite(L_EN, HIGH);
-
-  // Arrancar en stop
-  analogWrite(RPWM, 0);
-  analogWrite(LPWM, 0);
-
-  //Initialize serial and wait for port to open:
-  Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+// ----------- Lectura RAW ANGLE -----------
+uint16_t readAngleRaw() {
+  Wire.beginTransmission(AS5600_ADDR);
+  Wire.write(0x0C); // RAW ANGLE
+  if (Wire.endTransmission(false) != 0) {
+    return 0;
   }
-  Serial.println("uart enabled..");
+
+  delayMicroseconds(10); // estabilidad
+
+  Wire.requestFrom(AS5600_ADDR, 2);
+
+  if (Wire.available() >= 2) {
+    uint16_t high = Wire.read();
+    uint16_t low = Wire.read();
+    return (high << 8) | low;
+  }
+
+  return 0;
 }
 
-// the loop function runs over and over again forever
+// ----------- Lectura STATUS -----------
+uint8_t readStatus() {
+  Wire.beginTransmission(AS5600_ADDR);
+  Wire.write(0x0B); // STATUS
+  Wire.endTransmission(false);
+  Wire.requestFrom(AS5600_ADDR, 1);
+
+  if (Wire.available()) {
+    return Wire.read();
+  }
+  return 0;
+}
+
+// ----------- SETUP -----------
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  Wire.setClock(100000); // más estable
+
+  Serial.println("AS5600 test iniciado...");
+}
+
+// ----------- LOOP -----------
 void loop() {
+  uint16_t raw = readAngleRaw();
+  uint8_t status = readStatus();
 
-  /*
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(1000);                       // wait for a second
-*/
+  float angle = raw * 360.0 / 4096.0;
 
+  Serial.print("STATUS: ");
+  Serial.print(status, BIN);
 
+  Serial.print("  RAW: ");
+  Serial.print(raw);
 
-  // Giro sentido 1
-  analogWrite(RPWM, 180);  // velocidad (0–255)
-  analogWrite(LPWM, 0);
-  delay(3000);
+  Serial.print("  ANGLE: ");
+  Serial.println(angle);
 
-  //  Pausa
-  analogWrite(RPWM, 0);
-  analogWrite(LPWM, 0);
-  delay(2000);
-
-  //  Giro sentido contrario
-  analogWrite(RPWM, 0);
-  analogWrite(LPWM, 180);
-  delay(3000);
-
-  //  Pausa
-  analogWrite(RPWM, 0);
-  analogWrite(LPWM, 0);
-  delay(2000);
-
-  Serial.println("testing 00");
-
+  delay(200);
 }
