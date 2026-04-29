@@ -13,8 +13,9 @@ prob = ODEProblem(f!, u0, xspan)
 sol = solve(prob)
 
 using Plots
-p=plot(sol, label="Solución numérica")
+p=plot(sol,label="y")
 savefig(p,"sol.png")
+
 
 
 
