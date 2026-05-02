@@ -68,7 +68,7 @@
           <dia:boolean val="true"/>
         </dia:attribute>
         <dia:attribute name="snap-to-grid">
-          <dia:boolean val="true"/>
+          <dia:boolean val="false"/>
         </dia:attribute>
         <dia:attribute name="snap-to-guides">
           <dia:boolean val="true"/>
@@ -88,6 +88,7 @@
       </dia:composite>
     </dia:attribute>
   </dia:diagramdata>
+  <dia:layer name="Background" visible="true" connectable="true"/>
   <dia:layer name="Background" visible="true" connectable="true"/>
   <dia:layer name="Background" visible="true" connectable="true"/>
   <dia:layer name="Background" visible="true" connectable="true"/>
@@ -153,6 +154,9 @@
       <dia:attribute name="elem_height">
         <dia:real val="1.9000000000000001"/>
       </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#ff0000ff"/>
+      </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
       </dia:attribute>
@@ -184,17 +188,20 @@
     </dia:object>
     <dia:object type="Standard - Line" version="0" id="O2">
       <dia:attribute name="obj_pos">
-        <dia:point val="9.10935,6.00124"/>
+        <dia:point val="9.10934,6.00123"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="9.05918,5.6481;12.4555,6.37171"/>
+        <dia:rectangle val="9.05917,5.6481;12.4555,6.3717"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="9.10935,6.00124"/>
+        <dia:point val="9.10934,6.00123"/>
         <dia:point val="12.4053,6.01234"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
+      </dia:attribute>
+      <dia:attribute name="line_color">
+        <dia:color val="#ff0000ff"/>
       </dia:attribute>
       <dia:attribute name="end_arrow">
         <dia:enum val="22"/>
@@ -242,7 +249,7 @@
         <dia:point val="4,4.87032"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="4,4.36675;6.76606,5.85744"/>
+        <dia:rectangle val="4,4.38282;6.75,5.82532"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -276,7 +283,7 @@ U(s)#</dia:string>
         <dia:point val="19.7061,4.65199"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="19.7061,4.14843;21.7376,6.43912"/>
+        <dia:rectangle val="19.7061,4.16449;21.7216,6.40699"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
@@ -420,7 +427,10 @@ U(s)-Y(s)#</dia:string>
         <dia:real val="2.157998046875"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="1.9000000000000001"/>
+        <dia:real val="1.9000000000000004"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#ff0000ff"/>
       </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
@@ -456,7 +466,7 @@ U(s)-Y(s)#</dia:string>
         <dia:point val="15.1868,6.01234"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="15.136,5.66236;16.6207,6.38586"/>
+        <dia:rectangle val="15.1359,5.66236;16.6207,6.38585"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="15.1868,6.01234"/>
@@ -464,6 +474,9 @@ U(s)-Y(s)#</dia:string>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
+      </dia:attribute>
+      <dia:attribute name="line_color">
+        <dia:color val="#ff0000ff"/>
       </dia:attribute>
       <dia:attribute name="end_arrow">
         <dia:enum val="22"/>
@@ -492,6 +505,9 @@ U(s)-Y(s)#</dia:string>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
+      </dia:attribute>
+      <dia:attribute name="line_color">
+        <dia:color val="#ff0000ff"/>
       </dia:attribute>
       <dia:attribute name="end_arrow">
         <dia:enum val="22"/>
@@ -526,6 +542,9 @@ U(s)-Y(s)#</dia:string>
       </dia:attribute>
       <dia:attribute name="autorouting">
         <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="line_color">
+        <dia:color val="#0000ffff"/>
       </dia:attribute>
       <dia:attribute name="end_arrow">
         <dia:enum val="22"/>
