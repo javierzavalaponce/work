@@ -1,15 +1,12 @@
 using ControlSystems, Plots
 
 s = tf("s")
+R = 1000    # 1 KOhm
+C = 100e-6  # 100 microfaradios
 
-R = 1.0
-C = 1.0
 
-G = 1 / (R*C*s)
+G = 1 / (R*C*s + 1)  
 
 p = plot(rlocus(G))
-plot!(title="Root Locus RC")
-
-savefig(p, "rlocus.png")
-
+savefig(p, "root_locus.png")
 
