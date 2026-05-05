@@ -3,7 +3,7 @@
 
 \begin{center}
 \Huge
-\textbf{Reporte 5}
+\textbf{Reporte 6}
 
 \vspace{0.5cm}
 
@@ -21,7 +21,7 @@ Javier Zavala Ponce
 
 \vspace{2cm}
 
-Abril 2026
+Mayo 2026
 \end{center}
 
 \vfill
