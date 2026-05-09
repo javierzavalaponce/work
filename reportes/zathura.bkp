@@ -1,0 +1,13 @@
+# Alternar color invertido con Ctrl+i (ya lo tienes)
+map <C-i> recolor
+
+# Ajustes que sí funcionan
+set adjust-open-width true
+set scroll-page-aware true
+set recolor-lightcolor "#1e1e2e"
+set recolor-darkcolor "#cdd6f4"
+set statusbar-bg "#313244"
+set statusbar-fg "#89b4fa"
+set statusbar-h-padding 8
+
+

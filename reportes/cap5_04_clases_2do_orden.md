@@ -1,6 +1,6 @@
 ### Sistemas de segundo orden
 
-La ecuación caracteristica de un sistema de segundo orden se escribe como:
+La ecuación (la forma canónica) característica de un sistema de segundo orden se escribe como:
 
 ```{=latex}
 \begin{equation}

@@ -1,8 +1,13 @@
+```{=latex}
+\clearpage
+```
+
 # Clases de Dr. Basilio Del Muro Cuellar: Espacio de estados
 
 \vspace{1cm}
 
-Mis notas del curso. 1er semestre 2026.
+Mis notas del curso. 1er semestre 2026. Decidí escribir esto para solidificar
+mi propio conocimiento de sistemas de control.
 
 ## Repaso de Control Clásico
 

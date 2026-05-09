@@ -1,11 +1,6 @@
-
----
-fontsize: 12pt
-toc-title: "Índice General"
-reference-section-title: Referencias
----
-
-\newpage
+```{=latex}
+\clearpage
+```
 
 #  Libro: Thinking in Systems (D. Meadows)
 
@@ -37,7 +32,3 @@ y tambien Bertalanffy.
 
 Creo que el motivo detras de las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo, e inclusive en el paradigma ideologico y la base epistemologica con
 que el observador realiza un modelo. 
-
-
-\newpage
-
