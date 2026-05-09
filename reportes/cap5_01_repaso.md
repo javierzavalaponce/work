@@ -148,24 +148,26 @@ ft = \frac{Y(s)}{U(s)} = \frac{1}{(RCs+1)}
 El polinomio del denominador, tambien llamado **ecuación caracteristica** es de primer grado ( tiene un solo *polo* ).  
 
 
-Esto se traduce a bloques en un sistema SISO (Single input, single output)
-como un sistema en lazo cerrado con retroalimentación unitaria. El diagrama en lazo cerrado es una *equivalencia matemática* del circuito físico.
+El diagrama en bloques en lazo cerrado del RC constituye una *equivalencia matemática* útil **para analizar la dinámica del sistema**. Esto no implica que el circuito RC posea una retroalimentación física explícita
+
+En particular, un circuito RC no compara la salida contra la entrada, ni posee un sumador de error o un controlador como en los sistemas clásicos de control. La dinámica del sistema surge porque el capacitor *almacena energía* e introduce dependencia temporal en la evolución del voltaje y la corriente.
+
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.0\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/rc_control.pdf}
 \caption{RC como sistema en lazo cerrado}
-\label{fig:RC bloques}
+\label{fig:rc_a_bloques}
 \end{figure}
 
 En resumen, un RC es:
 
 * Un sistema lineal e invariante en el tiempo
-* Un sistema de primer orden con un solo polo **real** negativo $s=-1/RC$
-* O bien , ya que la constante de tiempo  $\tau = RC$ , el polo es $s=-\frac{1}{\tau}$
-* Su respuesta temporal ante una entrada escalón es una exponencial decreciente estable.
+* Un sistema de primer orden con un solo polo **real** negativo $s=-1/RC$, o bien , ya que la constante de tiempo  $\tau = RC$ , el polo es $s=-1/ \tau$
 * Un polo real produce una respuesta exponencial no oscilatoria
 * Entre mas cerca queda el polo del eje imaginario (es decir, mas próximo a cero), mas lento es el tiempo de establecimiento
+
+**Al aplicar un *escalón* al $RC$:** La corriente en el circuito (o la tensión en la resistencia) responde con una exponencial decreciente; la tensión en el capacitor responde con una exponencial creciente hacia el valor de escalón.
 
 \newpage 
 
@@ -199,7 +201,7 @@ savefig("respuesta_escalon.png")
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.3\textheight]{./img/respuesta_escalon.png}
-\caption{Respuesta al escalón de 5V}
+\caption{Respuesta al escalón unitario}
 \end{figure}
 
 
@@ -209,15 +211,21 @@ savefig("respuesta_escalon.png")
 #### root locus
 \
 
-El root locus es una herramienta gráfica de análisis que muestra cómo se mueven los polos del sistema en lazo cerrado al variar la ganancia $k$, Tambien se llama LGR (Lugar geométrico de las raices) , es útil **pedagógicamente** porque muestra que en el caso del RC:
+El root locus es una herramienta gráfica de análisis que muestra cómo se mueven los polos del sistema en lazo cerrado al variar una ganancia $K$, Tambien se llama LGR (Lugar geométrico de las raices) , es útil **pedagógicamente** porque muestra que en el caso del RC:
 
 * hay un solo polo,
 * se desplaza sobre el eje real,
 * mientras permanezca negativo el sistema sigue estable.
 
-**Nota:** Aunque el RC pasivo no posee una ganancia $k$ explícita, modificar $R$ o $C$ altería la dinámica del sistema. 
+**Nota aclaratoria:** Aunque el RC pasivo no posee una ganancia $K$ explícita, modificar $R$ o $C$ altería la dinámica del sistema (ver figura \ref{fig:rc_a_bloques}).  En aplicaciones de audio, modificar $R$ o $C$ cambia la frecuencia de corte ($f_c$) del filtro y, por tanto, su respuesta espectral.
 
-En aplicaciones de audio, modificar R o C cambia la frecuencia de corte del filtro y, por tanto, su respuesta espectral.
+```{=latex}
+\begin{equation}
+\begin{aligned}
+f_c = \frac{1}{\pi RC}
+\end{aligned}
+\end{equation}
+```
 
 Código *julia* para visualizar el lugar geometrico del polo:
 
@@ -239,7 +247,7 @@ savefig(p, "root_locus.png")
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.35\textheight]{./img/root_locus.png}
-\caption{root locus}
+\caption{root locus del RC}
 \end{figure}
 
 
