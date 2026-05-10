@@ -18,6 +18,9 @@ G(s) = \frac{s+5}{(s-1)(s+2)(s+3)(s+4)}
 * Número de ceros: $m$=1 (en $s=−5$)
 \
 * Número de asíntotas $n−m$  ($4-1=3$ en este caso)
+\
+* Número de trayectorias $n$  (núm. de polos)
+
 
 El centroide o P.I.A. es:
 
@@ -65,28 +68,6 @@ El número de asíntotas ($n - m$) del LGR es igual a la diferencia entre el nú
 * El LGR es simétrico *respecto al eje real*. (Las raíces complejas siempre aparecen en pares conjugados). El LGR es espejo en el eje real.
 
 * Las asíntotas son *rayos* (líneas rectas punteadas) que parten del P.I.A. con ángulos fijos y equiespaciados (máxima separación angular posible). Guían las trayectorias del LGR que no terminan en ceros finitos, como "rieles" hacia el infinito cuando $k$ es muy grande.
-
-
-
-
-**Esqueleto completo**:
-
-
-Eje real $\rightarrow$ regla de impares
-
-Asíntotas $\rightarrow$ comportamiento al infinito
-
-Centroide $\rightarrow$ punto de salida de asíntotas
-
-Condición de ángulo $\rightarrow$ pertenencia
-
-Condición de magnitud $\rightarrow$ ganancia
-
-Breakpoints $\rightarrow$ cambios de dirección
-
-Cruce imaginario $\rightarrow$ estabilidad
-
-
 
 
 \newpage
