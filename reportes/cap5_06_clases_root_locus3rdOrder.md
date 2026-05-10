@@ -90,7 +90,8 @@ El número de asíntotas ($n - m$) del LGR es igual a la diferencia entre el nú
 4. El LGR es simétrico *respecto al eje real*. (Las raíces complejas siempre aparecen en pares conjugados). El LGR es espejo en el eje real.
 
 
-5. Las **asíntotas** son *rayos* (líneas rectas punteadas) que parten del P.I.A. con ángulos fijos y equiespaciados (máxima separación angular posible). Guían las trayectorias del LGR que no terminan en ceros finitos, como "rieles" hacia el infinito cuando $k$ es muy grande.
+5. Las **asíntotas** son *rayos* (líneas rectas punteadas) que parten del P.I.A. con ángulos fijos y equiespaciados (máxima separación angular posible). Guían las trayectorias del LGR que no terminan en ceros finitos, como "rieles" hacia el infinito cuando $k$ es muy grande. 
+    * Los angulos de las asíntotas 
 
  
 
