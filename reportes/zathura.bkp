@@ -11,3 +11,4 @@ set statusbar-fg "#89b4fa"
 set statusbar-h-padding 8
 
 
+sudo apt install zathura-pdf-poppler
