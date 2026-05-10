@@ -37,9 +37,12 @@ P.I.A = \frac{(+1-2-3-4)-(-5)}{4 - 1} = \frac{-3}{3} = -1
 \end{equation}
 ```
 
+#### Resumen de las reglas del LGR
 
+Comprender las reglas del LGR permite visualizar el efecto de
+añadir o quitar un polo o un cero al sistema sin realizar calculos matematicos.
 
-#### Resumen de las reglas clave del LGR
+0. asdf
 
 1. El número de ramas del root locus es igual al número de polos del sistema en lazo abierto $n$.
 
@@ -47,16 +50,34 @@ P.I.A = \frac{(+1-2-3-4)-(-5)}{4 - 1} = \frac{-3}{3} = -1
 
 3. Un punto del eje real pertenece al LGR si el número de *polos y ceros* reales a su derecha es impar.
 
-3. Trayectorias sobre el eje real: Un punto sobre el eje real pertenece al LGR si el número de polos y ceros reales a su derecha es impar (Regla de los impares). (Determina qué segmentos del eje real son parte del camino hacia la rueda).
-
 4. Puntos de inicio y fin ($k = 0$ y $k$ = $\infty$):
 
     Cuando la ganancia $k$ = 0, las ramas inician en los polos.
 
-    Cuando la ganancia $k$ $\rightarrow$ $\pm \infty$ , las ramas terminan en los ceros (si los hay) o se van al infinito siguiendo las asíntotas. (Los rayos de la rueda son el camino que siguen las ramas que no llegan a un cero).
+    Cuando la ganancia $k$ $\rightarrow$ $\infty$ , las ramas terminan en los ceros (si los hay) o se van al infinito siguiendo las asíntotas. (Los rayos de la rueda son el camino que siguen las ramas que no llegan a un cero).
 
-```c
->julia 
-```
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight]{./img/rlocus_matlab_style.png}
+\caption{root locus del RC}
+\end{figure}
+
+
+Versión completa mental del LGR
+
+Si lo quieres ver limpio, el “esqueleto completo” es:
+
+Polos → inicio
+Ceros → final
+Eje real → regla de impares
+Asíntotas → comportamiento al infinito
+Centroide → punto de salida de asíntotas
+Condición de ángulo → pertenencia
+Condición de magnitud → ganancia
+Breakpoints → cambios de dirección
+Cruce imaginario → estabilidad
+
+
+
 \newpage
  
