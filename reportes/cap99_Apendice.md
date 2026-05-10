@@ -2,14 +2,10 @@
 
 # Apéndice
 
-## Transformada de Laplace
+## Tbd1
 asdfasdf
 
-## RC en Arduino, emulacion
+## Tbd2
 
-asdf
-a
-
-asdf
-
+...
 \newpage

@@ -1,18 +1,18 @@
-### root locus
+### root locus. 1 er orden
 
 
-El root locus es una herramienta gráfica de análisis que muestra cómo se mueven los polos del sistema en lazo cerrado al variar una ganancia $K$, Tambien se llama LGR (Lugar geométrico de las raices) , es útil **pedagógicamente** porque muestra que en el caso del RC:
+El root locus es una herramienta gráfica de análisis que muestra cómo se mueven los polos del sistema en lazo cerrado al variar una ganancia $K$, Tambien se llama LGR (Lugar geométrico de las raices) , aquí es útil **pedagógicamente** porque muestra que en el caso del RC:
 
 * hay un solo polo,
 * se desplaza sobre el eje real,
 * mientras permanezca negativo el sistema sigue estable.
 
-**Nota aclaratoria:** Aunque el RC pasivo no posee una ganancia $K$ explícita, modificar $R$ o $C$ altería la dinámica del sistema (ver figura \ref{fig:rc_a_bloques}).  En aplicaciones de audio, modificar $R$ o $C$ cambia la frecuencia de corte ($f_c$) del filtro y, por tanto, su respuesta espectral.
+**Nota aclaratoria:** Aunque el RC pasivo no posee una ganancia $K$ explícita, modificar $R$ o $C$ altera la dinámica del sistema (ver figura \ref{fig:rc_a_bloques}).  En aplicaciones de audio, modificar $R$ o $C$ cambia la frecuencia de corte ($f_c$) del filtro y, por tanto, su respuesta espectral.
 
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-f_c = \frac{1}{\pi RC}
+f_c = \frac{1}{2\pi RC}
 \end{aligned}
 \end{equation}
 ```

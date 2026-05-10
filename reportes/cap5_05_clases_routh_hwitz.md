@@ -13,7 +13,6 @@ P(s)=a_n s^n + a_{n-1}s^{n-1} + a_{n-2}s^{n-2} + \cdots + a_0
 \end{equation}
 ```
 \
-\
 
 El *algoritmo* de este criterio es:
 
@@ -35,20 +34,31 @@ Más concretamente, si se tiene:
 
 \begin{center}
 \begin{tabular}{c|c c c}
-$s^n$     & $a$ & $b$ & $c$ \\
-$s^{n-1}$ & $d$ & $e$ & $f$ \\
+$s^n$     & $\alpha$ & $b$ & $C$ \\
+$s^{n-1}$ & $\phi$ & $e$ & $F$ \\
+$s^{n-2}$ & $\gamma$ & $H$ & ...\\
+...& & &
 \end{tabular}
 \end{center}
 
-Entonces el primer elemento de la siguiente sería:
+Entonces los elementos $\gamma$ y $H$ de la siguiente fila son:
 
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\frac{(d)(b)-(a)(e)}{d}
+\gamma = \frac{(\phi)(b)-(\alpha)(e)}{\phi}
 \end{aligned}
 \end{equation}
 ```
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+H = \frac{(\phi)(C)-(\alpha)(F)}{\phi}
+\end{aligned}
+\end{equation}
+```
+
 
 **Para estabilidad:**
 Todos los elementos de la primera columna deben ser positivos.
@@ -137,6 +147,6 @@ El criterio de Routh–Hurwitz permite determinar:
 
 * Cuántas raíces tienen parte real positiva (inestables)
 * Cuántas están en el semiplano izquierdo (estables)
-* Y qué condiciones deben cumplir los coeficientes (en función de k) para que TODAS las raíces sean estables
+* Y qué condiciones deben cumplir los coeficientes (en función de k) para que *todas* las raíces sean estables
 
 \newpage
