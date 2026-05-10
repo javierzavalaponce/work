@@ -23,33 +23,35 @@ function plot_asymptotes!(plot_obj, poles, zeros)
         mask = abs.(y) .< 15
         plot!(plot_obj, x[mask], y[mask], 
               linestyle = :dash, linecolor = :green, 
-              linewidth = 1.2, label = "")  # Label vacío para no saturar
+              linewidth = 1.2, label = "")
     end
     
     # Marcar el centroide
     scatter!(plot_obj, [sigma_a], [0], 
              marker = (:star, 6, :magenta), 
-             label = "Centroide en $(round(sigma_a, digits=2))")
+             label = "Centroide σ_a = $(round(sigma_a, digits=2))")
 end
 
-# Definir el sistema
-zeros = [-5]
-poles_list = [1, -2, -3, -4]
+# ==========================================
+# DEFINIR EL SISTEMA (CORREGIDO)
+# ==========================================
+zeros = Float64[]             # ← CAMBIADO: Vector vacío de Float64
+poles_list = [1, -2, -3]      # Polos: 1, -2, -3
 k = 1
 
 G = zpk(zeros, poles_list, k)
 
-# Crear el gráfico SIN leyenda automática (control manual)
+# Crear el gráfico LGR
 p = rlocusplot(
     G,
     xlabel = "Parte real",
     ylabel = "Parte imaginaria",
-    title = "LGR",
-    legend = true,          # ← Cambiado de false a true
+    title = "LGR con asíntotas",
+    legend = true,
     grid = true
 )
 
-# Dibujar polos y ceros
+# Dibujar polos (X rojas)
 scatter!(
     p,
     real.(poles(G)),
@@ -58,17 +60,22 @@ scatter!(
     label = "Polos"
 )
 
-scatter!(
-    p,
-    real.(zeros),
-    imag.(zeros),
-    marker = (:circle, 8, :blue),
-    label = "Ceros"
-)
+# Dibujar ceros (no hay, pero por si acaso)
+if !isempty(zeros)
+    scatter!(
+        p,
+        real.(zeros),
+        imag.(zeros),
+        marker = (:circle, 8, :blue),
+        label = "Ceros"
+    )
+end
 
-# AÑADIR ASÍNTOTAS (antes de display y savefig)
+# Añadir las asíntotas
 plot_asymptotes!(p, poles_list, zeros)
 
-# Mostrar y guardar (después de añadir todo)
+# Mostrar y guardar
 display(p)
-savefig(p, "rlocus_with_asymptotes.png")
+savefig(p, "lgr_polos_1_-2_-3.png")
+
+println("✅ Gráfico guardado exitosamente!")

@@ -15,7 +15,7 @@ G(s) = \frac{s+5}{(s-1)(s+2)(s+3)(s+4)}
 \
 * Número de polos: $n$=4 (en $s= +1, −2, −3, −4$)
 \
-* Número de ceros: $m$=1 (en s=−5s=−5)
+* Número de ceros: $m$=1 (en $s=−5$)
 \
 * Diferencia: n−m → tres asíntotas
 
@@ -37,6 +37,14 @@ P.I.A = \frac{(+1-2-3-4)-(-5)}{4 - 1} = \frac{-3}{3} = -1
 \end{equation}
 ```
 
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.35\textheight]{./img/rlocus_with_asymptotes.png}
+\caption{LGR con asíntotas}
+\end{figure}
+
+\newpage
+
 #### Resumen de las reglas del LGR
 
 Comprender las reglas del LGR permite visualizar el efecto de
@@ -56,26 +64,30 @@ añadir o quitar un polo o un cero al sistema sin realizar calculos matematicos.
 
     Cuando la ganancia $k$ $\rightarrow$ $\infty$ , las ramas terminan en los ceros (si los hay) o se van al infinito siguiendo las asíntotas. (Los rayos de la rueda son el camino que siguen las ramas que no llegan a un cero).
 
-\begin{figure}[H]
-\centering
-\includegraphics[height=0.35\textheight]{./img/rlocus_matlab_style.png}
-\caption{root locus del RC}
-\end{figure}
 
 
 Versión completa mental del LGR
 
-Si lo quieres ver limpio, el “esqueleto completo” es:
+**Esqueleto completo**:
 
-Polos → inicio
-Ceros → final
-Eje real → regla de impares
-Asíntotas → comportamiento al infinito
-Centroide → punto de salida de asíntotas
-Condición de ángulo → pertenencia
-Condición de magnitud → ganancia
-Breakpoints → cambios de dirección
-Cruce imaginario → estabilidad
+Polos $\rightarrow$ inicio
+
+Ceros $\rightarrow$ final
+
+Eje real $\rightarrow$ regla de impares
+
+Asíntotas $\rightarrow$ comportamiento al infinito
+
+Centroide $\rightarrow$ punto de salida de asíntotas
+
+Condición de ángulo $\rightarrow$ pertenencia
+
+Condición de magnitud $\rightarrow$ ganancia
+
+Breakpoints $\rightarrow$ cambios de dirección
+
+Cruce imaginario $\rightarrow$ estabilidad
+
 
 
 
