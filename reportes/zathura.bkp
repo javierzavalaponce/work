@@ -1,4 +1,8 @@
-# Alternar color invertido con Ctrl+i (ya lo tienes)
+sudo apt install zathura zathura-pdf-poppler
+mkdir -p ~/.config/zathura
+vim zathurarc:
+
+# Alternar color invertido con Ctrl+i 
 map <C-i> recolor
 
 # Ajustes que sí funcionan
@@ -11,4 +15,3 @@ set statusbar-fg "#89b4fa"
 set statusbar-h-padding 8
 
 
-sudo apt install zathura-pdf-poppler
