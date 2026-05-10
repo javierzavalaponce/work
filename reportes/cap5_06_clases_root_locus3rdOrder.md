@@ -17,7 +17,7 @@ G(s) = \frac{s+5}{(s-1)(s+2)(s+3)(s+4)}
 \
 * Número de ceros: $m$=1 (en $s=−5$)
 \
-* Diferencia: n−m → tres asíntotas
+* Número de asíntotas $n−m$  ($4-1=3$ en este caso)
 
 El centroide o P.I.A. es:
 
@@ -47,32 +47,30 @@ P.I.A = \frac{(+1-2-3-4)-(-5)}{4 - 1} = \frac{-3}{3} = -1
 
 #### Resumen de las reglas del LGR
 
-Comprender las reglas del LGR permite visualizar el efecto de
-añadir o quitar un polo o un cero al sistema sin realizar calculos matematicos.
+\
 
-0. asdf
+* Un punto del eje real pertenece al LGR si el número de *polos y ceros* reales a su derecha es impar.
 
-1. El número de ramas del root locus es igual al número de polos del sistema en lazo abierto $n$.
-
-2. El root locus es simétrico *respecto al eje real*.
-
-3. Un punto del eje real pertenece al LGR si el número de *polos y ceros* reales a su derecha es impar.
-
-4. Puntos de inicio y fin ($k = 0$ y $k$ = $\infty$):
-
-    Cuando la ganancia $k$ = 0, las ramas inician en los polos.
-
-    Cuando la ganancia $k$ $\rightarrow$ $\infty$ , las ramas terminan en los ceros (si los hay) o se van al infinito siguiendo las asíntotas. (Los rayos de la rueda son el camino que siguen las ramas que no llegan a un cero).
+* Asíntota y trayectoria son dos cosas diferentes, pero a veces se superponen.
+El número de asíntotas ($n - m$) del LGR es igual a la diferencia entre el número de polos ($n$) y el número de ceros($m$)  del sistema en lazo abierto:
+    * Número de asíntotas = $n - m$ (si $n$ > $m$)
+    * Número de trayectorias = $n$ (número de polos)
 
 
+* Cada trayectoria del LGR comienza en un polo ($k=0$) y termina en un cero. Algunas trayectorias no tienen destino, entonces se van “lejos” $\rightarrow \infty$
+    * Polos $\rightarrow$ inicio
+    * Ceros $\rightarrow$ final
 
-Versión completa mental del LGR
+
+* El LGR es simétrico *respecto al eje real*. (Las raíces complejas siempre aparecen en pares conjugados). El LGR es espejo en el eje real.
+
+* Las asíntotas son *rayos* (líneas rectas punteadas) que parten del P.I.A. con ángulos fijos y equiespaciados (máxima separación angular posible). Guían las trayectorias del LGR que no terminan en ceros finitos, como "rieles" hacia el infinito cuando $k$ es muy grande.
+
+
+
 
 **Esqueleto completo**:
 
-Polos $\rightarrow$ inicio
-
-Ceros $\rightarrow$ final
 
 Eje real $\rightarrow$ regla de impares
 

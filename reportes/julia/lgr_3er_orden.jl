@@ -49,23 +49,6 @@ p = rlocusplot(
     grid = true
 )
 
-# Dibujar polos y ceros
-scatter!(
-    p,
-    real.(poles(G)),
-    imag.(poles(G)),
-    marker = (:x, 8, :red),
-    label = "Polos"
-)
-
-scatter!(
-    p,
-    real.(zeros),
-    imag.(zeros),
-    marker = (:circle, 8, :blue),
-    label = "Ceros"
-)
-
 # AÑADIR ASÍNTOTAS (antes de display y savefig)
 plot_asymptotes!(p, poles_list, zeros)
 
