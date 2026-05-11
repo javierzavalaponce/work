@@ -135,15 +135,16 @@ uint8_t md,ml,mh;
   ml = status & ML;
   mh = status & MH;
 
-  //float angle = raw * 360.0 / 4096.0;
+  
+  float angle = raw * 360.0 / 4096.0;
   Serial.print("STATUS: ");
   Serial.print(status, BIN);
 
   Serial.print("  RAW: ");
   Serial.println(raw);
 
-  //Serial.print("  ANGLE: ");
-  //Serial.println(angle);
+  Serial.print("  ANGLE: ");
+  Serial.println(angle);
 
-  delay(80);
+  delay(300);
 }
