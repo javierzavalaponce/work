@@ -1,6 +1,11 @@
-#include <Arduino.h>
+// Arduino + AS5600 - Leer Revoluciones Por Segundo (RPS)
+// Librería: AS5600 de Rob Tillaart
+
 #include <Wire.h>
-#define AS5600_ADDR 0x36
+#include <AS5600.h>
+
+AS5600 as5600;
+
 
   // Pines BTS7960
 const int RPWM = 5;
@@ -8,94 +13,8 @@ const int LPWM = 6;
 const int R_EN = 7;
 const int L_EN = 8;
 
-#define MD (1<<3) //MAGNET DETECTED
-#define ML (1<<4) //MAGNET Low
-#define MH (1<<5) //MAGNET  high
 
-// ----------- Lectura RAW ANGLE -----------
-uint16_t readAngleRaw() {
-  Wire.beginTransmission(AS5600_ADDR);
-  Wire.write(0x0C); // RAW ANGLE
-  if (Wire.endTransmission(false) != 0) {
-    return 0;
-  }
-
-  delayMicroseconds(10); // estabilidad
-
-  Wire.requestFrom(AS5600_ADDR, 2);
-
-  if (Wire.available() >= 2) {
-    uint16_t high = Wire.read();
-    uint16_t low = Wire.read();
-    return (high << 8) | low;
-  }
-
-  return 0;
-}
-
-// ----------- Lectura STATUS -----------
-uint8_t readStatus() {
-  Wire.beginTransmission(AS5600_ADDR);
-  Wire.write(0x0B); // STATUS
-  Wire.endTransmission(false);
-  Wire.requestFrom(AS5600_ADDR, 1);
-
-  if (Wire.available()) {
-    return Wire.read();
-  }
-  return 0;
-}
-
-/*
-Que me puede decir el encoder
-STATUS (0x0B)
-MD	Magnet Detected	 - Hay imán válido
-ML	Magnet Low	- Campo muy débil
-MH	Magnet High	- Campo demasiado fuerte
-
---------
-RAW ANGLE 0x0C y 0x0D [0-4095 12bit adc]
-θ=RAW⋅360​ /4096
----
-
-
-ANGLE (filtrado)
-0x0E y 0x0F Es parecido a RAW pero:
-suavizado,
-compensado,
-filtrado.
-RAW suele ser mejor para control y debugging.
-
----
-Intensidad magnética - validar alineación.
-AGC 0x1A Automatic Gain Control.
-Te dice cuánto esfuerzo hace el chip para “ver” el imán.
-Interpretación intuitiva:
-AGC	Significado
-bajo	imán fuerte/cerca
-alto	imán lejos/débil
-
----
-MAGNITUDE 0x1B y 0x1C
-
-Magnitud real del campo magnético.
-Sirve para:
-centrar el imán,
-detectar wobble,
-detectar excentricidad.
-
-
-
-
-uint16_t readAngleFiltered(void);
-uint8_t read_AGC(void);
-uint16_t readMagnitud(void);
-
-
-*/
-
-
-void setup() {
+void setup_drivermotor() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
   Wire.begin();
@@ -115,36 +34,75 @@ void setup() {
   analogWrite(RPWM, 0);
   analogWrite(LPWM, 0);
 
-  //Initialize serial and wait for port to open:
-  Serial.begin(115200);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  Serial.println("uart enabled -** as5600..");
   analogWrite(RPWM, 30);
 }
 
-void loop() {
-  uint16_t raw = readAngleRaw();
-  uint8_t status = readStatus();
-uint8_t md,ml,mh;
 
-#define MD (1<<3) //MAGNET DETECTED
+// Variables
+int lastAngle = 0;
+float rpm = 0;
+unsigned long lastTime = 0;
+int revolutions = 0;
+unsigned long sampleCount = 0;
 
-  md = status & MD;
-  ml = status & ML;
-  mh = status & MH;
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  Wire.setClock(400000);
+  as5600.begin();
 
   
-  float angle = raw * 360.0 / 4096.0;
-  Serial.print("STATUS: ");
-  Serial.print(status, BIN);
+  setup_drivermotor();
+  
+  delay(100);
+  Serial.println("AS5600 RPS Reader Started");
+  Serial.println("Format: RPS,RPM,Angle");
+}
 
-  Serial.print("  RAW: ");
-  Serial.println(raw);
-
-  Serial.print("  ANGLE: ");
-  Serial.println(angle);
-
-  delay(300);
+void loop() {
+  // Leer ángulo (0-360 grados)
+  int rawAngle = as5600.readAngle();
+  int currentAngle = map(rawAngle, 0, 4095, 0, 360);
+  
+  unsigned long currentTime = micros();
+  
+  if (sampleCount > 0) {
+    // Calcular diferencia de ángulo
+    int delta = currentAngle - lastAngle;
+    
+    // Detectar cruce de 0 grados (una vuelta completa)
+    if (delta < -180) {
+      revolutions++;  // Una vuelta más en sentido horario
+      delta += 360;
+    } else if (delta > 180) {
+      revolutions--;  // Una vuelta en sentido antihorario
+      delta -= 360;
+    }
+    
+    // Calcular tiempo transcurrido en segundos
+    float deltaTime = (currentTime - lastTime) / 1000000.0;
+    
+    if (deltaTime > 0) {
+      // Calcular RPS (Revoluciones Por Segundo)
+      float rps = revolutions / deltaTime;
+      
+      // Calcular RPM (Revoluciones Por Minuto)
+      rpm = rps * 60;
+      
+      // Enviar datos por Serial
+      Serial.print(rps, 2);      // RPS con 2 decimales
+      Serial.print(",");
+      Serial.print(rpm, 0);      // RPM sin decimales
+      Serial.print(",");
+      Serial.println(currentAngle);
+    }
+  }
+  
+  // Guardar valores para la próxima lectura
+  lastAngle = currentAngle;
+  lastTime = currentTime;
+  sampleCount++;
+  
+  // Pequeña pausa para no saturar (ajustable)
+  delay(10);  // 10ms = 100 lecturas por segundo
 }

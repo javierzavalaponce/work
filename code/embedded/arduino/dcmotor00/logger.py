@@ -125,7 +125,7 @@ class Thread(threading.Thread):
 ###############################
 # Open serial port
 ###############################
-portname = "/dev/ttyACM1"
+portname = "/dev/ttyACM2"
 print(f"Connecting to port {portname}")
 
 try:
