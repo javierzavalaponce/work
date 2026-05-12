@@ -2,15 +2,17 @@
     "configurations": [
         {
             "name": "Arduino UNO",
-            "compilerPath": "/home/control/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc",
-            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/home/toto/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/avr-gcc",
+            "intelliSenseMode": "linux-gcc-x64",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/control/Arduino/libraries/**",
-                "/home/control/.arduino15/packages/**",
-                "/home/control/.arduino15/packages/arduino/hardware/avr/1.8.7/cores/arduino",
-                "/home/control/.arduino15/packages/arduino/hardware/avr/1.8.7/variants/standard",
-                "/home/control/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/avr/include"
+                "/home/toto/Arduino/libraries/**",
+                "/home/toto/Arduino/libraries/AS5600/src",
+                "/home/toto/.arduino15/packages/**",
+                "/home/toto/.arduino15/packages/arduino/hardware/avr/1.8.6/cores/arduino",
+                "/home/toto/.arduino15/packages/arduino/hardware/avr/1.8.6/variants/standard",
+                "/home/toto/.arduino15/packages/arduino/hardware/avr/1.8.6/libraries/Wire/src",
+                "/home/toto/.arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/avr/include"
             ],
             "defines": [
                 "ARDUINO=10819",

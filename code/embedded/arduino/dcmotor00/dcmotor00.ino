@@ -1,6 +1,7 @@
 // Arduino + AS5600 - Leer Revoluciones Por Segundo (RPS)
 // Librería: AS5600 de Rob Tillaart
 
+#include <Arduino.h>
 #include <Wire.h>
 #include <AS5600.h>
 
