@@ -125,7 +125,22 @@ julia> pole(feedback(100*G))
 \caption{Root locus: en s= -2 los polos se fusionan}
 \end{figure}
 
+El root locus dibuja cómo se mueven los polos del sistema cuando la ganancia $k$ aumenta desde 0 hasta infinito. 
+
 \newpage
+
+
+Cuando la ganancia es pequeña, los polos están cerca de los polos del sistema en lazo abierto (los puntos de partida). Cuando 
+$k$ crece, se mueven por el plano complejo.
+
+\
+\
+\
+\
+
+Respuesta temporal al escalón para diferentes valores de k
+
+\
 
 \begin{figure}[H]
 \centering
@@ -133,8 +148,6 @@ julia> pole(feedback(100*G))
 \caption{Respuesta al escalón con diferente k}
 \end{figure}
 
-El root locus dibuja cómo se mueven los polos del sistema cuando la ganancia $k$ aumenta desde 0 hasta infinito. Cuando la ganancia es pequeña, los polos están cerca de los polos del sistema en lazo abierto (los puntos de partida). Cuando 
-$k$ crece, se mueven por el plano complejo.
 
 \newpage
 
