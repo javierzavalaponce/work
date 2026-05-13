@@ -43,6 +43,7 @@ Alternativamente, en Laplace:
 
 ```{=latex}
 \begin{equation}
+\label{eq:controlador_pi}
 \begin{aligned}
 C(s)=k_p+\frac{k_i}{s} = \frac{k_p s + k_i}{s}
 \end{aligned}
@@ -54,7 +55,6 @@ O bien, con $k = k_p$ y $\alpha = (k_i/k_p)$
 
 ```{=latex}
 \begin{equation}
-\label{eq:controlador_pi}
 \begin{aligned}
 C(s)=\frac{k(s+\alpha)}{s}
 \end{aligned}
