@@ -1,45 +1,27 @@
 ### Control PI
 
+Pregunta:
+
+* ¿Qué tan lejos se está del objetivo?
+* ¿Desde hace cuánto tiempo se está equivocado?
+
+Y usa ambas cosas para corregir el sistema. Una analogía: imagine llenar un vaso con agua hasta una marca exacta:
+
+* Si falta mucha agua, se abre más la llave, si falta poca, se abre menos la llave.
+
+* Si pasa mucho tiempo y no se ha alcanzado la marca, se abre más la llave.
+
+* Al llegar a la marca puede que se pase y que luego haya que corregir hacia atrás. Se entiende que no es un fracaso del control, sino una consecuencia manejable.
+
 
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.32\textheight,trim=0cm 2cm 0cm 2cm,clip]{./img/pi_a_bloques.pdf}
-\caption{Controlador PI}
+\caption{$C(s)=k_p+\frac{k_i}{s} = \frac{k_p s + k_i}{s}$ $\rightarrow$ introduce polo en el origen $s=0$ trayectoria cero en $s = -k_i/k_p$}
 \label{fig:pi_a_blokes}
 \end{figure}
 
-Formula del PI
-
-
-```{=latex}
-\begin{equation}
-\begin{aligned}
-u(t)=K_p e(t)+K_i \int e(t)\,dt
-\end{aligned}
-\end{equation}
-```
-Donde: 
-
-\
-$e(t)$: error 
-\
-$u(t)$: acción de control 
-\
-$k_p$ : constante proporcional. La parte $P$ responde al presente (reacción inmediata: *qué tan "agresivo" reacciona el sistema*)
-\
-$k_i$ : constante de integración. La parte $I$ responde al pasado acumulado. La integral funciona como memoria. Si el error dura mucho, aunque sea pequeño, la integral crece.
-
-
-**Analogía física**: Al llenar un tanque.
-
-* Parte P: *¿Qué tan lejos estoy del nivel deseado?”*
-
-* Parte I:  *¿Cuánto tiempo llevo debajo del nivel correcto?*, Su efecto: 
-            elimina error en estado estacionario para entradas escalón.
-
-
-\
-Alternativamente, en Laplace:
+En Laplace:
 
 ```{=latex}
 \begin{equation}
