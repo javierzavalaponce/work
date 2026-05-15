@@ -1,14 +1,23 @@
 \newpage
 ### Polos y ceros
 
-Definición:
-En una **funcion de transferencia** $ft=H(s)$:
+Definición, en una **funcion de transferencia** (expresada como division de Polinomios)
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+ft =  H(s)= \frac{N(s)}{D(s)}
+\end{aligned}
+\end{equation}
+```
+
+
 
 * Los ceros de una $ft$ son las $frecuencias$ (valores de $s$) para los
-        cuales el *numerador* de $H(s)=0$
+        cuales el *numerador* $N(s)=0$
 
 * Los polos de una $ft$ son las $frecuencias$ (valores de $s$) para los
-        cuales el *denominador* de $H(s)=0$
+        cuales el *denominador* $D(s)=0$
 
 Forma general de una $ft$:
 
@@ -33,26 +42,40 @@ h(t) = \mathcal{L}^{-1}\{H(s)\}
 * Los polos determinan directamente los *modos naturales* (un modo = una pieza elemental de comportamiento temporal). 
 * Los ceros no crean modos nuevos; más bien moldean, cancelan o enfatizan esos modos.
 
-Relación entre ubicación de polos y comportamiento temporal:
-
-| Ubicación del polo | Respuesta temporal asociada |
-|---|---|
-| $s < 0$ real | decaimiento estable |
-| Más a la izquierda | respuesta más rápida |
-| Cerca del origen | respuesta lenta / memoria larga |
-| $s = 0$ | integración / acumulación |
-| Polos complejos | oscilación |
-| Parte imaginaria grande | oscilación más rápida |
-| Parte real negativa pequeña | oscilación persistente |
-| $s > 0$ real | crecimiento inestable |
-
-Relación general de los ceros:
-
-| Ubicación del cero | Efecto típico |
-|---|---|
-| Cero cercano a polos dominantes | modifica fuertemente la forma de la respuesta |
-| Ceros lejanos | efecto pequeño |
-| Cero en semiplano derecho | puede producir respuesta inversa o sobreimpulso |
-
-
 En el plano complejo, la ubicación de polos y ceros codifica directamente la manera en que un sistema evoluciona en el tiempo.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{0.26\textwidth}|p{0.30\textwidth}|p{0.28\textwidth}|}
+\hline
+\textbf{Condición} &
+\textbf{Ubicación de polos} &
+\textbf{Respuesta temporal} \\
+\hline
+
+Subamortiguado &
+polos complejos conjugados &
+oscilación con sobreimpulso \\
+\hline
+
+Críticamente amortiguado &
+dos polos reales iguales &
+respuesta más rápida sin oscilación \\
+\hline
+
+Sobreamortiguado &
+dos polos reales negativos distintos &
+respuesta lenta sin oscilación \\
+\hline
+
+Inestable &
+algún polo con $\Re(s)>0$ &
+respuesta creciente \\
+\hline
+
+\end{tabular}
+
+\caption{Relación entre amortiguamiento y ubicación de polos}
+\label{tab:amortiguamiento_polos}
+\end{table}
+
