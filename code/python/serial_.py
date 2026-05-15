@@ -1,15 +1,3 @@
-# -*- coding: utf-8 -*-
-#!/usr/bin/python
-"""
-tested wih python 2.7.11 on a windows machine
-(win7 professional)
-pyserial module needed
-history:
-    initial edition: 01 Mar 2017
-this script is to automate testing for Alphamos  project
-one thread is in charge of readading serial port, a second
-thread of writing (over serial port ).
-"""
 import threading
 import time
 import sys

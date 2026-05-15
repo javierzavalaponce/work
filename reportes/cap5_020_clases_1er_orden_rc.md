@@ -1,3 +1,5 @@
+\newpage
+
 ### Sistemas de primer orden, circuito RC
 
 La siguiente ecuación es una ecuacion diferencial lineal ordinaria de primer orden:
