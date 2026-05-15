@@ -46,36 +46,95 @@ En el plano complejo, la ubicación de polos y ceros codifica directamente la ma
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{0.26\textwidth}|p{0.30\textwidth}|p{0.28\textwidth}|}
+
+\begin{tabular}{
+|>{\centering\arraybackslash}p{0.26\textwidth}
+|>{\centering\arraybackslash}p{0.30\textwidth}
+|>{\centering\arraybackslash}p{0.33\textwidth}|
+}
+
 \hline
+
 \textbf{Condición} &
 \textbf{Ubicación de polos} &
 \textbf{Respuesta temporal} \\
+
 \hline
 
 Subamortiguado &
-polos complejos conjugados &
-oscilación con sobreimpulso \\
+Polos complejos conjugados &
+Oscilación con sobreimpulso \\
+
 \hline
 
 Críticamente amortiguado &
-dos polos reales iguales &
-respuesta más rápida sin oscilación \\
+Dos polos reales iguales &
+Respuesta más rápida sin oscilación \\
+
 \hline
 
 Sobreamortiguado &
-dos polos reales negativos distintos &
-respuesta lenta sin oscilación \\
+Dos polos reales negativos distintos &
+Respuesta lenta sin oscilación \\
+
 \hline
 
 Inestable &
-algún polo con $\Re(s)>0$ &
-respuesta creciente \\
+Algún polo con $\Re(s)>0$ &
+Respuesta creciente \\
+
 \hline
 
 \end{tabular}
 
 \caption{Relación entre amortiguamiento y ubicación de polos}
 \label{tab:amortiguamiento_polos}
+
 \end{table}
+
+\
+\
+
+* Polos complejos conjugados. Oscilación con sobreimpulso
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{./img/01_subamortiguado.png}
+\caption{Subamortiguado}
+\end{figure}
+
+\newpage
+
+* Dos polos reales iguales. Respuesta más rápida sin oscilación
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{./img/02_criticamente_amortiguado.png}
+\caption{Criticamente amortiguado}
+\end{figure}
+
+
+* Dos polos reales negativos distintos. Respuesta lenta sin oscilación
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{./img/03_sobreamortiguado.png}
+\caption{Sobreamortiguado}
+\end{figure}
+
+
+* Algún polo con $\Re(s)>0$. Respuesta creciente
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{./img/04_inestable.png}
+\caption{Inestable}
+\end{figure}
+
+
+
+
+
 
