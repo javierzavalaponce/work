@@ -133,8 +133,8 @@ Respuesta creciente \\
 \caption{Inestable}
 \end{figure}
 
+***Nota:*** Un controlador, al introducir nuevos polos y ceros, no sólo *corrige error*. También:
 
-
-
-
-
+* altera el orden del sistema,
+* modifica la ubicación de los polos,
+* cambia la dinámica y la respuesta temporal.
