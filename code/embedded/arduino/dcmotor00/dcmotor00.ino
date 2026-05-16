@@ -40,10 +40,12 @@ void setup_drivermotor() {
 
 
 // Variables
-int lastAngle = 0;
+int lastRawAngle = 0;
+
 float rpm = 0;
+
 unsigned long lastTime = 0;
-int revolutions = 0;
+
 unsigned long sampleCount = 0;
 
 void setup() {
@@ -61,49 +63,143 @@ void setup() {
 }
 
 void loop() {
-  // Leer ángulo (0-360 grados)
+
+  // ================================
+  // 1. Leer posición RAW del encoder
+  // ================================
+  //
+  // El AS5600 entrega:
+  //
+  // rawAngle ∈ [0,4095]
+  //
+  // Resolución:
+  //
+  // 360 / 4096 ≈ 0.0879 grados por paso
+  //
   int rawAngle = as5600.readAngle();
-  int currentAngle = map(rawAngle, 0, 4095, 0, 360);
-  
+
+
+  // ================================
+  // 2. Tiempo actual
+  // ================================
   unsigned long currentTime = micros();
-  
+
+
+  // ================================
+  // 3. Ejecutar sólo después
+  //    de tener una muestra previa
+  // ================================
   if (sampleCount > 0) {
-    // Calcular diferencia de ángulo
-    int delta = currentAngle - lastAngle;
-    
-    // Detectar cruce de 0 grados (una vuelta completa)
-    if (delta < -180) {
-      revolutions++;  // Una vuelta más en sentido horario
-      delta += 360;
-    } else if (delta > 180) {
-      revolutions--;  // Una vuelta en sentido antihorario
-      delta -= 360;
+
+    // ==========================================
+    // 4. Diferencia angular RAW
+    // ==========================================
+    //
+    // Δraw = raw(k) - raw(k-1)
+    //
+    int deltaRaw = rawAngle - lastRawAngle;
+
+
+    // ==========================================
+    // 5. Corregir wrap-around
+    // ==========================================
+    //
+    // El encoder es circular:
+    //
+    // 4095 -> 0
+    //
+    // o:
+    //
+    // 0 -> 4095
+    //
+    // Entonces corregimos saltos falsos.
+    //
+    if (deltaRaw < -2048) {
+      deltaRaw += 4096;
     }
-    
-    // Calcular tiempo transcurrido en segundos
-    float deltaTime = (currentTime - lastTime) / 1000000.0;
-    
-    if (deltaTime > 0) {
-      // Calcular RPS (Revoluciones Por Segundo)
-      float rps = revolutions / deltaTime;
-      
-      // Calcular RPM (Revoluciones Por Minuto)
-      rpm = rps * 60;
-      
-      // Enviar datos por Serial
-      Serial.print(rps, 2);      // RPS con 2 decimales
-      Serial.print(",");
-      Serial.print(rpm, 0);      // RPM sin decimales
-      Serial.print(",");
-      Serial.println(currentAngle);
+    else if (deltaRaw > 2048) {
+      deltaRaw -= 4096;
     }
+
+
+    // ==========================================
+    // 6. Tiempo entre muestras
+    // ==========================================
+    //
+    // micros() está en microsegundos
+    //
+    // convertimos a segundos
+    //
+    float deltaTime =
+      (currentTime - lastTime) / 1000000.0;
+
+
+    // ==========================================
+    // 7. Convertir RAW -> grados
+    // ==========================================
+    //
+    // Δθ = Δraw * (360 / 4096)
+    //
+    float deltaAngle =
+      deltaRaw * (360.0 / 4096.0);
+
+
+    // ==========================================
+    // 8. Velocidad angular
+    // ==========================================
+    //
+    // RPS = (Δθ / 360) / Δt
+    //
+    float rps =
+      (deltaAngle / 360.0) / deltaTime;
+
+
+    // ==========================================
+    // 9. RPM
+    // ==========================================
+    //
+    // RPM = RPS * 60
+    //
+    rpm = rps * 60.0;
+
+
+    // ==========================================
+    // 10. Ángulo actual en grados
+    // ==========================================
+    //
+    // Sólo para visualización
+    //
+    float currentAngle =
+      rawAngle * (360.0 / 4096.0);
+
+
+    // ==========================================
+    // 11. Imprimir resultados
+    // ==========================================
+    Serial.print(rps, 2);
+    Serial.print(",");
+
+    Serial.print(rpm, 1);
+    Serial.print(",");
+
+    Serial.println(currentAngle, 2);
   }
-  
-  // Guardar valores para la próxima lectura
-  lastAngle = currentAngle;
+
+
+  // ==========================================
+  // 12. Guardar muestra actual
+  // ==========================================
+  lastRawAngle = rawAngle;
   lastTime = currentTime;
+
   sampleCount++;
-  
-  // Pequeña pausa para no saturar (ajustable)
-  delay(10);  // 10ms = 100 lecturas por segundo
+
+
+  // ==========================================
+  // 13. Frecuencia de muestreo
+  // ==========================================
+  //
+  // 10 ms -> 100 Hz
+  //
+  delay(10);
 }
