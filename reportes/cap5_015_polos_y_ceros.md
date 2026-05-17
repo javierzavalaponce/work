@@ -41,7 +41,7 @@ h(t) = \mathcal{L}^{-1}\{H(s)\}
 
 En el plano complejo, la ubicación de polos y ceros codifica directamente la manera en que un sistema evoluciona en el tiempo.
 
-* Los polos determinan directamente los *modos naturales* (un modo = una pieza elemental de comportamiento temporal). 
+* Los polos determinan directamente los *modos* (un modo = una pieza elemental de comportamiento temporal). 
 * Los ceros no crean modos nuevos; más bien moldean, cancelan o enfatizan esos modos.
 
 
