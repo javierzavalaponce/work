@@ -1,15 +1,3 @@
-# -*- coding: utf-8 -*-
-#!/usr/bin/python3
-"""
-Tested with Python 3.x on Linux
-pyserial module needed
-history:
-    updated for Python 3: 10 May 2026
-    initial edition: 01 Mar 2017
-this script is to automate testing for Alphamos project
-one thread is in charge of reading serial port, a second
-thread of writing (over serial port).
-"""
 import threading
 import time
 import sys
@@ -45,20 +33,7 @@ def read_serial():
                 data = ser.read(ser.in_waiting)
                 
                 if data:
-                    # Decodificar
-                    text = data.decode('utf-8', errors='replace')
-                    
-                    # Mostrar con timestamp
-                    print(f"[{time.strftime('%H:%M:%S')}] {text}", end='')
-                    
-                    # Opcional: guardar en buffer para procesar líneas
-                    buffer += text
-                    if '\n' in buffer:
-                        lines = buffer.split('\n')
-                        for line in lines[:-1]:
-                            # Procesar cada línea completa aquí si es necesario
-                            pass
-                        buffer = lines[-1]
+                    print(data.decode(errors='ignore'), end='')
                         
             time.sleep(0.01)  # Evitar 100% CPU
             
@@ -72,21 +47,6 @@ def read_serial():
     print("[READER] Stopped")
 
 
-def write_serial():
-    """
-    Write data to serial port
-    """
-    global cmd
-    global quit_flag
-    global ser
-    
-    while not quit_flag:
-        time.sleep(1)
-        if cmd == '1' and ser and ser.is_open:
-            # Encode string to bytes for Python 3
-            ser.write(test_str.encode('utf-8'))
-            print("Test string sent!")
-            cmd = 0  # Reset cmd after sending
 
 def read_keyboard():
     """
@@ -150,10 +110,11 @@ except Exception as e:
 ###############################
 # Start threads
 print("\nStarting threads...")
+read_thread = Thread(read_serial)
 keyboard_thread = Thread(read_keyboard)
 #wite_thread = Thread(write_serial)
 # Uncomment if you want to use read_serial thread
-read_thread = Thread(read_serial)
+
 
 ###############################
 # Main loop - wait for quit

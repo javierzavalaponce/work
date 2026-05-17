@@ -39,10 +39,11 @@ h(t) = \mathcal{L}^{-1}\{H(s)\}
 \end{equation}
 ```
 
+En el plano complejo, la ubicación de polos y ceros codifica directamente la manera en que un sistema evoluciona en el tiempo.
+
 * Los polos determinan directamente los *modos naturales* (un modo = una pieza elemental de comportamiento temporal). 
 * Los ceros no crean modos nuevos; más bien moldean, cancelan o enfatizan esos modos.
 
-En el plano complejo, la ubicación de polos y ceros codifica directamente la manera en que un sistema evoluciona en el tiempo.
 
 \begin{table}[H]
 \centering
@@ -95,7 +96,7 @@ Respuesta creciente \\
 \
 \
 
-* Polos complejos conjugados. Oscilación con sobreimpulso
+Sobreamortiguado: polos complejos conjugados, oscilación con sobreimpulso:
 
 \begin{figure}[H]
 \centering
@@ -105,31 +106,32 @@ Respuesta creciente \\
 
 \newpage
 
-* Dos polos reales iguales. Respuesta más rápida sin oscilación
+Criticamente amortiguado: dos polos reales iguales. Respuesta más rápida sin oscilación:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.94\textwidth]{./img/02_criticamente_amortiguado.png}
+\includegraphics[width=1.0\textwidth]{./img/02_criticamente_amortiguado.png}
 \caption{Criticamente amortiguado}
 \end{figure}
 
+\vspace{2.8cm}
 
-* Dos polos reales negativos distintos. Respuesta lenta sin oscilación
+Sobreamortiguado: dos polos reales negativos distintos. Respuesta lenta sin oscilación:
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.94\textwidth]{./img/03_sobreamortiguado.png}
+\includegraphics[width=1.0\textwidth]{./img/03_sobreamortiguado.png}
 \caption{Sobreamortiguado}
 \end{figure}
 
-
-* Algún polo con $\Re(s)>0$. Respuesta creciente
+\newpage
+Inestable. Algún polo con parte real positiva $\Re(s)>0$. Respuesta creciente:
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.94\textwidth]{./img/04_inestable.png}
+\includegraphics[width=1.0\textwidth]{./img/04_inestable.png}
 \caption{Inestable}
 \end{figure}
 

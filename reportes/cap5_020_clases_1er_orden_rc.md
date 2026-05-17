@@ -145,14 +145,13 @@ s = tf("s")
 R = 1000    # 1 KOhm
 C = 100e-6  # 100 microfaradios
 
+# Función de Transferencia:
 G = 1 / (R*C*s + 1)  
-
-# Respuesta al escalon (5VDC, ejemplo)
+# Base de tiempo:
 t = 0:0.001:0.5
+# Respuesta al escalon unitario
 y, t_out = step(G, t)
-
 y = vec(y)
-
 plot(t_out, y,
      xlabel="Tiempo (s)",
      ylabel="Voltaje en capacitor (V)",
