@@ -4,7 +4,7 @@ pandoc \
   -B portada.md \
   cap*.md \
   -o resultado.pdf \
-  --pdf-engine=xelatex \
+  --pdf-engine=pdflatex \
   --toc \
   --number-sections \
   -H header.tex \
