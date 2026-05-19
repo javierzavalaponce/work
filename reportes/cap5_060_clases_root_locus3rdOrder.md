@@ -11,14 +11,14 @@ G(s) = \frac{s+5}{(s-1)(s+2)(s+3)(s+4)}
 ```
 
 Primero, ubicar los polos y ceros:
-Polos: $1,−2,−3,−4$
-Cero:  $−5$
+Polos: $1,-2,-3,-4$
+Cero:  $-5$
 
-* Número de polos: $n$=4 (en $s= +1, −2, −3, −4$)
+* Número de polos: $n$=4 (en $s= +1, -2, -3, -4$)
 
-* Número de ceros: $m$=1 (en $s=−5$)
+* Número de ceros: $m$=1 (en $s=-5$)
 
-* Número de asíntotas $n−m$  ($4-1=3$ en este caso)
+* Número de asíntotas $n-m$  ($4-1=3$ en este caso)
 
 * Número de trayectorias $n$  (núm. de polos)
 
@@ -41,7 +41,7 @@ P.I.A = \frac{(+1-2-3-4)-(-5)}{4 - 1} = \frac{-3}{3} = -1
 \end{equation}
 ```
 
-* Hay $n$ = 4 trayectorias: Una termina en el cero $s=−5$
+* Hay $n$ = 4 trayectorias: Una termina en el cero $s=-5$
 y las otras tres se van al infinito mediante asíntotas.
 
 * El tramo (entre $s=1$ y $s=-2$) sí es es parte del LGR. Estas trayectorias
@@ -50,9 +50,9 @@ interactúan entre sí produciendo un punto de ruptura *breakaway* hacia el plan
 * El tramo (entre $s=-3$ y $s=-4$) sí es es parte del LGR. Estas trayectorias
 interactúan entre sí.
 
-    * Una rama inicia en el polo $s=−4$ y se desplaza sobre el eje real hacia el cero $s=−5$ . Los ceros *atraen* trayectorias del LGR. (**REVISAR ESTE PUNTO**)
+    * Una rama inicia en el polo $s=-4$ y se desplaza sobre el eje real hacia el cero $s=-5$ . Los ceros *atraen* trayectorias del LGR. (**REVISAR ESTE PUNTO**)
 
-    * Otra rama inicia en el polo s=−3 y eventualmente se dirige hacia infinito.
+    * Otra rama inicia en el polo s=-3 y eventualmente se dirige hacia infinito.
 
 
 \begin{figure}[H]

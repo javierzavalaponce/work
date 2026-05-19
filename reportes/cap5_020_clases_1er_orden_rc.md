@@ -86,7 +86,7 @@ sY(s) = \frac{1}{RC} (U(s)-Y(s))
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-RCsY(s)=U(s)−Y(s)
+RCsY(s)=U(s)-Y(s)
 \end{aligned}
 \end{equation}
 ```
