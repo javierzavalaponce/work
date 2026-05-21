@@ -6,18 +6,17 @@
 
 ## Resumen
 
-Lo percibo como una especie de guía para entender por qué los problemas complejos (como la pobreza, el desempleo o el daño ambiental) persisten a pesar de las medidas que se han ido tomando. Donella Meadows, la autora, invita a dejar de buscar culpables externos y a observar la estructura interna de los sistemas al rededor de nosotros
+Problemas complejos (como la pobreza, el desempleo o el daño ambiental) ***"persisten a pesar de las medidas"*** que se han ido tomando. Donella Meadows, invita a observar la estructura interna de los sistemas:
 
 * Un sistema es un conjunto de elementos, interconexiones y un propósito. 
 	
-* Cambiar los elementos afecta; pero cambiar las interconexiones o el propósito transforma todo.
-	
+* Cambiar los elementos, las interconexiones transforma el sistema
 
-* Los sistemas tienen existencias (stocks) que cambian lentamente gracias a flujos (entradas y salidas). Esto genera inercia: las cosas no cambian de la noche a la mañana.[@hmeadows]
+* Los sistemas tienen existencias (stocks) que cambian lentamente gracias a flujos (*entradas y salidas*). Esto genera inercia.[@hmeadows]
 
-* El comportamiento del sistema contiene lazos de retroalimentación:
+* El sistema contiene lazos de retroalimentación:
 
-* Los sistemas nos sorprenden porque actuamos sin ver las demoras, los bucles ocultos o las metas contradictorias.
+* Los sistemas o los modelos de los mismos sorprenden porque a veces actuamos sin ver las demoras (*los retardos*), los bucles ocultos o ***las contradicciones*** en los sistemas (o sus modelos)
 
 * Palancas de cambio: lo más poderoso no es meter más dinero o gente, sino cambiar las reglas, los flujos de información o el propósito del sistema.
 
