@@ -59,7 +59,31 @@ La retroalimentación negativa con $k=1$ significa $u = (r-x)$ o bien:
 \begin{aligned}
 \dot{x} = r-x
 \end{aligned}
+\label{eq:sistema_primerorden}
 \end{equation}
+
+
+### Solución númerica. Método de Euler (*Forward o Explícito*)
+
+Euler desarrolló estas ideas durante el siglo XVIII. A partir de una ecuación diferencial como:
+
+\begin{equation}
+\begin{aligned}
+\dot{x} = f(x,t)
+\end{aligned}
+\end{equation}
+
+se aproxima la evolución usando pequeños pasos de tiempo:
+
+\begin{equation}
+\begin{aligned}
+\frac{x_{k+1}-x_k}{\Delta t}   =  f(x,t)
+\end{aligned}
+\end{equation}
+
+--- 
+
+Retomando la ecuación \ref{eq:sistema_primerorden}, podemos generar una solución numérica. Ver el siguiente ejemplo.
 
 \begin{equation}
 \begin{aligned}
@@ -67,7 +91,12 @@ La retroalimentación negativa con $k=1$ significa $u = (r-x)$ o bien:
 \end{aligned}
 \end{equation}
 
-La retroalimentación cambia la dinámica del sistema. En *julia*, un controlador proporcional discreto aplicado al integrador con referencia $r=5$:
+
+\newpage 
+
+
+En *julia*, un controlador proporcional discreto aplicado al integrador con referencia $r=5$:
+
 
 ``` julia
 using Plots
@@ -76,20 +105,33 @@ T  = 6.0
 t = 0:dt:T
 
 x = zeros(length(t))
-u = 5.0  # referencia r = 5
-x[1] = 0.0
+r = 5.0    # referencia
+x[1] = 0.0 # condiciones iniciales, en julia 
+           # los indices empiezan en 1
 
+# método de Euler:
 for k in 1:length(t)-1
-    dx = -x[k] + u
+    dx = -x[k] + r
     x[k+1] = x[k] + dt*dx
 end
 
 p = plot(t,x, xlabel = "t", ylabel = "x(t)", label = " ")
 savefig(p, "integrador_retroalimentado.png")
 ```
+
+\vspace{1cm}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.30\textheight]{./img/integrador_retroalimentado.png}
+\caption{Integrador retroalimentado siguiendo referencia $r = 5$}
+\end{figure}
+
+
 \newpage
 
-Alternativamente:
+Alternativamente (*julia*):
 
 ``` julia
 using OrdinaryDiffEq
@@ -111,13 +153,26 @@ plot(sol, label=" ", xlabel="t", ylabel="x", title="dx/dt = (r - x), r=5")
 savefig("integrador_retroalimentado.png")
 ```
 
-\vspace{2cm}
+\vspace{1cm}
 
-\begin{figure}[H]
-\centering
-\includegraphics[height=0.34\textheight]{./img/integrador_retroalimentado.png}
-\caption{Integrador retroalimentado siguiendo referencia $r = 5$}
-\end{figure}
+---
+
+\vspace{1cm}
+
+Alternativamente (*Xppaut*):
+
+``` bash
+x' = -1*x + u
+u = 5
+init x=0
+@ total=6, dt=0.1
+@ xlo=0, xhi=6, ylo=0, yhi=6    
+@ xp=t, yp=x
+done
+``` 
+
+\vspace{1cm}
+
 
 \newpage
 

@@ -4,11 +4,11 @@ T  = 6.0
 t = 0:dt:T
 
 x = zeros(length(t))
-u = 5.0 # referencia r = 5
+r = 5.0  # referencia
 x[1] = 0.0
 
 for k in 1:length(t)-1
-    dx = -x[k] + u
+    dx = -x[k] + r
     x[k+1] = x[k] + dt*dx
 end
 

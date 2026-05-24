@@ -40,6 +40,7 @@ O bien, con $k = k_p$ y $\alpha = (k_i/k_p)$
 \begin{aligned}
 C(s)=\frac{k(s+\alpha)}{s}
 \end{aligned}
+\label{eq:pi_efecto}
 \end{equation}
 ```
 
@@ -49,7 +50,37 @@ y también introduce un cero en $s = -k_i/k_p$
 
 
 
-Ejemplo ...
+#### Ejemplo
+
+
+Diseñar un controlador PI para el siguiente sistema sea 
+
+* Estable y
+* Criticamente amortiguado
+
+\begin{equation}
+\begin{aligned}
+G(s) = \frac{1}{s-3}
+\end{aligned}
+\end{equation}
+
+Un PI añade un polo en el origen y un cero libre. De la ecuación \ref{eq:pi_efecto}, podemos arbitrariamente fijar el cero en $-1$ con $\alpha = 1$
+
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+C(s) = \frac{k(s+\alpha)}{s} = \frac{k(s+1)}{s}
+\end{aligned}
+\end{equation}
+```
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,trim=0cm 8cm 0cm 5cm,clip]{./img/ejemplo_PI.pdf}
+\caption{Efecto del PI}
+\label{fig:control_pi}
+\end{figure}
 
 
 \newpage
