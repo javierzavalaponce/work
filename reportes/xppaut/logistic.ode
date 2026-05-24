@@ -1,0 +1,19 @@
+# Modelo de Crecimiento Logistico
+# dN/dt = r * N * (1 - N/K)
+
+# Definicion de la ecuacion diferencial
+dN/dt = r * N * (1 - N/K)
+
+# Condicion inicial
+init N=10
+
+# Parametros del modelo
+param r=0.5, K=100
+
+# Configuracion de la simulacion y graficos
+@ total=50, dt=0.1, xlo=0, xhi=50, ylo=0, yhi=110
+@ xp=t, yp=N
+
+done
+
+

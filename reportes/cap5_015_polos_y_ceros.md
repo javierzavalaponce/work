@@ -1,4 +1,7 @@
 \newpage
+
+## Repaso de Control Clásico
+
 ### Polos y ceros
 
 Definición, en una **funcion de transferencia** (expresada como division de Polinomios)

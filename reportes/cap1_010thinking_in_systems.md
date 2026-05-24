@@ -6,7 +6,6 @@
 
 ## Resumen
 
-Problemas complejos (como la pobreza, el desempleo o el daño ambiental) ***"persisten a pesar de las medidas"*** que se han ido tomando. Donella Meadows, invita a observar la estructura interna de los sistemas:
 
 * Un sistema es un conjunto de elementos, interconexiones y un propósito. 
 	
@@ -25,9 +24,6 @@ Problemas complejos (como la pobreza, el desempleo o el daño ambiental) ***"per
 	
 ## Comentarios
 
-Lo que mas llamo mi atencion es la raigambre ideologica de Meadows (...)
-encontre referencias como Wiener (quien es considerado el fundador de la cibernetica), 
-y tambien Bertalanffy.
-
-Creo que el motivo detras de las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo, e inclusive en el paradigma ideologico y la base epistemologica con
-que el observador realiza un modelo. 
+Encontre referencias como Wiener (quien es considerado el fundador de la cibernetica), 
+y tambien Bertalanffy. Creo que el motivo detras de las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo, e inclusive en el paradigma ideologico con
+que el *observador* realiza un modelo. 

@@ -1,0 +1,9 @@
+x' = -1*x + 3*u
+u = 3 + 2*sin(0.5*t)
+init x=1
+@ total=100, dt=0.1
+@ xlo=0, xhi=100, ylo=0, yhi=15	
+@ xp=t, yp=x
+done
+
+

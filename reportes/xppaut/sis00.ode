@@ -1,0 +1,7 @@
+x' = -1*x + u
+u = 5
+init x=0
+@ total=6, dt=0.1
+@ xlo=0, xhi=6, ylo=0, yhi=6	
+@ xp=t, yp=x
+done

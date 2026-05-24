@@ -14,7 +14,7 @@ U(t) = a_1\frac{dy}{dt} + a_0y
 ```
 \
 
-También se puede escribir de la siguiente manera: 
+También se puede escribir de la siguiente manera, *$\dot{y}$ punto es la primera derivada*: 
 
 \
 ```{=latex}
@@ -26,25 +26,12 @@ U(t) = a_1\dot{y} + a_0y
 ```
 \
 
-La siguiente figura muestra un circuito RC. 
-Sea:
+La siguiente figura muestra un circuito RC. Cerrar el interruptor significa aplicar un *escalón* , voltaje de entrada de magnitud fija.
 
 * $U(t)$: entrada (voltaje)
 
 * $y(t)$: salida (voltaje en el capacitor)
 
-\begin{figure}[H]
-\centering
-\includegraphics[height=0.25\textheight,trim=0cm 4cm 0cm 12cm,clip]{./img/rc01.pdf}
-\caption{Cerrando interruptor en t= 0 , $i(t) = C \frac{dV_C(t)}{dt}  = C\dot{y}$}
-\label{fig:rc01}
-\end{figure}
-
-* Un capacitor no "recuerda" cuánta corriente recibió hace un minuto. Solo "sabe" cuál es su voltaje *ahora* y cuánta corriente está entrando *ahora*.
-
-* El voltaje en un capacitor es una variable *continua*.
-
-* Cerrar el interruptor significa aplicar un *escalón* de magnitud fija.
 
 ```{=latex}
 \begin{equation}
@@ -54,7 +41,15 @@ i(t)=\frac{Cdv(t)}{dt}
 \end{equation}
 ```
 
-Al cerrar el interruptor y por leyes de Kirchhoff:
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.25\textheight,trim=0cm 4cm 0cm 12cm,clip]{./img/rc01.pdf}
+\caption{Cerrando interruptor en t= 0 , $i(t) = C\dot{y}$}
+\label{fig:rc01}
+\end{figure}
+
+El voltaje en un capacitor es una variable *continua*. Al cerrar el interruptor y por leyes de Kirchhoff:
 
 
 ```{=latex}
@@ -132,7 +127,7 @@ En resumen, un RC es:
 * Un polo real produce una respuesta exponencial no oscilatoria
 * Entre mas cerca queda el polo del eje imaginario (es decir, mas próximo a cero), mas lento es el tiempo de establecimiento
 
-**Al aplicar un *escalón* al $RC$:** La corriente en el circuito (o la tensión en la resistencia) responde con una exponencial decreciente; la tensión en el capacitor responde con una exponencial creciente hacia el valor de escalón.
+Al aplicar un *escalón* al $RC$: La corriente en el circuito (o la tensión en la resistencia) responde con una exponencial decreciente; la tensión en el capacitor responde con una exponencial creciente hacia el valor de escalón.
 
 \newpage 
 

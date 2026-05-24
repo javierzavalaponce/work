@@ -1,0 +1,89 @@
+
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.4\textheight]{./img/xppaut_.png}
+\caption{video en youtube}
+\end{figure}
+
+
+RPN  = Notación Polaca Inversa (Reverse Polish Notation).
+Right-hand side = lado derecho (de una ecuación)
+
+phase@pitt.edu
+
+
+
+Professor Bard Ermentrout
+
+
+https://www.youtube.com/watch?v=GvOQSf3Oi10&list=PLwlsNzkcSciMz2er8riLE85iM0tLB8EEM
+
+
+
+## Plano de fase. Definicion:
+
+El plano de fase es un espacio de estados 2D donde cada punto representa una combinación posible de las variables del sistema. Al simular la dinámica, se obtienen trayectorias que muestran cómo evoluciona el sistema desde diferentes condiciones iniciales. Esto permite visualizar conceptos como estabilidad, puntos de equilibrio, ciclos límite y bifurcaciones sin necesidad de ver explícitamente el tiempo.
+
+
+---------------
+
+
+
+    "¿Cómo se determina la función f(x,t) que constituye el lado derecho de una ecuación diferencial dx/dt = f(x,t) a partir de observaciones empíricas o principios teóricos?"
+
+
+
+#### Formulación 1: La más precisa
+
+"Dado un fenómeno observado, ¿cuál es el procedimiento sistemático para determinar la función vectorial f : ℝⁿ × ℝ → ℝⁿ tal que el sistema dinámico ẋ = f(x, t) reproduzca las trayectorias observadas?"
+
+#### Formulación 2: Enfoque de modelado inverso
+
+Dadas las mediciones {x(tᵢ)}, ¿cómo se infiere la estructura del campo vectorial f sin conocer a priori la forma funcional de las interacciones entre variables?"
+
+#### Formulación 3: Perspectiva de la física teórica
+
+"¿Qué principios de invariancia, leyes de conservación o relaciones constitutivas determinan la forma explícita de f en la ecuación evolutiva dx/dt = f(x, θ) donde θ representa parámetros fenomenológicos?"
+
+
+#### Formulación 4: Enfoque estadístico
+
+"¿Cómo se pasa de {x(t), u(t)} (datos de entrada-salida) a una representación paramétrica f(x, u, θ) minimizando el error de predicción bajo restricciones de parsimonia e identificabilidad estructural?"
+
+
+#### Formulación 6: Enfoque de sistemas dinámicos
+
+"Dado un espacio de estados M ⊆ ℝⁿ y observaciones de trayectorias φ_t(x₀), ¿cómo se reconstruye el campo vectorial X (sección del fibrado tangente TM) tal que dφ_t/dt = X ∘ φ_t?"
+
+--
+
+El matiz que no debes perder: Discreto vs. Continuo
+
+La mayoría de redes neuronales trabajan en tiempo discreto: procesan un dato, luego otro, luego otro... como una receta de cocina que lees paso a paso.
+
+Los sistemas dinámicos clásicos suelen ser tiempo continuo: el péndulo se mueve sin "saltos" entre instantes.
+
+El puente: Las RNN son tiempo discreto. Las Neural ODEs (Chen et al., 2018) son un híbrido: defines la dinámica continua con una red neuronal y luego usas un integrador numérico (Runge-Kutta, etc.) para simularla.
+Conclusión para tu nivel conceptual
+
+Ahora que entiendes backpropagation, redes y funciones de activación, puedes ver esto como una unificación:
+
+    Una red neuronal entrenada (especialmente una RNN) es un modelo paramétrico de un sistema dinámico. Backpropagation ajusta los parámetros para que el sistema se comporte como los datos indican. Y el optimizador (SGD, Adam) es el "integrador" que resuelve la ecuación diferencial del entrenamiento.
+
+Pregunta de verificación para ti: ¿Podrías explicar por qué una red neuronal feedforward (no recurrente, como la de los gatitos) NO es un sistema dinámico, mientras que una RNN sí lo es?
+
+(Respuesta: porque la feedforward no tiene estado interno que evolucione en el tiempo; es una función pura, no una ecuación de recurrencia).
+
+Si esto te ha interesado, el siguiente paso natural es estudiar:
+
+    LSTM y GRU (RNNs que evitan la desaparición del gradiente)
+
+    Neural ODEs (el límite continuo de las RNN)
+
+    Reservoir Computing (una forma más simple de sistemas dinámicos neuronales)
+
+
+    

@@ -89,6 +89,8 @@
     </dia:attribute>
   </dia:diagramdata>
   <dia:layer name="Background" visible="true" connectable="true"/>
+  <dia:layer name="Background" visible="true" connectable="true"/>
+  <dia:layer name="Background" visible="true" connectable="true"/>
   <dia:layer name="Background" visible="true" connectable="false"/>
   <dia:layer name="Background" visible="true" connectable="true"/>
   <dia:layer name="Background" visible="true" connectable="false"/>
@@ -99,19 +101,19 @@
   <dia:layer name="Background" visible="true" connectable="true" active="true">
     <dia:object type="Flowchart - Box" version="0" id="O0">
       <dia:attribute name="obj_pos">
-        <dia:point val="8.22134,6.43963"/>
+        <dia:point val="10.3534,6.5083"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.17134,6.38963;14.4913,9.35352"/>
+        <dia:rectangle val="10.3034,6.4583;12.482,9.26182"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="8.22134,6.43963"/>
+        <dia:point val="10.3534,6.5083"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
-        <dia:real val="6.2199999999999998"/>
+        <dia:real val="2.0786600000000011"/>
       </dia:attribute>
       <dia:attribute name="elem_height">
-        <dia:real val="2.863888869780093"/>
+        <dia:real val="2.7035188697800927"/>
       </dia:attribute>
       <dia:attribute name="show_background">
         <dia:boolean val="true"/>
@@ -122,7 +124,7 @@
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#Integrador#</dia:string>
+            <dia:string>#∫#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="TeX Gyre Bonum Math" style="8" name="Courier"/>
@@ -131,7 +133,7 @@
             <dia:real val="1.2347222088460648"/>
           </dia:attribute>
           <dia:attribute name="pos">
-            <dia:point val="11.3313,8.00422"/>
+            <dia:point val="11.3927,7.9927"/>
           </dia:attribute>
           <dia:attribute name="color">
             <dia:color val="#000000ff"/>
@@ -180,12 +182,12 @@
         <dia:point val="5.87999,7.42498"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="5.87999,6.78248;7.65499,7.62998"/>
+        <dia:rectangle val="5.87999,6.78248;7.56999,7.62998"/>
       </dia:attribute>
       <dia:attribute name="text">
         <dia:composite type="text">
           <dia:attribute name="string">
-            <dia:string>#U(t)#</dia:string>
+            <dia:string>#u(t)#</dia:string>
           </dia:attribute>
           <dia:attribute name="font">
             <dia:font family="TeX Gyre Bonum Math" style="8" name="Courier"/>
@@ -213,11 +215,11 @@
         <dia:point val="6.16918,7.84959"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="6.11865,7.53427;8.28314,8.19603"/>
+        <dia:rectangle val="6.11906,7.52766;10.4152,8.18946"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="6.16918,7.84959"/>
-        <dia:point val="8.22134,7.87158"/>
+        <dia:point val="10.3534,7.86006"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
@@ -237,13 +239,13 @@
     </dia:object>
     <dia:object type="Standard - Line" version="0" id="O4">
       <dia:attribute name="obj_pos">
-        <dia:point val="14.4413,7.87158"/>
+        <dia:point val="12.432,7.86006"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="14.3909,7.52937;16.5212,8.19115"/>
+        <dia:rectangle val="12.382,7.52525;16.5212,8.18706"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="14.4413,7.87158"/>
+        <dia:point val="12.432,7.86006"/>
         <dia:point val="16.4594,7.85547"/>
       </dia:attribute>
       <dia:attribute name="numcp">
