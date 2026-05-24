@@ -17,7 +17,7 @@ Javier Zavala Ponce
 
 \vspace{0.3cm}
 
-\textit{Instituto Politecnico Nacional, ESIME Culhuacan.}
+\textit{ESIME Culhuacan.}
 
 \vspace{2cm}
 
