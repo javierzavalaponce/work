@@ -86,4 +86,65 @@ Si esto te ha interesado, el siguiente paso natural es estudiar:
     Reservoir Computing (una forma más simple de sistemas dinámicos neuronales)
 
 
-    
+    ---------
+
+    🧠 REDES NEURONALES ARTIFICIALES (El gran paraguas)
+│
+├── 📌 ¿Qué son? Modelos inspirados en el cerebro biológico, formados por neuronas artificiales conectadas.
+│
+├── 🏗️ ARQUITECTURAS PRINCIPALES (Estructura interna)
+│   │
+│   ├── 🔹 REDES NEURONALES CONVOLUCIONALES (CNN / ConvNets)
+│   │   • Para qué sirven: Procesar datos con estructura de grilla (imágenes, videos).
+│   │   • Idea clave: Usan filtros (convoluciones) para detectar patrones espaciales como bordes, texturas, objetos.
+│   │   • Ejemplo: Reconocimiento facial, autos autónomos, diagnóstico por radiografías.
+│   │
+│   ├── 🔹 REDES NEURONALES RECURRENTES (RNN)
+│   │   • ¿Qué es RNN?: Red que tiene "memoria" mediante bucles internos. Procesa secuencias.
+│   │   • Para qué sirven: Datos donde el orden importa (series temporales, texto, audio).
+│   │   • Idea clave: La salida actual depende de entradas actuales y anteriores (ciclo temporal).
+│   │   • Variantes famosas: LSTM, GRU (solucionan problemas de memoria a largo plazo).
+│   │   • Ejemplo: Traducción automática, generación de texto, predicción de stock.
+│   │
+│   └── 🔹 OTRAS ARQUITECTURAS (no las preguntas, pero para contexto)
+│        • Autoencoders, Transformers (la evolución moderna de RNN), GANs, etc.
+│
+├── 🧬 ¿Y QUÉ SON LAS "EVOLUTIVAS"? (Aquí está el punto clave)
+│   │
+│   ├── No son una arquitectura como CNN o RNN.
+│   ├── Son ALGORITMOS DE OPTIMIZACIÓN inspirados en la evolución biológica (selección natural, mutación, cruce).
+│   └── Se usan PARA ENTRENAR o DISEÑAR redes neuronales, incluyendo CNN y RNN.
+│       • Ejemplo: Neuroevolución – usar algoritmos genéticos para encontrar los pesos o incluso la arquitectura de una red.
+│       • Diferencia clave: Mientras el método típico de entrenamiento es Retropropagación (gradiente descendente), las evolutivas no necesitan gradientes y sirven cuando el problema no es derivable.
+│
+└── 🔗 RELACIONES ENTRE ELLOS
+    │
+    ├── CNN y RNN son "tipos de" redes neuronales.
+    ├── Las evolutivas son una "forma de" entrenar o construir redes neuronales (incluyendo CNN y RNN).
+    └── Puedes tener una CNN entrenada con un algoritmo evolutivo, o una RNN diseñada por evolución.
+
+
+    --
+
+    Contacto: horigrun@gmail.com 
+Artículos:
+1) Engelbrecht, A. (2012, June). Particle swarm optimization: Velocity initialization. In 2012 IEEE congress on evolutionary computation (pp. 1-8). IEEE.
+2) Shi, Y., & Eberhart, R. C. (1999, July). Empirical study of particle swarm optimization. In Proceedings of the 1999 congress on evolutionary computation-CEC99 (Cat. No. 99TH8406) (Vol. 3, pp. 1945-1950). IEEE.
+3) Zhang, Y., Li, H., Bao, E., Zhang, L., & Yu, A. (2019). A hybrid global optimization algorithm based on particle swarm optimization and Gaussian process. International Journal of Computational Intelligence Systems, 12(2), 1270-1281.
+
+
+---
+
+Partiendo del integrador puro x˙=u(t)x˙=u(t), que acumula sin límite la entrada, una neurona RNN clásica puede entenderse como un integrador con fuga más una no linealidad. Si añadimos una retroalimentación negativa de la propia salida para evitar el crecimiento no acotado, obtenemos un sistema de primer orden x˙=−x+u(t)x˙=−x+u(t). Al discretizar esta ecuación mediante el método de Euler explícito con paso ΔtΔt:
+xk+1−xkΔt=−xk+uk,
+Δtxk+1​−xk​​=−xk​+uk​,
+
+se llega a la actualización
+xk+1=(1−Δt) xk+Δt uk.
+xk+1​=(1−Δt)xk​+Δtuk​.
+
+Identificando xkxk​ con el estado oculto htht​ de la RNN, y ukuk​ con una combinación lineal de la entrada actual xtxt​ y posiblemente un sesgo, se obtiene la versión lineal de la recurrencia. Para dotar al modelo de poder expresivo, se aplica una función de activación no lineal σσ (por ejemplo tanh⁡tanh o ReLU) al estado integrado, resultando en la ecuación canónica de una RNN simple:
+ht=σ(Whht−1+Wxxt+b),
+ht​=σ(Wh​ht−1​+Wx​xt​+b),
+
+donde el término Whht−1Wh​ht−1​ juega el papel del estado anterior con “fuga” ajustable (mediante los pesos aprendidos), y la integración se completa sumando la contribución de la entrada actual. Así, la RNN no es más que un integrador con retroalimentación, discretizado y no lineal, que memoriza de manera adaptativa la historia de la secuencia.

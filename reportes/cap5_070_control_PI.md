@@ -53,10 +53,12 @@ y también introduce un cero en $s = -k_i/k_p$
 #### Ejemplo
 
 
-Diseñar un controlador PI para el siguiente sistema sea 
+Diseñar un controlador PI para que el sistema sea:
 
 * Estable y
 * Criticamente amortiguado
+
+Función de transferencia de la planta: 
 
 \begin{equation}
 \begin{aligned}
@@ -81,6 +83,155 @@ C(s) = \frac{k(s+\alpha)}{s} = \frac{k(s+1)}{s}
 \caption{Efecto del PI}
 \label{fig:control_pi}
 \end{figure}
+
+
+Reduciendo los bloques	$ft = \frac{C(s)G(s)}{1+C(s)G(s)}$
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+ft = \frac{ \frac{k(s+1)}{s(s-3)}}{1 + \frac{k(s+1)}{s(s-3)}} = \frac{k(s+1)}{s(s-3)+k(s+1)}
+\end{aligned}
+\label{eq:pi_reduciendo}
+\end{equation}
+```
+
+La nueva ecuación característica es:
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+s^2 - 3s  +ks + k = s^2 + (k-3)s + k = 0
+\end{aligned}
+\end{equation}
+```
+
+Las condiciones de estabilidad son
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+(k-3) > 0 \\
+k > 0
+\end{aligned}
+\end{equation}
+```
+es decir, el sistema es estable para 
+
+\begin{equation}
+\boxed{k > 3}
+\end{equation}
+
+
+
+De la ecuación característica en \ref{eq:pi_reduciendo} , despejamos $k$ para encontrar el punto en que los polos 
+se reintegran al eje real generando la condicion de **criticamente amortiguado**  $s$ real $< 0$
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+k = - \frac{s(s-3)}{s+1} = - \frac{s^2-3s}{s+1}
+\end{aligned}
+\end{equation}
+```
+
+Igualando la derivada de $k$ a cero, encontramos el punto donde las raíces dejan de ser complejas conjugadas y se unen nuevamente sobre el eje real.
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\frac{dk}{ds} = -\frac{(2s-3)(s+1)-(s^2-3s)}{(s+1)^2}
+\end{aligned}
+\end{equation}
+```
+
+Igualando la derivada a cero, encontramos el punto donde las raíces
+dejan de ser complejas conjugadas y se unen nuevamente sobre el eje real.
+
+\begin{equation}
+\begin{aligned}
+\frac{dk}{ds} = 0
+\end{aligned}
+\end{equation}
+
+Por lo tanto,
+
+\begin{equation}
+\begin{aligned}
+(2s-3)(s+1)-(s^2-3s)=0
+\end{aligned}
+\end{equation}
+
+Desarrollando,
+
+\begin{equation}
+\begin{aligned}
+2s^2 - s - 3 - s^2 + 3s = 0
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+s^2 + 2s - 3 = 0
+\end{aligned}
+\end{equation}
+
+Factorizando,
+
+\begin{equation}
+\begin{aligned}
+(s+3)(s-1)=0
+\end{aligned}
+\end{equation}
+
+Las soluciones son
+
+\begin{equation}
+\begin{aligned}
+s=-3
+\qquad
+s=1
+\end{aligned}
+\end{equation}
+
+Sin embargo, para que el sistema sea estable, los polos deben
+permanecer en el semiplano izquierdo, por lo que únicamente
+tomamos:
+
+\begin{equation}
+\boxed{s=-3}
+\end{equation}
+
+Sustituyendo en la ecuación de $k$:
+
+\begin{equation}
+\begin{aligned}
+k = -\frac{(-3)(-3-3)}{-3+1}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+k = -\frac{18}{-2}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\boxed{k=9}
+\end{equation}
+
+Por lo tanto, el controlador
+
+\begin{equation}
+\boxed{
+C(s)=\frac{9(s+1)}{s}
+}
+\end{equation}
+
+produce un sistema estable y críticamente amortiguado.
+
+
+
 
 
 \newpage
