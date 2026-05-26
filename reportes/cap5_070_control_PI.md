@@ -135,7 +135,7 @@ k = - \frac{s(s-3)}{s+1} = - \frac{s^2-3s}{s+1}
 \end{equation}
 ```
 
-Igualando la derivada de $k$ a cero, encontramos el punto donde las raíces dejan de ser complejas conjugadas y se unen nuevamente sobre el eje real.
+Igualando la derivada de $k$ respecto de $s$ a cero, encontramos el punto donde las raíces dejan de ser complejas conjugadas y se unen nuevamente sobre el eje real.
 
 ```{=latex}
 \begin{equation}
@@ -144,9 +144,6 @@ Igualando la derivada de $k$ a cero, encontramos el punto donde las raíces deja
 \end{aligned}
 \end{equation}
 ```
-
-Igualando la derivada a cero, encontramos el punto donde las raíces
-dejan de ser complejas conjugadas y se unen nuevamente sobre el eje real.
 
 \begin{equation}
 \begin{aligned}
@@ -228,10 +225,15 @@ C(s)=\frac{9(s+1)}{s}
 }
 \end{equation}
 
-produce un sistema estable y críticamente amortiguado.
+produce un sistema estable y críticamente amortiguado. Observando la 
+ecuación \ref{eq:pi_efecto}, obtenemos el **resultado final:**
 
-
-
+\begin{equation}
+\begin{aligned}
+k_p = 9 \\
+k_i = 9
+\end{aligned}
+\end{equation}
 
 
 \newpage
