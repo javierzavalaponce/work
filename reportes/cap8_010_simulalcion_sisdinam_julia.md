@@ -62,6 +62,7 @@ La retroalimentación negativa con $k=1$ significa $u = (r-x)$ o bien:
 \label{eq:sistema_primerorden}
 \end{equation}
 
+\vspace{1cm}
 
 ### Solución númerica. Método de Euler (*Forward o Explícito*)
 
@@ -81,9 +82,13 @@ se aproxima la evolución usando pequeños pasos de tiempo:
 \end{aligned}
 \end{equation}
 
---- 
 
-Retomando la ecuación \ref{eq:sistema_primerorden}, podemos generar una solución numérica. Ver el siguiente ejemplo.
+
+\vspace{2cm}
+
+
+Retomando la ecuación \ref{eq:sistema_primerorden}, podemos generar una solución numérica. Ver el siguiente ejemplo
+(en lenguaje *julia*).
 
 \begin{equation}
 \begin{aligned}
@@ -149,35 +154,35 @@ tspan = (0.0, 6.0)
 prob = ODEProblem(f!, x0, tspan)
 sol = solve(prob)
 
-plot(sol, label=" ", xlabel="t", ylabel="x", title="dx/dt = (r - x), r=5")
+plot(sol, label=" ", xlabel="t", ylabel="x", 
+     title="dx/dt = (r - x), r=5")
 savefig("integrador_retroalimentado.png")
 ```
 
 \vspace{1cm}
 
----
 
-\vspace{1cm}
-
-Alternativamente (*Xppaut*):
-
-``` bash
-x' = -1*x + u
-u = 5
-init x=0
-@ total=6, dt=0.1
-@ xlo=0, xhi=6, ylo=0, yhi=6    
-@ xp=t, yp=x
-done
-``` 
-
-\vspace{1cm}
 
 
 \newpage
 
 
 ## $\dot{x} = x u(t)$
+
+En esta ecuación:
+
+* La rapidez de cambio de $x$ depende del valor actual de $x$
+* La entrada $u(t)$ actúa modulando el crecimiento o decrecimiento del estado
+
+A diferencia del integrador puro $\dot{x} = u(t)$, donde la entrada se acumula, 
+aquí el propio estado participa en su evolución. El sistema ya no es lineal respecto al estado, 
+porque $x$ se multiplica por la entrada
+
+
+
+\newpage
+
+
 
 
 \newpage
