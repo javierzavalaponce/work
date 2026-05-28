@@ -41,16 +41,82 @@ Para $G_1$ utilizando variable auxiliar $W(s)$:
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-G_1(s) = \frac{(s+1)}{(s-1)} \cdot  \frac{W(s)}{W(s)}
+G_1(s) = \frac{Y_1(s)}{U_1(s)} = \frac{(s+1)}{(s-1)} \cdot  \frac{W(s)}{W(s)}
+\end{aligned}
+\end{equation}
+```
+
+Aplicando transformada inversa: 
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\mathcal{L}^{-1}\{Y_1(s)\} = \mathcal{L}^{-1}\{sW(s)+W(s)\} = \boxed{y_1 = \dot{w}+w}
+\end{aligned}
+\end{equation}
+```
+
+Para $U_1$
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\mathcal{L}^{-1}\{U_1(s)\} = \mathcal{L}^{-1}\{sW(s)-W(s)\} = u_1 = \dot{w}-w
+\end{aligned}
+\end{equation}
+```
+
+O bien:
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\boxed{\dot{w} = u_1+w}
 \end{aligned}
 \end{equation}
 ```
 
 
-Analogamente, para $G_2$ utilizando variable auxiliar $W(s)$:
+Analogamente, para $G_2$ utilizando variable auxiliar $W_2(s)$:
 
 
+```{=latex}
+\begin{equation}
+\begin{aligned}
+G_2(s) = \frac{Y_2(s)}{U_2(s)} = \frac{(s+2)}{(s-2)} \cdot  \frac{W_2(s)}{W_2(s)}
+\end{aligned}
+\end{equation}
+```
 
+Aplicando transformada inversa: 
+
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\mathcal{L}^{-1}\{Y_2(s)\} = \mathcal{L}^{-1}\{sW(s)+2W(s)\} = \boxed{y_2 = \dot{w_2}+2w_2}
+\end{aligned}
+\end{equation}
+```
+
+Para $U_1$
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\mathcal{L}^{-1}\{U_2(s)\} = \mathcal{L}^{-1}\{sW(s)-2W(s)\} = u_2 = \dot{w_2}-2w
+\end{aligned}
+\end{equation}
+```
+
+
+O bien:
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\boxed{\dot{w_2} = u_2+2w}
+\end{aligned}
+\end{equation}
+```
 
 
 
