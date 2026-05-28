@@ -93,7 +93,7 @@ Aplicando transformada inversa:
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\mathcal{L}^{-1}\{Y_2(s)\} = \mathcal{L}^{-1}\{sW(s)+2W(s)\} = \boxed{y_2 = \dot{w_2}+2w_2}
+\mathcal{L}^{-1}\{Y_2(s)\} = \mathcal{L}^{-1}\{sW_2(s)+2W_2(s)\} = \boxed{y_2 = \dot{w_2}+2w_2}
 \end{aligned}
 \end{equation}
 ```
@@ -102,7 +102,7 @@ Para $U_1$
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\mathcal{L}^{-1}\{U_2(s)\} = \mathcal{L}^{-1}\{sW(s)-2W(s)\} = u_2 = \dot{w_2}-2w
+\mathcal{L}^{-1}\{U_2(s)\} = \mathcal{L}^{-1}\{sW_2(s)-2W_2(s)\} = u_2 = \dot{w_2}-2w_2
 \end{aligned}
 \end{equation}
 ```
@@ -113,7 +113,7 @@ O bien:
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\boxed{\dot{w_2} = u_2+2w}
+\boxed{\dot{w_2} = u_2+2w_2}	
 \end{aligned}
 \end{equation}
 ```
