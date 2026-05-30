@@ -159,10 +159,45 @@ plot(sol, label=" ", xlabel="t", ylabel="x",
 savefig("integrador_retroalimentado.png")
 ```
 
-\vspace{1cm}
+\newpage
+
+### Analogía alternativa 
+
+Imaginemos un tanque que recibe agua por una tubería de entrada con flujo $f_e$, mientras que por la parte inferior sale agua con flujo $f_s$
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.45\textheight,trim=0cm 9cm 0cm 9cm,clip]{./img/tanque_fe_fs.pdf}
+\caption{Analogia de tanque con flujos de entrada y salida}
+\label{fig:tnke}
+\end{figure}
 
+Podemos pensar al tanque como un “acumulador” de flujo:
+
+* El flujo de entrada $f_e$ agrega agua,
+* El flujo de salida $f_s$ remueve, si $f_s = 0$, se trata de un integrador puro (el tanque solo almacena)
+* El volumen $x$ representa la cantidad almacenada.
+
+La relación conceptual puede expresarse como:
+
+\begin{equation}
+\begin{aligned}
+\dot{x} = f_e - f_s
+\end{aligned}
+\end{equation}
+
+Esta expresión indica que el volumen dentro del tanque cambia según la diferencia entre el flujo que entra y el flujo que sale.
+
+El objetivo de control más sencillo consiste en mantener una cantidad deseada de agua dentro del tanque. Para lograrlo, el flujo de entrada debe compensar continuamente el flujo de salida.
+
+Cuando el sistema alcanza una condición donde: $f_e = f_s$, entonces el volumen deja de variar:
+$\dot{x} = 0$
+
+Si fijamos el flujo de entrada en un valor constante, por ejemplo $f_e = 5$ (litros / segundo),
+el comportamiento del tanque dependerá completamente del flujo de salida $f_s$
+
+\textcolor{red}{Continuar explicacion ...}
 
 \newpage
 
