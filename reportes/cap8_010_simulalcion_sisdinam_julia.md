@@ -195,9 +195,38 @@ Cuando el sistema alcanza una condición donde: $f_e = f_s$, entonces el volumen
 $\dot{x} = 0$
 
 Si fijamos el flujo de entrada en un valor constante, por ejemplo $f_e = 5$ (litros / segundo),
-el comportamiento del tanque dependerá completamente del flujo de salida $f_s$
+el comportamiento del tanque dependerá completamente del flujo de salida $f_s$,
+sin embargo, no existe una única ecuación para la salida $x$ del tanque.
 
-\textcolor{red}{Continuar explicacion ...}
+\begin{equation}
+\begin{aligned}
+f_s = f(x)
+\end{aligned}
+\end{equation}
+
+Mientras más agua exista dentro del tanque: mayor altura de columna líquida,
+mayor presión. **Distintos modelos posibles para $f(s)$:**
+
+* Proporcional lineal $f_s = kx$ con $k=1$, $f_s = x$
+* Ley de Torricelli $f_s=k\sqrt{x}$ 
+* Salida constante  $f_s = c$
+
+Tomando el modelo $f_s = x$ 
+
+\begin{equation}
+\begin{aligned}
+\dot{x} = 5 - x
+\end{aligned}
+\end{equation}
+
+Si $x$ es pequeño, domina la entrada, si $x$ es grande, domina la salida,
+eventualmente ambos se equilibran. Ver campo direccional:
+
+\begin{figure}[H]
+\centering
+\includegraphics[height=0.25\textheight]{./img/campo_tanque.png}
+\caption{Campo direccional para $\dot{x} = 5 - x$}
+\end{figure}
 
 \newpage
 
