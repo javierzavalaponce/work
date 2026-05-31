@@ -5,10 +5,9 @@
 # Clases de Dr. Basilio Del Muro Cuellar: Espacio de estados
 
 
-Notas del curso. 1er semestre 2026. Decidí escribir esto para solidificar
-mi propio conocimiento de sistemas de control.
+1er semestre 2026. Notas de clase.
 
-\vspace{3cm}
+\vspace{4cm}
 
 ### Sistemas dinámicos. Definición:
 

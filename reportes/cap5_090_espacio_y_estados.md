@@ -1,5 +1,8 @@
 ## Espacio y estados (control moderno)
 
+
+La regla de las variables de estado (o de salida) para integradores en control y dinámica de sistemas establece que el número de integradores puros en un sistema es igual al número de variables de estado necesarias para describirlo completamente, lo cual equivale al orden de la ecuación diferencial del sistema.
+
 ### Ejercicio
 
 

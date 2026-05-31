@@ -2,22 +2,15 @@
 
 
 
-\begin{figure}[H]
-\centering
-\includegraphics[height=0.4\textheight]{./img/xppaut_.png}
-\caption{video en youtube}
-\end{figure}
+Decidí escribir esto para solidificar
+mi propio conocimiento de sistemas de control.
+
 
 
 RPN  = Notación Polaca Inversa (Reverse Polish Notation).
 Right-hand side = lado derecho (de una ecuación)
-
-phase@pitt.edu
-
-
-
 Professor Bard Ermentrout
-
+phase@pitt.edu
 
 https://www.youtube.com/watch?v=GvOQSf3Oi10&list=PLwlsNzkcSciMz2er8riLE85iM0tLB8EEM
 

@@ -5,30 +5,31 @@
 \Huge
 \textbf{Reporte 10}
 
-\vspace{0.5cm}
+\vspace{1cm}
 
 \Large
 \textbf{(Material de estudio)}
 
 \vspace{2cm}
 
-\normalsize
-Javier Zavala Ponce
+\textit{ESIME Culhuacan. SEPI}
 
-\vspace{0.3cm}
+\vspace{1cm}
 
-\textit{ESIME Culhuacan.}
+\textit{Javier Zavala Ponce}
 
-\vspace{2cm}
+\vspace{3cm}
 
-Junio 2026
+Asesor: Dr. Domingo de Jesús Cortés Rodríguez
 \end{center}
+
+
 
 \vfill
 
 \begin{center}
 \small
-\textit{tbd}
+\textit{Junio 2026}
 \end{center}
 
 \newpage

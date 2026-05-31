@@ -22,8 +22,7 @@
 * Conclusión: Para mejorar un sistema, hay que entender su estructura, respetar sus demoras y evitar soluciones mágicas.
 
 	
-## Comentarios
+## Notas
 
-Encontre referencias como Wiener (quien es considerado el fundador de la cibernetica), 
-y tambien Bertalanffy. Creo que el motivo detras de las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo, e inclusive en el paradigma ideologico con
-que el *observador* realiza un modelo. 
+* Referencias a Wiener (es considerado el fundador de la cibernetica)
+* Las imprecisiones del control de algunos sistemas, podria ubicarse en el modelo
