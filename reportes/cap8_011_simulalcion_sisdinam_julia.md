@@ -11,12 +11,13 @@ La ecuación:
 \begin{aligned}
 \dot{x} = u(t)
 \end{aligned}
+\label{eq:integrador_puro}
 \end{equation}
 ```
 se puede leer como:
 
 * La derivada temporal de $x$ es igual a la entrada $u$
-* El *sistema*	 integra la entrada.
+* El *sistema*	integra la entrada.
 
 Es decir, la integral de la entrada $u$ es la salida $x$,
 
@@ -35,8 +36,10 @@ en bloques:
 \label{fig:integrador_basico}
 \end{figure}
 
+## Retroalimentación estática aplicada a un integrador puro
 
-El integrador puro simplemente acumula (responde a la entrada integrándola). No *sigue referencias* por sí mismo porque no tiene ningún mecanismo de comparación ni corrección. 
+
+El integrador puro de la ecuación \ref{eq:integrador_puro} simplemente acumula (responde a la entrada integrándola). No *sigue referencias* por sí mismo porque no tiene ningún mecanismo de comparación ni corrección. 
 
 * Si la entrada $u(t)$ = 0, la salida no cambia, mantiene su valor $x(0)$
 * Si $u(t) = k$ constante, la salida es una rampa $x=kt$ con pendiente $k$
