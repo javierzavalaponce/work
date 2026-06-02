@@ -3,6 +3,10 @@
 
 La regla de las variables de estado (o de salida) para integradores en control y dinámica de sistemas establece que el número de integradores puros en un sistema es igual al número de variables de estado necesarias para describirlo completamente, lo cual equivale al orden de la ecuación diferencial del sistema.
 
+
+
+\newpage
+
 ### Ejercicio
 
 
@@ -39,31 +43,33 @@ separar la ecuacion de esta manera:
 \end{figure}
 
 
-Para $G_1$ utilizando variable auxiliar $W(s)$:
+Para $G_1$ y/o $G_2$ y utilizando variable auxiliar $W(s)$, se puede estudiar un caso general así:
 
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-G_1(s) = \frac{Y_1(s)}{U_1(s)} = \frac{(s+1)}{(s-1)} \cdot  \frac{W(s)}{W(s)}
+G_1(s) = \frac{Y(s)}{U(s)} = \frac{(s+a)}{(s+b)} \cdot  \frac{W(s)}{W(s)}
 \end{aligned}
 \end{equation}
 ```
 
-Aplicando transformada inversa: 
+Aplicando transformada inversa al numerador a fin de obtener $y(t)$: 
 
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\mathcal{L}^{-1}\{Y_1(s)\} = \mathcal{L}^{-1}\{sW(s)+W(s)\} = \boxed{y_1 = \dot{w}+w}
+\mathcal{L}^{-1}\{Y(s)\} = \mathcal{L}^{-1}\{sW(s)+aW(s)\} = \boxed{y(t) = \dot{w}+aw(t)}
 \end{aligned}
+\label{eq:eqprim}
 \end{equation}
 ```
 
-Para $U_1$
+Para el denominador $U(s)$:
+
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\mathcal{L}^{-1}\{U_1(s)\} = \mathcal{L}^{-1}\{sW(s)-W(s)\} = u_1 = \dot{w}-w
+\mathcal{L}^{-1}\{U(s)\} = \mathcal{L}^{-1}\{sW(s)+bW(s)\} = u(t) = \dot{w}+b
 \end{aligned}
 \end{equation}
 ```
@@ -73,54 +79,33 @@ O bien:
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\boxed{\dot{w} = u_1+w}
+\boxed{\dot{w} = u(t)-bw(t)}
 \end{aligned}
+\label{eq:eqsec}
 \end{equation}
 ```
 
+Sustitutendo \ref{eq:eqsec} en  \ref{eq:eqprim} 
 
-Analogamente, para $G_2$ utilizando variable auxiliar $W_2(s)$:
 
 
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-G_2(s) = \frac{Y_2(s)}{U_2(s)} = \frac{(s+2)}{(s-2)} \cdot  \frac{W_2(s)}{W_2(s)}
+y(t) = u(t) + (a-b)w(t)
 \end{aligned}
+\label{eq:eqthird}
 \end{equation}
 ```
 
-Aplicando transformada inversa: 
+En bloques: 
 
-
-```{=latex}
-\begin{equation}
-\begin{aligned}
-\mathcal{L}^{-1}\{Y_2(s)\} = \mathcal{L}^{-1}\{sW_2(s)+2W_2(s)\} = \boxed{y_2 = \dot{w_2}+2w_2}
-\end{aligned}
-\end{equation}
-```
-
-Para $U_1$
-```{=latex}
-\begin{equation}
-\begin{aligned}
-\mathcal{L}^{-1}\{U_2(s)\} = \mathcal{L}^{-1}\{sW_2(s)-2W_2(s)\} = u_2 = \dot{w_2}-2w_2
-\end{aligned}
-\end{equation}
-```
-
-
-O bien:
-
-```{=latex}
-\begin{equation}
-\begin{aligned}
-\boxed{\dot{w_2} = u_2+2w_2}	
-\end{aligned}
-\end{equation}
-```
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/ejer01_esp_edos.pdf}
+\caption{Diagrama a bloques}
+\label{fig:ss01}
+\end{figure}
 
 
 \newpage
