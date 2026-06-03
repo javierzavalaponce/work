@@ -197,9 +197,9 @@ El objetivo de control más sencillo consiste en mantener una cantidad deseada d
 Cuando el sistema alcanza una condición donde: $f_e = f_s$, entonces el volumen deja de variar:
 $\dot{x} = 0$
 
-Si fijamos el flujo de entrada en un valor constante, por ejemplo $f_e = 5$ (litros / segundo),
-el comportamiento del tanque dependerá completamente del flujo de salida $f_s$,
-sin embargo, no existe una única ecuación para la salida $x$ del tanque.
+Si fijamos el flujo de entrada en un valor constante, por ejemplo $f_e = 5$ 
+(digamos 5 litros / segundo),
+el comportamiento del tanque dependerá completamente del flujo de salida $f_s$, sin embargo no hay una única expresión, es decir:
 
 \begin{equation}
 \begin{aligned}
@@ -218,7 +218,7 @@ Tomando el modelo $f_s = x$
 
 \begin{equation}
 \begin{aligned}
-CS = 5 - x
+\dot{x} = 5 - x
 \end{aligned}
 \end{equation}
 
