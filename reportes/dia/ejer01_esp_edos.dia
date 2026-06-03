@@ -88,6 +88,7 @@
       </dia:composite>
     </dia:attribute>
   </dia:diagramdata>
+  <dia:layer name="Background" visible="true" connectable="true"/>
   <dia:layer name="Background" visible="true" connectable="false"/>
   <dia:layer name="Background" visible="true" connectable="true" active="true">
     <dia:object type="Cybernetics - sum" version="1" id="O0">
@@ -205,17 +206,17 @@
       </dia:object>
       <dia:object type="Standard - Arc" version="0" id="O4">
         <dia:attribute name="obj_pos">
-          <dia:point val="14.2368,6.83307"/>
+          <dia:point val="14.2268,6.83307"/>
         </dia:attribute>
         <dia:attribute name="obj_bb">
-          <dia:rectangle val="14.2368,6.83307;14.7868,6.83307"/>
+          <dia:rectangle val="14.1768,6.78307;14.2968,6.88307"/>
         </dia:attribute>
         <dia:attribute name="conn_endpoints">
-          <dia:point val="14.2368,6.83307"/>
-          <dia:point val="14.2368,6.83307"/>
+          <dia:point val="14.2268,6.83307"/>
+          <dia:point val="14.2468,6.83307"/>
         </dia:attribute>
         <dia:attribute name="curve_distance">
-          <dia:real val="1"/>
+          <dia:real val="0"/>
         </dia:attribute>
       </dia:object>
       <dia:object type="Standard - Text" version="1" id="O5">
@@ -274,17 +275,17 @@
     </dia:object>
     <dia:object type="Standard - Arc" version="0" id="O7">
       <dia:attribute name="obj_pos">
-        <dia:point val="10.8045,9.52366"/>
+        <dia:point val="10.7945,9.52366"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="10.8045,9.52366;10.8545,9.52366"/>
+        <dia:rectangle val="10.7445,9.47366;10.8645,9.57366"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="10.8045,9.52366"/>
-        <dia:point val="10.8045,9.52366"/>
+        <dia:point val="10.7945,9.52366"/>
+        <dia:point val="10.8145,9.52366"/>
       </dia:attribute>
       <dia:attribute name="curve_distance">
-        <dia:real val="-0"/>
+        <dia:real val="0"/>
       </dia:attribute>
       <dia:connections>
         <dia:connection handle="0" to="O6" connection="8"/>
@@ -366,13 +367,13 @@
         <dia:point val="9.92946,9.52366"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="8.80454,6.77126;9.97946,9.58951"/>
+        <dia:rectangle val="7.38021,7.4256;9.97946,9.58951"/>
       </dia:attribute>
       <dia:attribute name="orth_points">
         <dia:point val="9.92946,9.52366"/>
         <dia:point val="9.92946,9.53951"/>
-        <dia:point val="9.13544,9.53951"/>
-        <dia:point val="9.13544,6.83307"/>
+        <dia:point val="7.71111,9.53951"/>
+        <dia:point val="7.71111,7.48741"/>
       </dia:attribute>
       <dia:attribute name="orth_orient">
         <dia:enum val="1"/>
@@ -393,7 +394,7 @@
       </dia:attribute>
       <dia:connections>
         <dia:connection handle="0" to="O6" connection="3"/>
-        <dia:connection handle="1" to="O1" connection="0"/>
+        <dia:connection handle="1" to="O0" connection="2"/>
       </dia:connections>
     </dia:object>
     <dia:group>
@@ -406,7 +407,7 @@
           <dia:point val="9.90544,5.83307"/>
         </dia:attribute>
         <dia:attribute name="obj_bb">
-          <dia:rectangle val="9.80544,5.64385;11.9054,8.02228"/>
+          <dia:rectangle val="9.80544,5.64386;11.9054,8.02228"/>
         </dia:attribute>
         <dia:attribute name="meta">
           <dia:composite type="dict"/>
@@ -557,7 +558,7 @@
         <dia:point val="15.1118,6.83307"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="15.0602,6.74978;16.1289,6.88468"/>
+        <dia:rectangle val="15.0602,6.74979;16.1289,6.88468"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="15.1118,6.83307"/>
@@ -576,7 +577,7 @@
         <dia:point val="17.386,6.8014"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="17.3351,6.48269;18.7304,7.14439"/>
+        <dia:rectangle val="17.3351,6.48269;18.7305,7.14439"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="17.386,6.8014"/>

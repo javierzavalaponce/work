@@ -108,4 +108,118 @@ En bloques:
 \end{figure}
 
 
+
+Retomando la ecuación original como 
+producto de dos fracciones:
+
+
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\frac{Y(s)}{U(s)} = \frac{(s+1)(s+2)}{(s-1)(s-2)} = \frac{(s+a_1)}{(s+b_1)} \cdot \frac{(s+a_2)}{(s+b_2)}
+\end{aligned}
+\end{equation}
+```
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.97\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/ejer01_1_esp_edos.pdf}
+\caption{Concatenando dos entidades con $a_1=1$, $b_1=-1$, $a_2=2$, $b_2=-2$}
+\label{fig:ss02}
+\end{figure}
+
+
+Sistema de ecuaciones resultante:
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\dot{x_1} &= 2x_1 + 2x_2 + u \\
+\dot{x_2} &= x_2 + u \\
+y &= 2x_2 + u + 4x_1
+\end{aligned}
+\end{equation}
+```
+
+
+
+
+```{=latex}
+\[
+\begin{bmatrix}
+\dot{x_1}\\
+\dot{x_2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 & 2\\
+0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix}
++
+\begin{bmatrix}
+1\\
+1
+\end{bmatrix}u
+\]
+```
+
+
+
+
+
+```{=latex}
+\[
+y = 
+\begin{bmatrix}
+4 & 2
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix}
++
+\begin{bmatrix}
+1
+\end{bmatrix}u
+\]
+```
+
+El siguiente script *octave* sirve para recuperar la función de 
+transferencia 
+
+
+```matlab
+pkg load control
+
+A = [2  2;
+    0  1];
+
+B = [1;
+     1];
+
+C = [4 2];
+
+D = 1;
+
+sys = ss(A,B,C,D)
+tf(sys)
+```
+
+Resultado:
+
+```bash
+Transfer function 'ans' from input 'u1' to output ...
+
+      s^2 + 3 s + 2
+ y1:  -------------
+      s^2 - 3 s + 2
+
+```
 \newpage

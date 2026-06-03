@@ -218,7 +218,7 @@ Tomando el modelo $f_s = x$
 
 \begin{equation}
 \begin{aligned}
-\dot{x} = 5 - x
+CS = 5 - x
 \end{aligned}
 \end{equation}
 
