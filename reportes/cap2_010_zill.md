@@ -20,13 +20,11 @@
 3. **Forma general y forma normal**  
    - Forma general:  
 
-   ```{=latex}
-   \begin{equation}
-   \begin{aligned}
-   F(x, y, y', \ldots, y^{(n)}) = 0
-   \end{aligned}
-   \end{equation}
-   ```
+```{=latex}
+\[
+F(x, y, y', \ldots, y^{(n)}) = 0
+\]
+```
 
 
    - Forma normal: despejada respecto a la derivada de mayor orden.
@@ -37,11 +35,9 @@
 
 \
 ```{=latex}
-\begin{equation}
-\begin{aligned}
+\[
 a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x)\frac{dy}{dx} + a_0(x)y = g(x)
-\end{aligned}
-\end{equation}
+\]
 ```
 \
 
@@ -63,22 +59,18 @@ a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x
 7. **Soluciones explícitas e implícitas**  
    - Explícita: 
 ```{=latex}
-\begin{equation}
-\begin{aligned}
+\[
   y = f(x)
-\end{aligned}
-\end{equation}
+\]
 ```
 
    - Implícita: 
    
 
 ```{=latex}
-\begin{equation}
-\begin{aligned}
+\[
   G(x, y) = 0
-\end{aligned}
-\end{equation}
+\]
 ```
 
    En otras palabras: no siempre es posible despejar explícitamente.

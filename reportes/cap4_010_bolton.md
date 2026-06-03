@@ -24,11 +24,9 @@ una señal relacionada con la salida obtenida se realimenta para comparacion con
 
 
 ```{=latex}
-\begin{equation}
-\begin{aligned}
-  salida/entrada = G/(1+GH)
-\end{aligned}
-\end{equation}
+\[
+salida/entrada = G/(1+GH)
+\]
 ```
 
 G: cuánto se amplifica el error.

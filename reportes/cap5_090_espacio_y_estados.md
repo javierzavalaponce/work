@@ -1,8 +1,241 @@
+```{=latex}
+\clearpage
+```
 ## Espacio y estados (control moderno)
 
+En control y dinámica de sistemas, el número de integradores puros en un sistema es igual al número de variables de estado necesarias para describirlo completamente, lo cual equivale al orden de la ecuación diferencial del sistema.
 
-La regla de las variables de estado (o de salida) para integradores en control y dinámica de sistemas establece que el número de integradores puros en un sistema es igual al número de variables de estado necesarias para describirlo completamente, lo cual equivale al orden de la ecuación diferencial del sistema.
+### Sistema general
 
+* Ecuación de estado: $\dot{x} = Ax + Bu$
+* Ecuación de salida: $y = Cx + Du$
+
+Las matrices $A$ y $B$  describen la dinámica del sistema. $C$ y $D$ describen como observamos la planta
+
+
+En un motor, por ejemplo, la entrada es el voltaje $u$ y los estados podrían ser
+el ángulo y la velocidad de la flecha
+
+
+```{=latex}
+\[
+x=
+\begin{bmatrix}
+{\theta}\\
+{w}
+\end{bmatrix}
+\]
+```
+
+La estabilidad "natural" del sistema depende inicialmente de A, mientras que C y D sólo empiezan a influir cuando cerramos el lazo de control usando las señales medidas.
+
+
+Por ejemplo, considere el sistema: 
+
+
+```{=latex}
+\[
+A=
+\begin{bmatrix}
+0 & -1\\
+3 & 2
+\end{bmatrix},
+\qquad
+B=
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix},
+\qquad
+C=
+\begin{bmatrix}
+1 & 0
+\end{bmatrix},
+\qquad
+D=0
+\]
+```
+
+La ecuación de estado es: 
+
+```{=latex}
+\[
+\dot{x}
+=
+\begin{bmatrix}
+0 & -1\\
+3 & 2
+\end{bmatrix}
+x
++
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}
+u
+\]
+
+\newpage
+```
+
+y la de salida es: 
+```{=latex}
+\[
+y=
+\begin{bmatrix}
+1 & 0
+\end{bmatrix}
+x
+\]
+```
+La matriz $C$ indica que la salida observada corresponde únicamente al primer estado. En este ejemplo, si
+
+```{=latex}
+\[
+x=
+\begin{bmatrix}
+x_1\\
+x_2
+\end{bmatrix}
+\]
+```
+
+entonces
+
+```{=latex}
+\[
+y=x_1
+\]
+```
+
+Aunque el sistema posee dos estados internos, únicamente el primero está siendo medido directamente.
+¿Cómo entonces se puede modificar el comportamiento del sistema? 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.64\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/control03.pdf}
+\caption{Control proporcional aplicado al sistema}
+\label{fig:control03}
+\end{figure}
+
+```{=latex}
+\[
+u=r-ky
+\]
+```
+
+y como
+
+```{=latex}
+\[
+y=Cx
+\]
+```
+
+```{=latex}
+\[
+u=r-kCx
+\]
+```
+
+El controlador (proporcional en este caso) no tiene acceso directo a los estados; únicamente puede actuar sobre lo que mide el *sensor*. 
+
+
+### Función de transferencia a partir de las matrices $A$, $B$, $C$ y $D$
+
+La representación en variables de estado describe la dinámica interna del sistema mediante los estados.
+Sin embargo, antes los sistemas de control se analizaban mediante funciones de transferencia, las cuales relacionan directamente la entrada con la salida:
+
+```{=latex}
+\[
+G(s)=\frac{Y(s)}{U(s)}
+\]
+```
+¿Cómo obtener la función de transferencia a partir de las matrices $A$, $B$, $C$ y $D$    ?
+Para ello se aplica la Transformada de Laplace a las ecuaciones de estado, suponiendo condiciones iniciales nulas.
+
+```{=latex}
+\[
+\dot{x}=Ax+Bu
+\]
+```
+Aplicando Transformada de Laplace:
+```{=latex}
+\[
+sX(s)=AX(s)+BU(s)
+\]
+```
+
+Agrupando términos ($I$ es la matriz Identidad):
+
+```{=latex}
+\[
+(sI-A)X(s)=BU(s)
+\]
+```
+Si la matriz $(sI-A)$ es invertible
+```{=latex}
+\[
+X(s)=(sI-A)^{-1}BU(s)
+\]
+```
+
+Utilizando la ecuación de salida:
+
+```{=latex}
+\[
+Y(s)=CX(s)+DU(s)
+\]
+```
+
+Tenemos:
+
+```{=latex}
+\[
+Y(s)=C(sI-A)^{-1}BU(s)+DU(s)
+\]
+```
+
+O bien:
+
+
+```{=latex}
+\[
+\boxed{
+\frac{Y(s)}{U(s)}
+=
+\left[
+C(sI-A)^{-1}B+D
+\right]
+}
+\]
+```
+
+\vspace{1cm}
+
+* $A$ contiene la dinámica interna.
+* $(sI-A)^{-1}$ contiene los modos naturales del sistema.
+* $B$ indica cómo la entrada excita esos modos.
+* $C$ indica qué parte de esos modos observamos.
+* $D$ representa un camino directo entrada-salida.
+
+
+
+De hecho, para tu sistema concreto, el siguiente paso natural sería calcular explícitamente
+
+\[
+(sI-A)
+\]
+
+```latex
+\[
+sI-A=
+\begin{bmatrix}
+s & 1\\
+-3 & s-2
+\end{bmatrix}
+\]
+```
 
 
 \newpage
