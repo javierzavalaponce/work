@@ -140,6 +140,7 @@ u=r-kCx
 
 El controlador (proporcional en este caso) no tiene acceso directo a los estados; únicamente puede actuar sobre lo que mide el *sensor*. 
 
+\vspace{2cm}
 
 ### Función de transferencia a partir de las matrices $A$, $B$, $C$ y $D$
 
@@ -173,7 +174,36 @@ Agrupando términos ($I$ es la matriz Identidad):
 (sI-A)X(s)=BU(s)
 \]
 ```
-Si la matriz $(sI-A)$ es invertible
+
+\newpage
+
+\hrulefill
+
+*Notas de repaso de algebra lineal*
+
+* En álgebra lineal, una matriz cuadrada $Q$ de orden $n$, se dice que es invertible, si existe otra matriz cuadrada de orden $n$, llamada matriz inversa de Q y denotada por $Q^{-1}$
+tal que $Q \cdot Q^{-1}=I_n$
+
+* La matriz adjunta de $Q$, $adj(Q)$ es igual a la matriz transpuesta de la matriz de cofatores de Q:
+  $adj(Q)$ = $cof(Q^{-1})$
+
+* La inversa de una matriz $Q$ se calcula como $Q^{-1}=\frac{1}{det(Q)} \cdot adj(Q)$
+
+```{=latex}
+\[
+Q^{-1} = 
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} = \frac{1}{\det(Q)} 
+adj(Q)= \frac{1}{ad-bc} 
+\begin{bmatrix} \,\,\, d & \!\! -b \\ -c & \, a \end{bmatrix}
+\]
+```
+
+\hrulefill
+
+\vspace{1cm}
+
+Entonces retomando, si la matriz $(sI-A)$ es invertible. 
+
 ```{=latex}
 \[
 X(s)=(sI-A)^{-1}BU(s)
@@ -221,21 +251,68 @@ C(sI-A)^{-1}B+D
 
 
 
-De hecho, para tu sistema concreto, el siguiente paso natural sería calcular explícitamente
 
+
+
+
+
+---
+
+
+
+Retomando el elemplo de la matriz $A$ 
+se tiene:
+
+```{=latex}
 \[
-(sI-A)
+A=
+\begin{bmatrix}
+0 & -1\\
+3 & 2
+\end{bmatrix}
 \]
+```
 
-```latex
+
+
+para calcular el determinante $det(sI-A)$
+
+```{=latex}
 \[
-sI-A=
+det(sI-A) = det
 \begin{bmatrix}
 s & 1\\
 -3 & s-2
 \end{bmatrix}
+=s^2 -2s + 3
 \]
 ```
+
+Para obtener la función de transferencia completa no basta calcular el determinante.
+
+También es necesario obtener la inversa de la matriz
+
+```{=latex}
+\[
+(sI-A)^{-1}
+\]
+```
+
+Sin embargo, el determinante de esta matriz aparece naturalmente en el denominador de la función de transferencia.
+
+Por esta razón, el polinomio
+
+```{=latex}
+\[
+\det(sI-A)
+\]
+```
+
+recibe el nombre de polinomio característico del sistema.
+
+Este polinomio $D(s)=s^2 -2s -3$ es de hecho, la ecuación caracteristica del sistema 
+a partir de la cual se pueden estudiar los criterios como el de estabilidad.
+
 
 
 \newpage
