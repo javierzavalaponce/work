@@ -4,14 +4,14 @@
 
 ### Polos y ceros
 
-Definición, en una **funcion de transferencia** (expresada como division de Polinomios)
+En una **funcion de transferencia** (expresada como division de Polinomios)
 
 ```{=latex}
-\begin{equation}
+\[
 \begin{aligned}
 ft =  H(s)= \frac{N(s)}{D(s)}
 \end{aligned}
-\end{equation}
+\]
 ```
 
 
@@ -25,21 +25,21 @@ ft =  H(s)= \frac{N(s)}{D(s)}
 Forma general de una $ft$:
 
 ```{=latex}
-\begin{equation}
+\[
 \begin{aligned}
   H(s)=k \cdot \frac{(s - z_1)(s - z_2)...(s - z_m)}{(s - p_1)(s - p_2)...(s - p_n)}= k \cdot \frac{\displaystyle\prod_{i=1}^{m} (s - z_i)}{\displaystyle\prod_{j=1}^{n} (s - p_j)}
 \end{aligned}
-\end{equation}
+\]
 ```
 
 La función de transferencia $H(s)$ en el dominio de Laplace se relaciona con la respuesta temporal $h(t)$ mediante la transformada inversa:
 
 ```{=latex}
-\begin{equation}
+\[
 \begin{aligned}
 h(t) = \mathcal{L}^{-1}\{H(s)\}
 \end{aligned}
-\end{equation}
+\]
 ```
 
 En el plano complejo, la ubicación de polos y ceros codifica directamente la manera en que un sistema evoluciona en el tiempo.

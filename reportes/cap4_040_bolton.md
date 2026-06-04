@@ -35,12 +35,12 @@ Transforma ecuaciones diferenciales en ecuaciones algebraicas, que suelen ser mu
 
 
 ```{=latex}   
-\begin{equation}
+\[
 F(s) = \mathcal{L}\{f(t)\}
 =
 \int_{0}^{\infty}
 f(t)e^{-st}\,dt
-\end{equation}
+\]
 ```
 
 

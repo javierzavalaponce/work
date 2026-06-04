@@ -49,7 +49,7 @@ a_n(x)\frac{d^n y}{dx^n} + a_{n-1}(x)\frac{d^{n-1} y}{dx^{n-1}} + \cdots + a_1(x
 
 
 
-5. **Solución de una ecuación diferenciales**  
+5. **Solución de una ecuación diferencial**  
 
    Una función es solución si al sustituirse en la ecuación la convierte en una identidad en un intervalo dado.
 
