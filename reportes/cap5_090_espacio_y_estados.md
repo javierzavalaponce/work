@@ -379,7 +379,7 @@ Para el denominador $U(s)$:
 ```{=latex}
 \begin{equation}
 \begin{aligned}
-\mathcal{L}^{-1}\{U(s)\} = \mathcal{L}^{-1}\{sW(s)+bW(s)\} = u(t) = \dot{w}+b
+\mathcal{L}^{-1}\{U(s)\} = \mathcal{L}^{-1}\{sW(s)+bW(s)\} = u(t) = \dot{w}+bw(t)
 \end{aligned}
 \end{equation}
 ```
