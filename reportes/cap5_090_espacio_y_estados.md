@@ -179,15 +179,18 @@ Agrupando términos ($I$ es la matriz Identidad):
 
 \hrulefill
 
-*Notas de repaso de algebra lineal*
+*Parentesis: Notas de repaso de algebra lineal*
 
 * En álgebra lineal, una matriz cuadrada $Q$ de orden $n$, se dice que es invertible, si existe otra matriz cuadrada de orden $n$, llamada matriz inversa de Q y denotada por $Q^{-1}$
 tal que $Q \cdot Q^{-1}=I_n$
 
 * La matriz adjunta de $Q$, $adj(Q)$ es igual a la matriz transpuesta de la matriz de cofatores de Q:
-  $adj(Q)$ = $cof(Q^{-1})$
+  $adj(Q)$ = $cof(Q^{-1})$ . Es decir, en otras palabras,  hay mas de un "nombre" para esta matriz. En este documento, se maneja: $adj(Q)$
 
-* La inversa de una matriz $Q$ se calcula como $Q^{-1}=\frac{1}{det(Q)} \cdot adj(Q)$
+
+* En resumen, 
+$Q^{-1}$ es
+la inversa de una matriz $Q$ y se calcula como: 
 
 ```{=latex}
 \[
@@ -228,9 +231,8 @@ Y(s)=C(sI-A)^{-1}BU(s)+DU(s)
 
 O bien:
 
-
 ```{=latex}
-\[
+\begin{equation}
 \boxed{
 \frac{Y(s)}{U(s)}
 =
@@ -238,7 +240,8 @@ O bien:
 C(sI-A)^{-1}B+D
 \right]
 }
-\]
+\label{eq:ft_a_partir_edos}
+\end{equation}
 ```
 
 \vspace{1cm}
@@ -289,16 +292,29 @@ s & 1\\
 ```
 
 Para obtener la función de transferencia completa no basta calcular el determinante.
-
-También es necesario obtener la inversa de la matriz
+Recordemos que el objetivo es, primero obtener la matriz inversa:
 
 ```{=latex}
 \[
-(sI-A)^{-1}
+(sI-A)^{-1} = \frac{1}{det(sI-A)} \cdot adj(sI-A)
 \]
 ```
 
-Sin embargo, el determinante de esta matriz aparece naturalmente en el denominador de la función de transferencia.
+Y segundo, obtener la función de transferencia, como se mosto 
+en la ecuación \ref{eq:ft_a_partir_edos}
+
+
+
+```{=latex}
+\[
+\frac{Y(s)}{U(s)}
+=
+\left[
+C(sI-A)^{-1}B+D
+\right]
+\]
+```
+
 
 Por esta razón, el polinomio
 
