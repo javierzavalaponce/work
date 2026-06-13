@@ -36,7 +36,7 @@ savefig(p, "root_locus.png")
 ```
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.35\textheight]{./img/root_locus.png}
+\includegraphics[height=0.35\textheight]{../img/root_locus.png}
 \caption{root locus del RC}
 \end{figure}
 

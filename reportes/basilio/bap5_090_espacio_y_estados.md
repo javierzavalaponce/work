@@ -113,7 +113,7 @@ Aunque el sistema posee dos estados internos, únicamente el primero está siend
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.64\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/control03.pdf}
+\includegraphics[width=0.64\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/control03.pdf}
 \caption{Control proporcional aplicado al sistema}
 \label{fig:control03}
 \end{figure}
@@ -363,7 +363,7 @@ separar la ecuacion de esta manera:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth,trim=0cm 8cm 0cm 5cm,clip]{./img/espacio_edos00.pdf}
+\includegraphics[width=0.9\textwidth,trim=0cm 8cm 0cm 5cm,clip]{../img/espacio_edos00.pdf}
 \caption{Alternativamente en bloques}
 \label{fig:ejercicio_espedos0}
 \end{figure}
@@ -428,7 +428,7 @@ En bloques:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/ejer01_esp_edos.pdf}
+\includegraphics[width=0.95\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/ejer01_esp_edos.pdf}
 \caption{Diagrama a bloques}
 \label{fig:ss01}
 \end{figure}
@@ -452,7 +452,7 @@ producto de dos fracciones:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.97\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/ejer01_1_esp_edos.pdf}
+\includegraphics[width=0.97\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/ejer01_1_esp_edos.pdf}
 \caption{Concatenando dos entidades con $a_1=1$, $b_1=-1$, $a_2=2$, $b_2=-2$}
 \label{fig:ss02}
 \end{figure}

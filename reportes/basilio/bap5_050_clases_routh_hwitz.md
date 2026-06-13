@@ -80,7 +80,7 @@ Determinar la k estabilizante al aplicar retroalimentación estatica.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/criteriorh.pdf}
+\includegraphics[width=0.6\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/criteriorh.pdf}
 \caption{Aplicando retroalimentación}
 \label{fig:criteriorh}
 \end{figure}

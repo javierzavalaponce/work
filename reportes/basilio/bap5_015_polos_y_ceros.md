@@ -103,7 +103,7 @@ Sobreamortiguado: polos complejos conjugados, oscilación con sobreimpulso:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.1\textwidth]{./img/01_subamortiguado.png}
+\includegraphics[width=1.1\textwidth]{../img/01_subamortiguado.png}
 \caption{Subamortiguado}
 \end{figure}
 
@@ -113,7 +113,7 @@ Criticamente amortiguado: dos polos reales iguales. Respuesta más rápida sin o
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth]{./img/02_criticamente_amortiguado.png}
+\includegraphics[width=1.0\textwidth]{../img/02_criticamente_amortiguado.png}
 \caption{Criticamente amortiguado}
 \end{figure}
 
@@ -124,7 +124,7 @@ Sobreamortiguado: dos polos reales negativos distintos. Respuesta lenta sin osci
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth]{./img/03_sobreamortiguado.png}
+\includegraphics[width=1.0\textwidth]{../img/03_sobreamortiguado.png}
 \caption{Sobreamortiguado}
 \end{figure}
 
@@ -134,7 +134,7 @@ Inestable. Algún polo con parte real positiva $\Re(s)>0$. Respuesta creciente:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth]{./img/04_inestable.png}
+\includegraphics[width=1.0\textwidth]{../img/04_inestable.png}
 \caption{Inestable}
 \end{figure}
 

@@ -16,7 +16,7 @@ Y usa ambas cosas para corregir el sistema. Una analogía: imagine llenar un vas
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.32\textheight,trim=0cm 2cm 0cm 2cm,clip]{./img/pi_a_bloques.pdf}
+\includegraphics[height=0.32\textheight,trim=0cm 2cm 0cm 2cm,clip]{../img/pi_a_bloques.pdf}
 \caption{$C(s)=k_p+\frac{k_i}{s} = \frac{k_p s + k_i}{s}$ $\rightarrow$ introduce polo en el origen $s=0$ trayectoria cero en $s = -k_i/k_p$}
 \label{fig:pi_a_blokes}
 \end{figure}
@@ -79,7 +79,7 @@ C(s) = \frac{k(s+\alpha)}{s} = \frac{k(s+1)}{s}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth,trim=0cm 8cm 0cm 5cm,clip]{./img/ejemplo_PI.pdf}
+\includegraphics[width=0.9\textwidth,trim=0cm 8cm 0cm 5cm,clip]{../img/ejemplo_PI.pdf}
 \caption{Efecto del PI}
 \label{fig:control_pi}
 \end{figure}

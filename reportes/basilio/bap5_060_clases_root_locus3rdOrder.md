@@ -57,7 +57,7 @@ interactúan entre sí.
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.4\textheight]{./img/rlocus_with_asymptotes.png}
+\includegraphics[height=0.4\textheight]{../img/rlocus_with_asymptotes.png}
 \caption{LGR con asíntotas (líneas punteadas) y $n=3$ trayectorias}
 \end{figure}
 

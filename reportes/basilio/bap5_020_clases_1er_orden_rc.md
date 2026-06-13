@@ -44,7 +44,7 @@ i(t)=\frac{Cdv(t)}{dt}
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.25\textheight,trim=0cm 4cm 0cm 12cm,clip]{./img/rc01.pdf}
+\includegraphics[height=0.25\textheight,trim=0cm 4cm 0cm 12cm,clip]{../img/rc01.pdf}
 \caption{Cerrando interruptor en t= 0 , $i(t) = C\dot{y}$}
 \label{fig:rc01}
 \end{figure}
@@ -115,7 +115,7 @@ En particular, un circuito RC no compara la salida contra la entrada, ni posee u
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/rc_control.pdf}
+\includegraphics[width=1.0\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/rc_control.pdf}
 \caption{RC como sistema en lazo cerrado}
 \label{fig:rc_a_bloques}
 \end{figure}
@@ -159,7 +159,7 @@ savefig("respuesta_escalon.png")
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.3\textheight]{./img/respuesta_escalon.png}
+\includegraphics[height=0.3\textheight]{../img/respuesta_escalon.png}
 \caption{Respuesta al escalón unitario}
 \end{figure}
 

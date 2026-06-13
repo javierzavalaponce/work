@@ -32,7 +32,7 @@ s = -\zeta \omega_n \pm j\,\omega_n \sqrt{1 - \zeta^2}
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.40\textheight]{./img/segundo_orden.png}
+\includegraphics[height=0.40\textheight]{../img/segundo_orden.png}
 \caption{Respuesta temporal de un sistema de 2do orden}
 \end{figure}
 
@@ -64,7 +64,7 @@ Control por retroalimentación estatica de la salida:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth,trim=0cm 7cm 0cm 4cm,clip]{./img/root_locus_bloques.pdf}
+\includegraphics[width=0.5\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/root_locus_bloques.pdf}
 \caption{analisis de LGR | root locus}
 \label{fig:root_locus_bloques}
 \end{figure}
@@ -121,7 +121,7 @@ julia> pole(feedback(100*G))
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.3\textheight]{./img/root_locus2do_orden.png}
+\includegraphics[height=0.3\textheight]{../img/root_locus2do_orden.png}
 \caption{Root locus: en s= -2 los polos se fusionan}
 \end{figure}
 
@@ -144,7 +144,7 @@ Respuesta temporal al escalón para diferentes valores de k
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.5\textheight]{img/step_overlap.png}
+\includegraphics[height=0.5\textheight]{../img/step_overlap.png}
 \caption{Respuesta al escalón con diferente k}
 \end{figure}
 
