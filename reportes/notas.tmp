@@ -1,9 +1,48 @@
+Por ejemplo, para un sistema de segundo orden escrito en espacio de estados:
+
+```{=latex}
+\[
+\begin{aligned}
+\dot{x}_1 &= x_2 \\
+\dot{x}_2 &= -x_1
+\end{aligned}
+\]
+```
+O bien, en forma matricial:
+
+```{=latex}
+\[
+\dot{x}=
+\begin{bmatrix}
+0 & 1 \\
+-1 & 0
+\end{bmatrix}
+x
+\]
+```
 
 
+A partir de aqui, dame el script julia para simular resolver:
+```{=latex}
+\[
+\begin{aligned}
+\dot{x}_1 &= x_2 \\
+\dot{x}_2 &= -x_1
+\end{aligned}
+\]
+```
+O bien, en forma matricial:
 
-
-Decidí escribir esto para solidificar
-mi propio conocimiento de sistemas de control.
+```{=latex}
+\[
+\dot{x}=
+\begin{bmatrix}
+0 & 1 \\
+-1 & 0
+\end{bmatrix}
+x
+\]
+```
 
 
 
