@@ -2,8 +2,14 @@ using OrdinaryDiffEq
 using Plots
 
 function f!(dx, x, p, t)
+    # referencia
     r = 5.0
-    dx[1] = r - x[1]
+
+    # ley de control
+    u = r - x[1]
+
+    # planta: ẋ = Ax + Bu
+    dx[1] = 0*x[1] + 1*u
 end
 
 # Condición inicial: x(0) = 0.0
