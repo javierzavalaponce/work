@@ -35,7 +35,7 @@ ESIME Culhuacán\par}
 \vspace{0.6cm}
 
 % Pie formal
-{\normalsize \textit{Documento de trabajo}\par}
+{\normalsize \textit{Documento de trabajo. Fecha de última edicion: 12 Junio 2026}\par}
 
 \end{center}
 

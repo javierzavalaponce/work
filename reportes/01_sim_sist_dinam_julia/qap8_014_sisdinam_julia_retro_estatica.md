@@ -103,7 +103,7 @@ Identificando que
 
 * La ecuacion $\dot{x} =Ax+Bu$ queda como $\dot{x} = 0x+1u$
 * Ley de control: $u=r-x$
-* Ganancia de retroalimentación: $k=1$ ver Figura \ref{fig:integrador_bloques}
+* Ganancia de retroalimentación: $k=1$. Ver Figura \ref{fig:integrador_bloques}
 * La salida queda $y = x$. Con $C=1$ y $D=0$
 
 
@@ -204,6 +204,7 @@ eventualmente ambos se equilibran. Ver campo direccional:
 \centering
 \includegraphics[height=0.25\textheight]{../img/campo_tanque.png}
 \caption{Campo direccional para $\dot{x} = 5 - x$}
+\label{fig:campo_dir_tanq}
 \end{figure}
 
 \newpage

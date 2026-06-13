@@ -25,7 +25,10 @@ se aproxima la evolución usando pequeños pasos de tiempo:
 \label{eq:definicion_euler}
 \end{equation}
 
-
+Esta expresión se utilizará mas adelante (Ver figuras 
+\ref{fig:integrador_bloques} y 
+\ref{fig:grafica_resultado00}
+)
 
 
 

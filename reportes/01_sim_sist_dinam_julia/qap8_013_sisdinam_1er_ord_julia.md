@@ -38,7 +38,7 @@ o bien, en bloques:
 \end{figure}
 
 
-Si tomamos el caso en que $u(1)=1$ para la ecuación \ref{eq:integrador_puro}, tenemos que la integral de una constante resulta en una rampa. Al graficar el tiempo $t$ sobre el eje de las abscisas y la variable $x$ sobre el eje de las ordenadas, se obtiene:
+Si tomamos el caso en que $u(t)=1$ para la ecuación \ref{eq:integrador_puro}, tenemos que la integral de una constante resulta en una rampa. Al graficar el tiempo $t$ sobre el eje de las abscisas y la variable $x$ sobre el eje de las ordenadas, se obtiene:
 
 \begin{figure}[H]
 \centering
@@ -48,9 +48,10 @@ Si tomamos el caso en que $u(1)=1$ para la ecuación \ref{eq:integrador_puro}, t
 
 
 \vspace{1cm}
-La figura precedente se obtiene con el siguiente 
+
+La figura precedente se obtiene se puede obtener con el siguiente script. Se explica a detalle después.
+
 \vspace{1cm}
-script *julia*: 
 
 ```julia
 using OrdinaryDiffEq
@@ -75,7 +76,7 @@ savefig("x_dot_equal_u.png")
 
 ## Explicacion detallada del script
 
-Las primeras dos lineas son dependencias:
+Las primeras dos líneas son dependencias:
 
 ```julia
 using OrdinaryDiffEq
