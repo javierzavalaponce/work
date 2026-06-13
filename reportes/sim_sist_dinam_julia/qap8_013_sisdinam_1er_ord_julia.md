@@ -32,7 +32,7 @@ o bien, en bloques:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.79\textwidth,trim=0cm 9cm 0cm 5cm,clip]{./img/ejercicio001.pdf}
+\includegraphics[width=0.79\textwidth,trim=0cm 9cm 0cm 5cm,clip]{../img/ejercicio001.pdf}
 \caption{Integrador ($1/s$)}
 \label{fig:integrador_basico}
 \end{figure}
@@ -42,7 +42,7 @@ Si tomamos el caso en que $u(1)=1$ para la ecuación \ref{eq:integrador_puro}, t
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.3\textheight]{./img/x_dot_equal_u.png}
+\includegraphics[height=0.3\textheight]{../img/x_dot_equal_u.png}
 \caption{Integrando una constante $1$ se obtiene una rampa}
 \end{figure}
 

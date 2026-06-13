@@ -17,7 +17,7 @@ por retroalimentacion estática
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth,trim=0cm 7cm 0cm 7cm,clip]{./img/control_del_integrador.pdf}
+\includegraphics[width=1.0\textwidth,trim=0cm 7cm 0cm 7cm,clip]{../img/control_del_integrador.pdf}
 \caption{Sistema en lazo cerrado con entrada constante (referencia $r$)}
 \label{fig:integrador_bloques}
 \end{figure}
@@ -75,7 +75,7 @@ savefig(p, "integrador_retroalimentado.png")
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.30\textheight]{./img/integrador_retroalimentado.png}
+\includegraphics[height=0.30\textheight]{../img/integrador_retroalimentado.png}
 \caption{Integrador retroalimentado siguiendo referencia $r = 5$}
 \label{fig:grafica_resultado00}
 \end{figure}
@@ -146,7 +146,7 @@ Imaginemos un tanque que recibe agua por una tubería de entrada con flujo $f_e$
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.45\textheight,trim=0cm 9cm 0cm 9cm,clip]{./img/tanque_fe_fs.pdf}
+\includegraphics[height=0.45\textheight,trim=0cm 9cm 0cm 9cm,clip]{../img/tanque_fe_fs.pdf}
 \caption{Analogia de tanque con flujos de entrada y salida}
 \label{fig:tnke}
 \end{figure}
@@ -202,7 +202,7 @@ eventualmente ambos se equilibran. Ver campo direccional:
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.25\textheight]{./img/campo_tanque.png}
+\includegraphics[height=0.25\textheight]{../img/campo_tanque.png}
 \caption{Campo direccional para $\dot{x} = 5 - x$}
 \end{figure}
 
