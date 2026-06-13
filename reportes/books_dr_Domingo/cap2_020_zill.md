@@ -17,7 +17,7 @@ Para construir un vector con esa pendiente, podemos pensar en un triángulo rect
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.25\textheight,trim=0cm 2cm 0cm 15cm,clip]{./img/vectorquiver00.pdf}
+\includegraphics[height=0.25\textheight,trim=0cm 2cm 0cm 15cm,clip]{../img/vectorquiver00.pdf}
 \caption{Triangulo con altura y pendiente igual a la derivada}
 \label{fig:triangulo}
 \end{figure}
@@ -72,7 +72,7 @@ savefig(p,"campo.png")
 ```
 \begin{figure}[h]
 \centering
-\includegraphics[height=0.5\textheight]{./img/campo.png}
+\includegraphics[height=0.5\textheight]{../img/campo.png}
 \caption{Campo direccional para $dy/dx = 0.2xy$, en azul: una solución particular}
 \end{figure}
 
@@ -101,7 +101,7 @@ savefig(p,"solucion.png")
 
 \begin{figure}[h]
 \centering
-\includegraphics[height=0.4\textheight]{./img/solucion00.png}
+\includegraphics[height=0.4\textheight]{../img/solucion00.png}
 \caption{Solucion numérica de $dy/dx = 0.2xy$}
 \end{figure}
 
