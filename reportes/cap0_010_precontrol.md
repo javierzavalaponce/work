@@ -4,7 +4,7 @@
 
 # Carácter y objetivos de este material
 
-El presente documento constituye un material de trabajo y estudio personal. Reúne notas de clase, resúmenes de repaso, reflexiones, ideas y apuntes elaborados durante el proceso de  consolidación de conocimientos en el área de control automático y sistemas dinámicos.
+El presente documento constituye un material de trabajo. Reúne notas de clase, resúmenes de repaso, reflexiones, ideas y apuntes elaborados durante el proceso de  consolidación de conocimientos en el área de control automático y sistemas dinámicos.
 
 Debido a su naturaleza formativa y evolutiva, el contenido puede contener imprecisiones, omisiones o errores conceptuales propios de un proceso de reaprendizaje. En este sentido, cualquier observación, corrección o comentario será ampliamente bienvenido y apreciado.
 

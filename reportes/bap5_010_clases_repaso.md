@@ -9,7 +9,7 @@
 
 \vspace{4cm}
 
-### Sistemas dinámicos. Definición:
+## Sistemas dinámicos. Definición:
 
 
 Un sistema dinámico es una entidad descrita por un conjunto de variables de estado cuya evolución temporal está gobernada por una ley (por ejemplo, una ecuación diferencial). En un sistema determinista, el estado inicial determina de manera única la trayectoria del sistema en el tiempo.

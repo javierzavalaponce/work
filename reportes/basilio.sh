@@ -2,7 +2,7 @@
 pandoc \
   --metadata-file=config.yaml \
   -B Portada_clases_basilio.md \
-  cap5*.md \
+  bap5*.md \
   -o basilio.pdf \
   --pdf-engine=xelatex \
   --toc \

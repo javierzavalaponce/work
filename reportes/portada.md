@@ -3,7 +3,7 @@
 
 \begin{center}
 \Huge
-\textbf{Reporte 10}
+\textbf{Reporte 11}
 
 \vspace{1cm}
 
