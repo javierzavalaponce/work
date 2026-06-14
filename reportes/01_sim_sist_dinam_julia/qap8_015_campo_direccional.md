@@ -2,7 +2,7 @@
 \clearpage
 ```
 
-### Campo direccional
+# Campo direccional
 
 El campo direccional proporciona una idea de como seria la solución de una ecuación diferencial, dibuja muchas flechas donde cada flecha esta en un punto del plano y representa una pendiente.
 

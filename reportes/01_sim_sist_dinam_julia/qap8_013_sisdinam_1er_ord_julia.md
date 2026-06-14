@@ -38,7 +38,7 @@ o bien, en bloques:
 \end{figure}
 
 
-Si tomamos el caso en que $u(t)=1$ para la ecuación \ref{eq:integrador_puro}, tenemos que la integral de una constante resulta en una rampa. Al graficar el tiempo $t$ sobre el eje de las abscisas y la variable $x$ sobre el eje de las ordenadas, se obtiene:
+Si tomamos el caso en que la entrada $u(t)=1$ y la salida es $x(t)$ como se muestra en la Figura  \ref{fig:integrador_basico}, el sistema queda definido por la ecuación \ref{eq:integrador_puro}, tenemos  que la integral de una constante resulta en una rampa. Al graficar el tiempo $t$ sobre el eje de las abscisas y la variable $x$ sobre el eje de las ordenadas, (Considerando condiciones nulas $x(0)=0$) se obtiene:
 
 \begin{figure}[H]
 \centering

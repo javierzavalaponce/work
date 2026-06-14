@@ -1,0 +1,17 @@
+# Describiendo un sistema sencillo en xppaut
+x'= a*x + b*u
+# Valores de los parámetros
+par a=-1, b=3
+# especificación de la señal 'u'
+u=3+2*sin(0.5*t)
+# Condición inicial:
+init x=1
+# Le ponemos a 'u' el alias de 'control' para poder graficarlo
+aux control=u
+# Opciones de simulación
+@ total=5
+@ dt=0.0001
+@ MAXSTOR=5000000
+@ BOUND=1e6
+done
+
