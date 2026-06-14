@@ -1,0 +1,11 @@
+# simulacion del péndulo simple
+# El modelo del péndulo
+x1'= x2
+x2'= -(g/l)*sin(x1)-b*x2/(m*l) + tau/(m*l*l)
+# con los parámetros
+par g=9.8 m=0.3 l=0.5 b=0.1
+# y la condición inicial
+init x1=pi/4
+# y el par
+tau=0
+done
