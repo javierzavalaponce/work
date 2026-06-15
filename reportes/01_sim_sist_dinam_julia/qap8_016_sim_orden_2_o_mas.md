@@ -4,7 +4,7 @@
 
 
 
-# Simulación de sistemas de orden 2 o más
+# Simulación de sistemas de orden 2
 
 ...
 
