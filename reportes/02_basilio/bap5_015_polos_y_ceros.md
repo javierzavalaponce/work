@@ -99,7 +99,7 @@ Respuesta creciente \\
 \
 \
 
-Sobreamortiguado: polos complejos conjugados, oscilación con sobreimpulso:
+**Subamortiguado**: polos complejos conjugados, oscilación con sobreimpulso:
 
 \begin{figure}[H]
 \centering
@@ -109,7 +109,7 @@ Sobreamortiguado: polos complejos conjugados, oscilación con sobreimpulso:
 
 \newpage
 
-Criticamente amortiguado: dos polos reales iguales. Respuesta más rápida sin oscilación:
+**Criticamente amortiguado**: dos polos reales iguales. Respuesta más rápida sin oscilación:
 
 \begin{figure}[H]
 \centering
@@ -119,7 +119,7 @@ Criticamente amortiguado: dos polos reales iguales. Respuesta más rápida sin o
 
 \vspace{2.8cm}
 
-Sobreamortiguado: dos polos reales negativos distintos. Respuesta lenta sin oscilación:
+**Sobreamortiguado**: dos polos reales negativos distintos. Respuesta lenta sin oscilación:
 
 
 \begin{figure}[H]
@@ -129,7 +129,7 @@ Sobreamortiguado: dos polos reales negativos distintos. Respuesta lenta sin osci
 \end{figure}
 
 \newpage
-Inestable. Algún polo con parte real positiva $\Re(s)>0$. Respuesta creciente:
+**Inestable**: Algún polo con parte real positiva $\Re(s)>0$. Respuesta creciente:
 
 
 \begin{figure}[H]
@@ -143,3 +143,5 @@ Inestable. Algún polo con parte real positiva $\Re(s)>0$. Respuesta creciente:
 * altera el orden del sistema,
 * modifica la ubicación de los polos,
 * cambia la dinámica y la respuesta temporal.
+
+Los conceptos de subamortiguamiento, amortiguamiento crítico y sobreamortiguamiento surgen naturalmente en sistemas de segundo orden porque dependen de la interacción entre dos polos. Un sistema de primer orden, como un circuito RC simple, posee un único polo y no puede clasificarse de esta manera.
