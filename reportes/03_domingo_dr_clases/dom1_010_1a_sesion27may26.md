@@ -2,6 +2,9 @@
 \clearpage
 ```
 
+# Optimización por enjambre de partículas
+
+
 ## Introduccion
 
 Considere una placa metalica cuadrada cuyos lados son de longitud  $l$,
@@ -70,30 +73,28 @@ V(5) &= 0
 \end{aligned}
 \]
 ```
-Se observa que el *máximo* valor de $V(x)$ depende del valor de $x$ y que dicho máximo se encuentra en el intervalo $(1,2)$
+Se observa que el *máximo* valor de $V(x)$ depende del valor de $x$ y que dicho máximo se encuentra en el intervalo $(1,2)$. Ver figura
 
-Si los valores de $x$ se interpretan como posiciones dentro del espacio de búsqueda, entonces cada posición puede considerarse una solución candidata del problema. En el contexto de *Particle Swarm Optimization* (PSO), cada partícula representa una solución candidata y se encuentra ubicada en una posición $x_i$ del espacio de búsqueda.
+Si los valores de $x$ (1,2,3,4,5) se interpretan como posiciones dentro de un ***espacio de búsqueda***, entonces cada posición puede considerarse una solución candidata del problema. En el contexto de *Particle Swarm Optimization* (PSO), cada partícula representa una solución candidata y se encuentra ubicada en una posición $x_i$ del espacio de búsqueda.
 
-Para este ejemplo, el espacio de búsqueda corresponde al intervalo $x \in [0,5]$, y cada partícula puede desplazarse dentro de dicho intervalo tras evaluar la función objetivo $V(x)$ o *función de costo*. El propósito del algoritmo es encontrar la posición que maximiza el volumen de la caja.
-
-Si los valores de $x$  se consideran *partículas* o puntos sobre la recta y el volumen $V(x)$ una *funcion de costo*, entonces, 
-mediante aproximaciones sucesivas se podria encontrar numericamente
-el máximo (o mínimo) local mediante algún algoritmo que automatice las evaluaciones. En otras palabras: es posible resolver numericamente este problema mediante la automatización de evaluaciones y comparaciones sucesivas.
+Para este ejemplo, el espacio de búsqueda corresponde al intervalo $x \in [0,5]$, y cada partícula puede desplazarse dentro de dicho intervalo tras evaluar una ***función objetivo o de costo*** $V(x)$. El propósito del algoritmo es encontrar la posición que maximiza el volumen de la caja.
 
 Por ejemplo: un algoritmo $PSO$ para este caso haría:
 
 1. Soltar N partículas al azar dentro del espacio de búsqueda [0,5]
 2. Evaluar el volumen en cada una
-3. Cada partícula recuerda su mejor posición personal
-4. Todas las partículas saben cuál es la mejor posición global
+3. Cada partícula *recuerda* su mejor posición individual
+4. Todas las partículas saben cuál es la mejor *posición global*
 5. Mover cada partícula mezclando: su inercia + atracción a su mejor + atracción a la mejor global
 6. Repetir desde el paso 2 hasta que todas se agrupen cerca del máximo
 
 
+\newpage
+
 ## Concepto del PSO y ejemplo de aplicación a la sintonización de un control PI
 
 
-*Un enjambre de partículas vuela por el espacio, cada una recuerda su mejor hallazgo, todas siguen a la mejor del grupo, y así convergen al máximo.*
+*Un enjambre de partículas "vuela" por el espacio, cada una recuerda su mejor hallazgo, todas siguen a la mejor del grupo, y así convergen al máximo.*
 
 
 El *espacio de busqueda* del ejemplo de la introducción es  una sección de la recta real *(eje x)*, sin embargo para otro tipo de problemas, la búsqueda puede operar sobre el plano $(x,y)$, tomemos por ejemplo el caso de un control PI (proporcional integral) en donde la señal de control $u(t)$ esta definida por:
@@ -111,7 +112,7 @@ dos constantes, una de integración y una proporcional.
 En este caso la noción de particula pudiera ser redefinida como una tupla de valores 
 ($K_p$,$K_i$) que representa una solución candidata para el problema de sintonización del controlador PI. Cada combinación de valores $(K_p,K_i)$ produce una respuesta dinámica distinta del sistema y, por lo tanto, puede ser evaluada mediante una función de costo ($J$).
 
-La función de costo tiene como propósito cuantificar la calidad de la respuesta obtenida para una determinada partícula. Dependiendo de los objetivos de diseño, dicha función puede incorporar criterios tales como:
+La función de costo tiene como propósito cuantificar la *calidad* de la respuesta obtenida para una determinada partícula. Dependiendo de los objetivos de diseño, dicha función puede incorporar criterios tales como:
 
 * minimizar el tiempo de establecimiento;
 * minimizar el sobreimpulso (overshoot);
@@ -128,12 +129,11 @@ J(K_p,K_i)=t_s
 \]
 ```
 
-donde $t_s$ representa el tiempo de establecimiento obtenido al simular el sistema utilizando los parámetros $(K_p,K_i)$.
-Supóngase que tres partículas del enjambre representan las siguientes soluciones candidatas:
+donde $t_s$ representa el tiempo de establecimiento obtenido al simular el sistema utilizando los parámetros $(K_p,K_i)$. Supóngase que tres partículas del enjambre representan las siguientes soluciones candidatas:
 
 ```{=latex}
 \[
-( K_p , K_i ) =
+( K_p , K_i ) = \qquad
 (1,0.5),
 \qquad
 (2,1),
