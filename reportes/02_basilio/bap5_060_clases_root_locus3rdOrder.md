@@ -96,4 +96,112 @@ El número de asíntotas ($n - m$) del LGR es igual a la diferencia entre el nú
  
 
 \newpage
+#### "Método del dibujante" (4 pasos para memorizar las reglas del LGR)
+
+\
+
+
+**Paso 0**: (Antes de empezar): Escribe G(s) en su forma factorizada: 
+
+```{=latex}
+\[
+\frac{s-ceros}{s-polos}
+\]
+```
+
+Marca los polos con una X y los ceros con un O en el plano complejo.
+
+**Paso 1**: El esqueleto (la estructura gruesa)
+
+* Regla 1: ¿Cuántas ramas? = Número de polos (X's).
+
+* Regla 2: ¿Hacia dónde van al final? Las ramas que sobran van al infinito (tantas como polos - ceros).
+
+* Regla 3: ¿En qué dirección van al infinito? Las asíntotas. Sus ángulos se calculan con la fórmula: 
+
+```{=latex}
+\[
+angulos = \frac{(2q+1)·180^\circ}{n - m}
+\]
+```
+
+* $q$ = 0, 1, 2, ..., (n - m - 1)
+
+* $n$ = número de polos del sistema en lazo abierto
+
+* $m$ = número de ceros del sistema en lazo abierto
+
+
+***Ejemplo práctico***
+
+Con $n = 4$ polos y $m = 1$ cero. Entonces:
+
+$n - m = 3$ (tres asíntotas)
+
+$q = 0, 1, 2$
+
+Calculamos:
+
+$q = 0: (2·0 + 1)·180^\circ / 3 = 180^\circ/3 = 60^\circ$
+$q = 1: (2·1 + 1)·180^\circ / 3 = 3·180^\circ/3 = 180^\circ$
+$q = 2: (2·2 + 1)·180^\circ / 3 = 5·180^\circ/3 = 300^\circ$
+
+Las tres asíntotas salen a $60^\circ$, $180^\circ$ y $300^\circ$.
+
+
+Sus centros se calculan con la fórmula de centroides.
+
+(Con esto ya tienes el andamiaje del dibujo)
+
+**Paso 2**: El camino sobre la línea recta (el eje real)
+
+* Regla 4: Recorre el eje real de derecha a izquierda. Donde haya un número IMPAR de X's y O's a tu derecha, pinta una línea gruesa. Esa zona pertenece al LGR.
+(Con esto ya sabes por dónde van las ramas sobre el suelo)
+
+**Paso 3**: Los "puntos de inflexión" (donde las ramas chocan)
+
+* Regla 5: Calcula $dK/ds = 0$ (derivando $K = -1/G(s)$) y resuelve. 
+Esos puntos son los puntos de ruptura 
+$(breakaway/break-in)$. Dibújalos.
+
+(Con esto ya sabes dónde las ramas se separan o se juntan)
+
+**Paso 4**: Los "detalles finos" (cerca de los polos y ceros complejos)
+
+* Regla 6: Si hay polos o ceros complejos, calcula el ángulo con el que salen o llegan usando la regla del argumento. (Esto es solo para darle precisión al dibujo en zonas complicadas; si no hay complejos, te saltas este paso)
+
+**Paso 5** (Opcional): El "tope" con el eje imaginario
+
+* Regla 7: Para saber si el sistema se vuelve inestable al subir K, calcula dónde cruza el eje imaginario (usando Routh-Hurwitz o haciendo $s = jω$).
+
+El truco final para recordarlo siempre:  Asocia las reglas a los dedos de tu mano izquierda (es absurdo, pero funciona):
+
+* Pulgar = Polos y ceros (marcar X y O).
+
+* Índice = Asíntotas (hacia dónde van al infinito).
+
+* Corazón = Eje real (lo que está a la derecha, cuenta impar).
+
+* Anular = Puntos de ruptura (derivar K).
+
+* Meñique = Ángulos de salida (solo si h
+
+Cuando te enfrentes a un problema, recorre tus dedos en ese orden y las 8 reglas saldrán solas, porque las dos últimas (cruce con eje imaginario y simetría) son tan obvias que no hace ni falta memorizarlas 
+(la simetría la ves a ojo, y el cruce lo sacas de Routh).
+
+*La moraleja:* No memorices las reglas como si fueran conjuros mágicos. Todas son hijas de la ecuación 
+
+
+```{=latex}
+\[
+1 + K·G(s)=0. 
+\]
+```
+
+Si algún día olvidas una regla, vuelve a la condición de ángulo de 180° y dedúcela sobre la marcha con un dibujo rápido. Un ingeniero no es el que más memoria tiene, sino el que entiende el origen de las herramientas que usa.
+
+
+\newpage
+
+
  
