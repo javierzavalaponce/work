@@ -16,7 +16,7 @@ Un sistema dinámico es una entidad descrita por un conjunto de variables de est
 
 * El integrador es la escencia de los sistemas dinámicos
 * Los sistemas dinamicos estan descritos por ecuaciones diferenciales
-* Donde hay un elemento que *almacene* (energía, informacion, etc). hay un sistema dinámico
+* Donde hay un elemento que *almacena* (energía, informacion, etc). hay un sistema dinámico
 * Nuestro entorno es dinámico
 * Los sistemas estáticos se describen con expresiones algebraicas
 * Los sistemas dinámicos se describen con ecuaciones diferenciales
