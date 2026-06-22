@@ -21,7 +21,7 @@ caja. Suponga que se desea maximizar el volumen que esa caja puede contener. Obs
 
 
 Si se fija la longitud $l=10$, la ecuacion del volumen de la figura \ref{fig:dom_placa} se puede expresar como:
- $V(x) = 4x^3-40x^2+100x$ y la busqueda del volumen deseado se puede resolver como un problema típico del cálculo diferencial buscando los maximos y mínimos de la expresion igualando la derivada a cero, es decir 
+ $V(x) = 4x^3-40x^2+100x$ y la búsqueda del volumen deseado se puede resolver como un problema típico del cálculo diferencial buscando los maximos y mínimos de la expresion igualando la derivada a cero, es decir 
 $\frac{dV}{dx}=0$ lo cual resulta en que se obtiene el volumen maximo en $x =1.66$. Ver la siguiente figura:
 
 \begin{figure}[H]
@@ -97,7 +97,7 @@ Por ejemplo: un algoritmo $PSO$ para este caso haría:
 *Un enjambre de partículas "vuela" por el espacio, cada una recuerda su mejor hallazgo, todas siguen a la mejor del grupo, y así convergen al máximo.*
 
 
-El *espacio de busqueda* del ejemplo de la introducción es  una sección de la recta real *(eje x)*, sin embargo para otro tipo de problemas, la búsqueda puede operar sobre el plano $(x,y)$, tomemos por ejemplo el caso de un control PI (proporcional integral) en donde la señal de control $u(t)$ esta definida por:
+El *espacio de búsqueda* del ejemplo de la introducción es  una sección de la recta real *(eje x)*, sin embargo para otro tipo de problemas, la búsqueda puede operar sobre el plano $(x,y)$, tomemos por ejemplo el caso de un control PI (proporcional integral) en donde la señal de control $u(t)$ esta definida por:
 
 
 ```{=latex}   

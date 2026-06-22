@@ -3,8 +3,7 @@ pandoc \
   --metadata-file=../config.yaml \
   -B Portada_clases_domingo.md \
   dom*.md \
-   -o debug.tex \
-  -o dom.pdf \
+   -o debug.pdf \
   --pdf-engine=xelatex \
   --toc \
   --number-sections \

@@ -2,46 +2,159 @@
 \clearpage
 ```
 
-# Introduccion al control difuso
+# Introducción al control difuso
 
 
-Supongamos que se busca controlar temperatura de un recipiente regulando la flama y que la lectura de un sensor nos dice cual es la temperatura medida $T$
+Supongamos que se busca controlar temperatura de un recipiente regulando la flama y que la lectura de un sensor nos dice cual es la temperatura medida $T$.
 
-En lógica difusa, definimos variables lingüísticas que representan conceptos cualitativos. Para la temperatura, podemos definir:
+Un operador humano rara vez razona en términos de ecuaciones diferenciales o funciones de transferencia. En cambio, suele describir el estado del proceso mediante conceptos lingüísticos como:
+*la temperatura es baja*,
+*la temperatura es adecuada*,
+*la temperatura es alta*.
+y toma decisiones basadas en reglas heurísticas derivadas de su experiencia.
 
-* $C_1$: La temperatura es alta 
-* $C_2$: La temperatura es correcta
-* $C_3$: La temperatura es baja
+## Conjunto difuso
 
-Cada uno de estos conjuntos difusos tiene asociada una función de membresía (o pertenencia):
+Un controlador difuso es un mecanismo para convertir reglas heurísticas expresadas en lenguaje natural en una ley de control implementable.
+
+
+### Variable lingüística
+
+En *lógica difusa*, estos conceptos cualitativos se representan mediante conjuntos difusos.
+Para la variable lingüística ***Temperatura*** podemos definir:
+
+* $C_B$: temperatura baja
+
+* $C_C$: temperatura correcta
+
+* $C_A$: temperatura alta
+
+### Función de membresía y universo del discurso
+
+Cada uno de estos conjuntos difusos tiene asociada una función de membresía (o pertenencia),
+por ejemplo para el **conjunto** $C_B$, tenemos la **función** $\mu_B(T)$. Para una cierta temperatura $T_i$:
+
+
+```{=latex}
+\[
+\mu_B(T_i) = c
+\]
+```
+
+donde
+
+```{=latex}
+\[
+c \in [0,1]
+\]
+```
+
+significa que la temperatura $T_i$ pertenece con valor $c$ al conjunto $C_B$.
+
+	
+***Ejemplo:*** Si para una temperatura medida de $65^\circ$, 
+se obtiene
+
+```{=latex}
+\begin{equation}
+\begin{aligned}
+μ_B(65)&=0 \\
+μ_C(65)&=0.4 \\
+μ_A(65)&=0.7
+\end{aligned}
+\label{eq:fuzificacion}
+\end{equation}
+```
+
+Entonces la temperatura puede considerarse ***simultáneamente*** "correcta" y "alta", aunque con distintos grados de pertenencia. Esta idea de pertenencia simultánea es la esencia de la lógica difusa.
+
+A todo el conjunto de valores que potencialmente podría tener el sensor de temperatura se le conoce como ***universo del discurso***, o *rango del sensor*. Por ejemplo, si el sensor puede medir temperaturas entre 0 y 100$^\circ$, su universo $U_s=[0,100]$.
+
+Finalmente, las funciones de membresia pueden ser entonces expresadas matemáticamente como una función $\mu(x)$
+
+```{=latex}
+\[
+\mu: \mathbb{R} \rightarrow [0,1]
+\]
+```
+
+\newpage
+
+### Formas comunes de funciones de membresía
+
+Existen diversas formas paramétricas para definir $\mu(x)$. Las más utilizadas en control difuso son:
+
+#### Función triangular
+
+Definida por dos parámetros $(a,m)$:
+donde $c$ es el ancho de la base y $m$ la pendiente de la rama creciente
+
+```{=latex}
+\[
+\mu_{\text{tri}}(x; a,b,c) = 
+\begin{cases}
+0, & x \leq a \\[4pt]
+\dfrac{x-a}{b-a}, & a < x \leq b \\[4pt]
+\dfrac{c-x}{c-b}, & b < x < c \\[4pt]
+0, & x \geq c
+\end{cases}
+\]
+```
+
+#### Función trapezoidal
+Definida por cuatro parámetros $(a, b, c, d)$:
+
+```{=latex}
+\[
+\mu_{\text{trap}}(x; a,b,c,d) = 
+\begin{cases}
+0, & x \leq a \\[4pt]
+\dfrac{x-a}{b-a}, & a < x < b \\[4pt]
+1, & b \leq x \leq c \\[4pt]
+\dfrac{d-x}{d-c}, & c < x < d \\[4pt]
+0, & x \geq d
+\end{cases}
+\]
+```
+
+#### Función de campana de Gauss
+
+Definida por el centro $c$ y el ancho $\sigma$:
+
+```{=latex}
+\[
+\mu_{\text{gauss}}(x; c, \sigma) = \exp\left(-\frac{(x-c)^2}{2\sigma^2}\right)
+\]
+```
+
+#### Función sigmoide (S-curva)
+
+Definida por los parámetros $a$(pendiente) y $c$ (punto de inflexión):
+
+```{=latex}
+\[
+\mu_{\text{sig}}(x; a, c) = \frac{1}{1 + e^{-a(x-c)}}
+\]	
+```
+
+
+## Fuzzificación
+
+Consiste en ***convertir una variable numérica en grados de pertenencia.***. Observe nuevamente las ecuaciones \ref{eq:fuzificacion} (para el caso de la variable 
+*Temperatura*):
 
 ```{=latex}
 \[
 \begin{aligned}
-T_A(T_i) &= a
-T_C(T_i) &= b
-T_C(T_i) &= c
+μ_B(65)&=0 \\
+μ_C(65)&=0.4 \\
+μ_A(65)&=0.7
 \end{aligned}
 \]
 ```
 
-En palabras, la temperatura $T_i$ pertenece al conjunde de la
-* temperatura alta con un valor de $a$
-* temperatura correcta con un valor de $b$
-* temperatura baja con un valor de $c$
+La lógica difusa permite construir controladores utilizando reglas lingüísticas similares a las empleadas por un operador humano, evitando en muchos casos la necesidad de disponer de un modelo matemático preciso de la planta.
 
+## Mapeo en Python
 
-obtener las expresiones de tres graficas usar 
-tres colores
-
-
-
-a todo el conjunto de valores que potencialmente podria tener nuestro sensor se le conoce como 
-universo del discurso, o rango del sensor
-
-
- los reales a los reales 
-
-f: R -> 1
-
-
+Para mapear en 
