@@ -38,7 +38,7 @@ ESIME Culhuacán\par}
 \vfill
 
 % Pie formal
-{\normalsize \textit{Documento de trabajo.  Fecha de última edición: 10 Junio 2026}\par}
+{\normalsize \textit{Documento de trabajo.  Fecha de última edición: 22 Junio 2026}\par}
 
 \end{center}
 

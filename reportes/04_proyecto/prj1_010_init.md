@@ -12,7 +12,13 @@ La investigación se centrará en el diseño de una red de Controladores de Tiem
 
 # Abstract
 
-adsf
+This project is about distributed control fault tolerant architecture for cyber phisical systems
+foundations on Neural ODEs Neural networks of ordinary differential equations
+
+, fundamentada en Redes Neuronales de Ecuaciones Diferenciales Ordinarias (Neural ODEs). La solución aborda dos desafíos críticos en sistemas de control modernos: (1) la necesidad de modelos dinámicos precisos y computacionalmente eficientes que puedan ejecutarse en plataformas embebidas con recursos limitados, y (2) la exigencia de alta disponibilidad y tolerancia a fallos en aplicaciones de misión crítica (como vehículos aéreos, autónomos o sistemas de potencia).
+
+La investigación se centrará en el diseño de una red de Controladores de Tiempo Real (RT-Controllers), donde cada nodo embebido ejecuta un modelo de Neural ODE entrenado para predecir y controlar la dinámica del sistema. La arquitectura contempla un orquestador central (Hypervisor de Tiempo Real) que gestiona la sincronización, la distribución de señales de entrada/salida y la lógica de conmutación por fallos. La naturaleza continua y diferenciable de los Neural ODEs permitirá una predicción adaptativa con coste computacional y de memoria optimizados, facilitando su despliegue en FPGAs o microcontroladores de alto rendimiento. El sistema operará de forma determinista, con cada controlador manteniendo condiciones iniciales sincronizadas en cada tick del sistema, garantizando un "respaldo en caliente" listo para tomar el control ante cualquier anomalía, aumentando así la robustez y fiabilidad del sistema completo.
+
 
 
 Estado del Arte y Fundamentos para tu Propuesta
@@ -76,4 +82,9 @@ Hybrid Simulation Models for Embedded Applications: Modelica & eFMI	Proporciona 
 Síntesis Sistemática de Leyes de Control Tolerante a Fallos con Lyapunov Neural	Presenta una metodología para entrenar controladores que son inherentemente robustos a fallos, alineándose con tu idea de "backup en caliente".	
 Guía de Neural ODEs para Ingeniería Digital	Es una excelente referencia para introducir y explicar los fundamentos de los Neural ODEs en tu propuesta.	
 
-Espero que esta información te sea de gran utilidad para formalizar tu idea y presentar una propuesta sólida. ¡Mucho éxito con tu investigación!
+
+https://en.wikipedia.org/wiki/MODELISAR
+https://en.wikipedia.org/wiki/Fourth_Industrial_Revolution
+
+https://la.mathworks.com/help/simulink/sfg/s-function-concepts.html
+
