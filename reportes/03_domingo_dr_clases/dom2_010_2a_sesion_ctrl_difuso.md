@@ -77,7 +77,23 @@ Finalmente, las funciones de membresia pueden ser entonces expresadas matemátic
 \mu: \mathbb{R} \rightarrow [0,1]
 \]
 ```
+### Soporte y núcleo 
 
+En lógica difusa, el ***núcleo*** (o core) de un conjunto difuso es el conjunto de todos los elementos del universo que pertenecen completamente a ese conjunto. Para el conjunto difuso $A$, matemáticamente:
+
+```{=latex}
+\[
+\text{Núcleo}(A) = \{ x \in X \mid \mu_A(x) = 1 \}
+\]
+```
+
+Es útil contrastar el núcleo con el ***soporte*** de un conjunto difuso, ya que son conceptos complementarios:
+
+* Núcleo (Core): Elementos con $\mu_A(x)=1$ (pertenencia total).
+* Soporte (Support): Elementos con $\mu_A(x)>0$ (pertenencia en cualquier grado, por mínimo que sea).
+
+El núcleo es, lógicamente, un subconjunto del soporte.
+.
 \newpage
 
 ### Formas comunes de funciones de membresía
@@ -86,21 +102,38 @@ Existen diversas formas paramétricas para definir $\mu(x)$. Las más utilizadas
 
 #### Función triangular
 
-Definida por dos parámetros $(a,m)$:
-donde $c$ es el ancho de la base y $m$ la pendiente de la rama creciente
+Una función triangular isósceles con base sobre el eje $x$ y pico en $x_c=\frac{x_0+x_1}{2}$
+Definida por dos parámetros $(x_0,x_1)$ donde $x_0$ y $x_1$ son extremos del *soporte* del conjunto difuso. El punto central $x_c$ y el semi-ancho $s$ del triángulo quedan:
+
 
 ```{=latex}
 \[
-\mu_{\text{tri}}(x; a,b,c) = 
+x_c = \frac{(x_0 + x_1)}{2} \qquad , \qquad s = \frac{(x_1 - x_0)}{2}
+\]
+```
+
+```{=latex}
+\[
+\mu_{\text{tri}}(x; x_0,x_1) = 
 \begin{cases}
-0, & x \leq a \\[4pt]
-\dfrac{x-a}{b-a}, & a < x \leq b \\[4pt]
-\dfrac{c-x}{c-b}, & b < x < c \\[4pt]
-0, & x \geq c
+0, & x \leq x_0 \\[4pt]
+\dfrac{x-x_0}{s}, & x_0 < x \leq x_c \\[4pt]
+\dfrac{x_1-x}{s}, & x_c < x < x_1 \\[4pt]
+0, & x \geq x_1
 \end{cases}
 \]
 ```
 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7	\textwidth]{../img/fz_triangular.png}
+\caption{Función triangular}
+\end{figure}
+
+
+
+\newpage
 #### Función trapezoidal
 Definida por cuatro parámetros $(a, b, c, d)$:
 
@@ -116,7 +149,15 @@ Definida por cuatro parámetros $(a, b, c, d)$:
 \end{cases}
 \]
 ```
+\vspace{2cm}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7	\textwidth]{../img/fz_trapezoidal.png}
+\caption{Función trapezoidal}
+\end{figure}
+
+\newpage
 #### Función de campana de Gauss
 
 Definida por el centro $c$ y el ancho $\sigma$:
@@ -126,7 +167,7 @@ Definida por el centro $c$ y el ancho $\sigma$:
 \mu_{\text{gauss}}(x; c, \sigma) = \exp\left(-\frac{(x-c)^2}{2\sigma^2}\right)
 \]
 ```
-
+\newpage
 #### Función sigmoide (S-curva)
 
 Definida por los parámetros $a$(pendiente) y $c$ (punto de inflexión):
@@ -137,7 +178,7 @@ Definida por los parámetros $a$(pendiente) y $c$ (punto de inflexión):
 \]	
 ```
 
-
+\newpage
 ## Fuzzificación
 
 Consiste en ***convertir una variable numérica en grados de pertenencia.***. Observe nuevamente las ecuaciones \ref{eq:fuzificacion} (para el caso de la variable 
@@ -152,9 +193,6 @@ Consiste en ***convertir una variable numérica en grados de pertenencia.***. Ob
 \end{aligned}
 \]
 ```
-
-La lógica difusa permite construir controladores utilizando reglas lingüísticas similares a las empleadas por un operador humano, evitando en muchos casos la necesidad de disponer de un modelo matemático preciso de la planta.
-
-## Mapeo en Python
-
-Para mapear en 
+	
+## Inferencia (Mamdani | Sugeno)
+...
