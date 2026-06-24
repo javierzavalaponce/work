@@ -10,7 +10,7 @@
 
 \vspace{0.8cm}
 
-{\Large \textbf{Sistema de Control Predictivo Distribuido y Tolerante a Fallos Basado en Neural ODEs para Plataformas Embebidas de Tiempo Real} \par}
+{\Large \textbf{Sistema de Control Conmutado y Distribuido Tolerante a Fallos para Plataformas Embebidas de Tiempo Real} \par}
 
 \vspace{1.8cm}
 
