@@ -164,9 +164,12 @@ Definida por el centro $c$ y el ancho $\sigma$:
 
 ```{=latex}
 \[
-\mu_{\text{gauss}}(x; c, \sigma) = \exp\left(-\frac{(x-c)^2}{2\sigma^2}\right)
+e^{-\frac{(x-c)^2}{2\sigma^2}}
 \]
 ```
+
+
+
 \newpage
 #### Función sigmoide (S-curva)
 
