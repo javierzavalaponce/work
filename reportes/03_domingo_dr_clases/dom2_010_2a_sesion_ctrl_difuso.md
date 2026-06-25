@@ -164,9 +164,24 @@ Definida por el centro $c$ y el ancho $\sigma$:
 
 ```{=latex}
 \[
-e^{-\frac{(x-c)^2}{2\sigma^2}}
+\mu_{\text{gauss}}(x; c, \sigma) = e^{-\frac{(x-c)^2}{2\sigma^2}}
 \]
 ```
+
+$c$: Centro de la campana (el valor de $x$ donde $\mu=1$
+
+$\sigma$: Ancho o dispersión de la campana.
+
+Su soporte infinito puede hacer que tenga algo de membresía en valores extremos.
+Puntos de inflexión en $x=c \pm \sigma$, la curva cambia de curvatura (de cóncava a convexa). 
+
+\vspace{2cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7	\textwidth]{../img/fz_gaussiana.png}
+\caption{Función campana de Gauss}
+\end{figure}
 
 
 

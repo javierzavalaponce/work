@@ -67,3 +67,41 @@ def trapezoidal(x, a, b, c, d):
     if escalar:
         return float(y)
     return y
+
+
+def gaussiana(x, c, sigma):
+    """
+    Función de membresía gaussiana.
+
+    Parámetros:
+    -----------
+    x : float, int, o array-like
+        Valor(es) de entrada donde evaluar la función.
+    c : float
+        Centro de la campana (punto de máxima pertenencia, donde mu = 1).
+    sigma : float
+        Ancho o dispersión de la campana (debe ser > 0).
+
+    Retorna:
+    --------
+    y : float o np.ndarray
+        Grado de pertenencia en el rango [0, 1].
+    """
+    # Guardar si la entrada es escalar
+    escalar = np.isscalar(x)
+    
+    # Convertir a array para operaciones vectorizadas
+    x = np.asarray(x, dtype=float)
+    
+    # Validación: sigma debe ser positivo
+    if sigma <= 0:
+        raise ValueError("sigma debe ser mayor que 0.")
+    
+    # Calcular la función gaussiana: exp(-(x-c)^2 / (2*sigma^2))
+    y = np.exp(-((x - c) ** 2) / (2 * sigma ** 2))
+    
+    # Si era escalar, retornar float
+    if escalar:
+        return float(y)
+    
+    return y
