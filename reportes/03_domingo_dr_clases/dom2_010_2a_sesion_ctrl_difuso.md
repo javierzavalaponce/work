@@ -188,13 +188,20 @@ Puntos de inflexión en $x=c \pm \sigma$, la curva cambia de curvatura (de cónc
 \newpage
 #### Función sigmoide (S-curva)
 
-Definida por los parámetros $a$(pendiente) y $c$ (punto de inflexión):
+La función sigmoide proporciona una transición suave entre los grados de pertenencia 0 y 1. Está definida por dos parámetros: $a$, que controla la pendiente de la transición, y $c$, que determina la ubicación del punto de inflexión. Su expresión matemática es:
 
 ```{=latex}
 \[
 \mu_{\text{sig}}(x; a, c) = \frac{1}{1 + e^{-a(x-c)}}
 \]	
 ```
+
+
+
+
+
+
+
 
 \newpage
 ## Fuzzificación
