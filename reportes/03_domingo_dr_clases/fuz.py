@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def triangular(x, x0, x1):
 
     escalar = np.isscalar(x)
@@ -105,3 +106,39 @@ def gaussiana(x, c, sigma):
         return float(y)
     
     return y
+
+
+def gauss(x, c, sigma):
+    """
+    Función de membresía gaussiana.
+
+    Parámetros
+    ----------
+    x : float o array_like
+        Valor(es) donde se evalúa la función.
+
+    c : float
+        Centro de la campana.
+
+    sigma : float
+        Desviación estándar (sigma > 0).
+
+    Retorna
+    -------
+    float o ndarray
+        Grado de pertenencia en el intervalo [0,1].
+
+    Fórmula
+    -------
+        μ(x) = exp(-(x-c)^2/(2σ²))
+
+    Ejemplo
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(-5,5,100)
+    >>> y = gauss(x,0,1)
+    """
+    
+    return np.exp(-((x -c)**2)/(2*sigma**2))
+
+
