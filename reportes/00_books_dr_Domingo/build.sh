@@ -3,7 +3,7 @@ pandoc \
   --metadata-file=../config.yaml \
   -B portada.md \
   cap*.md \
-  -o resultado.pdf \
+  -o debug.pdf \
   --pdf-engine=pdflatex \
   --toc \
   --number-sections \

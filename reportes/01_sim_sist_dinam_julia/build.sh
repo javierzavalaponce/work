@@ -3,7 +3,7 @@ pandoc \
   --metadata-file=../config.yaml \
   -B Portada_julia.md \
   qap8*.md \
-  -o julia.pdf \
+  -o debug.pdf \
   --pdf-engine=xelatex \
   --toc \
   --number-sections \
