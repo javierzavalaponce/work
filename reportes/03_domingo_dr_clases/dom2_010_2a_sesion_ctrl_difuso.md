@@ -196,6 +196,14 @@ La función sigmoide proporciona una transición suave entre los grados de perte
 \]	
 ```
 
+\vspace{2cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7	\textwidth]{../img/fz_sigmoide.png}
+\caption{Función Sigmoide}
+\end{figure}
+
 
 
 

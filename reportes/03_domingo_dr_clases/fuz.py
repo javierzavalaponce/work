@@ -142,3 +142,51 @@ def gauss(x, c, sigma):
     return np.exp(-((x -c)**2)/(2*sigma**2))
 
 
+def sigmoide(x, a, c):
+    """
+    Función de membresía sigmoidal.
+
+    Parámetros
+    ----------
+    x : float, int o array-like
+        Valor(es) de entrada donde evaluar la función.
+
+    a : float
+        Pendiente de la sigmoide.
+
+        - a > 0 : función creciente.
+        - a < 0 : función decreciente.
+
+    c : float
+        Punto de inflexión (μ = 0.5).
+
+    Retorna
+    -------
+    float o np.ndarray
+        Grado de pertenencia en el intervalo [0,1].
+
+    Fórmula
+    -------
+        μ(x) = 1 / (1 + exp(-a(x-c)))
+
+    Ejemplo
+    --------
+    >>> import numpy as np
+    >>> x = np.linspace(-5,5,100)
+    >>> y = sigmoide(x,2,0)
+    """
+
+    # Guardar si la entrada es escalar
+    escalar = np.isscalar(x)
+
+    # Convertir a ndarray
+    x = np.asarray(x, dtype=float)
+
+    # Calcular la función sigmoide
+    y = 1.0 / (1.0 + np.exp(-a * (x - c)))
+
+    # Si la entrada era escalar, devolver float
+    if escalar:
+        return float(y)
+
+    return y
