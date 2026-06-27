@@ -3,7 +3,7 @@ pandoc \
   --metadata-file=../config.yaml \
   -B Portada_clases_basilio.md \
   bap5*.md \
-  -o basilio.pdf \
+  -o debug.pdf \
   --pdf-engine=xelatex \
   --toc \
   --number-sections \
