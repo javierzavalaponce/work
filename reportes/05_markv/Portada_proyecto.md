@@ -6,11 +6,11 @@
 \begin{center}
 
 % Título principal 
-{\LARGE \textbf{Control conmutado: sistemas dinámicos y cadenas de Markov}}
+{\LARGE \textbf{Pendulo de Furuta}}
 
 \vspace{0.8cm}
 
-{\Large \textbf{Tiempo Real} \par}
+{\Large \textbf{Control} \par}
 
 \vspace{1.8cm}
 
@@ -20,7 +20,7 @@
 \vspace{1.8cm}
 
 % Subtítulo académico
-{\large Propuesta\par}
+{\large Notas de diseño\par}
 \vspace{0.2cm}
 {\large ...\par}
 
