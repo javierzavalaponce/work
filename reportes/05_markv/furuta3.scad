@@ -54,5 +54,5 @@ module furuta(theta, alpha){
 
 // ==================== EJEMPLO ====================
 // theta = ángulo del brazo (en grados), alpha = inclinación del péndulo (en grados)
-//furuta(360*$t, 30*sin(360*$t*2)); 
-furuta(10,40);
+furuta(360*$t, 30*sin(360*$t*2)); 
+//furuta(10,40);

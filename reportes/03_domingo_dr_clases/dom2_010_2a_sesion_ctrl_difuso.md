@@ -226,6 +226,89 @@ Consiste en ***convertir una variable numérica en grados de pertenencia.***. Ob
 \end{aligned}
 \]
 ```
-	
-## Inferencia (Mamdani | Sugeno)
-...
+
+## Operadores lógicos comunes
+
+Las operaciones lógicas básicas de la teoría clásica de conjuntos son tres:
+
+```{=latex}
+\[
+\begin{aligned}
+\text{Intersección (AND):} \quad & A \cap B \\
+\text{Unión (OR):} \quad & A \cup B \\
+\text{Complemento (NOT):} \quad & A^c
+\end{aligned}
+\]	
+``` 
+
+## Operadores lógicos difusos
+
+
+La teoría clásica de conjuntos sólo tiene una forma de definir las operaciones lógicas, porque las pertenencias son binarias (0 ó 1). En cambio, al permitir grados de pertenencia continuos entre 0 y 1, existen múltiples extensiones matemáticamente válidas de los operadores AND, OR y NOT. La elección de una u otra depende de las propiedades deseadas en el sistema de inferencia. Por ejemplo, para el operador AND existen varias definiciones válidas:
+
+* mínimo
+* producto
+* Lukasiewicz
+* drástica
+* etc.
+
+Todas cumplen ciertas propiedades matemáticas (conmutatividad, asociatividad, monotonicidad y existencia de elemento neutro), por lo que todas representan una generalización válida del operador AND clásico.
+
+* Intersección (AND)
+
+Representa el operador lógico AND. Dado un grado de pertenencia $\mu_A(x)$ y otro $\mu_B(x)$, la pertenencia conjunta puede calcularse como
+
+```{=latex}
+\[
+\mu_{A \cap B}(x) = min(\mu_A(x),\mu_B(x))
+\]	
+``` 
+
+o bien mediante el producto algebraico
+
+```{=latex}
+\[
+\mu_{A \cap B}(x) \cap \mu_B(x) = \mu_A(x) \cdot \mu_B(x)
+\]	
+``` 
+
+* Unión (OR)
+
+```{=latex}
+\[
+\mu_{A \cup B}(x) = max(\mu_A(x),\mu_B(x))
+\]	
+``` 
+
+o bien la suma probabilistica:
+
+
+```{=latex}
+\[
+\mu_{A \cap B}(x) \cap \mu_B(x) = \mu_A(x) + \mu_B(x) - (\mu_A(x) \cdot \mu_B(x))	
+\]	
+``` 
+
+
+* Complemento (NOT)
+
+
+```{=latex}
+\[
+\mu_{\overline{A}}(x) = 1 - \mu_A(x)
+\]
+```
+
+
+### Inferencia de Mamdani
+
+* Fuzzificación.
+* Evaluación de antecedentes.
+* Implicación sobre conjuntos difusos.
+* Agregación de todas las reglas.
+* Defuzzificación para obtener una salida numérica.
+
+### Inferencia de Sugeno
+
+La principal diferencia radica en el consecuente de las reglas. En lugar de un conjunto difuso, cada regla produce directamente un valor numérico o una función de las entradas,
+
