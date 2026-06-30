@@ -302,6 +302,9 @@ o bien la suma probabilistica:
 
 ### Inferencia de Mamdani
 
+\textcolor{red}{mejorar esta seccion}
+
+
 * Fuzzificación.
 * Evaluación de antecedentes.
 * Implicación sobre conjuntos difusos.
@@ -309,6 +312,8 @@ o bien la suma probabilistica:
 * Defuzzificación para obtener una salida numérica.
 
 ### Inferencia de Sugeno
+
+\textcolor{red}{mejorar esta seccion}
 
 La principal diferencia radica en el consecuente de las reglas. En lugar de un conjunto difuso, cada regla produce directamente un valor numérico o una función de las entradas,
 
