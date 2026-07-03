@@ -58,8 +58,7 @@ El término $L(y-C\hat{x})$ es una realimentación del observador. No es una rea
 \newpage
 
 
-El observador no puede comparar estados $(x-\hat{x})$, porque los estados reales son *desconocidos*. 
-Pero sí puede comparar salidas, porque la salida real sí está disponible:
+El observador no puede comparar estados $(x-\hat{x})$, porque los estados reales son *desconocidos* (dentro de la caja punteada). Pero sí puede comparar salidas, porque la salida real sí está disponible:
 
 \begin{figure}[H]
 \centering
