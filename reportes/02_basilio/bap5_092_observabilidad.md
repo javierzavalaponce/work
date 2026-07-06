@@ -51,7 +51,7 @@ El observador no puede comparar estados porque los estados reales son *desconoci
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.0\textwidth,trim=0cm 4cm 0cm 5cm,clip]{../img/observabilidad.pdf}
-\caption{$L(y-C\hat{x})$ es una retroalimentación del observador. No del sistema.}
+\caption{Observador de Luenberger. $L(y-C\hat{x})$ es una retroalimentación del observador. No del sistema.}
 \end{figure}
 
 
@@ -71,12 +71,15 @@ Si el error de salida $e_y$ es distinto de cero, el observador debe corregir su 
 
 Por esta razón se añade un término de corrección: $L(y-C\hat{x})$, el término $(y-C\hat{x})$ representa el error entre la salida real y la salida estimada. La matriz $L$ transforma dicho error en una señal de corrección que se incorpora a la dinámica del observador.  
 
+La matriz $L$ es la matriz de *ganancia del observador*, se encarga de ponderar el error de salida para corregir la estimación de estados. Dicho de otro modo: La matriz $L$ determina la intensidad con la que el error entre la salida medida y la salida estimada corrige la estimación de los estados. Su elección fija la dinámica del error de estimación, ya que los polos del observador corresponden a los autovalores de la matriz $(A−LC)$. Esta corrección puede interpretarse como una ***inyección*** estática del error de salida en la dinámica del observador.
 
-El observador sigue continuamente tres pasos:
+
+En resumen, el observador sigue continuamente tres pasos:
 
 * Predice el comportamiento mediante el modelo.
 * Compara la salida estimada con la salida real.
 * Corrige la estimación utilizando el error de salida.
+
 
 \newpage
 
@@ -126,17 +129,25 @@ En conclusión, el error de estimación se comporta como un sistema dinámico in
 El problema del diseño del observador consiste entonces en elegir la matriz $L$ de forma que la dinámica del error sea estable. En otras palabras: si los
 valores propios de $(A - LC)$ tienen parte real negativa, el error tenderá a $0$. 
 
+\newpage
+
 ### Matriz de Observabilidad
 
+
 Para reconstruir los estados internos, las salidas medidas deben contener suficiente información acerca del estado del sistema. Esta propiedad recibe el nombre de 
-**observabilidad**. Tomemos nuevamente la ecuación de salida:
+**observabilidad**. Consideremos el sistema lineal continuo:
 
 ```{=latex}
 \[
-y=Cx
+\begin{aligned}
+\dot{x} &= Ax + Bu,\\
+y &= Cx.
+\end{aligned}
 \]
 ```
-Derivandola,
+
+A partir de la ecuación de salida. Si la matriz $C$ no mide directamente todos los estados, es necesario obtener información adicional a partir de la evolución temporal de la salida.
+Derivando la ecuación de salida:
 
 ```{=latex}
 \[
@@ -146,25 +157,120 @@ Derivandola,
 
 Sustituyendo el modelo dinámico del sistema,
 
-```{=latex}
-\[
-\dot{x}=Ax+Bu
-\]
-```
 
 ```{=latex}
 \[
-\dot{y}=C(Ax+Bu)=CAx+CBu.
+\begin{aligned}
+\dot{y}&=C(Ax+Bu)\\
+&=\boxed{CAx}+CBu
+\end{aligned}
 \]
 ```
 
-Si la información disponible aún no fuera suficiente, podría derivarse nuevamente la salida.
-La segunda derivada conduce a términos que contienen la matriz
+Obsérvese que la primera derivada de la salida ya no depende únicamente de la matriz $C$, sino que también introduce el producto $CA$, proporcionando nueva información sobre el estado del sistema. Derivando nuevamente,
 
 ```{=latex}
 \[
-CA^2.
+\ddot{y}
+=CA\dot{x}+CB\dot{u}.
 \]
 ```
+
+y sustituyendo una vez más,
+
+```{=latex}
+\[
+\begin{aligned}
+\ddot{y}&=CA(Ax+Bu)+CB\dot{u}\\
+\ddot{y}&=\boxed{CA^2x}+CABu+CB\dot{u}
+\end{aligned}
+\]
+```
+\newpage
+Cada nueva derivada incorpora una potencia adicional de la matriz $A$:
+
+```{=latex}
+\[
+\begin{aligned}
+y      &= Cx,\\
+\dot{y}&= CAx+\cdots,\\
+\ddot{y}&= CA^2x+\cdots,\\
+&\ \vdots\\
+y^{(n-1)}&=CA^{n-1}x+\cdots
+\end{aligned}
+\]
+```
+
+donde los términos indicados mediante *"..."* dependen de la entrada $u$ y de sus derivadas, las cuales se consideran conocidas. Agrupando únicamente los términos que dependen del estado, se obtiene:
+
+```{=latex}
+\[
+\begin{bmatrix}
+y\\
+\dot{y}\\
+\ddot{y}\\
+\vdots\\
+y^{(n-1)}
+\end{bmatrix}
+=
+\underbrace{
+\begin{bmatrix}
+C\\
+CA\\
+CA^2\\
+\vdots\\
+CA^{n-1}
+\end{bmatrix}
+}_{\mathcal{O}}
+x
++\text{(términos conocidos)}.
+\]
+```	
+
+La matriz
+
+```{=latex}
+\[
+\mathcal{O}=
+\begin{bmatrix}
+C\\
+CA\\
+CA^2\\
+\vdots\\
+CA^{n-1}
+\end{bmatrix}
+\]
+```
+
+se denomina matriz de observabilidad. Si esta matriz tiene rango completo,
+
+```{=latex}
+\[
+\boxed{\operatorname{rank}(\mathcal{O})=n}
+\]
+```
+entonces el estado inicial del sistema puede reconstruirse de forma única a partir de las entradas conocidas y de las salidas medidas. En consecuencia, el sistema se dice ***completamente observable***.
+
+\newpage
+Maestra Nancy
+
+Converse con el Dr.
+me señalo que mi calificacion no aprobatoria corresponde a una
+cuestión de actitud de mi parte. Me dijo que reconoce 
+mis capacidades técnicas y acádemicas
+Yo comprendo su punto pero discrepo.
+
+Yo por mi parte le solicite que no utilizara palabras 
+Si bien preferiria una relación mas relajada
+considero que 
+esta muy arraigado en esta institucion el trato
+despotico. No es raro el caso 
+del Dr.
+
+
+
+
+
+
 
 
