@@ -251,26 +251,3 @@ se denomina matriz de observabilidad. Si esta matriz tiene rango completo,
 ```
 entonces el estado inicial del sistema puede reconstruirse de forma única a partir de las entradas conocidas y de las salidas medidas. En consecuencia, el sistema se dice ***completamente observable***.
 
-\newpage
-Maestra Nancy
-
-Converse con el Dr.
-me señalo que mi calificacion no aprobatoria corresponde a una
-cuestión de actitud de mi parte. Me dijo que reconoce 
-mis capacidades técnicas y acádemicas
-Yo comprendo su punto pero discrepo.
-
-Yo por mi parte le solicite que no utilizara palabras 
-Si bien preferiria una relación mas relajada
-considero que 
-esta muy arraigado en esta institucion el trato
-despotico. No es raro el caso 
-del Dr.
-
-
-
-
-
-
-
-
