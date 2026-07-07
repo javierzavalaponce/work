@@ -10,15 +10,15 @@
 ## AS5600 Encoder Magnético 12 Bits
 
 
-| Concepto | Descripción |
+| Board pin | Descripción |
 |:---------|:------------|
-| Vcc | asdf| 
-| Fila 2 |sss |  
-| Fila 3 | |
-| Fila 4 | |
-| Fila 5 | |
-| Fila 6 | |
-| Fila 7 | |
+| Vcc | Alim. (5 o 3.3)Vdc    | 
+| Out | Salida Analógica o PWM|  
+| Gnd | Gnd                   |
+| Dir | Input: (GND o VDD), (incrementa o decrementa) clockwise  |
+| SCL | Clk I2C               |
+| SDA | Data I2C              |
+| GPO | Input Pin de programación|
 
 : Pinout
 
