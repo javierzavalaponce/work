@@ -4,7 +4,7 @@
 
 ### Observabilidad
 
-La realimentación de estados requiere conocer el vector de estados $x$. Sin embargo, en muchos sistemas sólo es posible medir algunas salidas mediante sensores. En estos casos es necesario estimar los estados internos mediante un observador.
+La realimentación de estados requiere conocer el vector de estados $x$. Sin embargo, en muchos sistemas sólo es posible medir algunas salidas mediante sensores.
 
 Existe una propiedad del sistema denominada ***observabilidad***, que determina si los estados internos pueden reconstruirse únicamente a partir de la entrada y de las salidas medidas. En otras palabras, un *sistema observable* contiene suficiente información en sus salidas para reconstruir completamente su estado interno.
 
@@ -129,9 +129,11 @@ En conclusión, el error de estimación se comporta como un sistema dinámico in
 El problema del diseño del observador consiste entonces en elegir la matriz $L$ de forma que la dinámica del error sea estable. En otras palabras: si los
 valores propios de $(A - LC)$ tienen parte real negativa, el error tenderá a $0$. 
 
+
+
 \newpage
 
-### Matriz de Observabilidad
+#### Matriz de Observabilidad
 
 
 Para reconstruir los estados internos, las salidas medidas deben contener suficiente información acerca del estado del sistema. Esta propiedad recibe el nombre de 
@@ -251,3 +253,16 @@ se denomina matriz de observabilidad. Si esta matriz tiene rango completo,
 ```
 entonces el estado inicial del sistema puede reconstruirse de forma única a partir de las entradas conocidas y de las salidas medidas. En consecuencia, el sistema se dice ***completamente observable***.
 
+\newpage
+
+La observabilidad responde:
+
+*¿Hay suficiente información para reconstruir el estado?*
+
+El observador responde:
+
+* ¿Cómo utilizo esa información para reconstruirlo?"
+
+La matriz $L$:
+
+* Determina qué tan rápido y con qué dinámica se realiza esa reconstrucción.
