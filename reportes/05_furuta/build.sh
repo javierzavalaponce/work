@@ -2,7 +2,7 @@
 pandoc \
   --metadata-file=../config.yaml \
   -B Portada_proyecto.md \
-  mrk*.md \
+  frt*.md \
   -o debug.pdf \
   --pdf-engine=xelatex \
   --toc \

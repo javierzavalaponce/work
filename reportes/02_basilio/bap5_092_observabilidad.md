@@ -257,12 +257,12 @@ entonces el estado inicial del sistema puede reconstruirse de forma única a par
 
 La observabilidad responde:
 
-*¿Hay suficiente información para reconstruir el estado?*
+* *¿Hay suficiente información para reconstruir el estado?*
 
 El observador responde:
 
-* ¿Cómo utilizo esa información para reconstruirlo?"
+* *¿Cómo utilizo esa información para reconstruirlo?"*
 
 La matriz $L$:
 
-* Determina qué tan rápido y con qué dinámica se realiza esa reconstrucción.
+* *Determina qué tan rápido y con qué dinámica se realiza esa reconstrucción.*
