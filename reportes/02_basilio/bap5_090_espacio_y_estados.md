@@ -74,9 +74,9 @@ x
 \end{bmatrix}
 u
 \]
+```
 
 \newpage
-```
 
 y la de salida es: 
 ```{=latex}

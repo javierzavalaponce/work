@@ -66,7 +66,7 @@ Comprobación (en *octave*: ejercicio.m):
 
 \vspace{2cm}
 
-```bash
+```octave
 pkg load control
 
 A = [3  1;
@@ -88,7 +88,7 @@ tf(sys)
 Resultado:
 
 ```bash
-Transfer function 'ans' from input 'u1' to output ...
+Transfer function :
             1      
  y1:  -------------
       s^2 - 4 s + 3
@@ -127,3 +127,171 @@ Lo que se busca es:
 \caption{Retroalimentacion de estados del observador}
 \label{fig:sis_ejer_ex01}
 \end{figure}
+
+Con: 
+```{=latex}
+\[
+F=
+\begin{bmatrix}
+f_1 & f_2
+\end{bmatrix}
+\]
+```
+\newpage
+
+La matriz $A_{F}$ de lazo cerrado para retroalimentación de estados del observador es:
+
+```{=latex}
+\[
+A_{F}=(A-BF)
+\]
+```
+
+
+```{=latex}
+\[
+A_{F}
+=
+\begin{bmatrix}
+3 & 1\\
+0 & 1
+\end{bmatrix}
+-
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}
+\begin{bmatrix}
+f_1 & f_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 & 1\\
+-f_1 & 1-f_2
+\end{bmatrix}
+\]
+```
+
+y, para encontrar los valores de $f_1$ y $f_2$:
+
+```{=latex}
+\[
+det(sI-A_F) = 
+\begin{bmatrix}
+s-3 & 1\\
+f_1 & s-1+f_2
+\end{bmatrix}
+\]
+```
+
+```{=latex}
+\[
+det(sI-A_F) = 
+(s-3)(s-1+f_2)+f_1 =
+s^2-s+sf_2-3s+3-3f_2+f_1
+\]
+```
+
+
+Reagrupando:
+
+
+```{=latex}
+\[
+det(sI-A_F) = 
+s^2+(f_2-4)s+3-3f_2+f_1
+\]
+```
+
+e igualando con 
+
+```{=latex}
+\[
+s^2 + 6s + 8 = 0
+\]
+```
+
+
+Se tiene que :
+
+
+```{=latex}
+\[
+\begin{aligned}
+f_2-4&=6\\
+3-3f_2+f_1&=8
+\end{aligned}
+\]
+```
+
+Finalmente:
+
+```{=latex}
+\[
+\boxed{
+\begin{aligned}
+f_2&=10\\
+f_1&=35
+\end{aligned}
+}
+\]
+```
+
+\newpage
+
+Comprobación: se calculan los valores propios de $A_F$
+a fin de verificar que los polos quedan en $s=-2$ y $s=-4$ como previsto.
+
+En octave:
+
+\vspace{2cm}
+
+```octave
+pkg load control
+
+A = [3 1;
+     0 1];
+
+B = [0;
+     1];
+
+F = [35 10];
+
+A_F = A-B*F
+
+eig(A_F)
+sys = ss(A,B,C,D)
+tf(sys)
+```
+
+\vspace{2cm}
+
+Resultado
+
+\vspace{2cm}
+
+
+```bash
+A_F =
+
+    3    1
+  -35   -9
+
+ans =
+
+  -2
+  -4
+
+```
+
+#### Cálculo de Matriz de corrección de estimación del Observador
+
+
+```{=latex}
+\[
+A_{L}=(A-BL)
+\]
+```
+
+
+
