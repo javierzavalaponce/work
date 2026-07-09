@@ -400,6 +400,7 @@ g_2&=42
 ```
 
 O bien: 
+
 ```{=latex}
 \[
 L=
@@ -430,3 +431,7 @@ Aobs = A - L*C
 
 eig(Aobs)
 ```
+
+
+#### Diseño del PI
+
