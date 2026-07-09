@@ -432,6 +432,8 @@ Aobs = A - L*C
 eig(Aobs)
 ```
 
+Obsérvese que el procedimiento para calcular la matriz L es prácticamente idéntico al empleado para obtener la matriz F. La diferencia fundamental radica en que la retroalimentación de estados modifica la matriz A−BF, mientras que el observador modifica la matriz A−LC. En ambos casos, el objetivo consiste en ubicar los polos del sistema en las posiciones deseadas mediante asignación de polos.
+
 
 #### Diseño del PI
 
