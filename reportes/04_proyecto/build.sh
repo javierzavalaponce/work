@@ -3,7 +3,7 @@ pandoc \
   --metadata-file=../config.yaml \
   -B Portada_proyecto.md \
   prj*.md \
-  -o out.pdf \
+  -o debug.pdf \
   --pdf-engine=xelatex \
   --toc \
   --number-sections \

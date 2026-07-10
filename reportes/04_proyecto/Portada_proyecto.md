@@ -20,7 +20,7 @@
 \vspace{1.8cm}
 
 % Subtítulo académico
-{\large Propuesta\par}
+{\large Resumen de propuesta (draft 0) de trabajo doctoral\par}
 \vspace{0.2cm}
 {\large ...\par}
 
@@ -38,7 +38,7 @@ ESIME Culhuacán\par}
 \vfill
 
 % Pie formal
-{\normalsize \textit{Laboratorio de control - SEPI}\par}
+{\normalsize \textit{Proceso de Admisión - Septiembre 2025}\par}
 
 \end{center}
 
