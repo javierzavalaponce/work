@@ -25,7 +25,11 @@
 
 # PWM BS 
 
-## power
+## DC Motor Driver BTS760
+
+Puente H
+
+
 
 # Modelado y simulación
 

@@ -6,5 +6,10 @@ curl -fsSL https://ollama.com/install.sh | sh
  ollama pull nomic-embed-text
 
 
+implementar un RAG completamente "a mano" usando:
+
+sentence-transformers para embeddings,
+FAISS como índice vectorial,
+Ollama como LLM local.
 
 
