@@ -4,7 +4,11 @@
 
 # Introducción, mapa de avance
 
-Retrieval-Augmented Generation (RAG)
+La generación aumentada por recuperación (RAG Retrieval Augmented Generation por sus siglas en inglés) sirve para que los LLMs recuperen e incorporen nueva información  a partir de un conjunto específico de documentos. en este caso, se busca que esos documentos sean fuentes de información confiables sobre temas de control automático (por ejemplo el libro Ogata...)
+
+Un ***LLM*** (Gran Modelo de Lenguaje) es un programa matemático que ha 
+sido entrenado con la información escrita disponible en internet (libros, artículos, foros, etc). Gracias a esa lectura, es posible inferir patrones, reglas gramaticales y relaciones entre palabras. Cuando se le hace una pregunta, el LLM hace un cálculo estadístico, es decir, analiza las palabras que le fueron dadas y predice, palabra por palabra, cuál es la siguiente más probable para formar una respuesta coherente. 
+
 
 El plan de trabajo consistirá en construir un sistema RAG desde sus componentes más básicos. 
 Desde la lectura de los documentos hasta la recuperación de información relevante y la generación de respuestas fundamentadas en ese conocimiento.
