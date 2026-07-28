@@ -48,3 +48,25 @@ no pregunta : "¿cómo es realmente el sistema?", sino
 
 
 Esa es, en el fondo, una pregunta epistemológica formulada en lenguaje de ingeniería.
+
+# TinyML
+
+TinyML es un concepto tecnológico y también un área de estudio.
+La idea ejecutar modelos de Machine Learning en dispositivos con recursos muy limitados tales como microcontroladores.
+
+¿Qué herramientas forman parte de TinyML?
+
+Para *entrenar* modelos: TensorFlow, PyTorch, scikit-learn, etc.
+Estas normalmente se ejecutan en una computadora.
+
+Para *convertir* modelos: TensorFlow Lite Converter,
+ONNX Converter, etc.
+
+
+Para *ejecutar* modelos en microcontroladores: TensorFlow Lite Micro,
+microTVM, CMSIS-NN, Edge Impulse SDK, etc
+
+___
+
+
+asdf

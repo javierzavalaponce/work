@@ -10,7 +10,7 @@
 
 \vspace{0.8cm}
 
-{\Large \textbf{Fundamentos} \par}
+{\Large \textbf{Introducción} \par}
 
 \vspace{1.8cm}
 

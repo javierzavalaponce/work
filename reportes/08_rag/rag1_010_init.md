@@ -4,48 +4,42 @@
 
 # Introducción, mapa de avance
 
+**Fecha de inicio:** 28/Julio/2026
+
 La generación aumentada por recuperación (RAG Retrieval Augmented Generation por sus siglas en inglés) sirve para que los LLMs recuperen e incorporen nueva información  a partir de un conjunto específico de documentos. en este caso, se busca que esos documentos sean fuentes de información confiables sobre temas de control automático (por ejemplo el libro Ogata...)
 
 Un ***LLM*** (Gran Modelo de Lenguaje) es un programa matemático que ha 
 sido entrenado con la información escrita disponible en internet (libros, artículos, foros, etc). Gracias a esa lectura, es posible inferir patrones, reglas gramaticales y relaciones entre palabras. Cuando se le hace una pregunta, el LLM hace un cálculo estadístico, es decir, analiza las palabras que le fueron dadas y predice, palabra por palabra, cuál es la siguiente más probable para formar una respuesta coherente. 
 
 
-El plan de trabajo consistirá en construir un sistema RAG desde sus componentes más básicos. 
-Desde la lectura de los documentos hasta la recuperación de información relevante y la generación de respuestas fundamentadas en ese conocimiento.
+El plan de consiste en construir un sistema RAG desde sus componentes más básicos. Desde la lectura de los documentos hasta la recuperación de información relevante y la generación de respuestas.
 
-0. A partir de uno o varios documento PDF, se extrae y divide el texto en pequeños fragmentos
-con $pypdf$.
+1. A partir de uno o varios documento PDF, se extrae y divide el texto en pequeños fragmentos con $pypdf$.
 * Tamaño del fragmento: 500 caracteres(tokens..)
 * Solapamiento (overlap): 100 caracteres
 
-1. Se convierte cada fragmento en un vector numérico ($embedding$) usando sentence-transformers (texto $\rightarrow$ vectores). Estos vectores representan el significado semántico del texto. 
+2. Se convierte cada fragmento en un vector numérico ($embedding$) usando sentence-transformers (texto $\rightarrow$ vectores). Estos vectores representan el significado semántico del texto. 
 
-2. Construir un índice vectorial usando $HNSWlib$ que permita recuperar los fragmentos más similares a una consulta.
+3. Construir un índice vectorial usando $HNSWlib$ que permita recuperar los fragmentos más similares a una consulta.
 
-3. Recuperar los k fragmentos más similares.
+4. Recuperar los k fragmentos más similares.
 
 Construir un prompt compuesto por:
 
 * instrucciones
 * contexto recuperado
 * pregunta del usuario
+* Enviar ese prompt al LLM (llama-cpp-python)
 
-Enviar ese prompt al LLM (llama-cpp-python)
 
-# Bitácora de implementación RAG - Proyecto "a mano"
 
-**Fecha de inicio:** [Pon tu fecha]
-**Objetivo:** Construir un sistema RAG (Retrieval-Augmented Generation) desde cero, usando únicamente herramientas locales y acopladas directamente en Python, sin orquestadores externos (como LangChain) ni bases de datos pesadas.
 
----
-
-## 1. Decisión Arquitectónica (El qué y el por qué)
+## 1. Decisión Arquitectónica
 
 - **Embeddings:** `sentence-transformers` (por su facilidad para generar vectores semánticos en local).
-- **Índice Vectorial:** `hnswlib` (porque es liviano, corre en memoria, se guarda en un archivo `.bin` y no necesita instalar servidores externos como PostgreSQL). *Descarto pgvector para esta fase para mantener el foco en el algoritmo de RAG.*
+- **Índice Vectorial:** `hnswlib` (porque es liviano, corre en memoria, se guarda en un archivo `.bin` y no necesita instalar servidores externos como PostgreSQL).
 - **LLM Local:** `llama-cpp-python` (por su eficiencia en CPU y soporte para modelos GGUF).
 
----
 
 ## 2. Mapa de Avance (Plan de trabajo detallado)
 
