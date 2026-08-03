@@ -14,26 +14,53 @@ Las formas principales de describir un conjunto son:
 
 ## Pertenencia y subconjuntos:
 
-Pertenencia $\in$
+* Pertenencia $\in$
 
-Union $\cup$
-
-Interseccion $\cap$
-
-Complemento $A^c$
-
-(8484: desarrollar un poco mas esta seccion...)
-
-## Conjuntos finitos
-
-Un conjunto es finito cuando posee un número limitado de elementos.
-Por ejemplo, $A$ contiene cuatro elementos:
+El Axioma de Extensionalidad establece que los conjuntos son determinados exclusivamente por su extensión, es decir, por el conjunto de elementos que contienen.
 
 ```{=latex}
 \[
-A=\{2,5,7,11\}
+\forall A \, \forall B \,
+\left(
+\forall x \,
+(x \in A \iff x \in B)
+\;\rightarrow\;
+A = B
+\right).
 \]
 ```
+
+* Union $\cup$
+
+La unión de dos conjuntos $A$ y $B$ es el conjunto formado por todos los elementos que pertenecen a $A$, a $B$, o a ambos. Se define como:
+
+```{=latex}
+\[
+A \cup B = \{ x \mid \forall x \in A \lor x \in B\}
+\]
+```
+
+
+* Interseccion $\cap$
+
+La intersección de dos conjuntos $A$ y $B$ es el conjunto formado por todos los elementos que pertenecen simultáneamente tanto a $A$ como a $B$. Se define como:
+
+```{=latex}
+\[
+A \cap B = \{ x \mid \forall x \in A \land x \in B\}
+\]
+```
+
+* Complemento $A^c$
+
+Se trabaja con el complemento relativo. Fijando un conjunto universo $U$ (que debe estar definido previamente en el contexto en el que trabajamos), el complemento de $A$ respecto a $U$ se define como:
+
+```{=latex}
+\[
+A^c = U \setminus A = \{ x \in U \mid x \notin A \}
+\]
+```
+
 
 \newpage 
 ## Conjuntos infinitos

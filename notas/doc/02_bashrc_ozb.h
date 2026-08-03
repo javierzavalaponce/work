@@ -152,6 +152,8 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 source /usr/share/doc/fzf/examples/completion.bash
 
 alias clon="xclip -selection clipboard < "
+alias entorno="cd ~/work/code/python &&  source venv/bin/activate"
+
 
 
 

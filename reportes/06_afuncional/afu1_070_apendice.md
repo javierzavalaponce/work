@@ -81,9 +81,11 @@ Todo estudiante aprobó: $\forall x(E(x) \rightarrow A(x))$
 \newpage
 ## Construcción de los números en ZFC.
 
-Todo objeto matemático puede representarse como un conjunto, y toda la matemática puede desarrollarse a partir de unos pocos axiomas sobre conjuntos.
+Todo objeto matemático puede representarse como un conjunto, y toda la matemática puede desarrollarse a partir de unos pocos axiomas sobre conjuntos. 
 
 La construcción de von Neumann es la forma estándar de definir los números naturales dentro de la Teoría Axiomática de Conjuntos (ZFC).
+
+
 
 A partir del conjunto vacío y utilizando únicamente la operación de *"poner entre llaves"*, se pueden construir todos los números naturales
 
@@ -102,8 +104,15 @@ S(n) = n \cup \{n\}
 
 Por ejemplo: 2 = $\{0,1\}$
 
-(8484: complementar esta seccion)
+\vspace{2cm}
 
+
+Existe más de una teoría axiomática de conjuntos aunque la más conocida y utilizada es la teoría ZFC, existen muchas otras alternativas,
+Las tres grandes: ZFC, NBG y MK. 
+
+Para la inmensa mayoría de las matemáticas, incluyendo el análisis funcional, la base es la teoría ZFC (Zermelo-Fraenkel con el Axioma de Elección), es decir, ZFC puede verse como el suelo firme y conocido sobre el que se asienta la mayor parte de las matemáticas.
+
+\newpage
 ### Cardinalidad
 
 La cardinalidad es un concepto que intenta responder a la pregunta:
