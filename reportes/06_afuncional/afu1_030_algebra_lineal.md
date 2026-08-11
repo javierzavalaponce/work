@@ -218,5 +218,26 @@ Matriz asociada (concepto de *linealidad*).
 
 ## Producto interno 
 
+El producto interno es una operación que nos permite generalizar las nociones geométricas de:
+
+* longitud
+* ángulo 
+* ortogonalidad (perpendicularidad) 
+
+que conocemos en $\mathbb R^2$ y $\mathbb R^3$ 
+a cualquier espacio vectorial (como los de polinomios o funciones).
+
+Un *producto interno* sobre un espacio vectorial real $V$ es una ***función*** que toma dos vectores 
+$u,v \in V$ y devuelve un número real,
+se denota como:
+
+
+```{=latex}
+\[
+\langle u, v \rangle \text{ o } u \cdot v
+\]
+```
+y satisface los siguientes axiomas :
+
 Angulos ortogonalidad. 
 (Sección 1.4) de [@hstark]
