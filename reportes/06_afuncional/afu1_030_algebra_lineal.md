@@ -211,7 +211,7 @@ Bases y Dimensión: Saber que si un espacio tiene base de nn elementos, todo vec
 
 ## Dimensión
 
-
+(8484: completar aqui)
 Funciones que respetan suma y producto. 
 Núcleo (kernel) e imagen.
 Matriz asociada (concepto de *linealidad*).
@@ -239,5 +239,87 @@ se denota como:
 ```
 y satisface los siguientes axiomas :
 
+1. Simetria (o conmutatividad)
+
+```{=latex}
+\[
+\langle u, v \rangle = \langle v, u \rangle
+\]
+```
+
+
+2. Linealidad en el prmer argumento
+
+
+Si sumamos dos vectores en el primer argumento, el producto interno se distribuye sobre la suma; además, podemos sacar los escalares fuera del producto interno.
+
+
+
+Aditividad:
+
+```{=latex}
+\[
+\langle u+v,w \rangle=\langle u,w\rangle+ \langle v,w \rangle
+\]
+```
+
+
+Homogeneidad:
+
+```{=latex}
+\[
+\langle \xi u,w \rangle = \xi \langle u,w \rangle
+\]
+```
+
+O bien:
+
+```{=latex}
+\[
+\langle \xi u+v,w \rangle =\xi\langle u,w\rangle+\langle v,w \rangle
+\]
+```
+
+(Nota: por simetría, también es lineal en el segundo argumento).
+
+3. Definido positivo 
+
+
+* No negatividad:
+
+
+```{=latex}
+\[
+\langle u,u\rangle \geq 0
+\]
+```
+
+* Definición positiva estricta:
+
+```{=latex}
+\[
+\langle u,u\rangle = 0 \iff u=0
+\]
+```
+
+
+$u \cdot u$ nunca es negativo y solamente puede ser cero cuando $u$ es el vector cero.
+
+
+
+
+
+
 Angulos ortogonalidad. 
 (Sección 1.4) de [@hstark]
+
+
+Conexión con la norma:
+
+```{=latex}
+\[
+\boxed{\|u\| = \sqrt{\langle u,u\rangle}}
+\]
+```
+
+Ahí empieza a verse realmente por qué el producto interno generaliza la noción geométrica de longitud.
