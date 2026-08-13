@@ -223,9 +223,7 @@ y satisface los siguientes axiomas :
 \]
 ```
 
-
-2. Linealidad en el prmer argumento
-
+2. Linealidad en el primer argumento
 
 Si sumamos dos vectores en el primer argumento, el producto interno se distribuye sobre la suma; además, podemos sacar los escalares fuera del producto interno.
 
