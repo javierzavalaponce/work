@@ -175,61 +175,37 @@ $F(\mathbb{R})$
 
 ## Bases
 
-Analogía: la base de un espacio vectorial 
 
- cómo construyes una pared una pared no es que vengan todos juntos bueno a menos que lo
-cueles y ya es otro rollo pero cómo construyes tradicionalmente una pared agarras los tabiques
-que son de la misma forma y los vas acomodando los va sumando
-pero como es el mismo es alargado o sea por ejemplo una fila de 10 tabiques podemos ir
-sumando o ese tabique si lo multiplicamos por 10 ya me da la fila esa es la idea los tabiques dentro
-de un espacio vectorial van a ser los vectores que sean linealmente independientes y además que
-todo todo todo todo todo todo todo el espacio no importa qué vector agarres no importa que
-agarres el vector más extraño de ese espacio con esos tabiques tú dices a mirar ver esa casa
-de ahí esa esa barda ese muro no importa qué tan grande sea el muro y es ah pues sí yo no puedo
-formar con esos tabiques quizá ocupe mil tabiques quizá ocupe pita viques quizá ocupe fita viques
-e tabiques pero con ese tabique puedo construir ese gran muro entonces cuando yo quiero estudiar
-ese gran muro lo puedo estudiar con esos tabiques sus propiedades eso es lo importante la base
-conociendo la forma en la que voy a estar construyendo todo el espacio vectorial no me tengo que
-fijar solamente en esa pared me fijo en la base la base lleva toda la información del espacio
-vectorial punto si un espacio vectorial es un universo su base es como su conjunto de átomos
-o bloques de construcción fundamentales con una base podemos construir cualquier otro elemento de
-ese universo debe de cumplir lo siguiente es un conjunto de vectores llamamos le ve que son
-b 1 b 2 b 3 hasta b n es una base de b si los vectores de b son linealmente independientes y los
-vectores de b generan al espacio vectorial vámonos con los ejemplos en r 2 los vectores y y j que
-serían el 0 1 y el 1 es que serían el 0 y 1 y 1 0 forman una base forman una base cualquier
-otro vector en el plano se puede expresar como una combinación de estos dos como la base tiene
-dos vectores decimos que la dimensión de r 2 es 2 y aquí el truco el número de elementos que tiene
-la base es la definición en la definición de lo que llamamos dimensión del espacio vectorial en
-r 3 necesitamos tres vectores base y jk 001 0 1 0 y 1 0 0 por lo tanto su dimensión es 3 la
-dimensión es simplemente el número de vectores que necesitas en tu base y para los espacios más
-abstractos el espacio de matrices de 2 por 2 tiene una base de 4 matrices 1 0 0 0 nota las
-entradas el 1 se va alternando por lo tanto su dimensión es 4 en general la dimensión por
-ejemplo de r n es n y la dimensión del espacio de matrices de tamaño n por m es n por m bueno
+Una base de un espacio vectorial $V$ es un conjunto de vectores que:
 
+1. Genera todo V.
+2. Es linealmente independiente.
 
-Bases y Dimensión: Saber que si un espacio tiene base de nn elementos, todo vector se escribe de forma única como combinación de esa base. (En análisis funcional, esto se extiende a infinitas sumas).
+\newpage
 
 ## Dimensión
 
-(8484: completar aqui)
-Funciones que respetan suma y producto. 
-Núcleo (kernel) e imagen.
-Matriz asociada (concepto de *linealidad*).
+Dimensión es el número de vectores que tiene una base del espacio vectorial. Por ejemplo, 
+una base de $\mathbb R^3$  puede ser:
 
+```{=latex}
+\[
+\{(1,0,0),(0,1,0),(0,0,1)\}
+\]
+```
+Como tiene tres vectores, $dim(\mathbb R^3)=3$. La dimensión indica cuántas direcciones independientes se necesitan para generar todo el espacio.
+
+
+\newpage
 ## Producto interno 
 
 El producto interno es una operación que nos permite generalizar las nociones geométricas de:
-
-* longitud
-* ángulo 
-* ortogonalidad (perpendicularidad) 
-
+***longitud, ángulo*** y ***ortogonalidad*** (perpendicularidad)
 que conocemos en $\mathbb R^2$ y $\mathbb R^3$ 
-a cualquier espacio vectorial (como los de polinomios o funciones).
+a cualquier espacio vectorial.
 
 Un *producto interno* sobre un espacio vectorial real $V$ es una ***función*** que toma dos vectores 
-$u,v \in V$ y devuelve un número real,
-se denota como:
+$u,v \in V$ y devuelve un número real, se denota como:
 
 
 ```{=latex}
@@ -282,6 +258,9 @@ O bien:
 
 (Nota: por simetría, también es lineal en el segundo argumento).
 
+
+\newpage
+
 3. Definido positivo 
 
 
@@ -314,12 +293,3 @@ Angulos ortogonalidad.
 (Sección 1.4) de [@hstark]
 
 
-Conexión con la norma:
-
-```{=latex}
-\[
-\boxed{\|u\| = \sqrt{\langle u,u\rangle}}
-\]
-```
-
-Ahí empieza a verse realmente por qué el producto interno generaliza la noción geométrica de longitud.
