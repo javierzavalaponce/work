@@ -4,6 +4,20 @@
 
 # Álgebra Lineal 
 
+## Espacios
+
+Espacio es simplemente un conjunto de puntos con una estructura. Por ejemplo, el espacio euclidiano es el espacio plano y sin curvatura que usamos en la vida cotidiana, donde las coordenadas son rectas y las distancias se miden con el teorema de Pitágoras.
+
+
+Cuando decimos *"espacio euclidiano"*, estamos hablando de:
+
+* Un conjunto de puntos (como los puntos en un plano o en un *espacio* tridimensional).
+
+* Una forma de medir distancias entre ellos.
+
+* Una forma de medir ángulos entre ellos.
+
+
 ## Espacios vectoriales
 
 Un espacio vectorial (a veces también llamado espacio *lineal*) $V$ es un conjunto de objetos llamados vectores sobre los cuales es posible realizar dos operaciones fundamentales [@hstark]:

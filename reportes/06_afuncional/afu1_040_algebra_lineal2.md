@@ -80,7 +80,7 @@ T(\alpha u)=\alpha T(u)
 
 para cualesquiera $u,v\in V$ y cualquier escalar $\alpha$.
 
-Ejemplo (transformación simplemente duplica la longitud de los vectores):
+Ejemplo (transformación que duplica la longitud de los vectores):
 
 ```{=latex}
 \[
@@ -92,7 +92,7 @@ T(x,y)=(2x,2y).
 \]
 ```	
 
-Geométricamente, una transformación lineal puede estirar, comprimir, girar, reflejar o combinar estos efectos sobre los vectores. Lo importante es que una transformación lineal conserva las combinaciones lineales. Si
+Geométricamente, una transformación lineal puede estirar, comprimir, girar, reflejar o combinar estos "efectos" sobre los vectores. Lo importante es que una transformación lineal conserva las combinaciones lineales. Si
 
 
 ```{=latex}
@@ -108,7 +108,8 @@ T(\alpha u+\beta v)
 \]
 ```	
 
-Esta propiedad será fundamental cuando estudiemos bases y matrices, porque permitirá describir una transformación lineal a partir de lo que hace sobre los vectores de una base.
+Esta propiedad es fundamental 
+porque permite describir una transformación lineal a partir de lo que *hace* sobre los vectores de una base.
 
 ### De transformación lineal a matriz
 
@@ -158,12 +159,15 @@ A=
 \]
 ```	
 
-La matriz no es otra cosa que una forma de representar la transformación lineal una vez que hemos elegido bases.
-
-
-(:8484) continua Tpg
+La matriz $A$ en este caso
+es una forma de representar 
+la transformación lineal una vez que hemos elegido bases.
 
 ## Nucleo
+
+¿Qué vectores son enviados al vector cero por T?
+
+
 
 ## Imagen
 
