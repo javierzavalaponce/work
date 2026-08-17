@@ -6,7 +6,7 @@
 
 ## Espacios
 
-Espacio es simplemente un conjunto de puntos con una estructura. Por ejemplo, el espacio euclidiano es el espacio plano y sin curvatura que usamos en la vida cotidiana, donde las coordenadas son rectas y las distancias se miden con el teorema de Pitágoras.
+Un espacio matemático es un conjunto de elementos al que se le añade una determinada estructura. Por ejemplo, el espacio euclidiano es el espacio plano y sin curvatura que usamos en la vida cotidiana, donde las coordenadas son rectas y las distancias se miden con el teorema de Pitágoras.
 
 
 Cuando decimos *"espacio euclidiano"*, estamos hablando de:
@@ -17,79 +17,67 @@ Cuando decimos *"espacio euclidiano"*, estamos hablando de:
 
 * Una forma de medir ángulos entre ellos.
 
+\vspace{1.5cm}
 
 ## Espacios vectoriales
 
 Un espacio vectorial (a veces también llamado espacio *lineal*) $V$ es un conjunto de objetos llamados vectores sobre los cuales es posible realizar dos operaciones fundamentales [@hstark]:
 
-* Suma de vectores.
+* Aditividad o suma de vectores.
 * Multiplicación de un vector por un escalar (Los escalares usados en un espacio vectorial pueden ser reales o complejos)
 
-Estas operaciones deben satisfacer un conjunto de propiedades que garantizan un comportamiento algebraico consistente.
+\newpage
 
-1. Conmutatividad de la suma. Para todo $x,y \in V$:
+Estas operaciones (suma de vectores y multiplicación por escalar) deben satisfacer un conjunto de propiedades que garantizan un comportamiento algebraico bien definido y consistente en un espacio vectorial $V$.
 
-```{=latex}
-\[
-x+y = y+x
-\]
-```
+\vspace{1.5cm}
 
-2. Asociatividad de la suma. Para todo $x,y,z  \in V$:
+1. *Conmutatividad de la suma*. Para todo $x,y \in V$: $x+y = y+x$
+
+2. *Asociatividad de la suma*. Para todo $x,y,z  \in V$:
 
 ```{=latex}
+\vspace{-1.0em}
 \[
 (x+y)+z=x+(y+z).
 \]
 ```
+3. Existencia del *vector cero*: $0 \in V$ tal que para todo $x \in V$: $x+0=x$
 
-3. Existe un vector $0 \in V$ tal que para todo $x \in V$:
-
-```{=latex}
-\[
-x+0=x
-\]
-```
-
-4. Existencia del inverso aditivo. Para cada  $x \in V$ existe un vector $y \in V$ tal que:
+4. Existencia del *inverso aditivo*. Para cada  $x \in V$ existe un vector $y \in V$ tal que:
 
 ```{=latex}
+\vspace{-1.0em}
 \[
 x+y=0.
 \]
 ```
-
-5. Asociatividad de la multiplicación por escalares. Para cada par de escalares $a,b$ y cada $x \in V$
-
-```{=latex}
-\[
-(ab)x = a(bx)
-\]
-```
-
-6. Distributividad de la multiplicación escalar.
+5. *Asociatividad de la multiplicación por escalares.* Para cada par de escalares $\alpha, \beta$ y cada $x \in V$
 
 ```{=latex}
+\vspace{-1.0em}
 \[
-a(x+y) = ax+ay
+(\alpha \beta)x = \alpha(\beta x)
 \]
 ```
+6. *Distributividad de la multiplicación escalar*: $\alpha(x+y) = \alpha x+ \alpha y$
 
-7. Distributividad respecto de la suma de escalares. Para cada par de escalares $a,b$ y cada $x \in V$
+7. *Distributividad respecto de la suma de escalares.* Para cada par de escalares $\alpha, \beta$ y cada $x \in V$ : $(\alpha + \beta )x = \alpha x+ \beta x$
 
-```{=latex}
-\[
-(a+b)x = ax+bx
-\]
-```
+8. Existencia del elemento identidad. Por  cada $x \in V, 1x=x$ 
 
-8. Existencia del elemento identidad. Por  cada $x \in V$ 
+\newpage 
+Los elementos de un espacio vectorial no tienen que ser vectores geométricos.
+Es decir: *"vector"* no significa necesariamente una flecha o una tupla de números. Un vector es simplemente un elemento de un espacio vectorial.
 
-```{=latex}
-\[
-1x=x
-\]
-```
+Por ejemplo, pueden ser vectores: polinomios, matrices, funciones, sucesiones,
+señales, etc. En matemáticas, se pueden todos ellos abstraer con la noción única
+e inmaterial de espacios vectoriales. La abstracción es el precio de
+la generalización.
+
+En síntesis: a pesar del nombre espacio vectorial, los elementos de un espacio vectorial no tienen que ser necesariamente vectores geométricos. Pueden ser objetos matemáticos de naturaleza muy diversa, siempre que sea posible definir sobre ellos las operaciones de suma y multiplicación por escalares y que estas satisfagan las propiedades anteriores. 
+
+\vspace{2.5cm}
 
 
 ### Subespacio vectorial
@@ -195,7 +183,6 @@ Una base de un espacio vectorial $V$ es un conjunto de vectores que:
 1. Genera todo V.
 2. Es linealmente independiente.
 
-\newpage
 
 ## Dimensión
 
@@ -293,15 +280,5 @@ O bien:
 \]
 ```
 
-
 $u \cdot u$ nunca es negativo y solamente puede ser cero cuando $u$ es el vector cero.
-
-
-
-
-
-
-Angulos ortogonalidad. 
-(Sección 1.4) de [@hstark]
-
 

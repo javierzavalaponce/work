@@ -165,10 +165,22 @@ la transformación lineal una vez que hemos elegido bases.
 
 ## Nucleo
 
-¿Qué vectores son enviados al vector cero por T?
+El *núcleo* de una transformación lineal $T:V\rightarrow W$ es el conjunto de todos los vectores de $V$ que son transformados en el vector cero de $W$. Se denota por $\ker(T)$ y se define como:
 
+```{=latex}
+\[
+\ker(T)=\{v\in V:T(v)=0\}.
+\]
+```
 
+Para encontrar su núcleo buscamos los vectores $(x,y)$ que cumplen: 
+$T(x,y)=(0,0)$ , por lo tanto:
 
+```{=latex}
+\[
+(2x+y,x-y)=(0,0).
+\]
+```
 ## Imagen
 
 
