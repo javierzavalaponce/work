@@ -163,9 +163,14 @@ La matriz $A$ en este caso
 es una forma de representar 
 la transformación lineal una vez que hemos elegido bases.
 
+
+\newpage
+
 ## Nucleo
 
-El *núcleo* de una transformación lineal $T:V\rightarrow W$ es el conjunto de todos los vectores de $V$ que son transformados en el vector cero de $W$. Se denota por $\ker(T)$ y se define como:
+El *núcleo* de una transformación lineal $T:V\rightarrow W$ es el conjunto de todos los vectores de $V$ que son transformados en el vector cero de $W$. En otras palabras:
+núcleo = lo que la transformación *pierde*.
+Se denota por $\ker(T)$ y se define como:
 
 ```{=latex}
 \[
@@ -173,14 +178,88 @@ El *núcleo* de una transformación lineal $T:V\rightarrow W$ es el conjunto de 
 \]
 ```
 
-Para encontrar su núcleo buscamos los vectores $(x,y)$ que cumplen: 
-$T(x,y)=(0,0)$ , por lo tanto:
+Un ejemplo. Consideremos:
 
 ```{=latex}
 \[
-(2x+y,x-y)=(0,0).
+T: \mathbb{R}^2 \rightarrow \mathbb{R}
 \]
 ```
+
+definida por 
+
+```{=latex}
+\[
+T(x,y) = x
+\] 
+```
+
+La transformación simplemente se queda con la primera coordenada, Por ejemplo:
+$T(3,7)=3$, es decir, el núcleo de T es el conjunto de los pares ordenados (0,y) tales que y pertenece a los reales:
+
+
+```{=latex}
+\[
+\ker(T)=\{(0,y)\mid y\in\mathbb R\}
+\]
+```
+
+**Observaciones**:
+
+* Dos vectores producen exactamente la misma salida si y solo si su diferencia pertenece al kernel.
+
+```{=latex}
+\[
+T(u)=T(v)
+\quad\Longleftrightarrow\quad u-v\in\ker(T)
+\]
+```
+
+* Si el núcleo solamente contiene al vector cero: $ker(T)=\{0\}$, entonces no existe ninguna diferencia no nula que la transformación pueda perder. Supongamos que $T(u) = T(v)$, entonces $u-v \in ker(T)$.
+Pero como el kernel solo contiene al cero $u-v=0$ implica que $u=v$,
+o sea $\ker(T)=\{0\} \Longleftrightarrow \text{T no pierde información entre vectores distintos}$. Lo cual significa que $T$ es *inyectiva*.
+
+
 ## Imagen
 
 
+Sea $T:V\rightarrow W$ una transformación lineal (donde $V$ y $W$ son espacios vectoriales). La imagen de $T$, denotada como $Im(T)$, se define como:
+
+
+```{=latex}
+\[
+Im(T)=\{ w \in W \mid \text{existe} v \in V \text{tal que} T(v) = w\}
+\]
+```
+
+**Propiedad fundamental**
+
+La imagen siempre es un subespacio vectorial del espacio de llegada $W$. Esto significa que:
+
+* Contiene al vector cero de $W$
+* Si se tienen dos vectores en la imagen, su suma también está en la imagen.
+* Si se multiplica un vector de la imagen por un escalar, el resultado también está en la imagen.
+
+
+**Ejemplo sencillo**
+
+Para la transformación lineal: $T:\mathbb R^2 \rightarrow \mathbb R^3$
+, definida como $T(x,y)=(x,y,0)$, su *imagen*
+son todos los vectores en $\mathbb R^3$ que tienen su tercera coordenada igual a cero, es decir,
+
+
+```{=latex}
+\[
+Im(T)=\{ (x,y,0) \mid x,y \in \mathbb R \}
+\]
+```
+
+Esto representa el plano $XY$ dentro de $\mathbb R^3$. Es un subespacio de $\mathbb R^3$, pero no es todo $\mathbb R^3$ (porque no llegamos a vectores con $z \neq 0$).
+
+**Conclusión**
+
+* El Núcleo (*kernel*) dice qué vectores se "pierden" (van a cero).
+* La Imagen dice qué vectores son *alcanzables*.
+* Para $T:V\rightarrow W$, si la imagen es igual a todo $W$, la transformación se llama *sobreyectiva* (o *epiyectiva*).
+
+The set of all possible vectors you can reach with linear combinations of a given pair of vectors is called the "span" of those two vectors. Restating what we just saw in this lingo, the span of most pairs of 2D vectors is all vectors in 2D space, but when they line up, their span is all vectors whose tip sit on a certain line.

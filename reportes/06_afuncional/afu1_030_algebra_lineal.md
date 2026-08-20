@@ -180,7 +180,7 @@ $F(\mathbb{R})$
 
 Una base de un espacio vectorial $V$ es un conjunto de vectores que:
 
-1. Genera todo V.
+1. Genera todo $V$.
 2. Es linealmente independiente.
 
 
@@ -196,6 +196,26 @@ una base de $\mathbb R^3$  puede ser:
 ```
 Como tiene tres vectores, $dim(\mathbb R^3)=3$. La dimensión indica cuántas direcciones independientes se necesitan para generar todo el espacio.
 
+## Span 
+
+Dado cualquier espacio vectorial $V$ 
+(sea de lo que sea: números, funciones, polinomios, matrices, etc.)
+ y un conjunto de vectores ${v1,v2,...,vk}$
+ que pertenecen a $V$, el span de esos vectores es:
+
+ ```{=latex}
+\[
+\operatorname{span}\{v_1,v_2,\ldots,v_k\}
+=
+\{
+a_1v_1+a_2v_2+\cdots+a_kv_k \mid 
+a_1,a_2,\ldots,a_k\in\mathbb{F}
+\}
+\]
+```
+ 
+Es decir, el span es el conjunto de todas las combinaciones lineales que se
+pueden hacer con ${v1,v2,...,vk}$ .Esto se define para cualquier espacio vectorial, sin importar su naturaleza. $\mathbb{F}$ se lee como el *cuerpo* (*field*) de escalares.
 
 \newpage
 ## Producto interno 
