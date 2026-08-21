@@ -28,9 +28,6 @@ En $\mathbb R^n$, la norma euclídea habitual es
 \sqrt{v_1^2+v_2^2+\cdots+v_n^2}
 \]
 ```
-
-
-
 	
 Más adelante veremos que no existe una única norma. Hay normas 1, 2, infinito, etc., y eso será muy importante para análisis funcional.
 

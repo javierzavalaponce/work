@@ -175,7 +175,7 @@ $F(\mathbb{R})$
 
 \newpage
 
-## Bases
+## Base
 
 
 Una base de un espacio vectorial $V$ es un conjunto de vectores que:
@@ -216,6 +216,17 @@ a_1,a_2,\ldots,a_k\in\mathbb{F}
  
 Es decir, el span es el conjunto de todas las combinaciones lineales que se
 pueden hacer con ${v1,v2,...,vk}$ .Esto se define para cualquier espacio vectorial, sin importar su naturaleza. $\mathbb{F}$ se lee como el *cuerpo* (*field*) de escalares.
+
+
+**Ejemplos de *span* en otros espacios**
+
+* Espacio de polinomios $P_2(x)$. Tomamos los vectores : $\{1,x,x^2\}$:
+ El span son todos los polinomios de grado menor o igual a 2: $a+bx+cx^2$
+
+* Espacio de funciones trigonométricas. Tomamos los 
+vectores: $\{sin⁡(x),cos⁡(x)\}$. El span 
+son todas las funciones de la forma: $\alpha sin⁡(x)+ \beta cos⁡(x)$
+
 
 \newpage
 ## Producto interno 
