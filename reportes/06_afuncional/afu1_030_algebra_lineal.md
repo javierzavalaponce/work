@@ -101,10 +101,10 @@ espacio tridimensional.
 Un subespacio de este espacio serian las matrices triangulares inferiores. Lo mismo ocurre con las matrices diagonales.
 
 
-#### Espacio vectorial de los polinomios reales $P(x)$.
+#### Espacio vectorial de los polinomios reales $\mathcal{P}$.
 
 Un polinomio real es una expresion de la forma $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$. El conjunto de tales polinomios forma un espacio vectorial bajo las siguientes operaciones: si 
-***a*** = $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ y ***b*** = $b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0$  son elementos de $P(x)$ (asumiendo que $m<n$), entonces:
+***a*** = $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ y ***b*** = $b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0$  son elementos de $\mathcal{P}$ (asumiendo que $m<n$), entonces:
 
 
 ```{=latex}
@@ -123,7 +123,7 @@ y
 ```
 
 
-son elementos de $P(x)$. Note que aquí cada polinomio es tratado como un vector. Como ejemplo de subespacio, el conjunto de polinomios 
+son elementos de $\mathcal{P}$. Note que aquí cada polinomio es tratado como un vector. Como ejemplo de subespacio, el conjunto de polinomios 
 $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_2x^2+a_0$ forma un subespacio de $P(x)$. Es decir, todos los elementos de este subespacio comparten la propiedad de que $a_1=0$
 
 

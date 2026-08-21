@@ -228,7 +228,7 @@ Sea $T:V\rightarrow W$ una transformación lineal (donde $V$ y $W$ son espacios 
 
 ```{=latex}
 \[
-Im(T)=\{ w \in W \mid \text{existe} v \in V \text{tal que} T(v) = w\}
+Im(T)=\{ w \in W \mid \text{ existe } v \in V \text{ tal que } T(v) = w\}
 \]
 ```
 
