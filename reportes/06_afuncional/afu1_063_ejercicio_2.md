@@ -5,68 +5,20 @@
 
 ## Ejercicio 2: Analisis espectral
 
+1. Generar un archivo *.wav* de tres segundos de duración
 
-Este es el ejercicio, construir un detector de frecuencias
-tengo una señal wav de audio de tres segundos generada por un programa en C:
-
-
-```c
-#include "wav.h"
-#include <math.h>
-#include <stdlib.h>
-
-#define SAMPLE_RATE 44100
-#define DURATION_SEC 3
-#define FREQUENCY_HZ 180.0
-#define FREQUENCYB_HZ 234.0
-#define FREQUENCYC_HZ 360.0
-
-#define AMPLITUDE 16000 // Out of maximum 32767 for signed 16-bit
-
-#ifndef M_PI
-#define M_PI 3.14159265358979323846
-#endif
-
-int main(void) {
-    const char* filename = "comb_lineal.wav";
-    uint32_t total_samples = SAMPLE_RATE * DURATION_SEC;
-    
-    // Allocate space for mono track buffer
-    int16_t* buffer = malloc(total_samples * sizeof(int16_t));
-    if (!buffer) {
-        printf("Memory allocation error.\n");
-        return 1;
-    }
-
-    // Mathematically generate a smooth sine wave
-    for (uint32_t i = 0; i < total_samples; i++) {
-        double time = (double)i / SAMPLE_RATE;
-        buffer[i] =  (int16_t)(0.63*AMPLITUDE * sin(2.0 * M_PI * FREQUENCY_HZ * time));
-        buffer[i] += (int16_t)(0.72*AMPLITUDE * sin(2.0 * M_PI * FREQUENCYB_HZ * time));
-        buffer[i] += (int16_t)(0.14*AMPLITUDE * sin(2.0 * M_PI * FREQUENCYC_HZ * time));
-    }
-
-    // Stream generation components via our library
-    FILE* wav_file = wav_open_write(filename, SAMPLE_RATE, 1); // 1 = Mono
-    if (!wav_file) {
-        printf("Failed to create file: %s\n", filename);
-        free(buffer);
-        return 1;
-    }
-
-    // Push buffer items and clean resource links
-    wav_write_samples(wav_file, buffer, total_samples);
-    wav_close(wav_file);
-    free(buffer);
-
-    printf("Successfully generated '%s' (%d seconds)!\n", filename, DURATION_SEC);
-    return 0;
-}
-
-
+```{=latex}
+\[
+\begin{aligned}
+x(t) &= x_1(t) + x_2(t) + x_3(t) \\
+x_1(t) &= 10080sin(2 \pi 180t) \\
+x_2(t) &= 11520sin(2 \pi 234t) \\
+x_3(t) &= 2240sin(2 \pi 360t) \\
+\end{aligned}
+\]
 ```
 
-La frecuencia de muestreo es 44100 Hz
+ o bien:
 
 ```{=latex}
 \[
@@ -74,7 +26,13 @@ x(t)=10080sin(2 \pi 180t)+11520sin(2 \pi 234t) + 2240sin(2 \pi 360t)
 \]
 ```
 
-Si solamente me dan $x(t)$, ¿cómo puedo descubrir $x_1 ,x_2 y x_3$ ?
+2. Muestrear a 1Khz. Detectar la componente de 180 Hz 
+   (proyectar la señal sobre un subespacio generado por una sinusoide)
+
+
+Si solamente observo $x(t)$, ¿cómo puedo recuperar $x_1(t)$?
+haciendo un producto interno con una señal de referencia de 180 Hz.
+
 
 Arduino $F_s$ a 1000Hz
 
@@ -83,7 +41,16 @@ Entonces ya no vamos a trabajar directamente con $x(t)$, sino con:
 
 $x[n] = x(nT_s)$
 
-con $T_s = \frac{1}{1000} = 0.001s$
+```{=latex}
+\[
+\begin{aligned}
+T_s &= \frac{1}{F_s} \\
+T_s &=\frac{1}{1000} \\
+T_s &= 0.001s
+\end{aligned}
+\]
+```
+
 
 nota $180 \less 500$, $234 \less 500$, $360 \less 500$
 
