@@ -30,6 +30,13 @@ Un espacio vectorial (a veces también llamado espacio *lineal*) $V$ es un conju
 
 Estas operaciones (suma de vectores y multiplicación por escalar) deben satisfacer un conjunto de propiedades que garantizan un comportamiento algebraico bien definido y consistente en un espacio vectorial $V$.
 
+```{=latex}
+\begin{equation}
+Propiedades:
+\label{eq:props_espacios_vectoriales}
+\end{equation}
+```
+
 \vspace{1.5cm}
 
 1. *Conmutatividad de la suma*. Para todo $x,y \in V$: $x+y = y+x$
