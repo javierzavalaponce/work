@@ -1,0 +1,4 @@
+> (define (line m b x) (+ (* m x) b))
+> (define (line m b) (lambda (x) (+ (* m x) b)))
+> (define l1 (line 2 1))
+> (l1 2)
