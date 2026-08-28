@@ -4,11 +4,24 @@
   (lambda (x)
     (+ (* m x) b)))
 
-(define l1 (line 2 1))
-(define l2 (line -1 3))
-(define l3 (line 0.5 -2))
+(define f1 (line 2 3))
+(define g (line 5 1))
 
-(displayln (l1 5))
-(displayln (l2 5))
-(displayln (l3 10))
+(displayln (f 2))
+(displayln (g 1))
 
+
+(define (sum_func f g)
+  (lambda (x)
+    (+ (f x) (g x))))
+
+(define h (sum_func f g))
+(displayln (h 1))
+
+
+(define (offset alpha f)
+  (lambda (x)
+    (* alpha (f x))))
+
+(define o (offset 10 f1))
+(displayln (o 1))

@@ -3,23 +3,32 @@
 ```
 # Programación funcional
 
-## Init
+## Paradigma
 
-La programación funcional es un paradigma de programación en el que los programas se construyen principalmente mediante funciones, tratándolas como valores que pueden almacenarse en variables, pasarse como argumentos y ser devueltas por otras funciones. Se inspira en el concepto matemático de función, donde una entrada produce una salida, y busca reducir los cambios de estado y efectos secundarios. Lenguajes como Racket, Lisp, Scheme, Haskell y, en cierta medida, Python y JavaScript, permiten utilizar este enfoque
+La programación funcional es un *paradigma* de programación en el que los programas se construyen principalmente mediante funciones, tratándolas como valores que pueden almacenarse, pasarse como argumentos y ser devueltas por otras funciones. Se inspira en el concepto matemático de función, donde una entrada produce una salida. Por ejemplo,
+tomemos la función $f(x)=2x +3$.
+
+
+```c
+(define (f x)
+  (+ (* 2 x) 3))
+```
+
+Ahora define una función llamada *line* que recibe $m$ y $b$, y devuelve una (otra) función que recibe $x$ y calcula $mx+b$:
 
 ejemplo lineas.rkt
 
-```bash
+*line* recibe los parámetros de una recta y devuelve la función correspondiente a esa recta
+
+
+```c
 #lang racket
 (define (line m b)
   (lambda (x)
     (+ (* m x) b)))
 
 (define l1 (line 2 1))
-(define l2 (line -1 3))
-(define l3 (line 0.5 -2))
-
+  
 (displayln (l1 5))
-(displayln (l2 5))
-(displayln (l3 10))
+
 ```
