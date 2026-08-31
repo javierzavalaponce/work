@@ -9,19 +9,20 @@ La programación funcional es un *paradigma* de programación en el que los prog
 tomemos la función $f(x)=2x +3$.
 
 
+
 ```c
+;(define nombre valor)
 (define (f x)
   (+ (* 2 x) 3))
 ```
 
 Ahora define una función llamada *line* que recibe $m$ y $b$, y devuelve una (otra) función que recibe $x$ y calcula $mx+b$:
 
-ejemplo lineas.rkt
-
 *line* recibe los parámetros de una recta y devuelve la función correspondiente a esa recta
 
 
 ```c
+;lineas.rkt
 #lang racket
 (define (line m b)
   (lambda (x)
