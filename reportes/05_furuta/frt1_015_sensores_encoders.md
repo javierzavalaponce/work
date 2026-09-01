@@ -2,18 +2,14 @@
 \clearpage
 ```
 
-
-
-# Sensores / encoders
+# Modulos, sensores y encoders
 
 
 ## AS5600 Encoder Magnético 12 Bits
 
-asfsdf
-
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/AS5600_pinout.png}
+\includegraphics[width=0.4\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/AS5600_pinout.png}
 \caption{asdfasdf}
 \label{fig:encoder0}
 \end{figure}
@@ -25,11 +21,14 @@ asfsdf
 | Out | Salida Analógica o PWM|  
 | Gnd | Gnd                   |
 | Dir | Input: (GND o VDD), (incrementa o decrementa) clockwise  |
-| SCL | Clk I2C - A4          |
-| SDA | Data I2C - A5             |
+| SCL | Clk I2C - Arduino uno A4          |
+| SDA | Data I2C - Arduino uno A5             |
 | GPO | Input Pin de programación|
 
 : Pinout
+
+\vspace{1cm}
+
 
 ```c
 void setup()
@@ -40,12 +39,7 @@ void setup()
 }
 ```
 
-En arduino SDA  A4 , SCL  A5.
-
-
-
-
-# PWM BS 
+\newpage
 
 ## DC Motor Driver BTS7960
 
@@ -102,7 +96,120 @@ void setup_drivermotor() {
   analogWrite(LPWM, 0);
 }
 ```
-Modelado y simulación
+
+## Encoder para control manual
+
+asdf
+
+\newpage
+## Encoder Incremental  
+
+Encoder Incremental 600 Pulsos LPD3806-600BM 5-24V DC. Dispositivo electromecánico que convierte el movimiento de un eje rotatorio en señales eléctricas digitales. Funciona mediante un disco ranurado y un sistema óptico interno que genera 600 pulsos por cada vuelta completa del eje, lo que permite medir con precisión la velocidad, posición y dirección de giro. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.62\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/encoder_incremental.png}
+\caption{asdfasdf}
+\label{fig:enco_incr}
+\end{figure}
+
+
+| LPD3806 | Arduino |
+|:---------|:------------|
+| Rojo | Alim. 5Vdc    | 
+| Black | gnd |  
+| Green | D2 - A     |
+| White | D3 -B|
+
+: Pinout
+
+
+* Shaft 6mm.
+* 600 pulsos por revolución
+* Alimentación: 5–24 V DC
+* Salidas: A y B
+
+Las salidas A y B están desplazadas 90° eléctricamente
+Salida tipo NPN open collector. Las dos señales permiten determinar: Cuánto ha girado el eje, qué tan rápido gira
+y en qué sentido.
+
+señal en cuadratura. con desfase de 90 grados 
+ARduino puede dar pull up intrno
+
+```c
+//inspiracion
+const int ENC_A = 2;
+const int ENC_B = 3;
+
+void setup()
+{
+    Serial.begin(115200);
+
+    pinMode(ENC_A, INPUT_PULLUP);
+    pinMode(ENC_B, INPUT_PULLUP);
+}
+
+void loop()
+{
+    int A = digitalRead(ENC_A);
+    int B = digitalRead(ENC_B);
+
+    Serial.print("A = ");
+    Serial.print(A);
+
+    Serial.print("  B = ");
+    Serial.println(B);
+
+    delay(10);
+}
+//con isr
+attachInterrupt(
+    digitalPinToInterrupt(ENC_A),
+    encoderISR,
+    RISING
+);
+//y entonces:
+volatile long contador = 0;
+
+void encoderISR()
+{
+    if (digitalRead(ENC_B) == HIGH)
+        contador++;
+    else
+        contador--;
+}
+
+```
+\newpage
+
+## Encoder Incremental Rotativo
+
+Como controlar un motor DC BTS7960 
+con 
+El Encoder Incremental Rotativo EC11 tiene 20 retenciones perceptibles al tacto, puede girar 360° de forma continua y genera pulsos de salida.
+
+| Encoder EC11 | Arduino |
+|:---------|:------------|
+| A |     | 
+| B |   |  
+| GND | gnd   |
+| SW | pulsador perilla|
+| VCC| Alim 5Vdc|
+
+
+
+: Pinout
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.62\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/encoder_incr_rotativo.png}
+\caption{asdfasdf}
+\label{fig:enco_incr_rot}
+\end{figure}
+
+
+
+# Modelado y simulación
 
 ## Pybullet
 
