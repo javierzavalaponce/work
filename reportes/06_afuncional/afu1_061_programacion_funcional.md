@@ -70,16 +70,21 @@ Se usa,
 
 ## Algebra de funciones, ejercicios
 
-*f_escala*$(f,k)(x)=kf(x)$
+
+| Operacion | Descripción |
+|:---------|:------------|
+| f_escala$(f,k)(x)=kf(x)$  | Multiplica función por escalar  | 
+| f_expande$(f,k)(x)=f(kx)$  | Comprime/expande funcion en el tiempo|  
+| f_sum$(f,g)(x)=f(x)+g(x)$  | Suma de funciones  |
+| f_shift$(f,k)(x)=f(x+k)$  | Introduce un retardo/adelanto |
+| f_offset$(f,k)(x)=k+f(x)$  | Introduce un offset positivo/negativo |
+
+: Ejercicios en Racket
+
+\vspace{1.0cm}
+
 
 ```c
-;ejercios.rkt
-;f_escala:  Multiplica función por escalar
-;f_expande: Comprime/expande funcion en el tiempo
-;f_sum:     Suma de funciones
-;f_shift:   Introduce un retardo/adelanto
-;f_offset:  Introduce un offset positivo/negativo
-
 #lang racket
 (require plot)
 (define (line m b)
@@ -89,18 +94,26 @@ Se usa,
 
 (define (f_escala  f k) (lambda (x) (* k (f x))))
 (define (f_expande f k) (lambda (x) (f (* k x))))
-(define (f_shift f k)   (lambda (x) (f (+ k x))))
 (define (f_sum f g)     (lambda (x) (+ (f x) (g x))))
+(define (f_shift f k)   (lambda (x) (f (+ k x))))
 (define (f_offset f k)  (lambda (x) (+ k (f x))))
 
 (plot-file
   (list
-    (function sin -3 3)
-    (function (f_escala  sin 2) -2 2)
-    (function (f_expande sin 2) -2 2)
-    (function (f_shift   sin 1) -2 2)
-    (function (f_sum     sin l) -2 2)
-    (function (f_offset  sin 0.3) -2 2)
+    (function sin -3 3 #:color "red") 
+    (function (f_escala  sin 2)   -9 9 #:color "green")
+    (function (f_expande sin 2)   -9 9 #:color "blue")
+    (function (f_shift   sin 1)   -9 9 #:color "orange")
+    (function (f_sum     sin l)   -9 9 #:color "purple")
+    (function (f_offset  sin 3) -9 9 #:color "black")
   )
   "plots.png")
 ```
+\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/plots_rckt00.png}
+\caption{Gráficas}
+\label{fig:rckt_tarea0}
+\end{figure}

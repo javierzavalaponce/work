@@ -20,13 +20,11 @@
 
 (plot-file
   (list
-    (function sin -9 9 #:color "green")
-    (function (f_escala  sin 2) -2 2)
-    (function (f_compExp sin 2) -9 9 #:color "black")
-    (function (f_compExp sin 0.5) -9 9 #:color "red")
-    (function (f_shift   sin 0.5) -2 2 #:color "purple")
-    (function (f_shift   sin -0.5) -2 2 #:color "orange")
-    (function (f_sum     sin l) -2 2)
-    (function (f_offset  sin 0.3) -2 2)
+    (function sin -3 3 #:color "red") 
+    (function (f_escala  sin 2)   -9 9 #:color "green")
+    (function (f_compExp sin 2)   -9 9 #:color "blue")
+    (function (f_shift   sin 1)   -9 9 #:color "orange")
+    (function (f_sum     sin l)   -9 9 #:color "purple")
+    (function (f_offset  sin 3)   -9 9 #:color "black")
   )
   "plots.png")
