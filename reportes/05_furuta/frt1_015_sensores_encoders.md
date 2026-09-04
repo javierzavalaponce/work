@@ -97,11 +97,22 @@ void setup_drivermotor() {
 }
 ```
 
-## Encoder para control manual
 
-asdf
 
 \newpage
+
+## Leds Auxiliares
+
+
+| Arduino pin | led  |
+|:---------|:------------|
+| Ard pin 12 | led2 | 
+| Ard pin 4  | led1 | 
+
+: Leds auxiliares
+
+\newpage
+
 ## Encoder Incremental  
 
 Encoder Incremental 600 Pulsos LPD3806-600BM 5-24V DC. Dispositivo electromecánico que convierte el movimiento de un eje rotatorio en señales eléctricas digitales. Funciona mediante un disco ranurado y un sistema óptico interno que genera 600 pulsos por cada vuelta completa del eje, lo que permite medir con precisión la velocidad, posición y dirección de giro. 
@@ -118,8 +129,8 @@ Encoder Incremental 600 Pulsos LPD3806-600BM 5-24V DC. Dispositivo electromecán
 |:---------|:------------|
 | Rojo | Alim. 5Vdc    | 
 | Black | gnd |  
-| Green | D2 - A     |
-| White | D3 -B|
+| Green | Arduino pin D3 - A     |
+| White | Arduino pin D2 -B|
 
 : Pinout
 
@@ -182,23 +193,22 @@ void encoderISR()
 ```
 \newpage
 
-## Encoder Incremental Rotativo
+## Encoder Incremental Rotativo p ctrl manual
 
-Como controlar un motor DC BTS7960 
-con 
-El Encoder Incremental Rotativo EC11 tiene 20 retenciones perceptibles al tacto, puede girar 360° de forma continua y genera pulsos de salida.
+El Encoder Incremental Rotativo EC11 es capaz de codificar salidas hacia la izquierda y hacia la derecha, tiene 20 retenciones perceptibles al tacto, puede girar 360° de forma continua y genera pulsos de salida digitales que ayudan a determinar la dirección y rotación , también cuenta con un interruptor el cual se acciona al presionar el eje del enconder. 
 
-| Encoder EC11 | Arduino |
+Led para monitores pin 12 arduino
+
+| Board pin | Descripción |
 |:---------|:------------|
-| A |     | 
-| B |   |  
-| GND | gnd   |
-| SW | pulsador perilla|
-| VCC| Alim 5Vdc|
+| switch | switch Ard pin 11| 
+| gnd | gnd |  
+| Out A | encoder pin A verde Ard 9|
+| gnd | gnd|
+| Out B | encoder pin A verde Ard 10|
 
+: Encoder para control manual
 
-
-: Pinout
 
 \begin{figure}[H]
 \centering
