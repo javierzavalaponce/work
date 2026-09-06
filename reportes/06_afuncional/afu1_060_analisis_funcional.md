@@ -3,9 +3,36 @@
 ```
 # Análisis funcional
 
+## Distancia
+
+
+Una distancia (o *métrica*) es una función $d: X \times X \rightarrow [0,\infty]$
+ que cumple:
+
+  * positividad, 
+  * simetría y 
+  * desigualdad triangular.
+
+Una métrica debe satisfacer:
+
+$d(x,y) \geq 0$ 
+
+$d(x,y)=0 \iff x=y$
+
+$d(x,y)=d(y,x)$
+
+$d(x,z) \leq d(x,y)+d(y,z)$
+
+
+
+En un espacio métrico $(X,d)$ no hay un punto señalado como *el cero*. Es decir, una métrica no necesita distinguir ningún punto como origen.. Mide la separación entre puntos, pero no el "tamaño" de un vector.
+
+Conclusión parcial: En una métrica, las distancias entre puntos no varían al cambiar el origen. La norma, en cambio, fija el origen: *La longitud de un vector es su distancia exclusivamente a ese punto cero.*
+
+
 ## Espacios vectoriales normados
 
-Un espacio vectorial normado es un espacio vectorial $V$ al que se le ha definido una norma $\| \cdot \|$, de modo que podemos hablar del “tamaño” o “longitud” de sus elementos:
+Un espacio vectorial normado es un espacio vectorial $V$ al que se le ha definido una norma $\| \cdot \|$, 
 
 ```{=latex}
 \[
@@ -13,14 +40,66 @@ Un espacio vectorial normado es un espacio vectorial $V$ al que se le ha definid
 \]
 ```
 
-Por ejemplo:
+Una ***norma*** es una función $\| \cdot \|  : V \rightarrow \mathbb R$ que mide la *longitud* de un vector.
+
+
+Ejemplo de espacio vectorial normado:
+
 
 ```{=latex}
 \[
 ( \mathbb R^2,\| \cdot \|_2)
 \]
 ```
-es un espacio vectorial normado.
+
+En un espacio vectorial normado, la norma de un vector es la distancia entre ese vector y el vector cero.
+
+```{=latex}
+\[
+\| x \| = d(x,0)
+\]
+```
+
+## Conexión entre distancia y norma
+
+$d(x,y):=\| x−y \|$
+
+
+El mensaje central es este:
+
+***distancia=separación entre dos puntos***
+
+mientras que
+
+***norma=distancia de un vector al cero***
+
+
+La implicación *Norma* $\rightarrow$ *Distancia* permite usar toda la maquinaria de la topología (bolas abiertas, conjuntos compactos, continuidad) en el contexto del álgebra lineal. Sin embargo, el recíproco es falso porque la distancia es un concepto topológico *blando* y la norma es un concepto algebraico *rígido*.
+
+## Demostracion 
+
+
+Como desarrollar la siguiente demostracion de que:
+
+```{=latex}
+\[
+\langle u,0\rangle = 0
+\]
+```
+
+Partimos de que:
+
+$0+0=0$
+
+Entonces podemos escribir:
+
+
+```{=latex}
+\[
+\langle u,0\rangle = \langle u,0+0\rangle
+\]
+```
+
 
 ## Norma 2
 
