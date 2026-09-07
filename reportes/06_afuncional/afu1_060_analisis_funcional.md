@@ -5,27 +5,25 @@
 
 ## Distancia
 
-
-Una distancia (o *métrica*) es una función $d: X \times X \rightarrow [0,\infty]$
+Una distancia (o *métrica*) es una función $d: X \times X \rightarrow [0,\infty)$
  que cumple:
 
-  * positividad, 
-  * simetría y 
-  * desigualdad triangular.
+  * positividad ($d(x,y)\geq 0$)
+  * simetría ($d(x,y)=d(y,x)$) y
+  * desigualdad triangular ($d(x,z)\leq d(x,y)+d(y,z)$)
 
+La distancia nos sirve para saber que tan separados estan dos puntos. 
 Una métrica debe satisfacer:
 
-$d(x,y) \geq 0$ 
-
-$d(x,y)=0 \iff x=y$
-
-$d(x,y)=d(y,x)$
-
-$d(x,z) \leq d(x,y)+d(y,z)$
+```{=latex}
+\[
+d(x,y)=0 \iff x=y
+\]
+```
 
 
 
-En un espacio métrico $(X,d)$ no hay un punto señalado como *el cero*. Es decir, una métrica no necesita distinguir ningún punto como origen.. Mide la separación entre puntos, pero no el "tamaño" de un vector.
+En un espacio métrico $(X,d)$ no hay un punto señalado como *el cero*. Es decir, una métrica no necesita distinguir ningún punto como origen, mide la separación entre puntos, pero no el "tamaño" de un vector.
 
 Conclusión parcial: En una métrica, las distancias entre puntos no varían al cambiar el origen. La norma, en cambio, fija el origen: *La longitud de un vector es su distancia exclusivamente a ese punto cero.*
 
@@ -40,17 +38,9 @@ Un espacio vectorial normado es un espacio vectorial $V$ al que se le ha definid
 \]
 ```
 
-Una ***norma*** es una función $\| \cdot \|  : V \rightarrow \mathbb R$ que mide la *longitud* de un vector.
+Una ***norma*** es una función $\|\cdot\|:V\longrightarrow [0,\infty)$
+que asigna a cada vector $x \in V$ un número real no negativo, interpretado como su longitud.
 
-
-Ejemplo de espacio vectorial normado:
-
-
-```{=latex}
-\[
-( \mathbb R^2,\| \cdot \|_2)
-\]
-```
 
 En un espacio vectorial normado, la norma de un vector es la distancia entre ese vector y el vector cero.
 
@@ -60,10 +50,61 @@ En un espacio vectorial normado, la norma de un vector es la distancia entre ese
 \]
 ```
 
+Una norma debe satisfacer las siguientes propiedades.
+
+1. Positividad y definitud
+
+```{=latex}
+\[
+\|x\|\geq 0
+\]
+```
+
+```{=latex}
+
+\[
+\|x\|=0\iff x=0.
+\]
+```
+
+2. Homogeneidad,  es decir, para todo escalar $\alpha$,
+
+```{=latex}
+\[
+\|\alpha x\|=|\alpha|\,\|x\|.
+\]
+```
+
+3. Desigualdad triangular
+```{=latex}
+
+\[
+\|x+y\|\leq \|x\|+\|y\|.
+\]
+```
+
+
+
+
+Ejemplo de espacio vectorial normado:
+
+```{=latex}
+\[
+( \mathbb R^2,\| \cdot \|_2)
+\]
+```
+
 ## Conexión entre distancia y norma
 
-$d(x,y):=\| x−y \|$
+Una norma permite construir una métrica mediante
 
+```{=latex}
+\[
+d(x,y):=\| x−y \|
+\]
+```
+
+Es decir, para calcular la distancia entre $x$ y $y$, se calcula primero el vector que va de $y$ hacia $x$ y despues se calcula la longitud de ese vector.
 
 El mensaje central es este:
 
@@ -73,8 +114,35 @@ mientras que
 
 ***norma=distancia de un vector al cero***
 
+## Producto interno
 
-La implicación *Norma* $\rightarrow$ *Distancia* permite usar toda la maquinaria de la topología (bolas abiertas, conjuntos compactos, continuidad) en el contexto del álgebra lineal. Sin embargo, el recíproco es falso porque la distancia es un concepto topológico *blando* y la norma es un concepto algebraico *rígido*.
+
+Un producto interno es una operación que toma dos vectores y produce un escalar:
+
+```{=latex}
+\[
+\langle\cdot,\cdot\rangle:V\times V\longrightarrow\mathbb{F},
+\]
+```        
+
+donde $\mathbb F$ es $\mathbb R$ o $\mathbb C$
+
+En el caso real, el producto interno satisface, entre otras propiedades:
+
+* linealidad,
+* simetría,
+* positividad.
+
+El producto interno permite definir una norma:
+
+```{=latex}
+
+\[
+\boxed{
+\|x\|=\sqrt{\langle x,x\rangle}
+}
+\]
+```
 
 ## Demostracion 
 
@@ -83,7 +151,7 @@ Como desarrollar la siguiente demostracion de que:
 
 ```{=latex}
 \[
-\langle u,0\rangle = 0
+\langle u,0\rangle
 \]
 ```
 
@@ -94,7 +162,7 @@ $0+0=0$
 Entonces podemos escribir:
 
 
-```{=latex}
+```{=lngleatex}
 \[
 \langle u,0\rangle = \langle u,0+0\rangle
 \]
