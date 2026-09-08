@@ -114,10 +114,159 @@ mientras que
 
 ***norma=distancia de un vector al cero***
 
+## Ortogonalidad
+
+Hasta ahora hemos utilizado la norma para hablar de la longitud de un vector y la métrica para hablar de la distancia entre dos puntos. Sin embargo, en un espacio vectorial podemos hacernos otra pregunta:
+¿Cómo podemos describir la relación entre la dirección de dos vectores?
+
+
+Por ejemplo, en $\mathbb R^2$ podemos tener dos vectores que tengan exactamente la misma longitud, pero que apunten en direcciones diferentes.
+
+La norma nos permite saber cuánto mide cada vector, pero no es suficiente para determinar cómo están orientados dos vectores entre sí.
+
+Para describir esta relación necesitamos introducir la idea de ángulo.
+
+### Ángulo entre vectores
+
+En $\mathbb R^2$, dados dos vectores no nulos $x$ e $y$, podemos hablar del ángulo $\theta$ que forman entre ellos.
+
+```{=latex}
+\[
+0\leq\theta\leq\pi.
+\]
+```
+
+Cuando dos vectores forman un ángulo de $90^\circ$, decimos que son perpendiculares.
+
+En el contexto de espacios vectoriales, utilizaremos el término: ***Dos vectores son ortogonales si son perpendiculares.***
+
+Lo escribiremos como
+
+
+```{=latex}
+\[
+x\perp y.
+\]
+```
+
+Por ejemplo, en $\mathbb R^2$,
+
+```{=latex}
+\[
+x=(1,0),\qquad y=(0,1)
+\]
+```
+
+son ortogonales. Geométricamente no es dificil visualizarlo.  El problema que aparece ahora es: *Cómo podemos determinar algebraicamente si dos vectores son ortogonales?*
+
+Para responder esta pregunta necesitamos una operación que relacione dos vectores y que nos proporcione información sobre el ángulo que forman.
+
+Esta operación será el producto interno.
+
+
 ## Producto interno
 
 
-Un producto interno es una operación que toma dos vectores y produce un escalar:
+
+
+La noción de norma provee un medio de medir tanto la longitud de un vector como
+la distancia entre dos vectores en un espacio vectorial.
+
+El producto interno, en cambio, relaciona dos vectores:
+
+```{=latex}
+\[
+(x,y)\longmapsto \langle x,y\rangle
+\]
+```
+
+En $\mathbb R^n$, el producto interno usual está definido por
+
+```{=latex}
+\[
+\langle x,y\rangle
+=
+x_1y_1+x_2y_2+\cdots+x_ny_n
+\]
+```
+
+Por ejemplo, si
+
+```{=latex}
+\[
+x=(1,2),\qquad y=(3,4),
+\]
+```
+entonces
+
+```{=latex}
+\[
+\langle x,y\rangle
+=
+(1)(3)+(2)(4)
+=
+11.
+\]
+```
+
+Sin embargo, la importancia del producto punto está en que contiene información geométrica sobre los vectores. En particular, el producto interno está relacionado con el ángulo $\theta$ entre dos vectores mediante
+
+```{=latex}
+\[
+\langle x,y\rangle
+=
+\|x\|\,\|y\|\cos\theta.
+\]
+```
+
+### La idea geometrica
+
+Supongamos que tenemos dos vectores $u$ y $v$, formando un ángulo $\theta$
+
+Los tres lados del triángulo son: $\|u\|$, $\|v\|$ y $\|u−v\|$
+
+La ley de cosenos nos proporciona una relación entre las longitudes de los vectores y el ángulo que forman. El producto interno nos permitirá obtener esa misma relación algebraicamente.
+
+```{=latex}
+\[
+\|u - v\|^2 = \|u\|^2 + \|v\|^2 - 2\|u\| \|v\| \cos\theta
+\]
+```
+
+Esta expresión relaciona directamente las longitudes de los vectores con el ángulo que forman.
+
+Ahora queremos obtener una expresión equivalente utilizando únicamente el producto interno.
+
+Para ello, recordemos que la norma y el producto interno están relacionados mediante
+
+```{=latex}
+\[
+\|x\|^2=\langle x,x\rangle.
+\]
+```
+
+Por lo tanto,
+
+```{=latex}
+\[
+\|u-v\|^2
+=
+\langle u-v,u-v\rangle.
+\]
+```
+Al desarrollar esta expresión utilizando las propiedades del producto interno podremos comparar el resultado con la ley de los cosenos y obtener la relación entre el producto interno y el ángulo.
+
+```{=latex}
+\[ \boxed{ \text{Ley de cosenos} \quad\longleftrightarrow\quad \text{Producto interno} } \] 
+```
+El siguiente paso natural es desarrollar 
+```{=latex}
+\[ \langle u-v,u-v\rangle \]
+```
+
+
+---
+Racapitulando. un producto interno es una operación que toma dos vectores y produce un escalar:
 
 ```{=latex}
 \[
@@ -401,6 +550,8 @@ la convergencia significa:
 
 Por lo tanto, una misma sucesión de funciones puede converger según una norma y no converger según otra. Esto es importante porque ***la noción de convergencia depende de la norma que hayamos elegido.***
 
+
+\newpage
 ## Completitud
 
 ### Sucesiones de Cauchy
