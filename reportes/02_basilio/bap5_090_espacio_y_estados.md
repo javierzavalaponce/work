@@ -210,20 +210,28 @@ u=r-kCx
 
 El controlador (proporcional en este caso) no tiene acceso directo a los estados; únicamente puede actuar sobre lo que mide el *sensor*. 
 
-\vspace{2cm}
+
+\newpage
 
 ### Función de transferencia a partir de las matrices $A$, $B$, $C$ y $D$
 
-La representación en variables de estado describe la dinámica interna del sistema mediante los estados.
-Sin embargo, antes los sistemas de control se analizaban mediante funciones de transferencia, las cuales relacionan directamente la entrada con la salida:
+
+A partir de la representación en espacio de estados:
+
+* Ecuación de estado: $\dot{x} = Ax + Bu$
+* Ecuación de salida: $y = Cx + Du$
+
+Las matrices $A$ y $B$  describen la dinámica del sistema. $C$ y $D$ describen como observamos la planta. La representación en variables de estado describe la dinámica interna del sistema mediante los estados.
+Sin embargo, los sistemas de control también se pueden analizar mediante funciones de transferencia, las cuales relacionan directamente la entrada con la salida:
 
 ```{=latex}
 \[
 G(s)=\frac{Y(s)}{U(s)}
 \]
 ```
+
 ¿Cómo obtener la función de transferencia a partir de las matrices $A$, $B$, $C$ y $D$    ?
-Para ello se aplica la Transformada de Laplace a las ecuaciones de estado, suponiendo condiciones iniciales nulas.
+Para ello se aplica la Transformada de Laplace a las ecuaciones de estado, suponiendo condiciones iniciales nulas. Empezamos con la ecuación de estado:
 
 ```{=latex}
 \[
@@ -245,45 +253,15 @@ Agrupando términos ($I$ es la matriz Identidad):
 \]
 ```
 
-\newpage
-
-\hrulefill
-
-*Parentesis: Notas de repaso de algebra lineal*
-
-* En álgebra lineal, una matriz cuadrada $Q$ de orden $n$, se dice que es invertible, si existe otra matriz cuadrada de orden $n$, llamada matriz inversa de Q y denotada por $Q^{-1}$
-tal que $Q \cdot Q^{-1}=I_n$
-
-* La matriz adjunta de $Q$, $adj(Q)$ es igual a la matriz transpuesta de la matriz de cofatores de Q:
-  $adj(Q)$ = $cof(Q^{-1})$ . Es decir, en otras palabras,  hay mas de un "nombre" para esta matriz. En este documento, se maneja: $adj(Q)$
-
-
-* En resumen, 
-$Q^{-1}$ es
-la inversa de una matriz $Q$ y se calcula como: 
-
-```{=latex}
-\[
-Q^{-1} = 
-\begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} = \frac{1}{\det(Q)} 
-adj(Q)= \frac{1}{ad-bc} 
-\begin{bmatrix} \,\,\, d & \!\! -b \\ -c & \, a \end{bmatrix}
-\]
-```
-
-\hrulefill
-
-\vspace{1cm}
-
-Entonces retomando, si la matriz $(sI-A)$ es invertible. 
+si la matriz $(sI-A)$ es invertible. 
 
 ```{=latex}
 \[
 X(s)=(sI-A)^{-1}BU(s)
 \]
 ```
-
-Utilizando la ecuación de salida:
+\newpage
+Utilizando la ecuación de salida y sustituyendo $X(s)$:
 
 ```{=latex}
 \[
@@ -328,41 +306,89 @@ C(sI-A)^{-1}B+D
 
 
 
+\hrulefill
 
----
+*Parentesis: Notas de repaso de algebra lineal*
+
+* En álgebra lineal, una matriz cuadrada $Q$ de orden $n$, se dice que es invertible, si existe otra matriz cuadrada de orden $n$, llamada matriz inversa de Q y denotada por $Q^{-1}$
+tal que $Q \cdot Q^{-1}=I_n$
+
+* La matriz adjunta de $Q$, $adj(Q)$ es igual a la matriz transpuesta de la matriz de cofatores de Q:
+  $adj(Q)$ = $cof(Q^{-1})$ . Es decir, en otras palabras,  hay mas de un "nombre" para esta matriz. En este documento, se maneja: $adj(Q)$
 
 
+* En resumen, 
+$Q^{-1}$ es
+la inversa de una matriz $Q$ y se calcula como: 
 
-Retomando el elemplo de la matriz $A$ 
-se tiene:
+```{=latex}
+\[
+Q^{-1} = 
+\begin{bmatrix} a & b \\ c & d \end{bmatrix}^{-1} = \frac{1}{\det(Q)} 
+adj(Q)= \frac{1}{ad-bc} 
+\begin{bmatrix} \,\,\, d & \!\! -b \\ -c & \, a \end{bmatrix}
+\]
+```
+
+\hrulefill
+
+
+***Ejemplo***
+
+Sea el sistema:
+
 
 ```{=latex}
 \[
 A=
 \begin{bmatrix}
-0 & -1\\
+0 & 1\\
 3 & 2
-\end{bmatrix}
+\end{bmatrix},
+\qquad
+B=
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix},
+\qquad
+C=
+\begin{bmatrix}
+1 & 0
+\end{bmatrix},
+\qquad
+D=0
 \]
 ```
 
+Queremos obtener la función de transferencia
 
+```{=latex}
+\[
+G(s)=\frac{Y(s)}{U(s)}.
+\]
+```
 
-para calcular el determinante $det(sI-A)$
+Para obtener la función de transferencia, se comienza por
+calcular el determinante $det(sI-A)$
 
 ```{=latex}
 \[
 det(sI-A) = det
 \begin{bmatrix}
-s & 1\\
+s & -1\\
 -3 & s-2
 \end{bmatrix}
-=s^2 -2s + 3
+=s^2 -2s -3
 \]
 ```
 
-Para obtener la función de transferencia completa no basta calcular el determinante.
-Recordemos que el objetivo es, primero obtener la matriz inversa:
+
+Este polinomio se denomina polinomio característico del sistema,
+$D(s)=s^2 -2s -3$ es de hecho, la ecuación caracteristica del sistema 
+a partir de la cual se pueden estudiar los criterios como el de estabilidad.
+
+Para obtener la matriz inversa:
 
 ```{=latex}
 \[
@@ -370,9 +396,33 @@ Recordemos que el objetivo es, primero obtener la matriz inversa:
 \]
 ```
 
-Y segundo, obtener la función de transferencia, como se mosto 
-en la ecuación \ref{eq:ft_a_partir_edos}
 
+Se calcula la matriz adjunta, tenemos:
+
+```{=latex}
+\[
+sI-A=
+\begin{bmatrix}
+s&-1\\
+-3&s-2
+\end{bmatrix}.
+\]
+```
+
+```{=latex}
+\[ 
+\operatorname{adj}(sI-A) = 
+\begin{bmatrix} 
+s-2&1\\ 
+3&s 
+\end{bmatrix}. 
+\]
+```
+
+\newpage
+
+Para obtener la función de transferencia, como se mosto 
+en la ecuación \ref{eq:ft_a_partir_edos}
 
 
 ```{=latex}
@@ -385,19 +435,154 @@ C(sI-A)^{-1}B+D
 \]
 ```
 
+```{=latex}
+\[ (sI-A)^{-1} = \frac{1}{s^2-2s-3} \begin{bmatrix} s-2&1\\ 3&s \end{bmatrix}. \]
+```
 
-Por esta razón, el polinomio
+La matriz $(sI-A)^{-1}$ contiene información sobre cómo los estados responden a una entrada en el dominio de Laplace. Sin embargo, todavía no tenemos la función de transferencia, porque aún debemos realizar las multiplicaciones por $B$ y $C$.
+
+***Multiplicar por $B$***
+
+Recordemos que
 
 ```{=latex}
+
 \[
-\det(sI-A)
+B=
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}.
 \]
 ```
 
-recibe el nombre de polinomio característico del sistema.
+Entonces:
 
-Este polinomio $D(s)=s^2 -2s -3$ es de hecho, la ecuación caracteristica del sistema 
-a partir de la cual se pueden estudiar los criterios como el de estabilidad.
+```{=latex}
+\[
+(sI-A)^{-1}B
+=
+\frac{1}{s^2-2s-3}
+\begin{bmatrix}
+s-2&1\\
+3&s
+\end{bmatrix}
+\begin{bmatrix}
+0\\
+1
+\end{bmatrix}.
+\]
+```
+
+```{=latex}
+
+\[ (sI-A)^{-1}B = \frac{1}{s^2-2s-3} \begin{bmatrix} 1\\ s \end{bmatrix}. \]
+```
+
+
+***Multiplicar por $C$***
+
+Tenemos
+
+```{=latex}
+\[
+C=
+\begin{bmatrix}
+1&0
+\end{bmatrix}.
+\]
+```
+
+Por lo tanto,
+
+```{=latex}
+\[
+C(sI-A)^{-1}B
+=
+\frac{1}{s^2-2s-3}
+\begin{bmatrix}
+1&0
+\end{bmatrix}
+\begin{bmatrix}
+1\\
+s
+\end{bmatrix}.
+\]
+```
+
+La multiplicación produce:
+
+```{=latex}
+\[
+C(sI-A)^{-1}B
+=
+\frac{1}{s^2-2s-3}.
+\]
+```
+Finalmente, como $D=0$:
+
+```{=latex}
+\[
+G(s)
+=
+C(sI-A)^{-1}B+D
+\]
+```
+
+queda
+
+```{=latex}
+\[
+G(s)
+=
+\frac{1}{s^2-2s-3}
+\]
+```
+o, factorizando el denominador,
+
+```{=latex}
+\[
+\boxed{
+G(s)
+=
+\frac{1}{(s-3)(s+1)}.
+}
+\]
+```
+
+\newpage
+
+El siguiente script *octave* sirve para recuperar la función de 
+transferencia 
+
+
+```matlab
+pkg load control
+
+A = [0  1;
+     3 2];
+
+B = [0;
+     1];
+
+C = [1 0];
+
+D = 0;
+
+sys = ss(A,B,C,D)
+tf(sys)
+```
+
+Resultado:
+
+```bash
+Transfer function 'ans' from input 'u1' to output ...
+
+            1      
+ y1:  -------------
+      s^2 - 2 s - 3
+
+```
 
 
 

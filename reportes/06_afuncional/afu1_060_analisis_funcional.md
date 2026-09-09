@@ -22,7 +22,6 @@ d(x,y)=0 \iff x=y
 ```
 
 
-
 En un espacio métrico $(X,d)$ no hay un punto señalado como *el cero*. Es decir, una métrica no necesita distinguir ningún punto como origen, mide la separación entre puntos, pero no el "tamaño" de un vector.
 
 Conclusión parcial: En una métrica, las distancias entre puntos no varían al cambiar el origen. La norma, en cambio, fija el origen: *La longitud de un vector es su distancia exclusivamente a ese punto cero.*
@@ -114,19 +113,16 @@ mientras que
 
 ***norma=distancia de un vector al cero***
 
-## Ortogonalidad
+## Ortogonalidad y ángulo entre vectores
 
 Hasta ahora hemos utilizado la norma para hablar de la longitud de un vector y la métrica para hablar de la distancia entre dos puntos. Sin embargo, en un espacio vectorial podemos hacernos otra pregunta:
 ¿Cómo podemos describir la relación entre la dirección de dos vectores?
 
 
-Por ejemplo, en $\mathbb R^2$ podemos tener dos vectores que tengan exactamente la misma longitud, pero que apunten en direcciones diferentes.
-
-La norma nos permite saber cuánto mide cada vector, pero no es suficiente para determinar cómo están orientados dos vectores entre sí.
+Por ejemplo, en $\mathbb R^2$ podemos tener dos vectores que tengan exactamente la misma longitud, pero que apunten en direcciones diferentes. La norma nos permite saber cuánto mide cada vector, pero no es suficiente para determinar cómo están orientados dos vectores entre sí.
 
 Para describir esta relación necesitamos introducir la idea de ángulo.
 
-### Ángulo entre vectores
 
 En $\mathbb R^2$, dados dos vectores no nulos $x$ e $y$, podemos hablar del ángulo $\theta$ que forman entre ellos.
 
@@ -165,9 +161,6 @@ Esta operación será el producto interno.
 
 
 ## Producto interno
-
-
-
 
 La noción de norma provee un medio de medir tanto la longitud de un vector como
 la distancia entre dos vectores en un espacio vectorial.
@@ -292,6 +285,58 @@ El producto interno permite definir una norma:
 }
 \]
 ```
+**Para generalizar: no se va a demostrar que el producto interno *genera* el ángulo, sino que se define el ángulo a través del producto interno.**
+
+en R2 el producto interno revela el ángulo.
+
+Pero en un espacio vectorial abstracto de dimensión infinita (ej. espacio de funciones continuas), no existe un "ángulo" dibujable ni una "ley de cosenos" preexistente.
+
+
+La solución: 
+
+
+1. Definir el producto interno $\langle \cdot, \cdot\rangle$ como una operación que cumple simetría, linealidad y positividad.
+
+2. Definir la norma inducida: 
+
+```{=latex}
+
+\[
+\|v\|=\sqrt{\langle v,v\rangle}
+\]
+```
+3. Probar la Desigualdad de Cauchy-Schwarz:
+
+```{=latex}
+
+\[
+| \langle v,v\rangle | \leq \|u\| \|v\|
+\]
+```
+
+4. Como consecuencia, el número 
+
+```{=latex}
+\[
+\frac{| \langle v,v\rangle |}{\|u\| \|v\|}
+\]
+```
+siempre está entre $-1$ y $1$
+
+5. Entonces se define el ángulo $\theta$ entre dos vectores no nulos mediante la fórmula:
+
+8484: mejorar parentesis y R2 abaojo
+
+```{=latex}
+\[
+\theta = arccos(\frac{| \langle v,v\rangle |}{\|u\| \|v\|})
+\]
+```
+
+y por definición, $\theta \in [0,\pi]$
+
+¿Qué hacen con esto? No están "descubriendo" un ángulo que ya existía. Están extendiendo el concepto de ángulo desde R2R2 hacia cualquier espacio abstracto, garantizando que en R2R2 esta nueva definición coincida exactamente con el ángulo euclidiano que ya conoces.
+
 
 ## Demostracion 
 
