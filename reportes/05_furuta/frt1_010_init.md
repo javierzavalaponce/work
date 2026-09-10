@@ -4,9 +4,12 @@
 	
 # Resumen
 
-Este proyecto es un banco de pruebas para estudio teoría de control 
-y sistemas dinamicos asi como algoritmos de control inteligente y $egde IA$
-machine learning
+ver /doc/modelado_motor.pdf
+
+tambien ver el
+
+git clone https://github.com/AngeloDamante/Furuta_pendulum.git
+
 
 \newpage
 

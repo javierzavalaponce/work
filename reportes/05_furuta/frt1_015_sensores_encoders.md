@@ -219,17 +219,12 @@ Led para monitores pin 12 arduino
 
 
 
+
 # Modelado y simulación
 
 ## Pybullet
 
-# Hardware 
 
-# Implementación del controlador
-
-# Implementación del observador
-
-# Logging 
 
 # Simulación contra experimento.
 
