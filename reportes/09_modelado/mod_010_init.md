@@ -76,7 +76,8 @@ R2 out 0 1k
 ```
 \newpage
 
-**Ejercicio (7)**
+### Ejercicio (7)
+
 
 Obtener una ecuacion diferencial para v2
 
