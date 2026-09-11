@@ -1,0 +1,10 @@
+* EJER7 - Respuesta al escalon unico, RC en cascada
+V1 in 0 PWL(0 0 1n 5)
+R1 in v3 1k
+C1 in v3 1u
+R2 v3 v2 1k
+C2 v2 0 1u
+
+.tran 1u 20m
+.print v(in) v(v3) v(v2)
+.end
