@@ -163,7 +163,7 @@ la transformación lineal una vez que hemos elegido bases.
 
 \newpage
 
-## Nucleo
+### Nucleo
 
 El *núcleo* de una transformación lineal $T:V\rightarrow W$ es el conjunto de todos los vectores de $V$ que son transformados en el vector cero de $W$. En otras palabras:
 núcleo = lo que la transformación *pierde*.
@@ -217,7 +217,7 @@ Pero como el kernel solo contiene al cero $u-v=0$ implica que $u=v$,
 o sea $\ker(T)=\{0\} \Longleftrightarrow \text{T no pierde información entre vectores distintos}$. Lo cual significa que $T$ es *inyectiva*.
 
 
-## Imagen
+### Imagen
 
 
 Sea $T:V\rightarrow W$ una transformación lineal (donde $V$ y $W$ son espacios vectoriales). La imagen de $T$, denotada como $Im(T)$, se define como:
@@ -259,4 +259,3 @@ Esto representa el plano $XY$ dentro de $\mathbb R^3$. Es un subespacio de $\mat
 * La Imagen dice qué vectores son *alcanzables*.
 * Para $T:V\rightarrow W$, si la imagen es igual a todo $W$, la transformación se llama *sobreyectiva* (o *epiyectiva*).
 
-The set of all possible vectors you can reach with linear combinations of a given pair of vectors is called the "span" of those two vectors. Restating what we just saw in this lingo, the span of most pairs of 2D vectors is all vectors in 2D space, but when they line up, their span is all vectors whose tip sit on a certain line.

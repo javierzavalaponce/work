@@ -203,10 +203,10 @@ una base de $\mathbb R^3$  puede ser:
 ```
 Como tiene tres vectores, $dim(\mathbb R^3)=3$. La dimensión indica cuántas direcciones independientes se necesitan para generar todo el espacio.
 
-## Span 
+## Span
+
 
 Dado cualquier espacio vectorial $V$ 
-(sea de lo que sea: números, funciones, polinomios, matrices, etc.)
  y un conjunto de vectores ${v1,v2,...,vk}$
  que pertenecen a $V$, el span de esos vectores es:
 
@@ -222,10 +222,14 @@ a_1,a_2,\ldots,a_k\in\mathbb{F}
 ```
  
 Es decir, el span es el conjunto de todas las combinaciones lineales que se
-pueden hacer con ${v1,v2,...,vk}$ .Esto se define para cualquier espacio vectorial, sin importar su naturaleza. $\mathbb{F}$ se lee como el *cuerpo* (*field*) de escalares.
+pueden hacer con ${v1,v2,...,vk}$ .Esto se define para cualquier espacio vectorial, sin importar 
+su naturaleza. $\mathbb{F}$ se lee como el *cuerpo* (*field*) de escalares.
+
 
 
 **Ejemplos de *span* en otros espacios**
+
+Más adelante, en analisis funcional, se abordara el *span* de otros espacios, por ejemplo:
 
 * Espacio de polinomios $P_2(x)$. Tomamos los vectores : $\{1,x,x^2\}$:
  El span son todos los polinomios de grado menor o igual a 2: $a+bx+cx^2$
@@ -235,6 +239,7 @@ vectores: $\{sin⁡(x),cos⁡(x)\}$. El span
 son todas las funciones de la forma: $\alpha sin⁡(x)+ \beta cos⁡(x)$
 
 
+	
 \newpage
 ## Producto interno 
 
