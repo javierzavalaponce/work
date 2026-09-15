@@ -10,7 +10,7 @@
 
 \vspace{0.8cm}
 
-{\Large \textbf{Control} \par}
+{\Large \textbf{-} \par}
 
 \vspace{1.8cm}
 
@@ -20,7 +20,7 @@
 \vspace{1.8cm}
 
 % Subtítulo académico
-{\large Notas de diseño\par}
+{\large Notas de diseño, aprendizaje y reporte de avances\par}
 \vspace{0.2cm}
 {\large ...\par}
 

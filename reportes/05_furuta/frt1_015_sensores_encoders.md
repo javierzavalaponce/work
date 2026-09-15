@@ -2,7 +2,18 @@
 \clearpage
 ```
 
-# Modulos, sensores y encoders
+# Módulos y componentes del sistema
+
+## Arduino UNO pinout
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/Arduinounopinout.png}
+\caption{Arduino UNO pinout}
+\label{fig:ARD_UNO_pinput}
+\end{figure}
+
+
 
 
 ## AS5600 Encoder Magnético 12 Bits
@@ -216,16 +227,5 @@ Led para monitores pin 12 arduino
 \caption{asdfasdf}
 \label{fig:enco_incr_rot}
 \end{figure}
-
-
-
-
-# Modelado y simulación
-
-## Pybullet
-
-
-
-# Simulación contra experimento.
 
 

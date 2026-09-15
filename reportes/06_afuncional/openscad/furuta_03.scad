@@ -50,8 +50,8 @@ module furuta(theta, alpha){
 // ==================== PÉNDULO AMORTIGUADO ====================
 // Oscilación con decaimiento exponencial (péndulo real que desacelera)
 
-A0    = 40;    // Amplitud inicial en grados
-omega = 400;   // Frecuencia angular (grados por unidad de tiempo)
+A0    = 60;    // Amplitud inicial en grados
+omega = 600;   // Frecuencia angular (grados por unidad de tiempo)
 lambda = 1.0;  // Coeficiente de amortiguamiento (mayor = frena más rápido)
 
 // Ángulo: A0 * e^(-lambda*t) * cos(omega*t)
