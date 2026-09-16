@@ -1,7 +1,7 @@
 ```{=latex}
 \clearpage
 ```
-## Relevancia del producto interno
+### Relevancia del producto interno
 
 La importancia clave del producto punto (o interno) es que cuantifica la relación geométrica (ángulo y proyección) entre dos vectores en un solo número. 
 Esto tiene diferentes aplicaciones:

@@ -243,49 +243,109 @@ Para responder esta pregunta necesitamos una operación que relacione dos vector
 Esta operación será el producto interno.
 
 
-## Producto interno
+## Producto interno 
 
-La noción de norma provee un medio de medir tanto la longitud de un vector como
-la distancia entre dos vectores en un espacio vectorial.
+El producto interno es una operación que nos permite generalizar las nociones geométricas de:
+***longitud, ángulo*** y ***ortogonalidad*** (perpendicularidad)
+que conocemos en $\mathbb R^2$ y $\mathbb R^3$ 
+a cualquier espacio vectorial.
 
-El producto interno, en cambio, relaciona dos vectores:
+Un *producto interno* sobre un espacio vectorial real $V$ es una ***función*** que toma dos vectores 
+$u,v \in V$ y devuelve un número real, se denota como:
 
-```{=latex}
-\[
-(x,y)\longmapsto \langle x,y\rangle
-\]
-```
-
-En $\mathbb R^n$, el producto interno usual está definido por
 
 ```{=latex}
 \[
-\langle x,y\rangle
-=
-x_1y_1+x_2y_2+\cdots+x_ny_n
+\langle u, v \rangle \text{ o } u \cdot v
 \]
 ```
+y satisface los siguientes axiomas :
 
-Por ejemplo, si
+1. Simetria (o conmutatividad)
 
 ```{=latex}
 \[
-x=(1,2),\qquad y=(3,4),
+\langle u, v \rangle = \langle v, u \rangle
 \]
 ```
-entonces
+
+2. Linealidad en el primer argumento
+
+Si sumamos dos vectores en el primer argumento, el producto interno se distribuye sobre la suma; además, podemos sacar los escalares fuera del producto interno.
+
+
+
+Aditividad:
 
 ```{=latex}
 \[
-\langle x,y\rangle
-=
-(1)(3)+(2)(4)
-=
-11.
+\langle u+v,w \rangle=\langle u,w\rangle+ \langle v,w \rangle
 \]
 ```
 
-Sin embargo, la importancia del producto punto está en que contiene información geométrica sobre los vectores. En particular, el producto interno está relacionado con el ángulo $\theta$ entre dos vectores mediante
+
+Homogeneidad:
+
+```{=latex}
+\[
+\langle \xi u,w \rangle = \xi \langle u,w \rangle
+\]
+```
+
+O bien:
+
+```{=latex}
+\[
+\langle \xi u+v,w \rangle =\xi\langle u,w\rangle+\langle v,w \rangle
+\]
+```
+
+(Nota: por simetría, también es lineal en el segundo argumento).
+
+
+\newpage
+
+3. Definido positivo 
+
+
+* No negatividad:
+
+
+```{=latex}
+\[
+\langle u,u\rangle \geq 0
+\]
+```
+
+* Definición positiva estricta:
+
+```{=latex}
+\[
+\langle u,u\rangle = 0 \iff u=0
+\]
+```
+
+$u \cdot u$ nunca es negativo y solamente puede ser cero cuando $u$ es el vector cero.
+
+### Longitud
+
+8484: asdf
+
+### Angulo 
+
+8484: asdf
+
+### Ortogonalidad
+
+8484: asdf
+
+---
+
+:8484 trabaja esta parte a lo mas minimo posible..
+
+
+
+La importancia del producto interno está en que contiene información geométrica sobre los vectores. En particular, el producto interno está relacionado con el ángulo $\theta$ entre dos vectores mediante
 
 ```{=latex}
 \[
@@ -295,50 +355,6 @@ Sin embargo, la importancia del producto punto está en que contiene informació
 \]
 ```
 
-### La idea geometrica
-
-Supongamos que tenemos dos vectores $u$ y $v$, formando un ángulo $\theta$
-
-Los tres lados del triángulo son: $\|u\|$, $\|v\|$ y $\|u−v\|$
-
-La ley de cosenos nos proporciona una relación entre las longitudes de los vectores y el ángulo que forman. El producto interno nos permitirá obtener esa misma relación algebraicamente.
-
-```{=latex}
-\[
-\|u - v\|^2 = \|u\|^2 + \|v\|^2 - 2\|u\| \|v\| \cos\theta
-\]
-```
-
-Esta expresión relaciona directamente las longitudes de los vectores con el ángulo que forman.
-
-Ahora queremos obtener una expresión equivalente utilizando únicamente el producto interno.
-
-Para ello, recordemos que la norma y el producto interno están relacionados mediante
-
-```{=latex}
-\[
-\|x\|^2=\langle x,x\rangle.
-\]
-```
-
-Por lo tanto,
-
-```{=latex}
-\[
-\|u-v\|^2
-=
-\langle u-v,u-v\rangle.
-\]
-```
-Al desarrollar esta expresión utilizando las propiedades del producto interno podremos comparar el resultado con la ley de los cosenos y obtener la relación entre el producto interno y el ángulo.
-
-```{=latex}
-\[ \boxed{ \text{Ley de cosenos} \quad\longleftrightarrow\quad \text{Producto interno} } \] 
-```
-El siguiente paso natural es desarrollar 
-```{=latex}
-\[ \langle u-v,u-v\rangle \]
-```
 
 
 ---

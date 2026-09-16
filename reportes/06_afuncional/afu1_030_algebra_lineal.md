@@ -4,20 +4,33 @@
 
 # Álgebra Lineal 
 
+\vspace{1.5cm}
+
 ## Espacios
 
-Un espacio matemático es un conjunto de elementos al que se le añade una determinada estructura. Por ejemplo, el espacio euclidiano es el espacio plano y sin curvatura que usamos en la vida cotidiana, donde las coordenadas son rectas y las distancias se miden con el teorema de Pitágoras.
+En matemáticas, un espacio puede entenderse, en primera aproximación, como un conjunto de elementos al que se le proporciona una estructura matemática. Esta estructura consiste en definir determinadas relaciones, operaciones o propiedades sobre los elementos del conjunto, de manera que podamos trabajar con ellos y estudiar su comportamiento.
+
+Por ejemplo, un conjunto de puntos puede convertirse en un espacio euclidiano cuando, además de considerar sus puntos, disponemos de una forma de medir distancias y ángulos entre ellos. Estas nociones permiten hablar de longitudes, perpendicularidad, rectas, etc.
 
 
-Cuando decimos *"espacio euclidiano"*, estamos hablando de:
+Cuando hablamos del espacio euclidiano que conocemos de la geometría elemental, estamos considerando:
 
-* Un conjunto de puntos (como los puntos en un plano o en un *espacio* tridimensional).
+* un conjunto de puntos, como los puntos de un plano o del espacio tridimensional;
+* una forma de medir la distancia entre dos puntos y 
+* una forma de medir ángulos entre direcciones o segmentos.
 
-* Una forma de medir distancias entre ellos.
 
-* Una forma de medir ángulos entre ellos.
+En el espacio euclidiano, la distancia está relacionada con el teorema de Pitágoras. Por ejemplo, en el plano, si dos puntos tienen coordenadas $(x_1,y_1)$ y $(x_2,y_2)$, su distancia es
 
-\vspace{1.5cm}
+```{=latex}
+\[
+d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
+\]
+```
+
+Así, la palabra espacio no se refiere solamente a un conjunto de elementos. Se refiere al conjunto *junto* con la estructura matemática que se ha definido sobre él.
+
+\newpage
 
 ## Espacios vectoriales
 
@@ -25,8 +38,6 @@ Un espacio vectorial (a veces también llamado espacio *lineal*) $V$ es un conju
 
 * Aditividad o suma de vectores.
 * Multiplicación de un vector por un escalar (Los escalares usados en un espacio vectorial pueden ser reales o complejos)
-
-\newpage
 
 Estas operaciones (suma de vectores y multiplicación por escalar) deben satisfacer un conjunto de propiedades que garantizan un comportamiento algebraico bien definido y consistente en un espacio vectorial $V$.
 
@@ -37,7 +48,7 @@ Propiedades:
 \end{equation}
 ```
 
-\vspace{1.5cm}
+\vspace{1.0cm}
 
 1. *Conmutatividad de la suma*. Para todo $x,y \in V$: $x+y = y+x$
 
@@ -74,6 +85,8 @@ x+y=0.
 8. Existencia del elemento identidad. Por  cada $x \in V, 1x=x$ 
 
 \newpage 
+**Observación:**
+
 Los elementos de un espacio vectorial no tienen que ser vectores geométricos.
 Es decir: *"vector"* no significa necesariamente una flecha o una tupla de números. Un vector es simplemente un elemento de un espacio vectorial.
 
@@ -82,9 +95,15 @@ señales, etc. En matemáticas, se pueden todos ellos abstraer con la noción ú
 e inmaterial de espacios vectoriales. La abstracción es el precio de
 la generalización.
 
-En síntesis: a pesar del nombre espacio vectorial, los elementos de un espacio vectorial no tienen que ser necesariamente vectores geométricos. Pueden ser objetos matemáticos de naturaleza muy diversa, siempre que sea posible definir sobre ellos las operaciones de suma y multiplicación por escalares y que estas satisfagan las propiedades anteriores. 
+En síntesis: a pesar del nombre espacio vectorial, los elementos de un espacio vectorial no tienen que ser necesariamente vectores geométricos. Pueden ser objetos matemáticos de naturaleza muy diversa, siempre que sea posible definir sobre ellos las operaciones de suma y multiplicación por escalares y que estas satisfagan laspropiedades endiores. 
 
-\vspace{2.5cm}
+
+\vspace{1.5cm}
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}
+\end{center}
+\vspace{3.5cm}
+
 
 
 ### Subespacio vectorial
@@ -95,20 +114,20 @@ Sea $V$ un espacio vectorial y $W$ un subconjunto no vacío de $V$. El conjunto 
 * El producto de cualquier vector de  $W$ por un escalar también pertenece a $W$. (Cerrado sobre la multiplicación por escalares)
 
 \newpage 
-### Ejemplos de espacios vectoriales
+## Ejemplos de espacios vectoriales
 
 
-#### El Plano $\mathbb{R}^2$ y el espacio tridimensional $\mathbb{R}^3$.
+\vspace{1.0cm}
 
-Note que tambien un plano que pasa por el origen es un subespacio del
+### El Plano $\mathbb{R}^2$ y el espacio tridimensional $\mathbb{R}^3$.
+Note ud. que tambien uno o varios planos que pasen por el origen son subespaciosdel
 espacio tridimensional.
 
-#### El espacio vectorial de las matrices cuadradas de $n \times n$
+### El espacio vectorial de las matrices cuadradas de $n \times n$
+Un subespacio de este espacio serian las matrices triangulares inferiores. Lomismo ocurre con las matrices diagonales.
 
-Un subespacio de este espacio serian las matrices triangulares inferiores. Lo mismo ocurre con las matrices diagonales.
 
-
-#### Espacio vectorial de los polinomios reales $\mathcal{P}$.
+### Espacio vectorial de los polinomios reales $\mathcal{P}$.
 
 Un polinomio real es una expresion de la forma $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$. El conjunto de tales polinomios forma un espacio vectorial bajo las siguientes operaciones: si 
 ***a*** = $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ y ***b*** = $b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0$  son elementos de $\mathcal{P}$ (asumiendo que $m<n$), entonces:
@@ -133,8 +152,8 @@ y
 son elementos de $\mathcal{P}$. Note que aquí cada polinomio es tratado como un vector. Como ejemplo de subespacio, el conjunto de polinomios 
 $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_2x^2+a_0$ forma un subespacio de $P(x)$. Es decir, todos los elementos de este subespacio comparten la propiedad de que $a_1=0$
 
-
-####  El espacio vectorial de funciones reales.
+\newpage
+###  El espacio vectorial de funciones reales.
 
 
 Sea
@@ -241,87 +260,177 @@ son todas las funciones de la forma: $\alpha sin⁡(x)+ \beta cos⁡(x)$
 
 	
 \newpage
-## Producto interno 
 
-El producto interno es una operación que nos permite generalizar las nociones geométricas de:
-***longitud, ángulo*** y ***ortogonalidad*** (perpendicularidad)
-que conocemos en $\mathbb R^2$ y $\mathbb R^3$ 
-a cualquier espacio vectorial.
+## Producto punto (o producto interno) y norma
 
-Un *producto interno* sobre un espacio vectorial real $V$ es una ***función*** que toma dos vectores 
-$u,v \in V$ y devuelve un número real, se denota como:
+El producto interno es una operación que toma dos vectores
+y produce un número real.
 
 
 ```{=latex}
 \[
-\langle u, v \rangle \text{ o } u \cdot v
+(x,y)\longmapsto \langle x,y\rangle
 \]
 ```
-y satisface los siguientes axiomas :
 
-1. Simetria (o conmutatividad)
+
+Aunque su definición en $\mathbb R^n$ se expresa mediante
+una suma de productos de sus componentes, este *número* también
+contiene información geométrica sobre la relación entre los
+vectores, particularmente sobre el ángulo que forman.
+
+En $\mathbb R^n$, el producto interno usual está definido por
 
 ```{=latex}
 \[
-\langle u, v \rangle = \langle v, u \rangle
+\langle x,y\rangle
+=
+x_1y_1+x_2y_2+\cdots+x_ny_n
 \]
 ```
 
-2. Linealidad en el primer argumento
-
-Si sumamos dos vectores en el primer argumento, el producto interno se distribuye sobre la suma; además, podemos sacar los escalares fuera del producto interno.
-
-
-
-Aditividad:
+Por ejemplo, si
 
 ```{=latex}
 \[
-\langle u+v,w \rangle=\langle u,w\rangle+ \langle v,w \rangle
+x=(1,2),\qquad y=(3,4),
 \]
 ```
-
-
-Homogeneidad:
+entonces
 
 ```{=latex}
 \[
-\langle \xi u,w \rangle = \xi \langle u,w \rangle
+\langle x,y\rangle
+=
+(1)(3)+(2)(4)
+=
+11.
 \]
 ```
+Por otro lado, la ***norma*** de un vector es, esencialmente, su longitud o magnitud. En $\mathbb R^2$ se usa el teorema de Pitágoras,
+ por ejemplo, el vector $(1,1)$ tiene longitud $\sqrt{2}$. Se usa la doble barra para denotar la norma. Entonces: 
+$u=(1,1)$, $\|u\| = \sqrt{2}$ 
 
-O bien:
+Es importante distinguir entre el producto interno y la norma. El producto interno toma dos vectores y produce un número: $\langle u,v\rangle$.
+La norma, en cambio, asigna una longitud a un solo vector: $\|u\|$.
+
+Sin embargo, la norma puede obtenerse a partir del producto interno mediante: $\|u\|=\sqrt{\langle u,u\rangle}$
+
+\newpage
+En $\mathbb R^n$, la norma euclídea habitual es
 
 ```{=latex}
 \[
-\langle \xi u+v,w \rangle =\xi\langle u,w\rangle+\langle v,w \rangle
+\|\mathbf{v}\|
+=
+\sqrt{v_1^2+v_2^2+\cdots+v_n^2}
 \]
 ```
 
-(Nota: por simetría, también es lineal en el segundo argumento).
+Más adelante veremos que no existe una única norma. Hay normas 1, 2, infinito, etc., y eso será muy importante para análisis funcional.
+
+***Nota:***
+Una función también puede ser considerada un elemento de un espacio: $f(x) \in V$
+¿Qué significa la *"longitud"* de una función?
+Dos posibilidades diferentes serían:
+
+```{=latex}
+\[
+\|f\|_\infty = \max_x |f(x)|
+\]
+```
+
+```{=latex}
+\[
+\|f\|_2 = \sqrt{\int |f(x)|^2\,dx}
+\]
+```
+Depende de cómo decidamos medir el tamaño del elemento.
+Ese es uno de los saltos conceptuales importantes hacia análisis funcional.
 
 
 \newpage
 
-3. Definido positivo 
+### La idea geometrica del producto punto
+
+Supongamos que tenemos dos vectores $u$ y $v$ con el mismo origen, formando un ángulo $\theta=45^\circ$
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/u_dot_v.png}
+\caption{$u=(1,1)$ y $v=(1,0)$ }
+\label{fig:ejemplo_p_punto}
+\end{figure}
 
 
-* No negatividad:
+La figura \ref{fig:ejemplo_p_punto}
+muestra los tres lados del triángulo $\|u\|$ (verde), $\|v\|$ (magenta) y $\|u−v\|$
+en azul. La ley de cosenos nos proporciona una relación entre las longitudes de los vectores y el ángulo que forman. 
+
+* $\|u\| = \sqrt{2}$ 
+* $\|v\| = 1$ 
+* $\|u−v\| =1$
 
 
 ```{=latex}
 \[
-\langle u,u\rangle \geq 0
+\|u - v\|^2 = \|u\|^2 + \|v\|^2 - 2\|u\| \|v\| \cos\theta
 \]
 ```
 
-* Definición positiva estricta:
+Sustituyendo para validar:
 
 ```{=latex}
 \[
-\langle u,u\rangle = 0 \iff u=0
+(1)^2 = (\sqrt{2})^2 + (1)^2 - 2(\sqrt{2})(1)(\cos(45^\circ))
 \]
 ```
 
-$u \cdot u$ nunca es negativo y solamente puede ser cero cuando $u$ es el vector cero.
+
+```{=latex}
+\[
+1 = 2 + 1 - 2\sqrt{2}\frac{1}{\sqrt{2}}
+\]
+```
+
+```{=latex}
+\[
+1 = 1
+\]
+```
+
+\newpage
+
+8484: continua mejorando esta seccion
+Esta expresión relaciona directamente las longitudes de los vectores con el ángulo que forman.
+
+Ahora queremos obtener una expresión equivalente utilizando únicamente el producto interno.
+
+Para ello, recordemos que la norma y el producto interno están relacionados mediante
+
+```{=latex}
+\[
+\|x\|^2=\langle x,x\rangle.
+\]
+```
+
+Por lo tanto,
+
+```{=latex}
+\[
+\|u-v\|^2
+=
+\langle u-v,u-v\rangle.
+\]
+```
+Al desarrollar esta expresión utilizando las propiedades del producto interno podremos comparar el resultado con la ley de los cosenos y obtener la relación entre el producto interno y el ángulo.
+
+```{=latex}
+\[ \boxed{ \text{Ley de cosenos} \quad\longleftrightarrow\quad \text{Producto interno} } \] 
+```
+El siguiente paso natural es desarrollar 
+```{=latex}
+\[ \langle u-v,u-v\rangle \]
+```
+
 
