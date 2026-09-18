@@ -4,23 +4,33 @@
 
 # Álgebra Lineal 
 
-\vspace{1.5cm}
 
+\vspace{4.5cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/mictlantecuhtli.png}
+\end{figure}
+
+
+
+\newpage
 ## Espacios
 
 En matemáticas, un espacio puede entenderse, en primera aproximación, como un conjunto de elementos al que se le proporciona una estructura matemática. Esta estructura consiste en definir determinadas relaciones, operaciones o propiedades sobre los elementos del conjunto, de manera que podamos trabajar con ellos y estudiar su comportamiento.
 
-Por ejemplo, un conjunto de puntos puede convertirse en un espacio euclidiano cuando, además de considerar sus puntos, disponemos de una forma de medir distancias y ángulos entre ellos. Estas nociones permiten hablar de longitudes, perpendicularidad, rectas, etc.
+Por ejemplo, un conjunto de puntos puede convertirse en un *espacio* cuando, además de considerar sus puntos, disponemos de una forma de medir distancias y ángulos entre ellos. Estas nociones permiten hablar de longitudes, perpendicularidad, rectas, etc.
 
 
-Cuando hablamos del espacio euclidiano que conocemos de la geometría elemental, estamos considerando:
+Cuando hablamos del espacio $\mathbb{R}^2$  que conocemos de la geometría elemental, estamos considerando:
 
 * un conjunto de puntos, como los puntos de un plano o del espacio tridimensional;
 * una forma de medir la distancia entre dos puntos y 
 * una forma de medir ángulos entre direcciones o segmentos.
 
+\vspace{2.5cm}
 
-En el espacio euclidiano, la distancia está relacionada con el teorema de Pitágoras. Por ejemplo, en el plano, si dos puntos tienen coordenadas $(x_1,y_1)$ y $(x_2,y_2)$, su distancia es
+En el espacio $\mathbb{R}^2$, la distancia está relacionada con el teorema de Pitágoras. Por ejemplo, en el plano, si dos puntos tienen coordenadas $(x_1,y_1)$ y $(x_2,y_2)$, su distancia es
 
 ```{=latex}
 \[
@@ -91,20 +101,12 @@ Los elementos de un espacio vectorial no tienen que ser vectores geométricos.
 Es decir: *"vector"* no significa necesariamente una flecha o una tupla de números. Un vector es simplemente un elemento de un espacio vectorial.
 
 Por ejemplo, pueden ser vectores: polinomios, matrices, funciones, sucesiones,
-señales, etc. En matemáticas, se pueden todos ellos abstraer con la noción única
-e inmaterial de espacios vectoriales. La abstracción es el precio de
-la generalización.
+señales, etc. En matemáticas, se pueden todos ellos abstraer con la noción de espacios vectoriales.
 
-En síntesis: a pesar del nombre espacio vectorial, los elementos de un espacio vectorial no tienen que ser necesariamente vectores geométricos. Pueden ser objetos matemáticos de naturaleza muy diversa, siempre que sea posible definir sobre ellos las operaciones de suma y multiplicación por escalares y que estas satisfagan laspropiedades endiores. 
+En síntesis: a pesar del nombre espacio vectorial, los elementos de un espacio vectorial no tienen que ser necesariamente vectores geométricos. Pueden ser objetos matemáticos de naturaleza muy diversa, siempre que sea posible definir sobre ellos las operaciones de suma y multiplicación por escalares y que estas operaciones satisfagan las propiedades de la página anterior.
 
 
 \vspace{1.5cm}
-\begin{center}
-\rule{0.6\textwidth}{0.4pt}
-\end{center}
-\vspace{3.5cm}
-
-
 
 ### Subespacio vectorial
 
@@ -120,22 +122,44 @@ Sea $V$ un espacio vectorial y $W$ un subconjunto no vacío de $V$. El conjunto 
 \vspace{1.0cm}
 
 ### El Plano $\mathbb{R}^2$ y el espacio tridimensional $\mathbb{R}^3$.
-Note ud. que tambien uno o varios planos que pasen por el origen son subespaciosdel
-espacio tridimensional.
+El plano es un subespacios del espacio tridimensional.
 
 ### El espacio vectorial de las matrices cuadradas de $n \times n$
-Un subespacio de este espacio serian las matrices triangulares inferiores. Lomismo ocurre con las matrices diagonales.
+Un subespacio de este espacio son las matrices diagonales.
 
 
 ### Espacio vectorial de los polinomios reales $\mathcal{P}$.
 
-Un polinomio real es una expresion de la forma $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$. El conjunto de tales polinomios forma un espacio vectorial bajo las siguientes operaciones: si 
-***a*** = $a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$ y ***b*** = $b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0$  son elementos de $\mathcal{P}$ (asumiendo que $m<n$), entonces:
+Un polinomio real es una expresion de la forma:
+
+```{=latex}
+\[
+a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0
+\]
+```
+
+El conjunto de tales polinomios forma un espacio vectorial. 
+
+```{=latex}
+\[
+u = a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0
+\]
+```
 
 
 ```{=latex}
 \[
-a+b = a_nx^n+\ldots+(a_m+b_m)x^m+\ldots+(a_0+b_0) 
+v = b_mx^m+b_{m-1}x^{m-1}+\ldots+b_0
+\]
+```
+
+Si $u$ y $v$ son elementos de $\mathcal{P}$ (asumiendo que $m<n$), entonces:
+
+```{=latex}
+\[
+\underbrace{u+v}_{\text{suma de vectores}}
+= 
+a_nx^n+\ldots+(a_m+b_m)x^m+\ldots+(a_0+b_0) 
 \]
 ```
 
@@ -144,13 +168,12 @@ y
 
 ```{=latex}
 \[
-\beta a = \beta a_nx^n+ \beta a_{n-1}x^{n-1}+\ldots+ \beta a_0
+\underbrace{\beta a }_{\text{mult. por escalar}}
+= 
+\beta a_nx^n+ \beta a_{n-1}x^{n-1}+\ldots+ \beta a_0
 \]
 ```
-
-
-son elementos de $\mathcal{P}$. Note que aquí cada polinomio es tratado como un vector. Como ejemplo de subespacio, el conjunto de polinomios 
-$a_nx^n+a_{n-1}x^{n-1}+\ldots+a_2x^2+a_0$ forma un subespacio de $P(x)$. Es decir, todos los elementos de este subespacio comparten la propiedad de que $a_1=0$
+son elementos de $\mathcal{P}$. Note que aquí cada polinomio es tratado como un vector. 
 
 \newpage
 ###  El espacio vectorial de funciones reales.
@@ -264,12 +287,17 @@ son todas las funciones de la forma: $\alpha sin⁡(x)+ \beta cos⁡(x)$
 ## Producto punto (o producto interno) y norma
 
 El producto interno es una operación que toma dos vectores
-y produce un número real.
-
+y produce un número real. Con $x$ , $y$ como elementos (*vectores*)  $\in V$ 
 
 ```{=latex}
 \[
-(x,y)\longmapsto \langle x,y\rangle
+\langle\cdot,\cdot\rangle:V\times V\longrightarrow\mathbb{R},
+\]
+```   
+
+```{=latex}
+\[
+(x,y)\longrightarrow \langle x,y\rangle
 \]
 ```
 

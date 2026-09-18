@@ -3,6 +3,14 @@
 ```
 # Programación funcional
 
+\vspace{4.5cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/RWS_Tarot_09_Hermit.png}
+\end{figure}
+
+
 \vspace{1cm}
 
 ## Paradigma

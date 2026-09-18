@@ -3,6 +3,16 @@
 ```
 # Análisis funcional
 
+\vspace{2.5cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/elloco.png}
+\end{figure}
+
+\newpage
+
+
 ## Funciones vistas como vectores
 
 Las funciones pueden ser vistas, desde el punto de vista cualitativo,  
@@ -358,7 +368,7 @@ La importancia del producto interno está en que contiene información geométri
 
 
 ---
-Racapitulando. un producto interno es una operación que toma dos vectores y produce un escalar:
+Recapitulando. un producto interno es una operación que toma dos vectores y produce un escalar:
 
 ```{=latex}
 \[

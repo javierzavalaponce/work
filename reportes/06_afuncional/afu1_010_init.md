@@ -4,6 +4,13 @@
 
 # Motivación
 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.18\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/sun_fun.png}
+\end{figure}
+
+
 El análisis funcional es una rama de las matemáticas que tiene como idea central el 
 estudio de funciones como si fueran *"puntos"* en un espacio. Proporciona las herramientas para medir distancias entre funciones, saber si una función se parece a otra, y si una función *"converge"* (se acerca) a un objetivo. 
 
@@ -14,9 +21,6 @@ El control de sistemas no lineales necesita del análisis funcional debido a que
 2. La *estabilidad* se define con distancias entre funciones. Una *norma* es una forma de medir el "tamaño" de una función. Para garantizar que el sistema no se descontrole, usamos normas funcionales que miden la *energía* o la *máxima desviación* de la señal de error.
 
 3. El controlador se diseña como un *operador* (una función que transforma funciones). Un controlador no es más que una regla matemática que toma la salida del sistema y produce una entrada (una orden al sistema). En análisis funcional, esto es un operador: una máquina que toma una función (la medición) y devuelve otra función (la orden). Con análisis funcional, se puede demostrar que ese operador (el controlador) es continuo (no da saltos bruscos) y acotado (no produce órdenes imposibles). 
-
-\vspace{1.5cm}
-
 
 *En el control de sistemas no lineales, el análisis funcional nos provee de normas que sirven como 'certificados de estabilidad', transformando un problema dinámico complejo en un problema de acotación de operadores en espacios de funciones.*
 
