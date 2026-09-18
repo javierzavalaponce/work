@@ -291,7 +291,7 @@ y produce un número real. Con $x$ , $y$ como elementos (*vectores*)  $\in V$
 
 ```{=latex}
 \[
-\langle\cdot,\cdot\rangle:V\times V\longrightarrow\mathbb{R},
+\langle\cdot,\cdot\rangle:V\times V\longrightarrow\mathbb{R}
 \]
 ```   
 
@@ -311,9 +311,11 @@ En $\mathbb R^n$, el producto interno usual está definido por
 
 ```{=latex}
 \[
+\boxed{
 \langle x,y\rangle
 =
 x_1y_1+x_2y_2+\cdots+x_ny_n
+}
 \]
 ```
 \vspace{1.0cm}
@@ -336,14 +338,74 @@ entonces
 11.
 \]
 ```
-Por otro lado, la ***norma*** de un vector es, esencialmente, su longitud o magnitud. En $\mathbb R^2$ se usa el teorema de Pitágoras,
+
+\vspace{1.5cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.21\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/Miquiztli.png}
+\end{figure}
+
+
+\newpage
+La ***norma*** de un vector es, esencialmente, su longitud o magnitud. En $\mathbb R^2$ se usa el teorema de Pitágoras,
  por ejemplo, el vector $(1,1)$ tiene longitud $\sqrt{2}$. Se usa la doble barra para denotar la norma. Entonces: 
 $u=(1,1)$, $\|u\| = \sqrt{2}$ 
 
 Es importante distinguir entre el producto interno y la norma. El producto interno toma dos vectores y produce un número: $\langle u,v\rangle$.
 La norma, en cambio, asigna una longitud a un solo vector: $\|u\|$.
 
-Sin embargo, la norma puede obtenerse a partir del producto interno mediante: $\|u\|=\sqrt{\langle u,u\rangle}$
+La norma puede obtenerse a partir del producto interno mediante: $\|u\|=\sqrt{\langle u,u\rangle}$
+
+En $\mathbb R^n$, la norma euclídea habitual es
+
+```{=latex}
+\[
+\|\mathbf{v}\|
+=
+\sqrt{v_1^2+v_2^2+\cdots+v_n^2}
+\]
+```
+
+
+
+\newpage
+
+Por otro lado, para vectores $x=(x_1,x_2)$ y $y=(y_1,y_2)$
+
+```{=latex}
+\[
+\boxed{
+\langle x,y\rangle = \|x\| \|y\| \cos\theta
+}
+\]
+```
+
+Por ejemplo, si
+
+```{=latex}
+\[
+x=(1,2),\qquad y=(3,4),
+\]
+```
+entonces
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/pp34.png}
+\caption{Angulo $\theta$ entre $x$ y $y$ $arccos(\frac{5\sqrt{5}}{11})$ o $10.3^\circ$ aprox.  }
+\label{fig:ppunt34}
+\end{figure}
+
+\newpage
+La ***norma*** de un vector es, esencialmente, su longitud o magnitud. En $\mathbb R^2$ se usa el teorema de Pitágoras,
+ por ejemplo, el vector $(1,1)$ tiene longitud $\sqrt{2}$. Se usa la doble barra para denotar la norma. Entonces: 
+$u=(1,1)$, $\|u\| = \sqrt{2}$ 
+
+Es importante distinguir entre el producto interno y la norma. El producto interno toma dos vectores y produce un número: $\langle u,v\rangle$.
+La norma, en cambio, asigna una longitud a un solo vector: $\|u\|$.
+
+La norma puede obtenerse a partir del producto interno mediante: $\|u\|=\sqrt{\langle u,u\rangle}$
 
 \newpage
 En $\mathbb R^n$, la norma euclídea habitual es
