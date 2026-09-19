@@ -316,19 +316,20 @@ En $\mathbb R^n$, el producto interno usual está definido por
 x_1y_1+x_2y_2+\cdots+x_ny_n
 \]
 ```
+\vspace{1.0cm}
 
-Por ejemplo, si
+Tomemos por ejemplo, dos vectores $u$, $v$ en $\mathbb R^2$ 
 
 ```{=latex}
 \[
-x=(1,2),\qquad y=(3,4),
+u=(1,2),\qquad v=(3,4),
 \]
 ```
 entonces
 
 ```{=latex}
 \[
-\langle x,y\rangle
+\langle u,v\rangle
 =
 (1)(3)+(2)(4)
 =
