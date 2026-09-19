@@ -11,21 +11,37 @@ $\dot{x} = Ax + Bu$
 $y = Cx + Du$
 \
 
-con: 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.93\textwidth,trim=0cm 4cm 0cm 4cm,clip]{../img/diagrama_gral_esp_edos.pdf}
+\caption{Diagrama general de un sistema}
+\label{fig:diagrama_gral_ss}
+\end{figure}
 
 * $A$ Matriz de estado
 * $B$ Matriz de entrada
 * $C$ Matriz de salida
 * $D$ Matriz de transmisión directa
 
-La idea general consiste en realimentar información del sistema hacia la entrada para modificar su dinámica.
-*Nota:* en muchos problemas introductorios se asume $D=0$..
+Las matrices $A$ y $B$  describen la dinámica del sistema. $C$ y $D$ describen como observamos la planta. La idea general consiste en realimentar información del sistema hacia la entrada para modificar su dinámica.
 
 
+\newpage
 ## Retroalimentación estática de la salida. 
+
+Sistema: 
+
+$\dot{x} = Ax + Bu$
 \
+$y = Cx + Du$
 \
-Si la señal de entrada o  bien la ley de control es: 
+	
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.64\textwidth,trim=0cm 7cm 0cm 4cm,clip]{../img/control03.pdf}
+\end{figure}
+
+Si la señal de entrada (la ley de control) es: 
 
 ```{=latex}
 \[
@@ -33,7 +49,10 @@ u=-ky
 \]
 ```
 
-con $k$ escalar , reemplazamos $u$ en $\dot{x} = Ax + Bu$
+Para analizar la dinámica interna del lazo cerrado ($A_{cl}$), la referencia $r$ no importa, porque $r$ es una entrada externa, no un estado.
+La referencia $r$ solo aparece en la respuesta forzada, no en la estabilidad ni en los polos del sistema
+
+Si $k$ es un escalar , reemplazamos $u$ en $\dot{x} = Ax + Bu$
 
 
 ```{=latex}
@@ -51,11 +70,11 @@ Por lo tanto la matriz $A_{cl}$ de lazo cerrado es:
 ```{=latex}
 \begin{equation}
 \boxed{
-A_{cl}=(A-BkC)x
+A_{cl}=(A-BkC)
 }
 \end{equation}
 ```
-
+\newpage
 ## Retroalimentación de estados
 \
 \
@@ -102,6 +121,8 @@ En la retroalimentación estática de salida se emplea únicamente la salida $y$
 En la retroalimentación de estados se emplea el vector completo de estados $x$
 
 La retroalimentación de estados ofrece, en general, una mayor capacidad para modificar la dinámica del sistema, siempre que el sistema sea controlable.
+
+\newpage
 
 ## Controlabilidad
 

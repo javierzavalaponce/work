@@ -79,6 +79,11 @@ En control y dinámica de sistemas, el número de integradores puros en un siste
 
 ## Sistema general
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,trim=0cm 4cm 0cm 4cm,clip]{../img/diagrama_gral_esp_edos.pdf}
+\end{figure}
+
 * Ecuación de estado: $\dot{x} = Ax + Bu$
 * Ecuación de salida: $y = Cx + Du$
 
@@ -101,8 +106,9 @@ x=
 
 La estabilidad "natural" del sistema depende inicialmente de A, mientras que C y D sólo empiezan a influir cuando cerramos el lazo de control usando las señales medidas.
 
+\newpage
 
-Por ejemplo, considere el sistema: 
+**Ejemplo**. Considere el sistema: 
 
 
 ```{=latex}
@@ -147,9 +153,6 @@ x
 u
 \]
 ```
-
-\newpage
-
 y la de salida es: 
 ```{=latex}
 \[
@@ -181,7 +184,7 @@ y=x_1
 ```
 
 Aunque el sistema posee dos estados internos, únicamente el primero está siendo medido directamente.
-¿Cómo entonces se puede modificar el comportamiento del sistema? 
+¿Se puede modificar el comportamiento (retroalimentando la salida) del sistema? 
 
 \begin{figure}[H]
 \centering
@@ -212,6 +215,11 @@ u=r-kCx
 
 El controlador (proporcional en este caso) no tiene acceso directo a los estados; únicamente puede actuar sobre lo que mide el *sensor*. 
 
+**Conclusion**
+
+En un sistema en espacio de estados, la retroalimentación de salida permite modificar el comportamiento del sistema solo en la medida en que los estados relevantes sean observables a través de $C$. Si un estado no se mide, el controlador no puede actuar sobre él directamente, lo que limita el desempeño alcanzable. Esto motiva la necesidad de diseñar observadores de estado o de elegir cuidadosamente los sensores para garantizar que la información necesaria esté disponible para el control.
+
+Medir no es lo mismo que controlar. Para controlar un estado, primero hay que poder verlo (directa o indirectamente).
 
 \newpage
 
