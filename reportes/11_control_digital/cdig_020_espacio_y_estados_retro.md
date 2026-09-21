@@ -123,7 +123,6 @@ En la retroalimentación de estados se emplea el vector completo de estados $x$
 La retroalimentación de estados ofrece, en general, una mayor capacidad para modificar la dinámica del sistema, siempre que el sistema sea controlable.
 
 \newpage
-
 ## Controlabilidad
 
 La pregunta es: ¿Siempre existe un vector $K$ capaz de mover los polos donde yo quiera?
@@ -230,14 +229,18 @@ M =
 Recordemos que la regla práctica para matrices de 2×2: si el determinante es diferente de $0$ entonces el rango es $2$.
 En este caso el sistema si **es controlable** ya que $det(M)=-1$. Alternativamente, en octave, la funcion $rank$ nos ayuda con el cálculo del rango así:
 
+\vspace{1.0cm}
 
 ```octave
 octave:> A = [0  1; 1 -1];
 octave:> rank(A)
 ans = 2
 ```
+\vspace{1.0cm}
 
-
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.38\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/elloco.png}
+\end{figure}
 
 

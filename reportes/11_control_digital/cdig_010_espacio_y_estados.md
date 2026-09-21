@@ -26,11 +26,12 @@ El vector de estado $x=[\theta, w]$ es la representación matemática de ese est
 * Base: el sistema de referencia elegido dentro del espacio.
 * Vector de estado: las coordenadas del estado respecto a una base.
 
-\vspace{1cm}
 
-\begin{center}
-\rule{0.6\textwidth}{0.4pt}
-\end{center}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.24\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/sun_fun.png}
+\end{figure}
 
 
 *¿Qué es un espacio de estados?*
@@ -42,9 +43,7 @@ Estrictamente, el espacio de estados es $\mathbb{R^n}$ (o un subespacio). Sus el
 * un estado = una lista de números;
 * el espacio de estados = todas las listas posibles de ese tipo.
 
-\begin{center}
-\rule{0.6\textwidth}{0.4pt}
-\end{center}
+
 
 \newpage
 

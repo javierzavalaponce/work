@@ -4,7 +4,12 @@
 
 ### Multiplicacion de Matrices
 
-8484:Acerca de porque se multiplican como se multiplican las matrices
+
+La multiplicación de matrices no es una regla arbitraria: nace directamente de la necesidad de componer transformaciones lineales. Cuando se aplica una transformación lineal y luego otra, el resultado es una nueva transformación lineal, y la matriz que la representa es precisamente el producto de las dos matrices originales.
+
+Dicho de otro modo: multiplicar matrices es aplicar transformaciones una después de otra.
+
+
 
 
 ### Eigenvectores y Eigenvalores

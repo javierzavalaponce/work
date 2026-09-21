@@ -347,6 +347,7 @@ entonces
 
 
 \newpage
+
 La ***norma*** de un vector es, esencialmente, su longitud o magnitud. En $\mathbb R^2$ se usa el teorema de Pitágoras,
  por ejemplo, el vector $(1,1)$ tiene longitud $\sqrt{2}$. Se usa la doble barra para denotar la norma. Entonces: 
 $u=(1,1)$, $\|u\| = \sqrt{2}$ 
@@ -356,59 +357,7 @@ La norma, en cambio, asigna una longitud a un solo vector: $\|u\|$.
 
 La norma puede obtenerse a partir del producto interno mediante: $\|u\|=\sqrt{\langle u,u\rangle}$
 
-En $\mathbb R^n$, la norma euclídea habitual es
-
-```{=latex}
-\[
-\|\mathbf{v}\|
-=
-\sqrt{v_1^2+v_2^2+\cdots+v_n^2}
-\]
-```
-
-
-
-\newpage
-
-Por otro lado, para vectores $x=(x_1,x_2)$ y $y=(y_1,y_2)$
-
-```{=latex}
-\[
-\boxed{
-\langle x,y\rangle = \|x\| \|y\| \cos\theta
-}
-\]
-```
-
-Por ejemplo, si
-
-```{=latex}
-\[
-x=(1,2),\qquad y=(3,4),
-\]
-```
-entonces
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.5\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/pp34.png}
-\caption{Angulo $\theta$ entre $x$ y $y$ $arccos(\frac{5\sqrt{5}}{11})$ o $10.3^\circ$ aprox.  }
-\label{fig:ppunt34}
-\end{figure}
-
-\newpage
-La ***norma*** de un vector es, esencialmente, su longitud o magnitud. En $\mathbb R^2$ se usa el teorema de Pitágoras,
- por ejemplo, el vector $(1,1)$ tiene longitud $\sqrt{2}$. Se usa la doble barra para denotar la norma. Entonces: 
-$u=(1,1)$, $\|u\| = \sqrt{2}$ 
-
-Es importante distinguir entre el producto interno y la norma. El producto interno toma dos vectores y produce un número: $\langle u,v\rangle$.
-La norma, en cambio, asigna una longitud a un solo vector: $\|u\|$.
-
-La norma puede obtenerse a partir del producto interno mediante: $\|u\|=\sqrt{\langle u,u\rangle}$
-
-\newpage
-En $\mathbb R^n$, la norma euclídea habitual es
+En $\mathbb R^n$, la norma habitual es
 
 ```{=latex}
 \[
@@ -420,108 +369,137 @@ En $\mathbb R^n$, la norma euclídea habitual es
 
 Más adelante veremos que no existe una única norma. Hay normas 1, 2, infinito, etc., y eso será muy importante para análisis funcional.
 
-***Nota:***
-Una función también puede ser considerada un elemento de un espacio: $f(x) \in V$
-¿Qué significa la *"longitud"* de una función?
-Dos posibilidades diferentes serían:
-
-```{=latex}
-\[
-\|f\|_\infty = \max_x |f(x)|
-\]
-```
-
-```{=latex}
-\[
-\|f\|_2 = \sqrt{\int |f(x)|^2\,dx}
-\]
-```
-Depende de cómo decidamos medir el tamaño del elemento.
-Ese es uno de los saltos conceptuales importantes hacia análisis funcional.
-
-
 \newpage
 
-### La idea geometrica del producto punto
+Por otro lado, (*ver demostración de la siguiente sección*) para vectores $x=(x_1,x_2)$ y $y=(y_1,y_2)$
 
-Supongamos que tenemos dos vectores $u$ y $v$ con el mismo origen, formando un ángulo $\theta=45^\circ$
+```{=latex}
+\[
+\boxed{
+\langle x,y\rangle = \|x\| \|y\| \cos\theta
+}
+\]
+```
 
+Para:
+
+```{=latex}
+\[
+x=(1,2),\qquad y=(3,4),
+\]
+```
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/u_dot_v.png}
-\caption{$u=(1,1)$ y $v=(1,0)$ }
-\label{fig:ejemplo_p_punto}
+\includegraphics[width=0.6\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/pp34.png}
+\caption{Angulo $\theta$ entre $x$ , $y$ = $arccos(\frac{5\sqrt{5}}{11}) \approx 10.3^\circ$   }
+\label{fig:ppunt34}
+\end{figure}
+
+\vspace{0.2cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.21\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/Ocelotl.png}
 \end{figure}
 
 
-La figura \ref{fig:ejemplo_p_punto}
-muestra los tres lados del triángulo $\|u\|$ (verde), $\|v\|$ (magenta) y $\|u−v\|$
-en azul. La ley de cosenos nos proporciona una relación entre las longitudes de los vectores y el ángulo que forman. 
+\newpage
 
-* $\|u\| = \sqrt{2}$ 
-* $\|v\| = 1$ 
-* $\|u−v\| =1$
+## Conexión entre ley de cosenos, norma y producto punto
 
+Tomemos los vectores $\mathbf{u}$ y $\mathbf{v}$ con el mismo origen. 
+El vector que va de la punta de $\mathbf{u}$ a la punta de $\mathbf{v}$ es $\mathbf{v} - \mathbf{u}$.
+
+Los tres vectores forman un triángulo cuyos lados miden:
+
+* $\|\mathbf{u}\|$
+* $\|\mathbf{v}\|$
+* $\|\mathbf{v} - \mathbf{u}\|$
+
+El ángulo entre $\mathbf{u}$ y $\mathbf{v}$ es $\theta$, y por la **Ley de los Cosenos**:
 
 ```{=latex}
 \[
-\|u - v\|^2 = \|u\|^2 + \|v\|^2 - 2\|u\| \|v\| \cos\theta
+\|\mathbf{v} - \mathbf{u}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2\|\mathbf{u}\|\|\mathbf{v}\|\cos\theta
 \]
 ```
 
-Sustituyendo para validar:
+Ahora calculamos $\|\mathbf{v} - \mathbf{u}\|^2$ usando coordenadas:
 
 ```{=latex}
 \[
-(1)^2 = (\sqrt{2})^2 + (1)^2 - 2(\sqrt{2})(1)(\cos(45^\circ))
+\|\mathbf{v} - \mathbf{u}\|^2 = (v_1 - u_1)^2 + (v_2 - u_2)^2
 \]
 ```
 
 
+Expandimos:
+
 ```{=latex}
 \[
-1 = 2 + 1 - 2\sqrt{2}\frac{1}{\sqrt{2}}
+= v_1^2 - 2u_1v_1 + u_1^2 + v_2^2 - 2u_2v_2 + u_2^2
+\]
+```
+
+Agrupamos:
+
+```{=latex}
+\[
+= (u_1^2 + u_2^2) + (v_1^2 + v_2^2) - 2(u_1v_1 + u_2v_2)
 \]
 ```
 
 ```{=latex}
 \[
-1 = 1
+= \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2(u_1v_1 + u_2v_2)
 \]
 ```
 
 \newpage
 
-8484: continua mejorando esta seccion
-Esta expresión relaciona directamente las longitudes de los vectores con el ángulo que forman.
+**Igualando las dos expresiones**
 
-Ahora queremos obtener una expresión equivalente utilizando únicamente el producto interno.
-
-Para ello, recordemos que la norma y el producto interno están relacionados mediante
+De la Ley de Cosenos:
 
 ```{=latex}
 \[
-\|x\|^2=\langle x,x\rangle.
+\|\mathbf{v} - \mathbf{u}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2\|\mathbf{u}\|\|\mathbf{v}\|\cos\theta
 \]
 ```
 
-Por lo tanto,
+De las coordenadas:
 
 ```{=latex}
 \[
-\|u-v\|^2
+\|\mathbf{v} - \mathbf{u}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2(u_1v_1 + u_2v_2)
+\]
+```
+
+Como ambos lados son iguales a lo mismo, igualamos:
+
+```{=latex}
+\[
+\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2\|\mathbf{u}\|\|\mathbf{v}\|\cos\theta
 =
-\langle u-v,u-v\rangle.
+\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2(u_1v_1 + u_2v_2)
 \]
 ```
-Al desarrollar esta expresión utilizando las propiedades del producto interno podremos comparar el resultado con la ley de los cosenos y obtener la relación entre el producto interno y el ángulo.
+
+Cancelamos $\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2$ en ambos lados:
 
 ```{=latex}
-\[ \boxed{ \text{Ley de cosenos} \quad\longleftrightarrow\quad \text{Producto interno} } \] 
+\[
+-2\|\mathbf{u}\|\|\mathbf{v}\|\cos\theta = -2(u_1v_1 + u_2v_2)
+\]
 ```
-El siguiente paso natural es desarrollar 
+
+Dividimos entre $-2$:
+
 ```{=latex}
-\[ \langle u-v,u-v\rangle \]
+\[
+\boxed{u_1v_1 + u_2v_2 = \|\mathbf{u}\|\|\mathbf{v}\|\cos\theta}
+\]
 ```
+
+
 
 
