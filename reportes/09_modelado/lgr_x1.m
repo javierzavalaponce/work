@@ -21,7 +21,7 @@ G = tf(num, den)
 pole(G)
 rlocus(G)
 grid on
-title("LGR")
+title("Lugar Geométrico de las raíces. G_1(s)")
 
 legend("location", "southwest")
 print -dpng -r300 'plot1.png'
