@@ -1,0 +1,27 @@
+pkg load control
+
+m_1 = 1;
+m_2 = 1;
+b_1 = 1;
+b_2 = 1;
+k = 1;
+
+cns_2 = m_2;
+cns_1 = b_1 + b_2;
+
+cds_4 = m_1*m_2;
+cds_3 = m_1*(b_1+b_2) + m_2*b_1;
+cds_2 = k*m_2 + b_1*b_2;
+cds_1 = k*(b_1+b_2);
+
+num = [cns_2 cns_1 0];
+den = [cds_4 cds_3 cds_2 cds_1 0];
+
+G = tf(num, den)
+pole(G)
+rlocus(G)
+grid on
+title("LGR")
+
+legend("location", "southwest")
+print -dpng -r300 'plot1.png'

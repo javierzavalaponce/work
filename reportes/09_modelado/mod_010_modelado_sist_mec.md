@@ -4,13 +4,14 @@
 
 ## Modelado de sistemas mecanicos
 
-**9/Sep/2026**
+Graficar respuesta temporal de movimiento de mas masas $m_1$ y $m_2$
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth,trim=0cm 3cm 0cm 3cm,clip]{../img/modelado_ejer_clase001.pdf}
+\includegraphics[width=0.9\textwidth,trim=0cm 5cm 0cm 7cm,clip]{../img/modelado_ejer_clase001.pdf}
 \end{figure}
 
+Ecuaciones de equilibrio:
 
 Para $m1$: 
 
@@ -29,8 +30,19 @@ m_2\ddot{x_2} + b_1 \dot{x_2} + b_2 \dot{x_2} = b_1 \dot{x_1}
 \end{equation}
 ```
 
+\newpage
+
+Funciones de Transferencia
+
 ```{=latex}
 \begin{equation}
+G_1(s) = 
+\label{eq:g1tf}
+\end{equation}
+```
+
+```{=latex}
+\[
 \frac{X_1(s)}{F(s)}
 =
 \frac{
@@ -41,12 +53,20 @@ m_1m_2s^4+
 (km_2+b_1b_2)s^2+
 k(b_1+b_2)s
 }
-\end{equation}
+\]
 ```
 
 
 ```{=latex}
 \begin{equation}
+G_2(s) = 
+\label{eq:g2tf}
+\end{equation}
+```
+
+
+```{=latex}
+\[
 \frac{X_2(s)}{F(s)}
 =
 \frac{
@@ -57,6 +77,6 @@ m_1m_2s^4+
 (km_2+b_1b_2)s^2+
 k(b_1+b_2)s
 }
-\end{equation}
+\]
 ```
 

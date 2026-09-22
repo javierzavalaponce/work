@@ -102,13 +102,13 @@ in---[R_1|C_1]---v_1---[R_2]---v_2---[C_2]---0
 ```bash
 * EJER7 - Respuesta al escalon 
 V1 in 0 PWL(0 0 1n 5)
-R1 in v3 1k
-C1 in v3 1u
-R2 v3 v2 1k
+R1 in v1 1k
+C1 in v1 1u
+R2 v1 v2 1k
 C2 v2 0 1u
 
 .tran 1u 20m
-.print v(in) v(v3) v(v2)
+.print v(in) v(v1) v(v2)
 .end
 ``` 
 
