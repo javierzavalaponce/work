@@ -191,3 +191,12 @@ u(t >= 2+0.1) = 0;
 [y1, t_out] = lsim(G1, u, t);
 [y2, ~] = lsim(G2, u, t);
 ```
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/diagrama_bloques_simulink_00.png}
+\caption{Simulink diagrama a bloques}
+\end{figure}
+
+
