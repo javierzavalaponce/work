@@ -1,4 +1,3 @@
-pkg load control
 
 m_1 = 1;
 m_2 = 1;

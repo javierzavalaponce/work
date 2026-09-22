@@ -135,6 +135,13 @@ Para
 \dot{x}=Ax + Bu
 \]
 ```
+```{=latex}
+{\color{gray}
+\[
+y=Cx + Du
+\]
+}
+```
 
 decimos que el sistema es controlable si podemos mover el estado desde cualquier condición inicial hasta cualquier estado final mediante una entrada adecuada, Recordemos que $A$ describe la dinámica y $B$ describe dónde puede actuar el actuador. Si un estado nunca recibe influencia de u, será difícil o imposible controlarlo
 
@@ -153,7 +160,7 @@ M = [B \; AB \; A^{2}B \;  ... \; A^{n-1}B] \in \mathbb{R}^{n\times n}
 y verificar que el rango de la matriz $M$ es $n$ donde $n$ es el número de estados. Si se cumple que $rank(M)=n$ el sistema es completamente controlable.
 
 
-**Ejemplo:** Determinar la observabilidad de 
+**Ejemplo:** Determinar la controlabilidad de 
 
 
 
@@ -240,7 +247,7 @@ ans = 2
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.38\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/elloco.png}
+\includegraphics[width=0.32\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/elloco.png}
 \end{figure}
 
 
