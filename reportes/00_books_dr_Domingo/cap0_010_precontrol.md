@@ -40,11 +40,7 @@ Un **sistema de control** es un conjunto organizado de elementos (partes física
 
 ### Sistemas estáticos y dinámicos
 
-Cuando pedaleamos una bicicleta, el giro de la rueda trasera depende directamente de la relación entre el número de dientes de las estrellas. Si la estrella delantera es grande y la trasera pequeña, una sola vuelta de los pedales produce varias vueltas de la rueda. Al modificar esta relación de transmisión, cambia instantáneamente el avance o *desarrollo* de la bicicleta. Este comportamiento, al igual que el divisor de voltaje, constituye un ejemplo de sistema estático: la salida depende únicamente del valor actual de la entrada. En una relación algebraica de este tipo no existe acumulación, memoria ni evolución temporal propia dentro del sistema.
-
-
-En contraste, muchos sistemas reales no responden de forma instantánea, sino que evolucionan gradualmente en el tiempo debido a fenómenos como inercia y el almacenamiento de energía. Estos son conocidos como sistemas dinámicos y representan el principal objeto de estudio del control automático,
-por ejemplo:  un horno no se calienta instantaneamente al encenderse. Para describir y predecir el comportamiento de un sistema dinámico es necesario representar cómo el sistema evoluciona con el tiempo. 
+Un horno, por ejemplo, no se calienta instantaneamente al encenderse. Para describir y predecir el comportamiento de un sistema dinámico es necesario representar cómo el sistema evoluciona con el tiempo. 
 
 El estudio de los sistemas dinámicos consiste en:
 
@@ -54,19 +50,3 @@ El estudio de los sistemas dinámicos consiste en:
    cuando se aplica alguna señal externa bajo condiciones iniciales.
 3. Aplicar método(s) para modificar el comportamiento del sistema
    a fin de obtener una respuesta satisfactoria.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

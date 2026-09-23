@@ -250,4 +250,6 @@ ans = 2
 \includegraphics[width=0.32\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/elloco.png}
 \end{figure}
 
+\newpage
+
 

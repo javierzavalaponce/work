@@ -222,6 +222,31 @@ Medir no es lo mismo que controlar. Para controlar un estado, primero hay que po
 
 \newpage
 
+## Sobre la ec. de estados $\dot{x}(t) = Ax(t) + Bu(t)$
+
+Partimos de la ecuación de estados lineal:
+$\dot{x}(t) = Ax(t) + Bu(t)$
+
+con condición inicial $x(0)=0$ 
+(arrancamos del origen, que es el caso típico para estudiar controlabilidad).
+
+Esta es una *ecuación diferencial no homogénea de primer orden*, pero matricial. Es el mismo tipo de ecuación que: 
+
+```{=latex}
+\[
+\dot{y}(t)=ay(t)+bu(t)
+\]
+```
+cuya solución (con $y(0)=0$)
+
+```{=latex}
+\[
+y(t) = \int_0^t e^{a(t-\tau)}\,b\,u(\tau)\,d\tau
+\]
+```
+
+\newpage
+
 ## Función de transferencia a partir de las matrices $A$, $B$, $C$ y $D$
 
 
