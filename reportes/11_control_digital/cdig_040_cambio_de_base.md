@@ -8,13 +8,17 @@
 
 Partiendo de un sistema expresado en espacio de estados,
 
-$\dot{x} = Ax + Bu$
-\
-$y = Cx + Du$
-\
+```{=latex}
+\begin{equation}
+\begin{aligned}
+\dot{x} &= Ax +Bu \\
+y&=Cx+Du
+\end{aligned}
+\end{equation}
+```
 
-Con $A \in \mathbb{R^{n\times n}}$
-y $B \in \mathbb{R^{n\times 1}}$
+Con $A \in \mathbb{R}^{n\times n}$
+y $B \in \mathbb{R}^{n\times 1}$
 se busca una transformación de similaridad 
 $x=Tz$ 
 tal que el sistema transformado
@@ -70,35 +74,34 @@ donde los $a_i$ son los coeficientes del polinomio característico de $A$:
 
 ```{=latex}
 \[
-det(SI-A) = s^n + a_{n-1}s^{n-1} + \cdots  a_1 s + a_0
+det(sI-A) = s^n + a_{n-1}s^{n-1} + \cdots + a_1 s + a_0
 \]
 ```
 
-### Algoritmo de cálculo de la transformación $T$
+** Resumen. Algoritmo de cálculo de la transformación $T$**
 
 **1. Verificar controlabilidad**
 
 ```{=latex}
 \[
-M = [B \; AB \; A^{2}B \;  ... \; A^{n-1}B] \in \mathbb{R}^{n\times n}
+M = [B \; AB \; A^{2}B \;  \cdots \; A^{n-1}B] \in \mathbb{R}^{n\times n}
 \]
 ```
-Si $rango⁡(M)=n$, el sistema es controlable y la transformación existe. 
-Si $rango⁡(M)<n$, no existe forma canónica controlador (el sistema no es alcanzable).
+Si $\operatorname{rango}(M)=n$, el sistema es controlable y la transformación existe.
+Si $\operatorname{rango}(M)<n$, no existe forma canónica controlador (el sistema no es alcanzable).
+
 
 **2. Obtener el polinomio característico**
 
 Calcular:
 ```{=latex}
 \[
-det(SI-A) = s^n + a_{n-1}s^{n-1} + \cdots  a_1 s + a_0
+det(sI-A) = s^n + a_{n-1}s^{n-1} + \cdots + a_1 s + a_0
 \]
 ```
 
-**3. Construir la matriz WW (matriz compañera auxiliar)**
+**3. Construir la matriz W (matriz compañera auxiliar)**
 
-
-\subsubsection{Paso 3 --- Construir la matriz \(W\) (matriz compañera auxiliar)}
 
 Se define la matriz de coeficientes en forma invertida:
 
