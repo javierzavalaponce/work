@@ -200,3 +200,11 @@ u(t >= 2+0.1) = 0;
 \end{figure}
 
 
+\vspace{3.6cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.36\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/mandala.png}
+\end{figure}
+
+

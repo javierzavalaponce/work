@@ -5,12 +5,15 @@
 # Modelado
 
 
-\vspace{1.5cm}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/sketch_motor_.png}
+\end{figure}
+
 
 
 ## Modelado de circuitos electricos
 
-\vspace{1cm}
 
 ### Netlist y ngspice
 
@@ -40,7 +43,7 @@ La extensión *.cir* es solo una convención. El contenido es lo importante.
     
 * La última línea debe ser ```.end```
 
-\newpage 
+
 
 **Prefijos de componentes (letra inicial):**
 
@@ -145,7 +148,4 @@ se llega a la ecuacion
 = V + R_1 C_1 \dot{V}
 \]
 ```
-
-
-
 

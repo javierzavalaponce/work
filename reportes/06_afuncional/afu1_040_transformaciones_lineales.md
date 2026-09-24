@@ -300,14 +300,6 @@ v^\perp.
 
 Geométricamente, $v^\perp$ = todos los vectores perpendiculares a $v$
 
-\vspace{2.0cm}
-\begin{center}
-\rule{0.6\textwidth}{0.4pt}
-\end{center}
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.41\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/pendulum.png}
-\end{figure}
 
 
 \newpage

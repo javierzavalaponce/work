@@ -5,9 +5,15 @@
 
 \vspace{2.5cm}
 
+*Las no linealidades de un sistema no deben considerarse como el
+"demonio" por los ingenieros de control; de hecho, deben ser introducidas
+durante el diseño del sistema de control, intencionalmente, a fin de alcanzar el objetivo.*
+[@jairath]
+
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/elloco.png}
+\includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/pendulum.png}
 \end{figure}
 
 \newpage
