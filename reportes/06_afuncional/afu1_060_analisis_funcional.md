@@ -1,52 +1,6 @@
 ```{=latex}
 \clearpage
 ```
-# Análisis funcional
-
-\vspace{2.5cm}
-
-*Las no linealidades de un sistema no deben considerarse como el
-"demonio" por los ingenieros de control; de hecho, deben ser introducidas
-durante el diseño del sistema de control, intencionalmente, a fin de alcanzar el objetivo.*
-[@jairath]
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/pendulum.png}
-\end{figure}
-
-\newpage
-## La Integral 
-
-
-
-\newpage
-
-## Funciones vistas como vectores
-
-Las funciones pueden ser vistas, desde el punto de vista cualitativo,  
-como *otro tipo* de vectores. Observe que las funciones se pueden sumar
-para generar otra función. Tambien se pueden *escalar*: $\xi \cdot f(x)$
-
-Observe y reflexione sobre la siguiente analogía:
-
-```{=latex}
-\[
-\begin{aligned}
-L(\vec{v}+ \xi \vec{w}) &= L(\vec{v}) + \xi L(\vec{w}) \\
-\frac{d}{dx}(e^x+ \xi x^2) &= \frac{d}{dx}(e^x) + \xi \frac{d}{dx}(x^2)
-\end{aligned}
-\]
-```
-
-Entonces, mediante la comprobación de las propiedades de la lista
-\ref{eq:props_espacios_vectoriales}, podemos afirmar que
-el conjunto de todas las funciones reales 
-$f: \mathbb R \rightarrow \mathbb R$ 
-es un espacio vectorial sobre $\mathbb R$ pero no tiene una base en el sentido habitual  que se pueda escribir explícitamente, 
-
-
 ### Base del espacio de funciones reales
 
 Aquí hay que distinguir según el tipo de base:
