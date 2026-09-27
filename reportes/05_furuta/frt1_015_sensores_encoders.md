@@ -54,20 +54,20 @@ void setup()
 
 ## DC Motor Driver BTS7960
 
-El BTS7960 Driver Puente H 43A es un modulo para controlar motores DC
-(hasta 43A en picos). Cuenta con aislamiento y protección hacia microcontrolador.  Tiene 8 pines de control
+El BTS7960 Driver Puente H es un módulo para controlar motores DC
+Cuenta con aislamiento y protección hacia microcontrolador.  Tiene 8 pines de control:
 
 
 | Board pin | Descripción |
 |:---------|:------------|
 | 7 Vcc | Alim. Vcc | 
-| 5 R_IS | Ard. A0 Right analog i sense |  
-| 3 R_EN | Ard. 7 Right enable                   |
-| 1 R_PWM | Ard ~5. Dig pin. Right pwm. Verde|
-| 8 Gnd | Gnd mismo nodo bat(?)|
-| 6 L_IS | Ard. A1 Right analig i sense |
-| 4 L_EN | Ard. 8 Left Enable|
-| 2 L_PWM| Ard ~6 Dig pin. Left pwm . Blanco|
+| 5 R_IS | Ard. pin A0 Right analog i sense |  
+| 3 R_EN | Ard. pin 7 Right enable                   |
+| 1 R_PWM | Ard. pin 5. Digital. Right pwm. Verde|
+| 8 Gnd | Gnd de Arduino|
+| 6 L_IS | Ard. pin A1 Right analig i sense |
+| 4 L_EN | Ard. pin 8 Left Enable|
+| 2 L_PWM| Ard pin 6 Digital. Left pwm . Blanco|
 
 : Pinout DC motor driver	
 

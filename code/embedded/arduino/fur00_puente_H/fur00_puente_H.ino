@@ -46,13 +46,13 @@ static unsigned char var = 0;
     var = ( (var==0) ? 1:0);
     if(var){
     analogWrite(LPWM, 0);  analogWrite(RPWM, 0);  delay(100); 
-    analogWrite(RPWM, 60);
-    delay(1000); 
+    analogWrite(RPWM, 80);
+    delay(350); 
     }
     else{ 
     analogWrite(LPWM, 0);  analogWrite(RPWM, 0);  delay(100); 
-    analogWrite(LPWM, 60);
-    delay(1000); 
+    analogWrite(LPWM, 80);
+    delay(350); 
     }
   }
     
