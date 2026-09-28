@@ -212,11 +212,11 @@ Led para monitores pin 12 arduino
 
 | Board pin | Descripción |
 |:---------|:------------|
-| switch | switch Ard pin 11| 
+| switch | switch Arduino pin 11| 
 | gnd | gnd |  
-| Out A | encoder pin A verde Ard 9|
+| Out A | encoder pin A Arduino pin 9|
 | gnd | gnd|
-| Out B | encoder pin A verde Ard 10|
+| Out B | encoder pin B Arduino pin 10|
 
 : Encoder para control manual
 
