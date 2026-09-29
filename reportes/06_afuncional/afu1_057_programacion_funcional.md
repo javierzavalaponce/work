@@ -1,7 +1,7 @@
 ```{=latex}
 \clearpage
 ```
-# Programación funcional
+# Programación funcional (introducción a lisp)
 
 \vspace{4.5cm}
 
