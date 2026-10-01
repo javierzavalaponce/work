@@ -4,4 +4,6 @@
 	
 # Simulación
 
-asdf
+$ git clone https://github.com/Elteoremadebeethoven/AnimacionesConManim.git
+
+
