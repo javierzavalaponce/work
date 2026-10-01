@@ -4,6 +4,19 @@
 
 # Módulos y componentes del sistema
 
+## Motor DC 12V wiper
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/wiper_vw_dc_motor.png}
+\caption{Motor de wiper}
+\label{fig:wiper_dc_motor}
+\end{figure}
+
+
+
+
+\newpage
 ## Arduino UNO pinout
 
 \begin{figure}[H]
