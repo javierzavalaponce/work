@@ -4,99 +4,187 @@
 
 ## Control cinemático 
 
-% Parámetros del robot
-L1 = 0.5; L2 = 0.4; 
+\vspace{1.0cm}
 
-% Condiciones iniciales articulares (en radianes)
-q = [2; 2]; 
+La ***cinemática*** es la parte de la mecánica que se ocupa de describir *cómo se mueve un sistema y cómo se relacionan entre sí sus movimientos*, sin preguntarse todavía qué fuerzas o motores los producen. En robótica, esto significa relacionar, por ejemplo, los movimientos de las articulaciones —sus giros— con la posición y el movimiento del extremo del robot en el espacio. Así, la cinemática nos permite pasar de preguntas como 
+*¿cuánto giran las articulaciones?* a 
+*¿dónde está y cómo se mueve el extremo?*, 
+y también hacer el camino inverso.
 
-% Ganancia de control
-K = 5; 
-
-% Tiempo de simulación
-dt = 0.01;
-t = 0:dt:5;
-N = length(t);
-
-% Prealocación de matrices para guardar los datos
-X_hist     = zeros(2, N);  
-Xd_hist    = zeros(2, N);  
-q_hist     = zeros(2, N); % Guardamos los ángulos para la animación
-
-% --- 1. BUCLE DE CÁLCULO DE CONTROL ---
-for i = 1:N
-    % Cinemática Directa (Posición actual)
-    x = L1*cos(q(1)) + L2*cos(q(1) + q(2));
-    y = L1*sin(q(1)) + L2*sin(q(1) + q(2));
-    X = [x; y];
-
-    % Trayectoria deseada (Círculo)
-    Xd = [0.3 + 0.1*cos(t(i)); 0.3 + 0.1*sin(t(i))];
-    Xd_dot = [-0.1*sin(t(i)); 0.1*cos(t(i))];
-
-    % Error de posición
-    error = Xd - X;
-
-    % Guardar historial
-    X_hist(:, i)  = X;
-    Xd_hist(:, i) = Xd;
-    q_hist(:, i)  = q;
-
-    % Matriz Jacobiana
-    J = [ -L1*sin(q(1))-L2*sin(q(1)+q(2)), -L2*sin(q(1)+q(2));
-        L1*cos(q(1))+L2*cos(q(1)+q(2)),  L2*cos(q(1)+q(2)) ];
-
-    % Ley de control cinemático
-    q_dot = inv(J) * (Xd_dot + K * error);
-
-    % Integración numérica
-    q = q + q_dot * dt;
-end
-
-% =========================================================================
-% --- 2. BUCLE DE ANIMACIÓN EN TIEMPO REAL ---
-% =========================================================================
-
-figure('Name', 'Animación del Robot Planar 2 GDLL', 'NumberTitle', 'off', 'Position', [100, 100, 700, 600]);
-grid on; hold on; axis equal;
-axis([-(L1+L2) (L1+L2) -(L1+L2) (L1+L2)]); % Límites dinámicos basados en los eslabones
-xlabel('Posición X (m)'); ylabel('Posición Y (m)');
-title('Seguimiento de Trayectoria con Control Cinemático');
-
-% Dibujar la trayectoria completa de referencia en el fondo (línea tenue)
-plot(Xd_hist(1,:), Xd_hist(2,:), 'r:', 'LineWidth', 1);
-
-% Inicializar los objetos gráficos vacíos (se actualizarán en el bucle)
-h_tray_real = plot(NaN, NaN, 'b-', 'LineWidth', 1.5);      % Trazo azul del efector final
-h_tray_des  = plot(NaN, NaN, 'ro', 'MarkerFaceColor', 'r'); % Punto rojo de la referencia actual
-h_robot     = plot(NaN, NaN, 'k-o', 'LineWidth', 3, 'MarkerSize', 8, 'MarkerFaceColor', 'g'); % Cuerpo del robot
-
-% Factor de salto para acelerar la animación (ej: graficar cada 3 pasos)
-paso_animacion = 3; 
-
-for i = 1:paso_animacion:N
-    % Recuperar ángulos de este instante de tiempo
-    q_act = q_hist(:, i);
-
-    % Calcular las posiciones de las articulaciones (Codos y Extremos)
-    x0 = 0;                  y0 = 0;                  % Base fija del robot
-    x1 = L1*cos(q_act(1));   y1 = L1*sin(q_act(1));   % Articulación 2 (Codo)
-    x2 = x1 + L2*cos(q_act(1)+q_act(2));              % Efector final (Punta)
-    y2 = y1 + L2*sin(q_act(1)+q_act(2));
-
-    % Actualizar la estructura física del robot
-    set(h_robot, 'XData', [x0, x1, x2], 'YData', [y0, y1, y2]);
-
-    % Actualizar la posición del objetivo móvil (punto rojo)
-    set(h_tray_des, 'XData', Xd_hist(1, i), 'YData', Xd_hist(2, i));
-
-    % Actualizar la línea del camino que el robot ya recorrió (trazo azul)
-    set(h_tray_real, 'XData', X_hist(1, 1:i), 'YData', X_hist(2, 1:i));
-
-    % Forzar dibujo inmediato en la pantalla y pausar para simular tiempo real
-    drawnow;
-    pause(dt * paso_animacion); 
-end
+La cinemática directa transforma coordenadas articulares en coordenadas cartesianas.
+El Jacobiano es una matriz que, cerca de una configuración del robot, traduce pequeños movimientos de las articulaciones en pequeños movimientos del extremo.
 
 
+\vspace{1.5cm}
+Recuerda (del cálculo):
+$$
+f(x+\Delta x)
+\approx
+f(x)+f'(x)\Delta x
+$$
+El Jacobiano es básicamente la versión de varias variables de esa idea.
+En una variable:
+$$
+\Delta y \approx f'(x)\Delta x
+$$
+En varias variables:
+$$
+\begin{bmatrix}
+\Delta x\\
+\Delta y
+\end{bmatrix}
+\approx
+J
+\begin{bmatrix}
+\Delta q_1\\
+\Delta q_2
+\end{bmatrix}
+$$
 
+\newpage
+
+Partimos del robot planar de dos eslabones:
+
+$$
+q=
+\begin{bmatrix}
+q_1\\
+q_2
+\end{bmatrix}
+$$
+
+y la posición de la punta es:
+$$
+p=
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+$$
+
+
+\vspace{1.0cm}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.36\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/robot_planar.png}
+\end{figure}
+
+\vspace{1.0cm}
+
+El Jacobiano es una tabla de cuatro preguntas sobre cómo responden $x$ e $y$ cuando muevo $q_1$ o $q_2$.
+
+$$
+J=\begin{bmatrix}
+\frac{\partial x}{\partial q_1} &
+\frac{\partial x}{\partial q_2}\\
+\frac{\partial y}{\partial q_1} &
+\frac{\partial y}{\partial q_2}
+\end{bmatrix}
+$$
+
+Para el caso de un robot planar de dos eslabones ($L_1$ y $L_2$)
+
+$$
+J =
+\begin{bmatrix}
+-L_1\sin(q_1)-L_2\sin(q_1+q_2)
+&
+-L_2\sin(q_1+q_2)
+\\[6pt]
+L_1\cos(q_1)+L_2\cos(q_1+q_2)
+&
+L_2\cos(q_1+q_2)
+\end{bmatrix}
+$$
+
+
+$$
+\begin{bmatrix}
+\Delta x\\
+\Delta y
+\end{bmatrix}=
+J
+\begin{bmatrix}
+\Delta q_1\\
+\Delta q_2
+\end{bmatrix}
+$$
+
+
+---
+la ecuación matemática, es la ley de control cinemático:
+
+$$
+\dot q = J^{-1}
+\left(
+\dot X_d + K\,error
+\right)
+$$
+
+
+El Jacobiano nos dice:
+$$
+\dot X = J\dot q
+$$
+donde:
+$$
+X=\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+$$
+
+Por tanto:
+$$
+\dot X=
+\begin{bmatrix}
+\dot x\\
+\dot y
+\end{bmatrix}
+$$
+
+Esto significa: Si sé qué tan rápido se mueven las articulaciones, puedo saber qué tan rápido se mueve la punta.
+Pero en control queremos lo contrario.
+Queremos decir: "Quiero que la punta se mueva con esta velocidad. ¿Qué velocidades debo mandar a $q_1$ y $q_2$?"
+
+Ahí aparece 
+
+$J^{-1}$
+
+Es decir, se parte de:
+$$
+\dot X=J\dot q
+$$
+
+Multiplicamos ambos lados por $J^{-1}$:
+$$
+J^{-1}\dot X=J^{-1}J\dot q
+$$
+Como:
+$$
+J^{-1}J=I
+$$
+queda:
+$$
+\boxed{
+\dot q=J^{-1}\dot X
+}
+$$
+
+¡Eso es fundamental!
+El Jacobiano hace:
+$$
+\dot q \longrightarrow \dot X
+$$
+Su inversa hace:
+$$
+\dot X \longrightarrow \dot q
+$$
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/trayectoria002gdl.png}
+\end{figure}
