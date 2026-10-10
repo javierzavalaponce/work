@@ -1,0 +1,7 @@
+{
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/sketch/compile_commands.json",
+    "files.associations": {
+        "*.ino": "cpp"
+    }
+}
+
