@@ -117,45 +117,14 @@ void loop()
 // Acciones de la maquina de estados
 // --------------------------------------------------
 
-void action_s0_e1(void)
-{
-    current_state = STATE_1;
-}
-
-void action_s0_e2(void)
-{
-    current_state = STATE_2;
-}
-
-void action_s1_e1(void)
-{
-    current_state = STATE_3;
-}
-
-void action_s1_e2(void)
-{
-    current_state = STATE_0;
-}
-
-void action_s2_e1(void)
-{
-    current_state = STATE_0;
-}
-
-void action_s2_e2(void)
-{
-    current_state = STATE_3;
-}
-
-void action_s3_e1(void)
-{
-    current_state = STATE_2;
-}
-
-void action_s3_e2(void)
-{
-    current_state = STATE_1;
-}
+void action_s0_e1(void) {current_state = STATE_1;}
+void action_s0_e2(void) {current_state = STATE_2;}
+void action_s1_e1(void) {current_state = STATE_3;}
+void action_s1_e2(void) {current_state = STATE_0;}
+void action_s2_e1(void) {current_state = STATE_0;}
+void action_s2_e2(void) {current_state = STATE_3;}
+void action_s3_e1(void) {current_state = STATE_2;}
+void action_s3_e2(void) {current_state = STATE_1;}
 
 // --------------------------------------------------
 // Lectura y decodificacion del encoder
