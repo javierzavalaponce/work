@@ -1,0 +1,117 @@
+
+#include <Arduino.h>
+
+// --------------------------------------------------
+// Pines
+// --------------------------------------------------
+
+const int ENC_A = 9;
+const int ENC_B = 10;
+const int PIN_SW = 11;
+const int ENC_LED = 12;
+
+// --------------------------------------------------
+// Variables del encoder
+// --------------------------------------------------
+
+int A;
+int B;
+
+uint8_t previous_state;
+uint8_t current_state;
+
+long encoder = 0;
+
+// --------------------------------------------------
+// Tabla de transiciones de cuadratura x4
+//
+// Orden de estados: A + 2*B
+//
+// Sentido positivo:
+// 3 -> 2 -> 0 -> 1 -> 3
+//
+// +1 = avance
+// -1 = retroceso
+//  0 = sin cambio o transicion invalida
+// --------------------------------------------------
+
+const int8_t transition_table[16] = {
+     0, +1, -1,  0,   // Anterior = 0
+    -1,  0,  0, +1,   // Anterior = 1
+    +1,  0,  0, -1,   // Anterior = 2
+     0, -1, +1,  0    // Anterior = 3
+};
+
+// --------------------------------------------------
+// Inicializacion
+// --------------------------------------------------
+
+void setup()
+{
+    Serial.begin(115200);
+
+    pinMode(ENC_A, INPUT_PULLUP);
+    pinMode(ENC_B, INPUT_PULLUP);
+    pinMode(PIN_SW, INPUT_PULLUP);
+
+    pinMode(ENC_LED, OUTPUT);
+    pinMode(LED_BUILTIN, OUTPUT);
+
+    digitalWrite(ENC_LED, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
+
+    A = digitalRead(ENC_A);
+    B = digitalRead(ENC_B);
+
+    previous_state = A + 2 * B;
+
+    Serial.println("START");
+    Serial.print("Estado inicial: ");
+    Serial.println(previous_state);
+    Serial.println("Gira el encoder...");
+}
+
+// --------------------------------------------------
+// Ciclo principal
+// --------------------------------------------------
+
+void loop()
+{
+    // Leer canales del encoder
+    A = digitalRead(ENC_A);
+    B = digitalRead(ENC_B);
+
+    current_state = A + 2 * B;
+
+    // No hubo cambio
+    if (current_state == previous_state) {
+        return;
+    }
+
+    // Combinar estado anterior y actual
+    uint8_t index = previous_state * 4 + current_state;
+
+    // Consultar la tabla
+    int8_t step = transition_table[index];
+
+    // Guardar siempre el estado actual
+    previous_state = current_state;
+
+    // Transicion invalida: ambos bits cambiaron
+    if (step == 0) {
+        Serial.println("Transicion invalida");
+        return;
+    }
+
+    // Actualizar posicion
+    encoder += step;
+
+    Serial.print("Estado: ");
+    Serial.print(current_state);
+
+    Serial.print(" | Paso: ");
+    Serial.print(step);
+
+    Serial.print(" | Encoder: ");
+    Serial.println(encoder);
+}
