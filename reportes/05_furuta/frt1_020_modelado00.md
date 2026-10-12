@@ -4,6 +4,11 @@
 	
 # Modelado 
 
+nota:
+
+Para el péndulo de Furuta: el modelo mecánico físico no contiene retardo, pero el sistema de control del lazo cerrado debe modelarse como un "sistema de retardo". Ignorar el retardo de muestreo en el diseño del controlador puede causar un fracaso completo en el experimento real; por el contrario, al analizar teóricamente, la ecuación característica del péndulo de Furuta con control retardado se convierte en una ecuación cuasi-polinomial que contiene términos exponenciales de retardo
+
+
 : Tabla 1. Pruebas para caracterizar el motor del péndulo de Furuta.
 
 | Prueba | ¿Qué medir? | ¿Para qué sirve? |
