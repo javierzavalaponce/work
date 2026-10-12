@@ -1,4 +1,4 @@
-pandoc afu1_062_progra_func_norma.md \
+pandoc Afu2_010_tf_2_ss_python.md \
   -o 00.pdf \
   --pdf-engine=xelatex \
   -H ../header.tex \
