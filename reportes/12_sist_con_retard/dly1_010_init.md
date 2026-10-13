@@ -5,7 +5,8 @@
 # Introduccion
 
 
-asdf
+Los sistemas con retardo (también conocidos como sistemas con tiempo muerto, retraso temporal o *time-delay systems*) son aquellos en los que existe un intervalo de tiempo entre el momento en que se aplica una acción (entrada) y el momento en que se empieza a observar su efecto en el sistema (salida).
+
 
 
 
