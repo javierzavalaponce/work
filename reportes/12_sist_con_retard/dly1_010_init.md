@@ -46,7 +46,7 @@ En el ecosistema de Julia, el soporte para sistemas con retardo es bastante sól
 
 \newpage
 
-Notas
+Notas:
 
 `ControlSystems.jl` es el equivalente más directo a `python-control`. Incluye la función `delay()` para representar retardos en modelos de función de transferencia, así como pade para aproximarlos como funciones racionales y 
 `thiran` para discretización. También puede simular sistemas con retardo vía `lsim` y 
@@ -54,12 +54,9 @@ Notas
 
 `SemiDiscretizationMethod.jl` está diseñado específicamente para análisis de estabilidad de DDEs lineales periódicas. Implementa el método de semi-discretización libre de multiplicaciones *(MFSD)*, que reduce la complejidad computacional de cuadrática a lineal, permitiendo resolver problemas de alta dimensionalidad que antes eran inaccesibles.
 
-
 `StochasticDelayDiffEq.jl` es el paquete de *SciML* para *SDDEs*. Soporta retardos constantes y dependientes del estado, y se integra con el ecosistema de 
 `StochasticDiffEq.jl`.Incluye características avanzadas como diferenciación automática de la solución respecto a los parámetros y cálculos Monte-Carlo paralelizados.
 
-
 `DelaySSAToolkit.jl` implementa el algoritmo de simulación estocástica con retardos para redes de reacciones químicas. Es útil en biología de sistemas y genética, donde los retardos capturan pasos intermedios de reacciones complejas.
-
 
 
