@@ -76,15 +76,5 @@ module furuta(theta, alpha){
 
 // ==================== EJEMPLO ====================
 // theta = ángulo del brazo (en grados), alpha = inclinación del péndulo (en grados)
-//furuta(360*$t, 30*sin(360*$t*2)); 
+furuta(360*$t, 30*sin(360*$t*2)); 
 //furuta(0,40);
-
-    rotate([0, 0, theta]) {        // 1. Rotación del brazo en el plano horizontal
-        color("orangered")
-        arm();                      // Dibuja el brazo desde el origen
-        
-        color("gray")
-        translate([armlength, 0,0]) { // 2. Traslada al extremo del brazo
-            pendulo(alpha);          // 3. Dibuja el péndulo con su inclinación
-        }
-    }
