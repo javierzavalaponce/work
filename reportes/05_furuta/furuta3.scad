@@ -7,8 +7,11 @@ r_peso = 15;
 r_varilla = 5;
 
 //estas dos no se usan aqui:
-m_1=
-m_2=  
+m_1=200 //g
+l1=125
+
+m_2=225 //g
+l2=armlength-110
 
 pared = 2;
 diam_tubo_arm = 19;
