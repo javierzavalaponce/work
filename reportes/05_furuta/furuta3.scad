@@ -5,6 +5,7 @@ r_peso = 15;
 r_varilla = 5;
 
 armlength = 237;
+baselength = 237;
 pared = 2;
 diam_tubo_arm = 19;
 radio_ext = diam_tubo_arm / 2;
@@ -38,9 +39,21 @@ module pendulo(angulo){
 }
 
 
+module base(){
+    union(){
+    cylinder(h=50, r=30, center=false);
+    cylinder(h=baselength, r=16, center=false);
+
+    }
+}
+
+
 
 // Sistema completo del péndulo de Furuta
 module furuta(theta, alpha){
+    color("#6F1D46")       // Rojo vino 
+    translate([0, 0,-baselength])
+    base();
     rotate([0, 0, theta]) {        // 1. Rotación del brazo en el plano horizontal
         color("orangered")
         arm();                      // Dibuja el brazo desde el origen

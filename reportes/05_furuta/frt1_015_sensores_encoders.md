@@ -9,7 +9,7 @@
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.63\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/wiper_vw_dc_motor.png}
-\caption{Motor de wiper}
+\caption{Motor de wiper VW clásico}
 \label{fig:wiper_dc_motor}
 \end{figure}
 
