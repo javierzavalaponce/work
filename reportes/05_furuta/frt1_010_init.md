@@ -19,10 +19,7 @@ Tiene dos partes mecánicas clave:
 
  * Tiene 2 grados de libertad (el ángulo del brazo $\theta_1$ y el ángulo del péndulo $\theta_2$).
  * Pero sólo tiene 1 motor (actuador en $\theta_1$).
- * El brazo se debe hacer rotar con la aceleración exacta para que las fuerzas de inercia, centrífuga y de Coriolis muevan el péndulo a donde se desea.
 
-* Es altamente no lineal (non-linear). Aparecen fuerzas gravitatorias dependientes del seno y coseno.
-  Cuando el brazo gira rápido, la fuerza centrífuga empuja al péndulo hacia afuera, y la fuerza de Coriolis acopla el movimiento de ambos brazos.
 
  \newpage
 
