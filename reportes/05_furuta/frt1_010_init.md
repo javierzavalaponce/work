@@ -32,15 +32,14 @@ Tiene dos partes mecánicas clave:
 
 | Parámetro          | Símbolo y significado |
 |:-------------------|:----------------------|
-| Ángulo del brazo   | $\theta_1$, posición angular del brazo en el plano horizontal. |
-| Ángulo del péndulo | $\theta_2$, inclinación del péndulo. $0$ = hacia abajo en reposo, $\pi$ = vertical invertido). |
-| Torque del motor   | $\tau_1$, fuerza de giro que inyecta el motor DC al brazo 1. |
-| Longitudes         | $L_1$, $L_2$, longitud total del brazo horizontal y del péndulo. |
-| Centros de masa    | $l_1$, $l_2$, distancia del eje de giro al centro de masa de cada eslabón. |
-| Masas              | $m_1$, $m_2$, masa del brazo y masa del péndulo. |
-| Inercias           | $J_1$, $J_2$, momentos de inercia efectivos. |
-| Fricción           | $b_1$, $b_2$, coeficientes de amortiguamiento viscoso. |
-| Gravedad           | $g$, aceleración gravitacional ($\approx 9.81\,\text{m/s}^2$). |
+| Ángulo del brazo   | $\theta_1$, posición angular del brazo en el plano horizontal |
+| Ángulo del péndulo | $\theta_2$, inclinación del péndulo. $0$ = hacia abajo en reposo, $\pi$ = vertical invertido) |
+| Torque del motor   | $J_1$, fuerza de giro que inyecta el motor DC al brazo |
+| Longitudes         | $L_1$, $L_2$, longitud total del brazo horizontal y del péndulo |
+| Centros de masa    | $l_1$, $l_2$, distancia del eje de giro al centro de masa de cada eslabón |
+| Masas              | $m_1$, $m_2$, masa del brazo y masa del péndulo |
+| Fricción           | $b_1$, $b_2$, coeficientes de amortiguamiento viscoso |
+| Gravedad           | $g$, aceleración gravitacional ($\approx 9.81\,\text{m/s}^2$) |
 
 : Parámetros del péndulo de Furuta
 

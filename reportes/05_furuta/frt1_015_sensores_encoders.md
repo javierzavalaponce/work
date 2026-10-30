@@ -236,8 +236,8 @@ Led para monitores pin 12 arduino
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/encoder_incr_rotativo.png}
-\caption{asdfasdf}
+\includegraphics[width=0.59\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/encoder_incr_rotativo.png}
+\caption{jjj}
 \label{fig:enco_incr_rot}
 \end{figure}
 
