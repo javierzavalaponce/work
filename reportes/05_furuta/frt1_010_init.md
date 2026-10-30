@@ -20,6 +20,14 @@ Tiene dos partes mecánicas clave:
  * Sólo tiene 1 motor ($\theta_1$).
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.99\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/fur_00.png}
+\caption{Brazos y angulos del pendulo de Furuta.}
+\label{fig:Partes}
+\end{figure}
+
+
  \newpage
 
 | Parámetro          | Símbolo y significado |
@@ -30,32 +38,17 @@ Tiene dos partes mecánicas clave:
 | Longitudes         | $L_1$, $L_2$, longitud total del brazo horizontal y del péndulo. |
 | Centros de masa    | $l_1$, $l_2$, distancia del eje de giro al centro de masa de cada eslabón. |
 | Masas              | $m_1$, $m_2$, masa del brazo y masa del péndulo. |
-| Inercias           | $J_0$, $J_2$, momentos de inercia efectivos. |
+| Inercias           | $J_1$, $J_2$, momentos de inercia efectivos. |
 | Fricción           | $b_1$, $b_2$, coeficientes de amortiguamiento viscoso. |
 | Gravedad           | $g$, aceleración gravitacional ($\approx 9.81\,\text{m/s}^2$). |
 
 : Parámetros del péndulo de Furuta
 
-El péndulo de Furuta es un excelente laboratorio porque, como bien intuyes, su complejidad esconde conceptos fundamentales de mecánica y control.
-
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.92\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/fur_00.png}
-\caption{Brazos y angulos del pendulo de Furuta.}
-\label{fig:Partes}
+\includegraphics[width=0.51\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/furuta_ilust01.png}
+\caption{Centro de masa de cada eslabón}
+\label{fig:ilustfur01}
 \end{figure}
 
-
-
-
 \newpage
-
-notas, ver:
-
-/doc/modelado_motor.pdf
-
-git clone 
-https://github.com/AngeloDamante/Furuta_pendulum.git
-
-\newpage
-

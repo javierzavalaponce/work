@@ -4,12 +4,6 @@
 	
 # Modelado 
 
-notas imprecisas (revisar):
-
-Para el péndulo de Furuta: el modelo mecánico físico no contiene retardo, pero el sistema de control del lazo cerrado debe modelarse como un "sistema de retardo". Ignorar el retardo de muestreo en el diseño del controlador puede causar un fracaso completo en el experimento real; por el contrario, al analizar teóricamente, la ecuación característica del péndulo de Furuta con control retardado se convierte en una ecuación cuasi-polinomial que contiene términos exponenciales de retardo
-
-
-\newpage
 
 ## Modelo del Pendulo de Furuta (geometria Openscad)
 
@@ -23,7 +17,7 @@ Revisar / completar
 | Centro de masa   $l_2$ | distancia del eje de giro al centro de masa de cada eslabón. |
 | Masa  $m_1$ |masa del brazo |
 | Masa  $m_2$ | masa del péndulo. |
-| Inercias           | $J_0$, $J_2$, momentos de inercia efectivos. |
+| Inercias           | $J_1$, $J_2$, momentos de inercia efectivos. |
 | Fricción           | $b_1$, $b_2$, coeficientes de amortiguamiento viscoso. |
 | Gravedad           | $g$, aceleración gravitacional ($\approx 9.81\,\text{m/s}^2$). |
 
@@ -57,9 +51,8 @@ Representa el torque de resistencia en la articulación entre el péndulo y el b
 Roce en el rodamiento de esa unión.
 Resistencia del aire sobre el péndulo (proporcional a su velocidad angular).
 
-Unidades: igual que $b_1$
-
-¿Cómo se obtienen? Experimentalmente: se deja oscilar libremente cada eslabón y se ajusta la curva de decaimiento de la amplitud. También se pueden estimar con datos de placa del motor y del rodamiento, pero lo estándar es identificación experimental.
+$b_1$ y $b_2$ se obtienen experimentalmente: 
+se deja oscilar y se ajusta la curva de decaimiento de la amplitud.
 
  
 
@@ -104,29 +97,10 @@ furuta(10,40);
 
 ### Cinemática
 
-articulaciones
-ejes
-dimensiones
-límites
-transformaciones
-
-Base-J1-Link 1-J2-Link 2-J3
-
-Para cada articulación puede haber información como:
-* tipo: revoluta/prismática
-* eje de movimiento
-* posición relativa
-* orientación
-* límites
-* relación entre articulaciones y eslabones
-
-matrices de transformación, coordenadas, DH, cinemática directa e inversa.
-
-
-dimensiones cinemáticas en forma de tablas ***Denavit-Hartenberg***
 
 ### Dinámica
 
+(draft)
 masas
 inercias
 fricción...
@@ -140,10 +114,10 @@ Si además queremos simular físicamente el robot, aparecen:
 
 Por ejemplo, **URDF** puede representar explícitamente masa, centro de masa e inercias de cada link, además de propiedades de las articulaciones.
 
-Esto es diferente de la simple cinemática.
 
 #### URDF y ROS
 
+(draft)
 En el mundo ROS es muy importante:
 URDF — Unified Robot Description Format
 Es un formato XML para describir robots mediante links y joints
