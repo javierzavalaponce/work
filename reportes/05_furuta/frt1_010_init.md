@@ -6,7 +6,6 @@
 
 
  El Péndulo de Furuta fue inventado en 1992 en el Instituto de Tecnología de Tokio por Katsuhisa Furuta. También se le conoce como Péndulo Invertido Rotacional
-  (Rotational Inverted Pendulum).
 
 Tiene dos partes mecánicas clave:
 
@@ -15,10 +14,10 @@ Tiene dos partes mecánicas clave:
 2. Péndulo vertical (Brazo 2): Conectado al extremo del brazo 1 mediante un eje libre. Gira en el plano vertical. No tiene motor (color gris).
 
 
- El Péndulo de Furuta es un sistema subactuado (underactuated):
+ El Péndulo de Furuta es un sistema subactuado:
 
  * Tiene 2 grados de libertad (el ángulo del brazo $\theta_1$ y el ángulo del péndulo $\theta_2$).
- * Pero sólo tiene 1 motor (actuador en $\theta_1$).
+ * Sólo tiene 1 motor ($\theta_1$).
 
 
  \newpage
@@ -26,8 +25,8 @@ Tiene dos partes mecánicas clave:
 | Parámetro          | Símbolo y significado |
 |:-------------------|:----------------------|
 | Ángulo del brazo   | $\theta_1$, posición angular del brazo en el plano horizontal. |
-| Ángulo del péndulo | $\theta_2$, inclinación vertical del péndulo ($0$ = hacia abajo en reposo, $\pi$ = vertical invertido). |
-| Torque del motor   | $\tau_1$, fuerza de giro que inyecta tu motor DC al brazo 1. |
+| Ángulo del péndulo | $\theta_2$, inclinación del péndulo. $0$ = hacia abajo en reposo, $\pi$ = vertical invertido). |
+| Torque del motor   | $\tau_1$, fuerza de giro que inyecta el motor DC al brazo 1. |
 | Longitudes         | $L_1$, $L_2$, longitud total del brazo horizontal y del péndulo. |
 | Centros de masa    | $l_1$, $l_2$, distancia del eje de giro al centro de masa de cada eslabón. |
 | Masas              | $m_1$, $m_2$, masa del brazo y masa del péndulo. |
@@ -36,6 +35,8 @@ Tiene dos partes mecánicas clave:
 | Gravedad           | $g$, aceleración gravitacional ($\approx 9.81\,\text{m/s}^2$). |
 
 : Parámetros del péndulo de Furuta
+
+El péndulo de Furuta es un excelente laboratorio porque, como bien intuyes, su complejidad esconde conceptos fundamentales de mecánica y control.
 
 \begin{figure}[H]
 \centering

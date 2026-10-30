@@ -1,11 +1,15 @@
 // ==================== PARÁMETROS ====================
-L_pendulo = 225;          
+armlength = 237;
+baselength = 232;
+L_pendulo = 220;          
 L_peso = 30;              
 r_peso = 15;
 r_varilla = 5;
 
-armlength = 237;
-baselength = 237;
+//estas dos no se usan aqui:
+m_1=
+m_2=  
+
 pared = 2;
 diam_tubo_arm = 19;
 radio_ext = diam_tubo_arm / 2;

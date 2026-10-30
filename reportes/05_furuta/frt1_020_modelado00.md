@@ -9,28 +9,9 @@ notas imprecisas (revisar):
 Para el péndulo de Furuta: el modelo mecánico físico no contiene retardo, pero el sistema de control del lazo cerrado debe modelarse como un "sistema de retardo". Ignorar el retardo de muestreo en el diseño del controlador puede causar un fracaso completo en el experimento real; por el contrario, al analizar teóricamente, la ecuación característica del péndulo de Furuta con control retardado se convierte en una ecuación cuasi-polinomial que contiene términos exponenciales de retardo
 
 
-: Tabla 1. Pruebas para caracterizar el motor del péndulo de Furuta.
-
-| Prueba | ¿Qué medir? | ¿Para qué sirve? |
-| :--- | :--- | :--- |
-| **Prueba de Torque Estático** | Fuerza en el extremo del brazo (con una balanza) para diferentes voltajes/PWM. | Calcula el **torque máximo** disponible en el eje de salida (brazo). Es crucial para saber si puedes vencer la gravedad y la inercia del péndulo. |
-| **Prueba de Velcoidad en Vacío** | Velocidad angular máxima (RPM) del brazo sin carga, para tu voltaje máximo. | Determina la **velocidad máxima** que puedes transmitir al péndulo. Aquí es donde tu sospecha de insuficiencia puede confirmarse o descartarse. |
-| **Prueba de Respuesta al Escalón** | Curva de velocidad vs. tiempo al aplicar un voltaje de entrada repentino. | Te permite identificar la **constante de tiempo** del sistema (qué tan rápido acelera) y estimar la inercia total del conjunto motor-reducción-brazo. |
-| **Identificación de Parámetros** | Mediciones de voltaje y corriente durante una prueba de escalón de velocidad. | Puedes usar estos datos para calcular parámetros eléctricos como la **resistencia (R)** y la **constante de fuerza contraelectromotriz (Ke)** del motor. |
-
-
-ver /doc/modelado_motor.pdf
-
-tambien ver el
-
-git clone https://github.com/AngeloDamante/Furuta_pendulum.git
-
-
 \newpage
 
 ## Modelo del Pendulo de Furuta (geometria Openscad)
-
-### Geometría
 
 Revisar / completar
 
@@ -48,64 +29,59 @@ Revisar / completar
 
 : Parámetros del péndulo de Furuta
 
-Modelo Openscad 
+### $b_1$ y $b_2$ : Coeficientes de fricción viscosa
+
+La fricción viscosa es una fuerza (o torque) de resistencia proporcional a la velocidad. 
+Modela el roce en los rodamientos, Matemáticamente:
+
+$$
+= - b \dot {\theta}
+$$
+
+$b$ es el coeficiente y $\dot{\theta}$  la velocidad angular. 
+El signo negativo indica que se opone al movimiento.
+
+*$b_1$*: Fricción viscosa en el eje del brazo ($\theta_1$)
+
+Representa el torque de resistencia que siente el motor al girar el brazo. 
+Incluye: 1. Roce en los rodamientos del eje vertical.
+2. Roce interno del motor (a veces se separa, pero aquí se agrupa).
+3. Resistencia aerodinámica del brazo (pequeña).
+
+Unidades: $\text{N}\,\text{m}\,\text{s}/\text{rad}$ (torque por unidad de velocidad angular).
+
+*$b_2$*: Fricción viscosa en el pivote del péndulo  ($\theta_2$)
+
+Representa el torque de resistencia en la articulación entre el péndulo y el brazo:
+
+Roce en el rodamiento de esa unión.
+Resistencia del aire sobre el péndulo (proporcional a su velocidad angular).
+
+Unidades: igual que $b_1$
+
+¿Cómo se obtienen? Experimentalmente: se deja oscilar libremente cada eslabón y se ajusta la curva de decaimiento de la amplitud. También se pueden estimar con datos de placa del motor y del rodamiento, pero lo estándar es identificación experimental.
+
+ 
 
 \newpage
 ```c
-
+// furuta3.scad
 // ==================== PARÁMETROS ====================
-L_pendulo = 225;          
+armlength = 237;
+baselength = 232;
+L_pendulo = 220;    
+   
 L_peso = 30;              
 r_peso = 15;
 r_varilla = 5;
 
-armlength = 237;
-baselength = 237;
 pared = 2;
 diam_tubo_arm = 19;
 radio_ext = diam_tubo_arm / 2;
 radio_int = radio_ext - pared;
 
-// ==================== MÓDULOS ====================
-
-
-// Brazo: se extiende a lo largo del eje Y positivo
-module arm(){
-    rotate([90, 0, 0]) {
-        difference(){
-            cylinder(h=armlength, r=radio_ext, center=false);
-            cylinder(h=armlength + 2, r=radio_int, center=false);
-        }
-    }
-}
-
-
-
-// Péndulo: su PIVOTE está en el origen (parte superior de la varilla)
-module pendulo(angulo){
-    rotate([0, -angulo, 0]) { 
-        // Gira alrededor del eje Y (eje del brazo)
-        // Varilla (baja desde 0 hasta -225)
-        translate([0, 0, -L_pendulo])
-        cylinder(h=L_pendulo, r=r_varilla, center=false);
-        // Peso (situado a 15mm del extremo)
-        translate([0, 0, -210])
-        cylinder(h=L_peso, r=r_peso, center=false);
-    }
-}
-
-
-module base(){
-    union(){
-    cylinder(h=50, r=30, center=false);
-    cylinder(h=baselength, r=16, center=false);
-
-    }
-}
-
-
-
-// Sistema completo del péndulo de Furuta
+// péndulo de Furuta
+// furuta3.scad
 module furuta(theta, alpha){
     color("#6F1D46")       // Rojo vino 
     translate([0, 0,-baselength])
@@ -121,9 +97,8 @@ module furuta(theta, alpha){
     }
 }
 
-
+//pendulo a 40 grados de la vertical
 furuta(10,40);
-
 ```
 \newpage
 
