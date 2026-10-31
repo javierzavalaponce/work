@@ -4,30 +4,28 @@
 
 # Modelado 
 
-## Modelo del Pendulo de Furuta (vista Openscad)
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.82\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/fur_convencion.png}
-\caption{Parametros}
-\label{fig:ilustfur021}
-\end{figure}
-
-\newpage 
 
 | Parámetro          | Símbolo y significado |
 |:-------------------|:----------------------|
-| $L_1 = 237mm$   | longitud  del brazo horizontal|
-| $L_2 = 220mm$   | longitud  del péndulo |
-| $l_1 = 125mm$ | distancia del eje de giro al centro de masa del brazo |
-| $l_2 = 127mm$ | distancia del eje de giro al centro de masa del péndulo |
+| $L_1 = 237 mm$   | longitud  del brazo horizontal|
+| $L_2 = 220 mm$   | longitud  del péndulo |
+| $l_1 = 150 mm$ | distancia del eje de giro al centro de masa del brazo |
+| $l_2 = 125 mm$ | distancia del eje de giro al centro de masa del péndulo |
 | Masa  $m_1 = 200 gramos$ |masa del brazo |
 | Masa  $m_2 = 220 gramos$ | masa del péndulo. |
 | Inercias           | $J_1$, $J_2$, momentos de inercia |
 | Fricción           | $b_1$, $b_2$, coeficientes de amortiguamiento |
-| Gravedad           | $g$, aceleración gravitacional ($\approx 9.81\,\text{m/s}^2$) |
+| Gravedad           | $g$, ($\approx 9.81\,\text{m/s}^2$) |
 
 : Parámetros del péndulo de Furuta
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.91\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/fur_convencion.png}
+\caption{Parametros}
+\label{fig:ilustfur021}
+\end{figure}
+
 
 ### $b_1$ y $b_2$ : Coeficientes de fricción viscosa ($= - b \dot {\theta}$)
 
@@ -48,6 +46,7 @@ $b_1$ y $b_2$ se obtienen experimentalmente:
 se deja oscilar y 
 se ajusta la curva de decaimiento de la amplitud.
 
+\newpage
 
 ### Cinemática
 
@@ -57,26 +56,37 @@ $$
 q = \begin{bmatrix} \theta_1 \\ \theta_2 \end{bmatrix}
 $$
 
-$\theta_1$ (Ángulo del brazo). Es el ángulo de rotación horizontal del brazo con respecto al eje $x$. Si $\theta_1  = 0$, el brazo apunta al semieje positivo $x$.
+**$\theta_1$ (Ángulo del brazo).** Es el ángulo de rotación horizontal del brazo con respecto al eje $x$. Si $\theta_1  = 0$, el brazo apunta al semieje positivo $x$.
 
-$\theta_2$ (Ángulo del péndulo). Se mide con respecto al eje vertical $z$ . Cuando $\theta_2 = 0$, el péndulo está completamente vertical apuntando hacia arriba (posición invertida o inestable). Cuando $\theta_2 = \pi (180^\circ)$, el péndulo está colgando vertical hacia abajo (posición estable).
+**$\theta_2$ (Ángulo del péndulo).** Se mide respecto al eje vertical $z$, tomando como referencia la dirección vertical hacia abajo. Cuando $\theta_2=0$, el péndulo está completamente vertical apuntando hacia abajo (posición estable). Cuando $\theta_2=\pi\ (180^\circ)$, el péndulo está completamente vertical apuntando hacia arriba (posición invertida o inestable). Cuando $\theta_2=90^\circ$ el péndulo apunta hacia $+y$.
 
-#### Parámetros físicos
+#### Posición de un punto sobre el péndulo
 
-* Mástil central:
-    * Inercia de rotación alrededor del eje $z$: $J$.
+El péndulo oscila en un plano vertical perpendicular al brazo.  Cuando 
+$\theta_1 = 0$ , el brazo apunta en $+x$ y el péndulo se mueve en el plano $yz$. 
+Para el péndulo (masa $m_2$, centro a distancia $l_2$ del pivote):
 
-* Brazo horizontal (eslabón 1):
-    * Longitud: $L_1$ 
-    * Masa: $m_1$ 
-    * Coordenada radial de un punto sobre el brazo: $r_1 \in [0, L_1]$
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.59\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/fur_ilust03.png}
+\end{figure}
 
-* Péndulo (eslabón 2):
-    * Longitud: $L_2$
-    * Masa: $m_2$, centro de masa colocada cerca de la punta del péndulo $l_2$ 
-    * Coordenada radial de un punto sobre el péndulo: $r_2 \in [0, L_2]$
+\newpage
+Las ecuaciones siguientes corresponden a una convención en la que:
 
+* $\theta_1$ positivo gira alrededor de $+z$
+* $\theta_2$ positivo gira alrededor del eje local $+x$ del brazo
+* El péndulo parte de $-z$
 
+```{=latex}
+\[
+\begin{aligned}
+x_2 &= L_1 \cos\theta_1 - l_2 \sin\theta_2 \sin\theta_1 \\
+y_2 &= L_1 \sin\theta_1 + l_2 \sin\theta_2 \cos\theta_1 \\
+z_2 &= -l_2 \cos\theta_2
+\end{aligned}
+\]
+```
 
 ### Dinámica
 
@@ -84,24 +94,5 @@ $\theta_2$ (Ángulo del péndulo). Se mide con respecto al eje vertical $z$ . Cu
 masas
 inercias
 fricción...
-Si además queremos simular físicamente el robot, aparecen:
-* masa
-* centro de masa
-* tensor de inercia
-* fricción
-* amortiguamiento
-* límites de esfuerzo/torque
 
-Por ejemplo, **URDF** puede representar explícitamente masa, centro de masa e inercias de cada link, además de propiedades de las articulaciones.
-
-
-#### URDF y ROS
-
-(draft)
-En el mundo ROS es muy importante:
-URDF — Unified Robot Description Format
-Es un formato XML para describir robots mediante links y joints
-Es muy útil para simulación y ROS, pero no es "el estándar universal de los robots industriales".
-8484: lagunas conceptuales aqui...
-\newpage
 

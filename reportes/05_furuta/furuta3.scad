@@ -1,19 +1,19 @@
 // ==================== PARÁMETROS ====================
-armlength = 237;
-baselength = 232;
-L_pendulo = 220;          
+armlength = 237; //L_1
+L_pendulo = 220; //L_2    
 L_peso = 30;              
 r_peso = 15;
 r_varilla = 5;
 // estas dos no se usan aqui:
 m_1=200; // gramos
 // ubicacion centro de masa m_1
-l1=125; // mm del centro
-
+l1=150; // mm del centro
 // ubicacion centro de masa m_2:
 m_2=220; //gramos
 // medido desde el centro , aprox.
-l2=armlength-110;
+l2=125; //milimetros
+
+baselength = 232;
 
 pared = 2;
 diam_tubo_arm = 19;
@@ -77,4 +77,4 @@ module furuta(theta, alpha){
 // ==================== EJEMPLO ====================
 // theta = ángulo del brazo (en grados), alpha = inclinación del péndulo (en grados)
 furuta(360*$t, 30*sin(360*$t*2)); 
-//furuta(0,40);
+//furuta(30,45);
