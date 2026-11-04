@@ -1,0 +1,293 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,bm,mathtools}
+\usepackage{booktabs}
+
+% Personalización del Tema Beamer
+\usetheme{Madrid}
+\usecolortheme{whale}
+
+% Paleta de Colores Académica Elegante
+\definecolor{NavyBlue}{RGB}{27, 54, 93}
+\definecolor{SlateGray}{RGB}{74, 85, 104}
+\definecolor{AccentDark}{RGB}{180, 83, 9}
+\definecolor{LightBg}{RGB}{245, 247, 250}
+
+\setbeamercolor{palette primary}{bg=NavyBlue,fg=white}
+\setbeamercolor{palette secondary}{bg=SlateGray,fg=white}
+\setbeamercolor{palette tertiary}{bg=NavyBlue!90,fg=white}
+\setbeamercolor{titlelike}{parent=palette primary}
+\setbeamercolor{block title}{bg=NavyBlue,fg=white}
+\setbeamercolor{block body}{bg=LightBg,fg=black}
+\setbeamercolor{block title example}{bg=SlateGray,fg=white}
+\setbeamercolor{block body example}{bg=LightBg,fg=black}
+\setbeamercolor{block title alert}{bg=AccentDark,fg=white}
+\setbeamercolor{block body alert}{bg=LightBg,fg=black}
+
+\title[Control Inteligente del Péndulo de Furuta]{Modelado Dinámico y Control Inteligente del Péndulo de Furuta}
+\subtitle{Una Aproximación Rigurosa Basada en Espacios Funcionales e Implementación Embebida}
+\author[Propuesta de Investigación Doctoral]{Propuesta de Investigación Doctoral}
+\institute[Teoría de Control y Matemáticas Aplicadas]{Evaluación de Propuesta Doctoral}
+\date{\today}
+
+\begin{document}
+
+% --- SLIDE 1 ---
+\begin{frame}
+  \titlepage
+  \begin{center}
+    \small \textit{"Fundamentado en el rigor analítico de la teoría de control clásico y el análisis funcional."}
+  \end{center}
+\end{frame}
+
+% --- SLIDE 2 ---
+\begin{frame}{2. Marco Metodológico de Referencia: Flujo de 10 Etapas}
+  \begin{block}{Metodología Base de Síntesis de Control e IA}
+    Se adopta el marco metodológico de 10 etapas para diseño de controladores en tiempo real (Zavala-Ponce et al.), integrando validación analítica previa al hardware.
+  \end{block}
+  
+  \vspace{0.2cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Etapas Fundamentales de la Metodología:}
+      \begin{enumerate}
+        \setcounter{enumi}{0}
+        \item \small \textbf{Planteamiento del problema} y especificaciones físicas.
+        \item \small \textbf{Modelado del sistema} (Euler-Lagrange y State-Space).
+        \item \small \textbf{Control aproximado / IA} (Inferencia difusa ANFIS).
+        \item \small \textbf{Simplificación funcional} (Aproximación polinomial).
+        \item \small \textbf{Generación de Código C} estático.
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{enumerate}
+        \setcounter{enumi}{5}
+        \item \small \textbf{Implementación embebida} en microcontrolador.
+        \item \small \textbf{Pruebas en Hardware-in-the-Loop (HIL)}.
+        \item \small \textbf{Sintonía fina y métricas} ($\|e\|_2, \|e\|_\infty$).
+        \item \small \textbf{Validación experimental} en planta real.
+        \item \small \textbf{Documentación y transferencia}.
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- SLIDE 3 ---
+\begin{frame}{3. Dinámica Cinemática No Lineal (Euler-Lagrange)}
+  \begin{block}{Modelo Físico del Péndulo de Furuta (2 GDL Subactuado)}
+    Sea $q = [\theta_1, \theta_2]^T$ el vector de coordenadas generalizadas (brazo rotatorio $\theta_1$, péndulo $\theta_2$). La ecuación vectorial de movimiento está dada por:
+    \begin{equation*}
+      \mathbf{M}(q)\ddot{q} + \mathbf{C}(q,\dot{q})\dot{q} + \mathbf{G}(q) + \mathbf{F}_{fric}(\dot{q}) = \mathbf{B} u
+    \end{equation*}
+  \end{block}
+  
+  \vspace{0.1cm}
+  \begin{itemize}
+    \item \textbf{Matriz de Inercia Simétrica y Definida Positiva:} 
+    $\mathbf{M}(q) = \begin{bmatrix} J_1 + m_2 L_1^2 + m_2 r_2^2 \sin^2\theta_2 & -m_2 L_1 r_2 \cos\theta_2 \\ -m_2 L_1 r_2 \cos\theta_2 & J_2 + m_2 r_2^2 \end{bmatrix}$
+    \item \textbf{Términos de Coriolis y Centrífugos:} Acoplamiento no lineal altamente persistente $\mathbf{C}(q, \dot{q})$.
+    \item \textbf{Subactuación Extrema:} $\mathbf{B} = [1, 0]^T$; sólo el brazo horizontal recibe par directo $u$.
+  \end{itemize}
+\end{frame}
+
+% --- SLIDE 4 ---
+\begin{frame}{4. Linealización y Análisis en Espacio de Estados}
+  \begin{block}{Representación Matricial en el Punto de Equilibrio Inestable}
+    Linealizando en el equilibrio inestable $x^* = [0, \pi, 0, 0]^T$ con $x = [\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2]^T$:
+    \begin{equation*}
+      \dot{x}(t) = \mathbf{A} x(t) + \mathbf{B} u(t), \quad y(t) = \mathbf{C} x(t)
+    \end{equation*}
+  \end{block}
+
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{Controlabilidad ($\mathcal{C}$)}
+        \begin{equation*}
+          \mathcal{C} = \begin{bmatrix} \mathbf{B} & \mathbf{A}\mathbf{B} & \mathbf{A}^2\mathbf{B} & \mathbf{A}^3\mathbf{B} \end{bmatrix}
+        \end{equation*}
+        $\text{rank}(\mathcal{C}) = 4 \implies$ \textbf{Modos inestables completamente alcanzables.}
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{Observabilidad ($\mathcal{O}$)}
+        \begin{equation*}
+          \mathcal{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C}\mathbf{A} \\ \mathbf{C}\mathbf{A}^2 \\ \mathbf{C}\mathbf{A}^3 \end{bmatrix}
+        \end{equation*}
+        $\text{rank}(\mathcal{O}) = 4 \implies$ \textbf{Reconstrucción de estados por observador de Luenberger.}
+      \end{exampleblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- SLIDE 5 ---
+\begin{frame}{5. Fenómenos Reales No Modelados: Fricción y Retardo Digital}
+  \begin{alertblock}{La Grieta del Modelo Lineal Determinista}
+    En la práctica experimental existen dos perturbaciones severas que degradan la estabilidad de reguladores LQR/PID clásicos:
+  \end{alertblock}
+
+  \vspace{0.2cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{1. Fricción No Lineal en Rodamientos:}
+      \begin{equation*}
+        F_{fric}(\dot{q}) = f_v \dot{q} + f_c \text{sgn}(\dot{q}) + f_s e^{-(\dot{q}/\dot{q}_s)^2}\text{sgn}(\dot{q})
+      \end{equation*}
+      \small Fenómeno de Stribeck y zona muerta no diferenciable en $\dot{q}=0$.
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{2. Retardo Digital de Muestreo ($\tau$):}
+      \begin{equation*}
+        u(t) = u_{calc}(t - \tau), \quad H(s) = e^{-s\tau}
+      \end{equation*}
+      \small Desfasaje introducido por adquisición ADC/Encoder y cómputo del microcontrolador.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- SLIDE 6 ---
+\begin{frame}{6. Justificación Rigurosa del Control Inteligente}
+  \begin{block}{Control Difuso como Aproximador Universal}
+    La Inteligencia Artificial no reemplaza la teoría de control; actúa como una cartografía suave sobre la variedad no lineal no estructurada:
+    \begin{equation*}
+      u_{IA}(x) = \frac{\sum_{i=1}^M w_i(x) f_i(x)}{\sum_{i=1}^M w_i(x)}, \quad w_i(x) = \prod_{j=1}^n \mu_{A_{ji}}(x_j)
+    \end{equation*}
+  \end{block}
+
+  \begin{itemize}
+    \item \textbf{Teorema de Aproximación Universal (Stone-Weierstrass):} Los sistemas de inferencia Sugeno/Mamdani son densos en el espacio de funciones continuas $C(K)$ sobre un compacto $K \subset \mathbb{R}^n$.
+    \item \textbf{Propósito en la Propuesta:} Interceptar la incertidumbre paramétrica $\Delta \mathbf{M}(q)$ y compensar la fricción estática $f_c \text{sgn}(\dot{q})$ sin chattering ni discontinuidades.
+  \end{itemize}
+\end{frame}
+
+% --- SLIDE 7 ---
+\begin{frame}{7. Fundamentación en Análisis Funcional (Normas y Operadores)}
+  \begin{block}{Certificados Analíticos en Espacios de Banach e Hilbert}
+    Consideramos la trayectoria de error $e(t) = x(t) - x^*(t)$ como un elemento del espacio funcional $L_2([0, T])$ o $L_\infty([0, T])$.
+  \end{block}
+
+  \vspace{0.2cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Norma de Energía del Error ($L_2$):}
+      \begin{equation*}
+        \|e\|_2 = \left( \int_0^T \|e(t)\|^2 dt \right)^{1/2} < \infty
+      \end{equation*}
+      \small Garantiza que la energía acumulada del error de balanceo sea finita (Estabilidad en el sentido de Lyapunov).
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Norma de Máxima Desviación ($L_\infty$):}
+      \begin{equation*}
+        \|e\|_\infty = \text{ess\,sup}_{t \in [0,T]} \|e(t)\| \le \epsilon
+      \end{equation*}
+      \small Acota la excursión máxima del péndulo para evitar la caída durante perturbaciones impulsivas.
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- SLIDE 8 ---
+\begin{frame}{8. Arquitectura Híbrida Propuesta}
+  \begin{block}{Estrategia de Dos Fases: Swing-Up Eficiente y Balanceo Robusto}
+    Integración de control por energía en grandes desviaciones y control óptimo-difuso en la vecindad del equilibrio inestable.
+  \end{block}
+
+  \vspace{0.2cm}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{Fase 1: Swing-Up por Energía}
+        \begin{equation*}
+          E(q, \dot{q}) = \frac{1}{2} J_2 \dot{\theta}_2^2 + m_2 g r_2 (1 - \cos\theta_2)
+        \end{equation*}
+        $u_{swing} = k_E (E - E_0) \text{sgn}(\dot{\theta}_2 \cos\theta_1)$
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{Fase 2: Balanceo Adaptativo Híbrido}
+        \begin{equation*}
+          u(t) = -\mathbf{K}_{LQR} \hat{x}(t) + u_{difuso}(\hat{x}, t - \tau)
+        \end{equation*}
+        Compensación en tiempo real del retardo $\tau$ e incertidumbres de masa/fricción.
+      \end{exampleblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- SLIDE 9 ---
+\begin{frame}{9. Simplificación Funcional y Generación de Código C}
+  \begin{block}{Traducción de Expresiones Complejas a Ejecutables de Tiempo Real}
+    Para cumplir con los estrictos períodos de muestreo en microcontroladores ($T_s \le 1\text{ ms}$), se simplifica el operador de IA (Etapas 4 y 5 de la Metodología).
+  \end{block}
+
+  \begin{itemize}
+    \item \textbf{Aproximación Polinomial / Tablas de Búsqueda (LUT):} Proyección del mapa difuso $u_{difuso}(x)$ sobre una superficie polinomial suave de orden reducido o grilla interpolada linealmente.
+    \item \textbf{Generación Automática de Código C Determinista:}
+      \begin{itemize}
+        \item Sin asignación dinámica de memoria (\texttt{malloc} prohibido).
+        \item Estructuras fijas en punto flotante (\texttt{float32\_t}) optimizadas para FPU.
+        \item Ejecución garantizada en $O(1)$ pasos de cómputo por ciclo de reloj.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% --- SLIDE 10 ---
+\begin{frame}{10. Banco de Pruebas y Arquitectura de Hardware}
+  \begin{block}{Infraestructura Experimental del Péndulo de Furuta}
+    Validación física del controlador híbrido con instrumentación de alta resolución.
+  \end{block}
+
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Sensores y Adquisición:}
+      \begin{itemize}
+        \item Sensor Magnético Angular \textbf{AS5600} (12 bits, I2C/PWM) en el péndulo vertical.
+        \item Encoder óptico incremental \textbf{LPD3806} (600 PPR) en el brazo horizontal.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Actuación y Cómputo:}
+      \begin{itemize}
+        \item Etapa de potencia: Puente H \textbf{BTS7960} (43A) con modulación PWM a 20 kHz.
+        \item Procesador Embedded: Microcontrolador 32-bit (STM32/ESP32) ejecutando RTOS.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% --- SLIDE 11 ---
+\begin{frame}{11. Cronograma de Investigación Doctoral (8 Semestres)}
+  \begin{table}
+    \centering
+    \small
+    \begin{tabular}{lp{8.5cm}}
+      \toprule
+      \textbf{Periodo} & \textbf{Hitos y Entregables Clave} \\
+      \midrule
+      Semestres 1--2 & Modelado dinámico riguroso, caracterización de fricción y simulación en Julia. \\
+      Semestres 3--4 & Diseño del observador de estados, estimación del retardo y algoritmo difuso. \\
+      Semestres 5--6 & Simplificación polinomial, traducción a C y pruebas HIL. \\
+      Semestres 7--8 & Pruebas experimentales finales en planta física, redacción de tesis y artículos. \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+% --- SLIDE 12 ---
+\begin{frame}{12. Conclusiones y Compromiso de Rigor Académico}
+  \begin{block}{Síntesis del Aporte Propuesto}
+    Un esquema integral que conecta la abstracción del análisis funcional con la exigencia práctica del control embebido en tiempo real sobre el péndulo de Furuta.
+  \end{block}
+
+  \vspace{0.2cm}
+  \begin{itemize}
+    \item \textbf{Honestidad Intelectual:} La IA no sustituye la física; la enriquece capturando la no linealidad residual.
+    \item \textbf{Validez Matemática:} Certificación de estabilidad mediante acotación en normas $L_2$ y $L_\infty$.
+    \item \textbf{Factibilidad Técnica:} Demostración de viabilidad en código C estático con hardware accesible.
+  \end{itemize}
+
+  \vspace{0.4cm}
+  \begin{center}
+    \Large \textbf{Muchas gracias por su atención.} \\
+    \small \textit{Quedo a su entera disposición para sus valiosas preguntas y comentarios.}
+  \end{center}
+\end{frame}
+
+\end{document}

@@ -92,4 +92,6 @@ $$
 
 El buffer circular es la implementación eficiente de $x_{n−N}$. 
 
-
+$$
+T - \frac{N_1}{N_2} \left[ \frac{N_3}{N_4} \left(J_5 \ddot{\theta}_3 + D_5 \dot{\theta}_3\right) + (J_2+J_3)\ddot{\theta}_2 + (D_2+D_3)\dot{\theta}_2 \right] = J_1 \ddot{\theta}_1 + D_1 \dot{\theta}_1]
+$$
