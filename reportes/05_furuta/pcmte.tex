@@ -5,29 +5,30 @@
 
 % Personalización del Tema Beamer
 \usetheme{Madrid}
-\usecolortheme{whale}
 
-% Paleta de Colores Académica Elegante
-\definecolor{NavyBlue}{RGB}{27, 54, 93}
-\definecolor{SlateGray}{RGB}{74, 85, 104}
-\definecolor{AccentDark}{RGB}{180, 83, 9}
+% Paleta de Colores Institucional IPN
+% Guinda oficial: Pantone 222 C, RGB #750946
+% Gris oficial: Pantone Cool Gray 10C, RGB #636569
+\definecolor{IPNGuinda}{RGB}{117, 9, 70}      % #750946
+\definecolor{IPNGris}{RGB}{99, 101, 105}       % #636569
+\definecolor{IPNNegro}{RGB}{35, 31, 32}        % #231f20
 \definecolor{LightBg}{RGB}{245, 247, 250}
 
-\setbeamercolor{palette primary}{bg=NavyBlue,fg=white}
-\setbeamercolor{palette secondary}{bg=SlateGray,fg=white}
-\setbeamercolor{palette tertiary}{bg=NavyBlue!90,fg=white}
+\setbeamercolor{palette primary}{bg=IPNGuinda,fg=white}
+\setbeamercolor{palette secondary}{bg=IPNGris,fg=white}
+\setbeamercolor{palette tertiary}{bg=IPNGuinda!90,fg=white}
 \setbeamercolor{titlelike}{parent=palette primary}
-\setbeamercolor{block title}{bg=NavyBlue,fg=white}
+\setbeamercolor{block title}{bg=IPNGuinda,fg=white}
 \setbeamercolor{block body}{bg=LightBg,fg=black}
-\setbeamercolor{block title example}{bg=SlateGray,fg=white}
+\setbeamercolor{block title example}{bg=IPNGris,fg=white}
 \setbeamercolor{block body example}{bg=LightBg,fg=black}
-\setbeamercolor{block title alert}{bg=AccentDark,fg=white}
+\setbeamercolor{block title alert}{bg=IPNNegro,fg=white}
 \setbeamercolor{block body alert}{bg=LightBg,fg=black}
 
-\title[Control Inteligente del Péndulo de Furuta]{Modelado Dinámico y Control Inteligente del Péndulo de Furuta}
-\subtitle{Una Aproximación Rigurosa Basada en Espacios Funcionales e Implementación Embebida}
-\author[Propuesta de Investigación Doctoral]{Propuesta de Investigación Doctoral}
-\institute[Teoría de Control y Matemáticas Aplicadas]{Evaluación de Propuesta Doctoral}
+\title[Control del Péndulo de Furuta]{Modelado y Control del Péndulo de Furuta}
+\subtitle{Un enfoque práctico con espacios funcionales y control embebido}
+\author[Propuesta Doctoral]{Propuesta de Avance - Investigación Doctoral}
+\institute[Control y Matemáticas Aplicadas]{Reunión 1 - Comité tutorial}
 \date{\today}
 
 \begin{document}
@@ -43,7 +44,8 @@
 % --- SLIDE 2 ---
 \begin{frame}{2. Marco Metodológico de Referencia: Flujo de 10 Etapas}
   \begin{block}{Metodología Base de Síntesis de Control e IA}
-    Se adopta el marco metodológico de 10 etapas para diseño de controladores en tiempo real (Zavala-Ponce et al.), integrando validación analítica previa al hardware.
+    Se adopta el marco metodológico (Z.P. et. al.) de 10 etapas para diseño de controladores en tiempo real.
+ Se cuenta con un prototipo físico inicial (plataforma Furuta instrumentada con microcontrolador, encoders, etc), lo que permite que la propuesta se centre en la validación formal e implementación de controlador(es),  bajo una ruta de trabajo ordenada y verificable.
   \end{block}
   
   \vspace{0.2cm}
