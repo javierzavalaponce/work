@@ -7,3 +7,8 @@ pdftk zill.pdf cat 17-25 output salida.pdf
 
 
 rsync -avh --progress /home/toto/doc/ /media/toto/WORK_ND_DOC/doc/
+
+filen sync filen-main --verbose
+
+
+
