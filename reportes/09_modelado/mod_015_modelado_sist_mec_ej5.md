@@ -5,7 +5,7 @@
 ## Modelado de sistemas mecanicos. Tarea Ej.5
 
 
-\begin{figure}[H]
+\begin{figure}[H]   
 \centering
 \includegraphics[width=0.73\textwidth,trim=0cm 11cm 0cm 10cm,clip]{../img/modelado_ejer_5_mecanicos.pdf}
 \end{figure}

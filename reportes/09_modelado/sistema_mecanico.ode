@@ -1,0 +1,20 @@
+# Parámetros
+par m1=1, m2=2, B1=0.2, B2=0.3, B=0.1
+par k1=10, k2=5, k=8
+par f2=0
+
+# Ecuaciones de estado (primer orden)
+x' = y
+y' = ( f1 - (B1+B)*y + B*v - (k1+k)*x + k*u ) / m1
+
+u' = v
+v' = ( -f2 + B*y - (B2+B)*v + k*x - (k2+k)*u ) / m2
+
+# Condiciones iniciales (damos un golpe inicial a la velocidad de m1)
+init x=0, y=10, u=0, v=0
+
+# impulso:
+f1 = 50 * (t < 0.1)
+
+done
+

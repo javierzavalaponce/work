@@ -1,4 +1,4 @@
-pandoc mod_015_modelado_sist_mec_ej5.md \
+pandoc mod_016_modelado_tarea_Examen_.md \
   -o 00.pdf \
   --pdf-engine=xelatex \
   -H ../header.tex \
