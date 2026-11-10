@@ -4,8 +4,12 @@
 
 ## Tarea de examen. Simulacion de sistema mecanico
 
-Diagramas de Cuerpo Libre
+\begin{figure}[H]   
+\centering
+\includegraphics[width=0.81\textwidth,trim=0cm 9cm 0cm 9cm,clip]{../img/modelado_ejer_exam.pdf}
+\end{figure}
 
+Diagramas de Cuerpo Libre
 
 ```{=latex}
 \begin{center}
@@ -98,6 +102,7 @@ m_2 \ddot{x}_2 - B\dot{x}_1 + (B_2 + B)\dot{x}_2 - kx_1 + (k_2 + k)x_2 &= -f_2
 \end{aligned}
 $$
 
+\newpage
 despejando aceleraciones:
 
 $$
@@ -156,31 +161,52 @@ $$
 \end{minipage}
 \end{center}
 ```
+\newpage
 
 ### Paso 3: Simulación numérica (xppaut)
 
 xppaut:
 
 ```lisp
-# Parámetros
-par m1=1, m2=2, B1=0.2, B2=0.3, B=0.1
+# ---- Parámetros físicos ----
+par m1=1, m2=2
+par B1=0.2, B2=0.3, B=0.1
 par k1=10, k2=5, k=8
-par f2=0
 
-# Ecuaciones de estado (primer orden)
+# ---- Entradas (fuerzas externas) ----
+aux f1 = 50*(t<0.1)   # impulso rectangular sobre m1
+aux f2 = 0            # sin excitación sobre m2
+
+# ---- Estado: x=x1, y=x1', u=x2, v=x2' ----
 x' = y
 y' = ( f1 - (B1+B)*y + B*v - (k1+k)*x + k*u ) / m1
 
 u' = v
 v' = ( -f2 + B*y - (B2+B)*v + k*x - (k2+k)*u ) / m2
 
-# Condiciones iniciales (damos un golpe inicial a la velocidad de m1)
-init x=0, y=10, u=0, v=0
+# ---- Condiciones iniciales ----
+# impulso de entrada f1 : 50*(t<0.1)
+init x=0, y=0, u=0, v=0
 
-# impulso:
-f1 = 50 * (t < 0.1)
-
+# ---- Ajustes de simulación ----
+@ total=20, dt=0.01, meth=stiff
 done
 ```
+\newpage
 
 ### Paso 4: Visualización 
+
+$x_1$
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.76\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/x1_exam.png}
+\end{figure}
+
+$x_2$
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.76\textwidth,trim=0cm 0cm 0cm 0cm,clip]{../img/x2_exam.png}
+\end{figure}
+
