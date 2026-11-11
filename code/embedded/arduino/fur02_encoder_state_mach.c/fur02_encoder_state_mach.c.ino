@@ -160,7 +160,8 @@ enum events get_new_event(void)
         if (quarter_steps >= 4) {
             encoder++;
             quarter_steps = 0;
-            Serial.println(encoder);
+            Serial.print(millis()); Serial.print(","); Serial.println(encoder);
+            //Serial.println(encoder);
         }
 
         return EVENT_1;
@@ -181,7 +182,8 @@ enum events get_new_event(void)
         if (quarter_steps <= -4) {
             encoder--;
             quarter_steps = 0;
-            Serial.println(encoder);
+            //Serial.println(encoder);
+            Serial.print(millis()); Serial.print(","); Serial.println(encoder);
         }
 
         return EVENT_2;

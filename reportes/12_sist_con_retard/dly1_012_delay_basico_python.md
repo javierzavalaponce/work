@@ -2,8 +2,6 @@
 \clearpage
 ```
 
-
-
 ## Retardo puro
 
 Un sistema con retardo puro reproduce la señal de entrada después de un intervalo de tiempo $T$. Su salida está dada por:
