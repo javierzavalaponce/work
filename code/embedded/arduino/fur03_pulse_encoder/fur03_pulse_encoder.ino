@@ -31,6 +31,9 @@ const int ENC_B = 10;
 const int PIN_SW = 11;
 const int ENC_LED = 12;
 
+const int ENC_A_PENDULO = 3;
+const int ENC_B_PENDULO = 2;
+
 int A;
 int B;
 
@@ -107,8 +110,8 @@ void setup()
     setup_drivermotor();
     Serial.begin(115200);
     
-    pinMode(ENC_A, INPUT_PULLUP);
-    pinMode(ENC_B, INPUT_PULLUP);
+    pinMode(ENC_A_PENDULO, INPUT_PULLUP);
+    pinMode(ENC_B_PENDULO, INPUT_PULLUP);
     pinMode(PIN_SW, INPUT_PULLUP);
 
     pinMode(ENC_LED, OUTPUT);
@@ -117,13 +120,13 @@ void setup()
     digitalWrite(ENC_LED, LOW);
     digitalWrite(LED_BUILTIN, LOW);
 
-    A = digitalRead(ENC_A);
-    B = digitalRead(ENC_B);
+    A = digitalRead(ENC_A_PENDULO);
+    B = digitalRead(ENC_B_PENDULO);
 
     state = A + 2 * B;
     encoder = 0;
 
-    Serial.println("rst: OK (1323)");
+    Serial.println("D: rst");
     
 }
 
@@ -155,7 +158,7 @@ void loop()
     if (digitalRead(PIN_SW) == LOW)
     {
         while(digitalRead(PIN_SW) == LOW) ;
-        Serial.println("SWITCH");
+        Serial.println("D: SWITCH");
         delay(50);
         var = ( (var==0) ? 1:0);
         if(var) {
@@ -195,8 +198,8 @@ void action_s3_e2(void) {current_state = STATE_1;}
 
 enum events get_new_event(void)
 {
-    A = digitalRead(ENC_A);
-    B = digitalRead(ENC_B);
+    A = digitalRead(ENC_A_PENDULO);
+    B = digitalRead(ENC_B_PENDULO);
 
     cuadrature_cnt = A + 2 * B;
 
@@ -223,7 +226,8 @@ enum events get_new_event(void)
         if (quarter_steps >= 4) {
             encoder++;
             quarter_steps = 0;
-            Serial.println(encoder);
+            //Serial.println(encoder);
+            Serial.print(millis()); Serial.print(","); Serial.println(encoder);
         }
 
         return EVENT_1;
@@ -244,7 +248,8 @@ enum events get_new_event(void)
         if (quarter_steps <= -4) {
             encoder--;
             quarter_steps = 0;
-            Serial.println(encoder);
+            //Serial.println(encoder);
+            Serial.print(millis()); Serial.print(","); Serial.println(encoder);
         }
 
         return EVENT_2;
