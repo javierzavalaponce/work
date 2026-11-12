@@ -1,0 +1,199 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eclab | ESIME Culhuacán</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f0e8;
+            color: #202b3c;
+            font-family: "DejaVu Sans Mono", monospace;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 24px 6%;
+            background: #ffffff;
+            border-bottom: 4px solid #6f1d46;
+        }
+
+        .logo {
+            width: 76px;
+            height: 76px;
+            object-fit: contain;
+        }
+
+        .identidad {
+            flex: 1;
+        }
+
+        .identidad h1 {
+            margin: 0;
+            color: #6f1d46;
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+        }
+
+        .identidad p {
+            margin: 8px 0 0;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 55px auto;
+            padding: 0 24px;
+        }
+
+        .introduccion {
+            margin-bottom: 32px;
+        }
+
+        .introduccion small {
+            color: #6f1d46;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .introduccion h2 {
+            margin: 12px 0;
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+        }
+
+        .introduccion p {
+            max-width: 680px;
+            line-height: 1.8;
+            color: #55504f;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .opcion {
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e2dcd3;
+            border-radius: 8px;
+            border-top: 4px solid #6f1d46;
+        }
+
+        .opcion small {
+            color: #6f1d46;
+            letter-spacing: 1px;
+        }
+
+        .opcion h3 {
+            margin-bottom: 8px;
+        }
+
+        .opcion p {
+            color: #55504f;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: #6b625f;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                gap: 12px;
+                padding: 18px;
+            }
+
+            .logo {
+                width: 54px;
+                height: 54px;
+            }
+
+            .identidad p {
+                font-size: 0.65rem;
+            }
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img class="logo"
+             src="{{ url_for('static', filename='logo_esime.png') }}"
+             alt="Logo de ESIME">
+
+        <div class="identidad">
+            <h1>ESIME / CULHUACÁN</h1>
+            <p>LABORATORIO DIGITAL DE INGENIERÍA</p>
+        </div>
+
+        <img class="logo"
+             src="{{ url_for('static', filename='logo_labctrl.png') }}"
+             alt="Logo del laboratorio">
+    </header>
+
+    <main>
+        <section class="introduccion">
+            <small>MODELADO · SIMULACIÓN · CONTROL</small>
+            <h2>Experimenta con la ingeniería de control.</h2>
+            <p>
+                Alternativa para operaciones y actividades 
+                específicas que normalmente se realizan con MATLAB
+            </p>
+        </section>
+
+        <section class="menu">
+            <article class="opcion">
+                <small>01 / APLICACIONES</small>
+                <h3>Herramientas</h3>
+                <p>Calculadoras y programas para resolver problemas de ingeniería.</p>
+            </article>
+
+            <article class="opcion">
+                <small>02 / EXPERIMENTACIÓN</small>
+                <h3>Simulación</h3>
+                <p>Explora gráficas y observa el comportamiento de sistemas dinámicos.</p>
+            </article>
+<!--
+            <article class="opcion">
+                <small>03 / MATEMÁTICAS</small>
+                <h3>Modelado</h3>
+                <p>Funciones de transferencia y representaciones en espacio de estados.</p>
+            </article>
+
+            <article class="opcion">
+                <small>04 / SISTEMAS</small>
+                <h3>Control</h3>
+                <p>Estudia controladores y analiza la respuesta de sistemas.</p>
+            </article>
+-->
+        </section>
+    </main>
+
+    <footer>
+        ECLAB · ESIME Culhuacán · Aprender, modelar y experimentar
+    </footer>
+</body>
+</html>
+
+
+
