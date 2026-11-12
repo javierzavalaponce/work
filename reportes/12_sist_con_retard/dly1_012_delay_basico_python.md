@@ -4,6 +4,7 @@
 
 ## Retardo puro
 
+
 Un sistema con retardo puro reproduce la señal de entrada después de un intervalo de tiempo $T$. Su salida está dada por:
 
 $$
@@ -11,8 +12,14 @@ y(t)=x(t-T)
 $$
 
 donde $T>0$ representa el tiempo de retardo.
+Numéricamente un retardo es esencialmente un buffer (una cola o memoria).
 
 Para un sistema lineal e invariante en el tiempo, con condiciones iniciales nulas, la transformada de Laplace permite expresar esta relación como:
+
+Un sistema lineal e invariante en el tiempo (LTI) es un sistema que cumple dos condiciones:
+
+1. Lineal: responde proporcionalmente a las entradas y permite sumar los efectos de varias entradas.
+2. Invariante en el tiempo: su comportamiento no cambia con el paso del tiempo; misma entrada bajo las mismas condiciones, genera la misma respuesta.
 
 $$
 Y(s)=e^{-sT}X(s)
