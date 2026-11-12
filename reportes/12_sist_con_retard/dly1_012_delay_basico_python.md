@@ -4,6 +4,7 @@
 
 ## Retardo puro
 
+
 Un sistema con retardo puro reproduce la señal de entrada después de un intervalo de tiempo $T$. Su salida está dada por:
 
 $$
@@ -11,6 +12,7 @@ y(t)=x(t-T)
 $$
 
 donde $T>0$ representa el tiempo de retardo.
+Numéricamente un retardo es esencialmente un buffer (una cola o memoria).
 
 Para un sistema lineal e invariante en el tiempo, con condiciones iniciales nulas, la transformada de Laplace permite expresar esta relación como:
 
