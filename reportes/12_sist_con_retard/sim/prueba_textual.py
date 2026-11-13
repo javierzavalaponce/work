@@ -20,6 +20,18 @@ class PruebaTextual(App):
             id="denominador"
         )
 
+        yield Static("Nombre del archivo:")
+        yield Input(
+            placeholder="sistema.ode",
+            id="filename"
+        )
+
+        yield Static("Retardo:")
+        yield Input(
+            placeholder="0",
+            id="retardo"
+        )
+
         yield Static("", id="resultado")
         yield Footer()
 
