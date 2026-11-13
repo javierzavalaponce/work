@@ -1,0 +1,49 @@
+/* Estilo general */
+Screen {
+    layout: vertical;
+    background: #0b0f18;
+    color: #c0c8d6;
+}
+
+Header {
+    background: #161b26;
+    color: #e5eaf3;
+    text-style: bold;
+    dock: top;
+}
+
+Footer {
+    background: #161b26;
+    color: #a0a8b6;
+    dock: bottom;
+}
+
+Container {
+    padding: 1;
+    height: 1fr;
+    width: 1fr;
+}
+
+/* Gráfica */
+LinePlot {
+    height: 4fr;
+    width: 1fr;
+    background: #0b0f18;
+    border: panel #283347;
+    color: #6ce5e8;
+}
+
+/* Estructura de contenedores */
+#status {
+    padding: 1;
+    background: #161b26;
+    border: panel #283347;
+    min-height: 3;
+}
+
+#info {
+    padding: 1;
+    background: #161b26;
+    border: panel #283347;
+    min-height: 3;
+}
