@@ -13,3 +13,6 @@
 ### Con $G(s)=\frac{1}{s+1}$ y $H(s)=k$
 
 Supongamos un retardo $\tau=1.5s$
+
+
+poner codigo python.. simulacion fase 1
