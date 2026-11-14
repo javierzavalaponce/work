@@ -26,7 +26,7 @@ El retardo introduce una fase dependiente de la frecuencia, pero no modifica la 
 $|H(j\omega)|=1$ y $\angle H(j\omega)=-\omega T$. $e^{-sT}$ no es una función racional de $s$. Por ello, un retardo puro no puede representarse exactamente mediante una función de transferencia racional de orden finito.
 
 
-Cuando pasamos al dominio discreto, el retardo se implementa mediante un buffer circular de $N$ muestras. 
+Cuando pasamos al dominio discreto, el retardo se implementa mediante un *buffer circular* de $N$ muestras. 
 
 \begin{figure}[H]
 \centering
