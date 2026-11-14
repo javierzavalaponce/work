@@ -4,7 +4,7 @@ from collections import deque
 
 # --- 1. Definición de Parámetros ---
 k = 2.0          # Ganancia del controlador H(s) = k
-tau = 1.5        # Retardo en segundos
+tau = 0.7        # Retardo en segundos
 dt = 0.01        # Paso de simulación (muy pequeño para precisión)
 t_final = 15.0   # Tiempo total de simulación
 
@@ -12,6 +12,7 @@ t_final = 15.0   # Tiempo total de simulación
 # ¿Cuántas muestras necesitamos guardar para tener el retardo de 1.5s?
 # Si dt = 0.01, necesitamos 150 muestras para tener 1.5 segundos.
 N_retardo = int(tau / dt) 
+# double-ended queue:
 buffer_retardo = deque(maxlen=N_retardo + 1)
 
 # Llenamos el buffer inicialmente con ceros (asumimos que el sistema inicia en reposo)
@@ -32,7 +33,7 @@ senales_control_u = []
 while t <= t_final:
     # A) El lazo de realimentación (Sumador)
     # La señal que sale del sumador es el error: e = r - y_retardada
-    # PERO OJO: el retardo está en el lazo de realimentación.
+    # NOTA: el retardo está en el lazo de realimentación.
     # La señal que se retroalimenta es y(t - tau).
     y_retardada = buffer_retardo[0] 
     
