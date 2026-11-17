@@ -5,7 +5,7 @@ from collections import deque
 # --- 1. Definición de Parámetros ---
 k = 2.0          # Ganancia del controlador H(s) = k
 tau = 0.7        # Retardo en segundos
-dt = 0.01        # Paso de simulación (muy pequeño para precisión)
+dt = 0.01        # Paso de simulación 
 t_final = 15.0   # Tiempo total de simulación
 
 # --- 2. Configuración del Buffer de Retardo ---

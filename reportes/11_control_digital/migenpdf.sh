@@ -1,4 +1,4 @@
-pandoc cdig_032_ejercicio_observador_retro.md \
+pandoc Cdig_050_transformada_Z.md \
   -o 00.pdf \
   --pdf-engine=xelatex \
   -H ../header.tex \

@@ -16,15 +16,48 @@ Numéricamente un retardo es esencialmente un buffer (una cola o memoria).
 
 Para un sistema lineal e invariante en el tiempo, con condiciones iniciales nulas, la transformada de Laplace permite expresar esta relación como $Y(s)=e^{-sT}X(s)$.
 
-Por tanto, la función de transferencia del retardo puro es:
-
+Un retardo puro de $T$ segundos tiene función de transferencia
 $$
-H(s)=\frac{Y(s)}{X(s)}=e^{-sT}
+H(s)=e^{-sT}.
 $$
+Evaluada en $s=j\omega$, su respuesta en frecuencia es
+$$
+H(j\omega)=e^{-j\omega T}.
+$$
+Su \textbf{magnitud} es constante:
+$$
+|H(j\omega)|=|e^{-j\omega T}|=1 \quad\text{para toda }\omega,
+$$
+es decir, el retardo \textbf{no amplifica ni atenúa} ninguna frecuencia.
+Su \textbf{fase}, en cambio, depende de la frecuencia:
+$$
+\angle H(j\omega)=-\omega T.
+$$
+La razón es que retrasar una senoide $\sin(\omega t)$ en $T$ segundos
+la convierte en $\sin(\omega(t-T))=\sin(\omega t-\omega T)$: el argumento
+cambia en $-\omega T$, y ese cambio \textbf{es} el desfase.
 
-El retardo introduce una fase dependiente de la frecuencia, pero no modifica la magnitud de la respuesta en frecuencia:
-$|H(j\omega)|=1$ y $\angle H(j\omega)=-\omega T$. $e^{-sT}$ no es una función racional de $s$. Por ello, un retardo puro no puede representarse exactamente mediante una función de transferencia racional de orden finito.
+La función $e^{-sT}$ \textbf{no es una función racional} de $s$
+(no es un cociente de polinomios: es una serie infinita), por lo que
+no puede representarse exactamente mediante una función de transferencia
+racional de orden finito. En consecuencia, un retardo puro no tiene
+polos finitos en el sentido habitual. Al incluirlo en un lazo cerrado,
+por ejemplo
+$$
+1+K e^{-sT}=0,
+$$
+aparecen \textbf{infinitos polos} alineados en la recta vertical
+$$
+\sigma=\frac{1}{T}\ln K,
+$$
+espaciados verticalmente cada $2\pi/T$. Su estabilidad depende de $K$:
+\begin{itemize}
+  \item $K>1$: todos los polos tienen $\sigma>0$ $\Rightarrow$ \textbf{todos inestables};
+  \item $K=1$: todos sobre el eje imaginario $\Rightarrow$ \textbf{marginal};
+  \item $K<1$: todos con $\sigma<0$ $\Rightarrow$ \textbf{todos estables}.
+\end{itemize}
 
+\newpage
 
 Cuando pasamos al dominio discreto, el retardo se implementa mediante un *buffer circular* de $N$ muestras. 
 

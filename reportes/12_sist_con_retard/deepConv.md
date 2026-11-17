@@ -895,3 +895,134 @@ No necesitas leer los libros completos antes de diciembre. Necesitas dominar **t
 > "En tres semanas implemento un simulador mínimo de un lazo con retardo usando el método de pasos y RK4, valido la planta contra `scipy`, y demuestro que la tasa de crecimiento simulada de un sistema con polos complejos inestables coincide con la predicción de la ecuación característica trascendente. El objetivo es tener una base numérica sólida antes de profundizar en la teoría de estabilidad de sistemas con retardo."
 
 Eso es defendible, acotado, y demostrable el 5 de diciembre.
+--
+
+# Bitácora de Proyecto: Simulador de Sistemas con Retardo (Python/POO)
+
+## Contexto Inicial
+- **Objetivo:** Simular un lazo de control con retardo de transporte (e^(-τs)) en el camino de realimentación.
+- **Situación:** Usuario en Debian 13 sin MATLAB. Se intentó usar GNU Octave (v9.4.0) con el paquete `control` (v4.1.1).
+- **Problema encontrado:** La función `tf()` de Octave no soporta la propiedad `OutputDelay` (a diferencia de MATLAB). 
+- **Alternativas evaluadas:** 
+  1. Usar Xcos (entorno visual de Octave).
+  2. Usar la aproximación `thiran` (filtro digital) en código.
+  3. **Idea principal elegida:** Crear una herramienta de simulación propia en Python.
+
+---
+
+## Propuesta del Proyecto: Simulador en Python
+**Idea:** Crear un simulador tipo "Simulink" propio usando Programación Orientada a Objetos (POO). El sistema se definirá en un archivo JSON y cada bloque se implementará como una clase.
+
+### 🧠 Por qué es una buena idea
+1. Entenderás la "caja negra" (buffers, interpolación, paso de integración).
+2. Proyecto ideal a largo plazo (aprendes POO, arquitectura y control).
+3. JSON permite separar la definición del sistema de la lógica de simulación.
+
+### ⚠️ Desafíos Ocultos (A tener en cuenta)
+1. **Paso de simulación (dt) y Retardo:** Si el retardo (τ) no es múltiplo exacto de dt, se requiere interpolación lineal en el buffer.
+2. **Orden de actualización (Lazos algebraicos):** En un lazo cerrado, la salida depende de la entrada y viceversa. Hay que definir el orden de actualización o usar memorias para romper el lazo.
+3. **Sistemas continuos vs. discretos:** Los bloques de función de transferencia G(s) necesitan discretizarse (Euler, Runge-Kutta) para simularse.
+4. **Propagación de señales:** Se necesita un motor que haga el "barrido" (sweep) de todos los bloques en cada instante de tiempo.
+
+---
+
+## 🏗️ Arquitectura Sugerida (POO)
+
+### 1. Clase Base Abstracta `Block`
+Define la interfaz común para todos los bloques.
+```python
+class Block:
+    def __init__(self, name):
+        self.name = name
+        self.inputs = {}
+        self.outputs = {}
+        self.state = None  # Estado interno (ej. buffer de retardo)
+        
+    def update(self, t, dt):
+        raise NotImplementedError("Debes implementar este método")
+
+
+```
+
+necesito reorganizar las ideas
+
+2. Bloques Concretos
+
+    WireBlock: Pasa la entrada a la salida.
+
+    GainBlock: y = K * u.
+
+    DelayBlock: Usa collections.deque como buffer (guarda historial).
+
+    TransferFcnBlock: Usa scipy.signal (ej. lsim o cont2discrete) para el solver.
+
+3. Motor de Simulación (SimulationEngine)
+
+Lee el JSON, instancia bloques, los conecta y ejecuta el bucle temporal:
+python
+
+for t in np.arange(0, t_end, dt):
+    for block in self.blocks_sorted:
+        block.update(t, dt)
+    # Almacenar resultados
+
+4. Definición en JSON
+json
+
+{
+  "blocks": [
+    {"id": "ref", "type": "Step", "params": {"amplitude": 1, "time": 0}},
+    {"id": "sum", "type": "Sum", "params": {"signs": ["+", "-"]}},
+    {"id": "ctrl", "type": "Gain", "params": {"gain": 2}},
+    {"id": "plant", "type": "TransferFcn", "params": {"num": [1], "den": [1, 1]}},
+    {"id": "delay", "type": "Delay", "params": {"tau": 1.5}}
+  ],
+  "connections": [
+    {"from": "ref:out1", "to": "sum:in1"},
+    {"from": "sum:out1", "to": "ctrl:in1"}
+  ]
+}
+
+🚀 Plan de Acción por Fases
+
+    Fase 1 (El juguete): Simular sistema sin retardos ni realimentación (Generador -> Ganancia -> Planta -> Scope). Aprender POO y motor de simulación.
+
+    Fase 2 (El reto): Agregar bloque Delay con buffer. Probar con retardos múltiplos exactos de dt.
+
+    Fase 3 (La realimentación): Agregar lazo cerrado. Resolver el problema del orden de actualización.
+
+    Fase 4 (El JSON): Implementar el parser para leer la configuración desde archivo.
+
+💡 Consejo Final
+
+No reinventar la rueda en todo. Para funciones de transferencia, usar scipy.signal. El valor agregado está en el motor de simulación, el manejo de retardos y la arquitectura JSON/POO.
+
+
+---
+
+Contexto del proyecto: Estoy construyendo mi propio simulador de sistemas de control en Python (estilo Simulink) para simular un lazo cerrado con retardo τ=1.5ss, usando G(s)=1s+1  y H(s)=k. Estoy en Debian 13, sin MATLAB, usando Python puro con numpy y matplotlib.
+
+Dónde nos quedamos: Acabamos de superar la fase 1. Me diste un código en Python (sin POO, usando collections.deque para el buffer de retardo y método de Euler para la planta) que simula el sistema. Me pediste que lo ejecutara y probara cambiando kk, y también que viera qué pasa si G(s)=1s−1
+(sistema inestable).
+
+Mi situación actual: [Aquí tú escribes una de estas opciones]:
+
+Opción A: "Ya ejecuté el código y funciona. Estoy listo para reestructurarlo en POO y leer un JSON, como planeamos."
+
+Opción B: "Tuve un error al ejecutar el código. Este es el error: [pegar error]."
+
+Opción C: "Quiero entender mejor la teoría antes de programar. Explícame por qué el retardo afecta la estabilidad."
+
+Mi objetivo para hoy: Quiero avanzar al siguiente paso lógico de mi plan de aprendizaje (Fase 2: POO y JSON) o resolver mis dudas actuales.
+
+💡 Consejos para cuando retomes:
+
+Si el código te dio error: No te preocupes, pega el mensaje de error exacto en la sección de "Mi situación actual" y lo resolvemos.
+
+Si ya funcionó: Ejecuta el script, toma una captura de pantalla de la gráfica y guárdala. Cuando vuelvas, podrás mostrármela si quieres que analicemos juntos la forma de la curva (sobreimpulso, tiempo de establecimiento, etc.).
+
+Si quieres repasar la teoría del s−1s−1: Puedes leer el resumen de tu bitácora o simplemente preguntarme de nuevo; para eso estoy.
+
+Cuando estés listo, pega el prompt y seguimos adelante. ¡Mucho éxito con tu evaluación!
+
+simulacion_fase1.py
