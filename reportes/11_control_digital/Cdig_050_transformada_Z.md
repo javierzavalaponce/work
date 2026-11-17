@@ -192,6 +192,23 @@ $$
 \boxed{\text{ROC}:\ |z|>|a|}
 $$
 
+
+### ROC del filtro RC causal
+
+El filtro RC físico es \textbf{causal}: la salida de ahora depende de la
+salida anterior y de la entrada actual, nunca del futuro. Por la regla
+de la tabla de ROC, un sistema causal tiene ROC de la forma $|z|>r$.
+El polo está en $z=\alpha=\frac{RC}{RC+1}$, así que
+$$
+\text{ROC}:\ |z|>|\alpha|.
+$$
+La razón de fondo es que, al ser causal, la respuesta impulsional vive en
+$k\ge 0$, la serie geométrica de $\sum h[k]z^{-k}$ tiene la $z$ en el
+denominador (razón $\alpha/z$), y converge solo si $|\alpha/z|<1$, es
+decir, $|z|>|\alpha|$.
+
+
+
 ### Tabla resumen de ROC
 
 | Tipo de secuencia | Vive en | Razón de la geométrica | ROC | Ejemplo |
@@ -202,6 +219,10 @@ $$
 | **Finita** | intervalo finito | — | todo el plano salvo $0$ y/o $\infty$ | $\{1,2,3\}$ |
 
 : Región de convergencia según el tipo de secuencia
+
+
+
+
 
 
 ### Respuesta impulsional
