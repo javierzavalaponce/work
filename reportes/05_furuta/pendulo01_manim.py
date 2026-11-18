@@ -25,7 +25,7 @@ class PenduloSimple(Scene):
             FadeOut(titulo, shift=DOWN),
             run_time=1.5
         )
-        
+
 
         # ─── Parámetros físicos ───
         L = 2.0
@@ -173,10 +173,16 @@ class PenduloSimple(Scene):
 
         self.wait(0.5)
 
-        # ─── Animación ───
-        for theta in thetas:
-            self.theta = theta
-            self.wait(dt)
-
-
-
+        def actualizar(mob, alpha):
+            indice = alpha * (len(thetas) - 1)
+            self.theta = np.interp(
+                indice,
+                np.arange(len(thetas)),
+                thetas
+            )
+        
+        self.play(
+            UpdateFromAlphaFunc(pivote, actualizar),
+            run_time=5,
+            rate_func=linear
+        )
