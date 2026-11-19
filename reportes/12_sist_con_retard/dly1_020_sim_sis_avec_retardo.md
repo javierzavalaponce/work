@@ -142,3 +142,10 @@ Los valores $n\ge 0$ dan $\tau<0$ (sin sentido físico) y $n\le -2$
 dan cruces posteriores (retardos mayores).
 
 \newpage
+
+
+$\tau$=0.7
+
+$H(s)=k=2.0$
+
+$G(s) = \frac{1}{s+1}$
