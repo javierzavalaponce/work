@@ -1,3 +1,31 @@
+'''
+Este script simula en Python un lazo de control 
+retroalimentado con retardo de tiempo puro en el camino directo, 
+para estudiar cómo el retardo afecta la estabilidad del sistema.
+
+Recibe por línea de comandos el retardo Tau y el nombre del archivo .png de salida.
+Implementa el retardo con un buffer 
+tipo cola (deque) de tamaño Tau/dt: 
+en cada paso lee la señal de control más antigua y guarda la nueva, 
+emulando el retardo de forma discreta.
+
+Integra la dinámica de la planta con método de Euler 
+(paso dt=0.01 simulación de 15 s).
+
+En cada iteración: calcula el error e=r−y
+aplica el controlador, lee la señal retardada del buffer, 
+integra la planta  y actualiza el buffer con la nueva u.
+
+Permite visualizar experimentalmente el efecto del retardo sobre la 
+respuesta en lazo cerrado: 
+
+#Limitaciones
+
+- Usa Euler explícito (precisión limitada si dt es grande).
+- Retardo discreto por buffer (no usa aproximación de Padé).
+- Condiciones iniciales en reposo.
+'''
+
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
@@ -42,7 +70,6 @@ def do_once(input1,input2):
     senales_control_u = []
     
     # --- 4. Bucle de Simulación (El motor) ---
-    # --- 4. Bucle de Simulación (El motor) ---
     while t <= t_final:
         # A) El lazo de realimentación (Sumador) - AHORA VE EL PRESENTE
         # La señal que se retroalimenta es y(t), no y(t-tau).
@@ -61,7 +88,8 @@ def do_once(input1,input2):
         y_nueva = y + dt * dy_dt
         
         # E) Actualizar el buffer de retardo
-        # ¡OJO! Ahora guardamos la señal de control, no la salida de la planta
+        # ¡OJO! Ahora guardamos la señal de control 
+        #(lo que entra al buffer de retardo)
         buffer_retardo.append(u_control)
         
         # F) Guardar datos
