@@ -1,21 +1,21 @@
-Resumen de cómo queda tu planeación hasta ahora:
+planeación :
 
-    Retardo: Buffer exacto (deque).
+uso de Retardo: Buffer exacto (deque).
 
-    RK4: Se implementa como una función genérica que integra cualquier ecuación diferencial.
+RK4: Se implementa como una función genérica que integra cualquier ecuación diferencial.
 
-    Desacoplamiento: La planta GG y el controlador HH se definen como diccionarios (o clases) que contienen su estado actual y su función de derivadas.
+Desacoplamiento: La planta G y el controlador H se definen como diccionarios (o clases) que contienen su estado actual y su función de derivadas.
 
-    Batch: Para simular otra cosa, solo creas un nuevo diccionario con otra función de derivadas y se lo pasas al mismo bucle de simulación.
+Batch: Para simular otra cosa, solo creas un nuevo diccionario con otra función de derivadas y se lo pasas al mismo bucle de simulación.
 
-    ---
-    Conclusión de la Planeación. proyecto dividido en tres capas:
+---
+Conclusión de la Planeación. proyecto dividido en tres capas:
 
-    Capa de Datos: Listas num/den y el valor de tau.
+Capa de Datos: Listas num/den y el valor de tau.
 
-    Capa de Simulación (Tiempo): Conversión a espacio de estados + RK4 + Buffer exacto.
+Capa de Simulación (Tiempo): Conversión a espacio de estados + RK4 + Buffer exacto.
 
-    Capa de Análisis (Frecuencia): Evaluación en jωjω + Multiplicación por e−jωτe−jωτ (sin Padé) + Gráfico.
+Capa de Análisis (Frecuencia): Evaluación en jωjω + Multiplicación por e−jωτe−jωτ (sin Padé) + Gráfico.
 
 usar scipy.signal.tf2ss(num, den) para que Python haga la conversión de matrices por ti automáticamente.
 

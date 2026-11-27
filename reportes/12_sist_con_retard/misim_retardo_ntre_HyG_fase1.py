@@ -35,7 +35,7 @@ from collections import deque
 def main():
     plt.close('all')
     if len(sys.argv) != 3:
-        print("Uso: python misim_retardo_ntre_HyG.py <tau> <output.png>")
+        print("Uso: python misim_retardo_ntre_HyG_fase2.py <tau> <output.png>")
         sys.exit(1)
     do_once(float(sys.argv[1]), sys.argv[2])
 
