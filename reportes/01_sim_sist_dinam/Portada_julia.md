@@ -6,7 +6,7 @@
 \begin{center}
 
 % Título principal (serio, sin exageración tipográfica)
-{\LARGE \textbf{Simulación de sistemas dinámicos en  \emph{julia}}\par}
+{\LARGE \textbf{Simulación de sistemas dinámicos}\par}
 
 
 \vspace{1.8cm}
