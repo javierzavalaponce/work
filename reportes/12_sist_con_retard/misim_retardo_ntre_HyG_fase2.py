@@ -40,6 +40,60 @@ def main():
     do_once(float(sys.argv[1]), sys.argv[2])
 
 
+
+def tf2ss(num, den):
+    """
+    Convierte una función de transferencia en espacio de estados
+    mediante la forma canónica controlable.
+    """
+    # Convertir las listas a arreglos NumPy
+    num = np.asarray(num, dtype=float)
+    den = np.asarray(den, dtype=float)
+
+    # Validaciones básicas
+    if den.ndim != 1 or num.ndim != 1:
+        raise ValueError("num y den deben ser listas unidimensionales.")
+
+    if len(den) < 2:
+        raise ValueError("El denominador debe tener grado mayor o igual a 1.")
+
+    if den[0] == 0:
+        raise ValueError("El coeficiente principal de den no puede ser cero.")
+
+    if len(num) == 0 or np.all(num == 0):
+        raise ValueError("El numerador debe contener coeficientes no nulos.")
+
+    n = len(den) - 1
+
+    if len(num) > len(den):
+        raise ValueError("La función de transferencia debe ser propia.")
+
+    # Normalizar para que el denominador sea mónico
+    num = num / den[0]
+    den = den / den[0]
+
+    # Completar el numerador con ceros a la izquierda
+    num = np.pad(num, (len(den) - len(num), 0))
+
+    a = den[1:]
+    D = np.array([[num[0]]])
+
+    # Matriz A: forma canónica controlable
+    A = np.zeros((n, n))
+    if n > 1:
+        A[:-1, 1:] = np.eye(n - 1)
+    A[-1, :] = -a[::-1]
+
+    # Matriz B
+    B = np.zeros((n, 1))
+    B[-1, 0] = 1
+
+    # Matriz C
+    c = num[1:] - D[0, 0] * den[1:]
+    C = c[::-1].reshape(1, n)
+
+    return A, B, C, D
+
 def dinamica_planta(y, u):
     """Nueva planta: dy/dt = -2y + 2u"""
     return -2*y + 2*u
