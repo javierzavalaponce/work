@@ -94,9 +94,22 @@ def tf2ss(num, den):
 
     return A, B, C, D
 
-def dinamica_planta(y, u):
-    """Nueva planta: dy/dt = -2y + 2u"""
-    return -2*y + 2*u
+def crear_dinamica_desde_tf(num, den):
+    """
+    Recibe los polinomios num/den de la planta, usa tf2ss para obtener 
+    las matrices, y devuelve la función de dinámica lista para RK4.
+    """
+    A, B, C, D = tf2ss(num, den)
+    
+    # La función interna que usará RK4
+    def dinamica_sistema(x, u):
+        # A @ x es matriz por vector. 
+        # B * u es matriz columna por escalar (esto da una matriz columna).
+        dx_dt = A @ x + B * u 
+        return dx_dt
+        
+    return dinamica_sistema, A, B, C, D
+
 
 def paso_rk4(dinamica_sistema, y, u, dt):
     # Calcula las 4 pendientes (k1, k2, k3, k4)
@@ -117,6 +130,21 @@ def do_once(input1,input2):
     t_final = 15.0   # Tiempo total de simulación
     filename=input2
     
+    # --- 2. CAPA DE DATOS
+    # Definimos G(s) 
+    G_num = [10]
+    G_den = [1, 2 , 5]
+    
+    # Creamos la dinámica, las matrices y la salida C
+    dinamica_sistema, A, B, C, D = crear_dinamica_desde_tf(G_num, G_den)
+
+    # --- 3. Condiciones Iniciales ---
+    # 'y' ES UN VECTOR (Matriz columna n x 1)
+    # Como nuestra planta es de orden 1, es un vector de 1x1
+    y = np.zeros((A.shape[0], 1)) 
+    r = 1.0          
+    t = 0.0
+
     # --- 2. Configuración del Buffer de Retardo ---
     # ¿Cuántas muestras necesitamos guardar para tener el retardo de 1.5s?
     # Si dt = 0.01, necesitamos 150 muestras para tener 1.5 segundos.
@@ -128,10 +156,6 @@ def do_once(input1,input2):
     for _ in range(N_retardo):
         buffer_retardo.append(0.0)
     
-    # --- 3. Condiciones Iniciales ---
-    y = 0.0          # Salida de la planta G(s)
-    r = 1.0          # Referencia (escalón unitario)
-    t = 0.0          # Tiempo actual
     
     # Listas para guardar los datos y graficar
     tiempos = []
@@ -140,10 +164,13 @@ def do_once(input1,input2):
     
     # --- 4. Bucle de Simulación (El motor) ---
     while t <= t_final:
-        # A) El lazo de realimentación (Sumador) - AHORA VE EL PRESENTE
-        # La señal que se retroalimenta es y(t), no y(t-tau).
-        error = r - y
-        
+
+        # A) Calcular la salida real
+        # C @ y es una matriz de 1x1. D[0,0] * buffer es un escalar.
+        # Para que no haya bronca, sacamos el valor de la matriz con [0, 0]
+        y_salida = float((C @ y)[0, 0] + D[0, 0] * buffer_retardo[0])
+        error = r - y_salida
+
         # B) Controlador H(s) = k
         u_control = k * error
         
@@ -153,7 +180,7 @@ def do_once(input1,input2):
         
         # D) La Planta usa la función de derivadas
         # Integrar la planta con RK4
-        y_nueva = paso_rk4(dinamica_planta, y, u_retardada, dt)
+        y_nueva = paso_rk4(dinamica_sistema, y, u_retardada, dt)
         
         # E) Actualizar el buffer de retardo
         # ¡OJO! Ahora guardamos la señal de control 
@@ -162,7 +189,7 @@ def do_once(input1,input2):
         
         # F) Guardar datos
         tiempos.append(t)
-        salidas_y.append(y)
+        salidas_y.append(y_salida)
         senales_control_u.append(u_control)
         
         # G) Avanzar el tiempo y actualizar el estado
@@ -179,7 +206,7 @@ def do_once(input1,input2):
     plt.legend(loc='lower left')
 
     plt.xlim(0, t_final)
-    plt.ylim(-3.5, 3.8)
+    #plt.ylim(-3.5, 3.8)
 
     plt.tight_layout()
     plt.savefig(filename, dpi=150)
