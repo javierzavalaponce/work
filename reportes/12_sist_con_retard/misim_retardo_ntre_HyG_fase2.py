@@ -40,6 +40,21 @@ def main():
     do_once(float(sys.argv[1]), sys.argv[2])
 
 
+def dinamica_planta(y, u):
+    """Nueva planta: dy/dt = -2y + 2u"""
+    return -2*y + 2*u
+
+def paso_rk4(dinamica_sistema, y, u, dt):
+    # Calcula las 4 pendientes (k1, k2, k3, k4)
+    k1 = dinamica_sistema(y, u)
+    k2 = dinamica_sistema(y + (dt/2) * k1, u)
+    k3 = dinamica_sistema(y + (dt/2) * k2, u)
+    k4 = dinamica_sistema(y + dt * k3, u)
+    
+    # Promedio ponderado
+    y_new = y + (dt/6) * (k1 + 2*k2 + 2*k3 + k4)
+    return y_new
+
 def do_once(input1,input2):
     # --- 1. Definición de Parámetros ---
     k = 2.0          # Ganancia del controlador H(s) = k
@@ -82,10 +97,9 @@ def do_once(input1,input2):
         # La señal de control se retrasa antes de entrar a la planta
         u_retardada = buffer_retardo[0]
         
-        # D) La Planta G(s) = 1 / (s+1)
-        # Ecuación: dy/dt = -y + u_retardada
-        dy_dt = -y + u_retardada
-        y_nueva = y + dt * dy_dt
+        # D) La Planta usa la función de derivadas
+        # Integrar la planta con RK4
+        y_nueva = paso_rk4(dinamica_planta, y, u_retardada, dt)
         
         # E) Actualizar el buffer de retardo
         # ¡OJO! Ahora guardamos la señal de control 
