@@ -9,7 +9,7 @@ tipo cola (deque) de tamaño Tau/dt:
 en cada paso lee la señal de control más antigua y guarda la nueva, 
 emulando el retardo de forma discreta.
 
-Integra la dinámica de la planta con método de Euler 
+Integra la dinámica de la planta
 (paso dt=0.01 simulación de 15 s).
 
 En cada iteración: calcula el error e=r−y
@@ -19,9 +19,9 @@ integra la planta  y actualiza el buffer con la nueva u.
 Permite visualizar experimentalmente el efecto del retardo sobre la 
 respuesta en lazo cerrado: 
 
-#Limitaciones
+#Notas
 
-- Usa Euler explícito (precisión limitada si dt es grande).
+- Usa RK4
 - Retardo discreto por buffer (no usa aproximación de Padé).
 - Condiciones iniciales en reposo.
 '''
@@ -111,16 +111,24 @@ def crear_dinamica_desde_tf(num, den):
     return dinamica_sistema, A, B, C, D
 
 
-def paso_rk4(dinamica_sistema, y, u, dt):
-    # Calcula las 4 pendientes (k1, k2, k3, k4)
-    k1 = dinamica_sistema(y, u)
-    k2 = dinamica_sistema(y + (dt/2) * k1, u)
-    k3 = dinamica_sistema(y + (dt/2) * k2, u)
-    k4 = dinamica_sistema(y + dt * k3, u)
-    
-    # Promedio ponderado
-    y_new = y + (dt/6) * (k1 + 2*k2 + 2*k3 + k4)
-    return y_new
+
+def paso_rk4(dinamica_sistema, x, u, dt):
+    """
+    Avanza un paso de integración para el vector de estados x.
+    dinamica_sistema(x, u) devuelve dx/dt.
+    Se supone que u permanece constante durante el intervalo dt.
+    """
+    # Calcula las cuatro pendientes del vector de estados
+    k1 = dinamica_sistema(x, u)
+    k2 = dinamica_sistema(x + (dt / 2) * k1, u)
+    k3 = dinamica_sistema(x + (dt / 2) * k2, u)
+    k4 = dinamica_sistema(x + dt * k3, u)
+
+    # Combina las pendientes para obtener el nuevo vector de estados
+    x_nueva = x + (dt / 6) * (k1 + 2*k2 + 2*k3 + k4)
+
+    return x_nueva
+
 
 def do_once(input1,input2):
     # --- 1. Definición de Parámetros ---
@@ -138,14 +146,23 @@ def do_once(input1,input2):
     # Creamos la dinámica, las matrices y la salida C
     dinamica_sistema, A, B, C, D = crear_dinamica_desde_tf(G_num, G_den)
 
-    # --- 3. Condiciones Iniciales ---
-    # 'y' ES UN VECTOR (Matriz columna n x 1)
-    # Como nuestra planta es de orden 1, es un vector de 1x1
-    y = np.zeros((A.shape[0], 1)) 
-    r = 1.0          
+
+    # --- 3. Condiciones iniciales ---
+    
+    # x representa el vector de estados de la planta.
+    # Su dimensión es n x 1, donde n es el orden del denominador.
+    # np.zeros crea el vector columna: ej:
+    # x = [[0],
+    #      [0]] 
+    #
+    # La planta comienza en reposo: todos sus estados son cero.
+    
+    x = np.zeros((A.shape[0], 1))
+    r = 1.0
     t = 0.0
 
-    # --- 2. Configuración del Buffer de Retardo ---
+
+    # --- 3. Configuración del Buffer de Retardo ---
     # ¿Cuántas muestras necesitamos guardar para tener el retardo de 1.5s?
     # Si dt = 0.01, necesitamos 150 muestras para tener 1.5 segundos.
     N_retardo = int(tau / dt) 
@@ -162,13 +179,14 @@ def do_once(input1,input2):
     salidas_y = []
     senales_control_u = []
     
-    # --- 4. Bucle de Simulación (El motor) ---
+    # --- 5. Bucle de Simulación (El motor) ---
     while t <= t_final:
 
         # A) Calcular la salida real
-        # C @ y es una matriz de 1x1. D[0,0] * buffer es un escalar.
+        # C @ x es una matriz de 1x1. D[0,0] * buffer es un escalar.
         # Para que no haya bronca, sacamos el valor de la matriz con [0, 0]
-        y_salida = float((C @ y)[0, 0] + D[0, 0] * buffer_retardo[0])
+        
+        y_salida = float((C @ x)[0, 0] + D[0, 0] * buffer_retardo[0])
         error = r - y_salida
 
         # B) Controlador H(s) = k
@@ -180,7 +198,7 @@ def do_once(input1,input2):
         
         # D) La Planta usa la función de derivadas
         # Integrar la planta con RK4
-        y_nueva = paso_rk4(dinamica_sistema, y, u_retardada, dt)
+        x_nueva = paso_rk4(dinamica_sistema, x, u_retardada, dt)
         
         # E) Actualizar el buffer de retardo
         # ¡OJO! Ahora guardamos la señal de control 
@@ -193,7 +211,7 @@ def do_once(input1,input2):
         senales_control_u.append(u_control)
         
         # G) Avanzar el tiempo y actualizar el estado
-        y = y_nueva
+        x = x_nueva
         t += dt
         
     plt.figure(figsize=(10, 5))
