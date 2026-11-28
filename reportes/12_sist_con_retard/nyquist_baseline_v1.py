@@ -1,6 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+def evaluar_tf_jw(num, den, omega):
+    # Evaluamos los polinomios usando np.polyval
+    # np.polyval evalúa el polinomio en los puntos 's'
+    s = 1j * omega
+
+    numerador = np.polyval(num, s)
+    denominador = np.polyval(den, s)
+
+    return numerador / denominador
+
+
 # ==========================================
 # 1. CAPA DE DATOS 
 # ==========================================
@@ -22,10 +33,8 @@ tau = 0.7
 omega = np.logspace(-2, 1, 1000)
 s = 1j * omega # Aquí está el truco: s = jw
 
-# Evaluamos los polinomios usando np.polyval
-# np.polyval evalúa el polinomio en los puntos 's'
-G_jw = np.polyval(G_num, s) / np.polyval(G_den, s)
-H_jw = np.polyval(H_num, s) / np.polyval(H_den, s)
+G_jw = evaluar_tf_jw(G_num, G_den, omega)
+H_jw = evaluar_tf_jw(H_num, H_den, omega)
 
 # El Lazo Abierto (sin retardo)
 L_sin_retardo = H_jw * G_jw
